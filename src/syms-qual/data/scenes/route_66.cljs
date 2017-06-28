@@ -1,5 +1,6 @@
 (ns syms-qual.data.scenes.route-66
-  (:require [syms-qual.data.bg :as bg]))
+  (:require [syms-qual.data.bg :as bg]
+            [syms-qual.data.animation :as anim]))
 
 (def data
   {:diner-intro
@@ -13,9 +14,9 @@
    {:style {:background-image (:route-66-diner bg/data)}
     :render-type :miranda/dialogue
     :subscenes
-    [["McCree" [[:mccree :_coffeePoint] [:ana :_sass :behind] [:symmetra :_neutral]]
+    [["McCree" [[:mccree :_coffeePoint] [:ana :_sass anim/back] [:symmetra :_neutral]]
       "Howdy! You’re that Symmetra gal joining Overwatch from the Vishkar corporation, aren’tcha? What sort of interest could y’all have with Overwatch?"]
-     ["McCree" [[:mccree :_coffeeDrink] [:ana :_cranky :behind] [:symmetra :_neutral]]
+     ["McCree" [[:mccree :_coffeeDrink] [:ana :_cranky anim/back] [:symmetra :_neutral]]
       "Reaper!"]]
     :transition [:anubis :spawn 0]}
 

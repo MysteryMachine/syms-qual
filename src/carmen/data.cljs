@@ -3,12 +3,13 @@
 
 (defn reify-characters [structure options]
   (impl/validate-character-options options)
-  (into {} (impl/reify-characters-xf options) structure))
+  (impl/reify-characters structure options))
 
-(defn reify-scenes [structure options]
+(defn reify-scenes [structure character-graph options]
   (impl/validate-scenes-options options)
-  (into {} (impl/reify-scenes-xf options) structure))
+  (impl/reify-scenes structure character-graph options))
 
 (defn reify-bgs [structure options]
   (impl/validate-bg-options options)
-  (into {} (impl/reify-bgs-xf options) structure))
+  (impl/reify-bgs structure options))
+

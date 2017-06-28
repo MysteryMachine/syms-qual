@@ -27,8 +27,7 @@
 
 (defn actors [state graph]
   (as-> (subscene state graph) <>
-    (get <> :characters)
-    (map #(get-in graph (concat [:characters] %)) <>)))
+    (get <> :characters)))
 
 (defn dialogue [state graph]
   (get (subscene state graph) :dialogue))
@@ -39,7 +38,7 @@
 (def render-character-xf
   (map
    (fn [{:keys [img alignment]}]
-     (let [[x y] (or alignment [0 0])]
+     (let [[x y] alignment]
        [:div.character
         {:style
          {:background-image img
@@ -49,6 +48,7 @@
 (defn render-characters [characters]
   (into [:div.characters] render-character-xf characters))
 
+;; TODO: Move to an api ns
 (def default-options
   {:dialogue/border-width 3
    :dialogue/padding 16
@@ -115,10 +115,6 @@
         :height (px textbox-height)}}
       [:div.narration.miranda.text (subscene state graph)]]]))
 
-(defmulti align-characters identity)
-
-(defmethod align-characters :default [arg] arg)
-
 (defn render-narration
   [{:keys [window] :as state} graph options]
   [:div.base-scene
@@ -135,6 +131,6 @@
             {:height (px (:y window))
              :width (px (:x window))}
             (style state graph))}
-   (align-characters (render-characters (actors state graph)))
+   (render-characters (actors state graph))
    (dialogue-textbox state graph options)])
 

@@ -10,6 +10,7 @@
             [syms-qual.data.scenes.kings-row :as kings-row]
             [syms-qual.data.scenes.numbani :as numbani]
             [syms-qual.data.scenes.main-menu :as main-menu]
+            [syms-qual.data.characters :as char]
             [carmen.data :as data]))
 
 (def structure
@@ -28,4 +29,4 @@
 (def options
   {})
 
-(def data (data/reify-scenes structure options))
+(def data (data/reify-scenes structure char/data options))

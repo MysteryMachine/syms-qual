@@ -3,8 +3,7 @@
             [syms-qual.data.scenes :as scenes]))
 
 (def graph
-  {:characters characters/data
-   :scenes scenes/data})
+  {:scenes scenes/data})
 
 (def base-state
   {:scene [:route-66 :diner-intro 0]})
