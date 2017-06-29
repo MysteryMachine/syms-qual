@@ -11,6 +11,7 @@
             [syms-qual.data.scenes.numbani :as numbani]
             [syms-qual.data.scenes.main-menu :as main-menu]
             [syms-qual.data.characters :as char]
+            [syms-qual.data.bg :as bg]
             [carmen.data :as data]))
 
 (def structure
@@ -26,7 +27,4 @@
    :numbani numbani/data
    :main-menu main-menu/data})
 
-(def options
-  {})
-
-(def data (data/reify-scenes structure char/data options))
+(def data (data/reify-scenes char/data bg/data structure))

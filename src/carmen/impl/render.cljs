@@ -7,8 +7,8 @@
 (defn scene-data [state graph]
   (let [[major minor & _] (:scene state)]
     (-> (:scenes graph)
-        (major)
-        (minor))))
+        (get major)
+        (get minor))))
 
 (defn style [state graph]
   (:style (scene-data state graph)))

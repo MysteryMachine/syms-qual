@@ -5,11 +5,11 @@
   (impl/validate-character-options options)
   (impl/reify-characters structure options))
 
-(defn reify-scenes [structure character-graph options]
-  (impl/validate-scenes-options options)
-  (impl/reify-scenes structure character-graph options))
-
 (defn reify-bgs [structure options]
   (impl/validate-bg-options options)
   (impl/reify-bgs structure options))
+
+(defn reify-scenes [character-graph bgs structure]
+  ;; TODO: Add validation here
+  (impl/reify-scenes character-graph bgs structure))
 

@@ -56,7 +56,7 @@
 
 ;; --- Scene Functions ---
 
-(defn reify-subscene-characters [characters character-graph]
+(defn reify-subscene-characters [character-graph characters]
   (mapv
    (fn [[name expression & [{:keys [alignment]}]]]
      (let [character-base (get-in character-graph [name expression])]
@@ -66,31 +66,57 @@
        :img (:img character-base)}))
    characters))
 
-(defn reify-subscenes [subscenes character-graph]
+;; TODO: Decide on whether or not this is a public interface
+(defmulti reify-subscenes
+  (fn [render-type character-graph subscenes]
+    render-type))
+
+(defmethod reify-subscenes :miranda/dialogue
+  [render-type character-graph subscenes]
   (mapv
    (fn [[speaker characters dialogue]]
-     {:characters (reify-subscene-characters characters character-graph)
+     {:characters (reify-subscene-characters character-graph characters)
       :speaker speaker
       :dialogue dialogue})
    subscenes))
 
-(defn reify-minor-scenes-xf [character-graph options]
+(defmethod reify-subscenes :default
+  [render-type charagraph-graph subscenes]
+  subscenes)
+
+(defn split-transition [level-name rem-data]
+  (let [[minor-subsc [_ minor-trans]] (split-with #(not= :-> %) rem-data)
+        [major-subsc [_ major-trans]] (split-with #(not= :=> %) rem-data)]
+    (cond
+      (not (empty? minor-trans)) [minor-subsc [level-name minor-trans 0]]
+      (not (empty? major-trans)) (let [[maj min & [n]] major-trans]
+                                   [major-subsc (if n major-trans [maj min 0])])
+      :else [rem-data nil])))
+
+(defn get-bg-img [bgs level-name subscene-name]
+  (let [k (keyword (str (name level-name) "-" (name subscene-name)))]
+    (get bgs k)))
+
+(defn reify-scene-xf [level-name character-graph bgs]
+  (map
+   (fn [[subscene-name subscene-data]]
+     (if (map? subscene-data) [subscene-name subscene-data]
+         (let [[render-type & rem-data] subscene-data
+               [subscenes transition] (split-transition level-name rem-data)
+               ;; TODO: Add better error handling around non-vec subscene names
+               bg-img (get-bg-img bgs level-name (first subscene-name))
+               reified-subscenes (vec (reify-subscenes render-type character-graph subscenes))]
+           [subscene-name
+            (cond-> {:style {:background-image bg-img}
+                      :render-type render-type
+                      :subscenes reified-subscenes}
+               (some? transition) (assoc :transition transition))])))))
+
+(defn reify-scenes-xf [character-graph bgs]
   (map
    (fn [[level-name level-data]]
      [level-name
-      ;; TODO: something that isn't this
-      (case (:render-type level-data)
-        :miranda/dialogue (update level-data :subscenes reify-subscenes character-graph)
-        level-data)]))) 
+      (into {} (reify-scene-xf level-name character-graph bgs) level-data)])))
 
-(defn reify-scenes-xf [character-graph options]
-  (let [xf (reify-minor-scenes-xf character-graph options)]
-   (map
-     (fn [[level-name level-data]]
-       [level-name (into {} xf level-data)]))))
-
-(defn reify-scenes [structure character-graph options]
-  (into {} (reify-scenes-xf character-graph options) structure))
-
-(defn validate-scenes-options [options])
-
+(defn reify-scenes [character-graph bgs structure]
+  (into {} (reify-scenes-xf character-graph bgs) structure))
