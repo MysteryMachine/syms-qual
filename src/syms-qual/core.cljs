@@ -11,12 +11,10 @@
 
 ;; TODO: This is ripe for a more declarative interface
 (let [root (. js/document (getElementById "app"))
-      resize-event! (miranda/resize-event state-atom)
-      click-event! (miranda/transition-event state-atom graph)]
+      resize-event! (miranda/resize-event state-atom)]
   (miranda/clear-listeners!)
   (resize-event!)
   (miranda/register-listener! state-atom root "resize" resize-event!)
-  (miranda/register-listener! state-atom root "click" click-event!)
   (reagent/render [app] root))
 
 

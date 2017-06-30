@@ -1,8 +1,13 @@
 (ns carmen.impl.render
   (:require [clojure.string :as str]))
 
+;; CSS Helpers
+
 (defn px [s] (str s "px"))
 (defn pct [s] (str s "%"))
+
+;; Data Helpers
+;; TODO: Move these fns
 
 (defn scene-data [state graph]
   (let [[major minor & _] (:scene state)]
@@ -13,7 +18,7 @@
 (defn style [state graph]
   (:style (scene-data state graph)))
 
-(defn render-type [state graph options]
+(defn render-type [state graph]
   (:render-type (scene-data state graph)))
 
 (defn subscene-ptr [state]
@@ -34,6 +39,8 @@
 
 (defn speaker [state graph]
   (get (subscene state graph) :speaker))
+
+;; Rendering
 
 (def render-character-xf
   (map
@@ -116,21 +123,23 @@
       [:div.narration.miranda.text (subscene state graph)]]]))
 
 (defn render-narration
-  [{:keys [window] :as state} graph options]
+  [{:keys [window] :as state} transition-fn graph options]
   [:div.base-scene
    {:style (merge
             {:height (px (:y window))
              :width (px (:x window))}
-            (style state graph))}
+            (style state graph))
+    :on-click transition-fn}
    (narration-textbox state graph options)])
 
 (defn render-dialogue
-  [{:keys [window] :as state} graph options]
+  [{:keys [window] :as state} transition-fn graph options]
   [:div.base-scene
    {:style (merge
             {:height (px (:y window))
              :width (px (:x window))}
-            (style state graph))}
+            (style state graph))
+    :on-click transition-fn}
    (render-characters (actors state graph))
    (dialogue-textbox state graph options)])
 
