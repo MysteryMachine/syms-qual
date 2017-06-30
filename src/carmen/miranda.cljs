@@ -33,6 +33,10 @@
   [state transition-fn graph options]
   (render/render-dialogue state transition-fn graph options))
 
+(defmethod render :miranda/option
+  [state transition-fn graph options]
+  (render/render-options state transition-fn graph options))
+
 (defn basic-transition [state graph]
   (let [[_ _ n] (:scene state)
         scene (render/scene-data state graph)
@@ -45,13 +49,13 @@
   (fn [state graph args]
     (:render-type (render/scene-data state graph))))
 
-(defmethod transition :miranda/dialogue
+(defmethod transition :default
   [state graph args]
   (basic-transition state graph))
 
-(defmethod transition :miranda/narration
+(defmethod transition :miranda/option
   [state graph args]
-  (basic-transition state graph))
+  (merge state args))
 
 (defn transition!
   [state-atom graph]

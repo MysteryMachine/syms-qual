@@ -16,6 +16,7 @@ body{
     color: white;
     font-size: 1.1em;
     font-family: main;
+    line-height: 1.6;
 }
 
 .characters{
@@ -52,6 +53,11 @@ body{
 
 .textbox-speaker{
     margin-right: 20px;
+    text-transform: uppercase;
+}
+
+.textbox-speaker::after{
+    content: ":";
 }
 
 .narration.text{
@@ -60,4 +66,21 @@ body{
 
 .narration.textbox-inner{
     align-items: center;
+}
+
+.options.option-outer{
+    padding-bottom: 0.8em;
+}
+
+.options.option-inner::before{
+    content: "- ";
+}
+
+.options.option-inner{
+    cursor: pointer;
+    color: #AAA;
+}
+
+.options.option-inner:hover{
+    color: #FFF;
 }

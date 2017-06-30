@@ -80,6 +80,13 @@
       :dialogue dialogue})
    subscenes))
 
+(defmethod reify-subscenes :miranda/option
+  [render-type character-graph subscenes]
+  (let [[speaker characters & options] subscenes]
+    [{:characters (reify-subscene-characters character-graph characters)
+      :scene-options (partition 2 options)
+      :speaker speaker}]))
+
 (defmethod reify-subscenes :default
   [render-type charagraph-graph subscenes]
   subscenes)
@@ -108,8 +115,8 @@
                reified-subscenes (vec (reify-subscenes render-type character-graph subscenes))]
            [subscene-name
             (cond-> {:style {:background-image bg-img}
-                      :render-type render-type
-                      :subscenes reified-subscenes}
+                     :render-type render-type
+                     :subscenes reified-subscenes}
                (some? transition) (assoc :transition transition))])))))
 
 (defn reify-scenes-xf [character-graph bgs]

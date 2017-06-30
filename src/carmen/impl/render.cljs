@@ -40,6 +40,9 @@
 (defn speaker [state graph]
   (get (subscene state graph) :speaker))
 
+(defn scene-options [state graph]
+  (get (subscene state graph) :scene-options))
+
 ;; Rendering
 
 (def render-character-xf
@@ -56,11 +59,18 @@
   (into [:div.characters] render-character-xf characters))
 
 ;; TODO: Move to an api ns
+;; TODO: I've hardcoded a bunch of math assumptions in here. If I didn't,
+;; i could have a generalized model for all the textboxes and save on code
 (def default-options
   {:dialogue/border-width 3
    :dialogue/padding 16
    :dialogue/margin 5
-   :dialogue/ratio 0.2
+   :dialogue/ratio 0.25
+
+   :option/border-width 3
+   :option/padding 16
+   :option/margin 5
+   :option/ratio 0.25
 
    :narration/border-width 3
    :narration/padding 16
@@ -91,7 +101,7 @@
         :margin (px margin)
         :height (px textbox-height)}}
       [:div.miranda.dialogue.textbox-speaker
-       (str (str/upper-case (speaker state graph)) ":")]
+       (speaker state graph)]
       [:div.miranda.dialogue.text (dialogue state graph)]]]))
 
 (defn narration-textbox [{:keys [window] :as state} graph options]
@@ -122,6 +132,40 @@
         :height (px textbox-height)}}
       [:div.narration.miranda.text (subscene state graph)]]]))
 
+(defn option-textbox [{:keys [window] :as state} transition-fn graph options]
+  (let [{border-width :option/border-width
+         padding :option/padding
+         margin :option/margin
+         ratio :option/ratio}
+        (merge default-options options)
+        y (:y window)
+        x (:x window)
+        height (* y ratio)
+        top (* (- 1 ratio) (:y window))
+        textbox-height (- height (* 2 (+ border-width padding margin)))]
+    [:div.miranda.option.textbox
+     {:style {:height (px height)
+              :width (px x)
+              :top (px top)}}
+     [:div.miranda.option.textbox-inner
+      {:style
+       {:border-width (px border-width)
+        :padding-top (px padding)
+        :padding-bottom (px padding)
+        :margin (px margin)
+        :height (px textbox-height)}}
+      [:div.miranda.option.textbox-speaker
+       (speaker state graph)]
+      (into
+       [:div.miranda.option-render.options]
+       (map
+        (fn [[text transition-stat]]
+          [:div.miranda.option-render.options.option-outer
+           [:span.miranda.option-render.options.option-inner
+            {:on-click (partial transition-fn transition-stat)}
+            text]]))
+       (scene-options state graph))]]))
+
 (defn render-narration
   [{:keys [window] :as state} transition-fn graph options]
   [:div.base-scene
@@ -142,4 +186,14 @@
     :on-click transition-fn}
    (render-characters (actors state graph))
    (dialogue-textbox state graph options)])
+
+(defn render-options
+  [{:keys [window] :as state} transition-fn graph options]
+  [:div.base-scene
+   {:style (merge
+            {:height (px (:y window))
+             :width (px (:x window))}
+            (style state graph))}
+   (render-characters (actors state graph))
+   (option-textbox state transition-fn graph options)])
 

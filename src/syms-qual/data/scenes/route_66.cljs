@@ -15,18 +15,36 @@
 
    [:diner :option 0]
    [:miranda/option
-    [[:mccree :_coffeePoint] [:ana :_sass anim/back] [:symmetra :_neutral]]
+    "Symmetra" [[:mccree :_coffeePoint] [:ana :_sass anim/back] [:symmetra :_neutral]]
     "I do not know."
-    {:scene [:route-66 [:diner :option 0 :a]]}
+    {:scene [:route-66 [:diner :option :a] 0]}
 
     "Vishkar's motivations are not for me to reveal."
-    {:scene [:route-66 [:diner :option 0 :b]]}
+    {:scene [:route-66 [:diner :option :b] 0]}
 
     "My conjecture is that Vishkar wants data on you Overwatch anarchists."
-    {:scene [:route-66 [:diner :option 0 :c]]}]
+    {:scene [:route-66 [:diner :option :c] 0]}]
+
+   [:diner :option :a]
+   [:miranda/dialogue
+    ["Symmetra" [[:mccree :_coffeePoint] [:ana :_sass anim/back] [:symmetra :_neutral]]
+     "As a Vishkar agent, I am often required to perform my duties without direct explanation from executives. If every part of the machine questioned the machinemaker, it could not operate efficiently. Vishkar is committed to bringing order to the world. Knowing that is enough to comfort my curiosity. How about you two? Today, will be acting with a Gabriel Reyes -"]
+    :-> [:diner :dialogue 1]]
+
+   [:diner :option :b]
+   [:miranda/dialogue
+    ["Symmetra" [[:mccree :_coffeePoint] [:ana :_sass anim/back] [:symmetra :_neutral]]
+     "I am much more concerned with performing my function in the here and now. Our remaining teammates are yet to arrive. We still have Amelie, Mako and Gabriel - "]
+    :-> [:diner :dialogue 1]]
+
+   [:diner :option :c]
+   [:miranda/dialogue
+    ["Symmetra" [[:mccree :_coffeePoint] [:ana :_sass anim/back] [:symmetra :_explain]]
+     "Your operations present a great risk to our developments. Overwatch has always been an unpredictable, anarchic, destabilizing force in the world. This irresponsible development cannot go unwatched. Especially with former Blackwatch agents like you and Gabriel Reyes -"]
+    :-> [:diner :dialogue 1]]
 
    [:diner :dialogue 1]
    [:miranda/dialogue
     ["McCree" [[:mccree :_coffeeDrink] [:ana :_cranky anim/back] [:symmetra :_neutral]]
      "Reaper!"]
-    :=> [:route-66 [:street :dialogue 0]]]})
+    :=> [:route-66 [:diner :dialogue 0]]]})
