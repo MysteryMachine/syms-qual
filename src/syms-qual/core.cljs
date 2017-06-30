@@ -10,11 +10,10 @@
 (def app (miranda/samba state-atom graph {}))
 
 ;; TODO: This is ripe for a more declarative interface
-(let [root (. js/document (getElementById "app"))
-      resize-event! (miranda/resize-event state-atom)]
+(let [root (. js/document (getElementById "app"))]
   (miranda/clear-listeners!)
-  (resize-event!)
-  (miranda/register-listener! state-atom root "resize" resize-event!)
+  (miranda/register-listener! state-atom "resize" (miranda/resize-event state-atom) true)
+  (miranda/animation! state-atom 24)
   (reagent/render [app] root))
 
 

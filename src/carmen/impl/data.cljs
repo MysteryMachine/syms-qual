@@ -5,6 +5,44 @@
 
 (defn get-hint [path-hint] (str/split path-hint "*"))
 
+(def internal-state-key :miranda/internal)
+
+(def transition-state-ptr [internal-state-key :miranda/transition])
+
+(def prev-scene-ptr (conj transition-state-ptr :miranda/prev-state))
+
+;; --- State Functions ---
+
+(defn initialize-fps-state! [state-atom]
+  (swap!
+   state-atom
+   (fn [state]
+     (assoc-in state prev-scene-ptr (:scene state)))))
+
+(defn create-animation-event! [state-atom period]
+  (js/window.setInterval
+   (fn []
+     (swap!
+      state-atom
+      (fn [state]
+        (let [prev-scene (get-in state prev-scene-ptr)
+              current-scene (:scene state)]
+          (if (= prev-scene current-scene)
+            (update state :miranda/time + period)
+            (-> state
+                (assoc :miranda/time 0)
+                (assoc-in prev-scene-ptr current-scene)))))))
+   period))
+
+(def initial-internals
+  {:miranda/transition {}})
+
+(defn validate-state [state])
+
+(defn initialize-state! [state-atom]
+  (validate-state @state-atom)
+  (swap! state-atom assoc internal-state-key initial-internals))
+
 ;; --- Character Functions ---
 
 (defn reify-character-xf [name path ext]

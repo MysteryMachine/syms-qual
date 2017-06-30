@@ -1,5 +1,6 @@
 (ns carmen.miranda
-  (:require [carmen.impl.render :as render]))
+  (:require [carmen.impl.render :as render]
+            [carmen.impl.data :as data]))
 
 (def -state (atom {}))
 
@@ -18,7 +19,7 @@
 (defn clear-listeners! []
   (doseq [[k v] @-state]
     (cond
-      (= k :interval) (js/window.clearInterval v)
+      (= k :miranda/animation) (js/window.clearInterval v)
       :default (js/window.removeEventListener k v))))
 
 (defmulti render
@@ -64,11 +65,19 @@
 (defn render-game-inner [state-atom transition-fn graph options]
   [render @state-atom transition-fn graph options])
 
-(defn register-listener! [state-atom body event-name event]
+(defn register-listener! [state-atom event-name event & [activate?]]
+  (when activate? (event))
   (js/window.addEventListener event-name event)
   (swap! -state #(assoc % event-name event)))
 
+(defn animation! [state-atom desired-fps]
+  (data/initialize-fps-state! state-atom)
+  (let [period (/ 1000 desired-fps)
+        event (data/create-animation-event! state-atom period)]
+    (swap! -state #(assoc % :miranda/animation event))))
+
 (defn samba [state-atom graph options]
+  (data/initialize-state! state-atom)
   (let [transition-fn (transition! state-atom graph)]
    (fn render-game []
       [render-game-inner state-atom transition-fn graph options])))
