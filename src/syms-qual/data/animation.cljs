@@ -4,4 +4,5 @@
 
 (def scoot-back {:alignment [-20 0]
                  :animate [-100 0]
-                 :time [12000]})
+                 :time 12000
+                 :tween-type :miranda/basic})

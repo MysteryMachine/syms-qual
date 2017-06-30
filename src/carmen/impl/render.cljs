@@ -45,18 +45,37 @@
 
 ;; Rendering
 
-(def render-character-xf
+;; TODO: This is a public interface, so move it there
+(defmulti tween
+  (fn [animation-map elapsed-time]
+    (:tween-type animation-map)))
+
+(defmethod tween :miranda/basic
+  [{:keys [tween-type alignment animate time]} elapsed-time]
+  (let [[ix iy] alignment
+        [fx fy] animate
+        dx (- fx ix)
+        dy (- fy iy)
+        dt-by-t (/ elapsed-time time)
+        pct (if (> dt-by-t 1) 1 dt-by-t)]
+    [(+ ix (* dx pct)) (+ iy (* dy pct))]))
+
+(defmethod tween :default
+  [animation-map elapsed-time]
+  (:alignment animation-map))
+
+(defn render-character-xf [elapsed-time]
   (map
-   (fn [{:keys [img alignment]}]
-     (let [[x y] alignment]
+   (fn [{:keys [img] :as animation-map}]
+     (let [[x y] (tween animation-map elapsed-time)]
        [:div.character
         {:style
          {:background-image img
           :left (pct x)
           :top (pct y)}}]))))
 
-(defn render-characters [characters]
-  (into [:div.characters] render-character-xf characters))
+(defn render-characters [characters elapsed-time]
+  (into [:div.characters] (render-character-xf elapsed-time) characters))
 
 ;; TODO: Move to an api ns
 ;; TODO: I've hardcoded a bunch of math assumptions in here. If I didn't,
@@ -184,7 +203,7 @@
              :width (px (:x window))}
             (style state graph))
     :on-click transition-fn}
-   (render-characters (actors state graph))
+   (render-characters (actors state graph) (:miranda/time state))
    (dialogue-textbox state graph options)])
 
 (defn render-options
@@ -194,6 +213,6 @@
             {:height (px (:y window))
              :width (px (:x window))}
             (style state graph))}
-   (render-characters (actors state graph))
+   (render-characters (actors state graph) (:miranda/time state))
    (option-textbox state transition-fn graph options)])
 

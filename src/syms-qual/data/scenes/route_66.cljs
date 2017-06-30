@@ -9,7 +9,7 @@
 
    [:diner :dialogue 0]
    [:miranda/dialogue
-    ["McCree" [[:mccree :_coffeePoint] [:ana :_sass anim/scoot-back] [:symmetra :_neutral]]
+    ["McCree" [[:mccree :_coffeePoint] [:ana :_sass anim/back] [:symmetra :_neutral]]
      "Howdy! You’re that Symmetra gal joining Overwatch from the Vishkar corporation, aren’tcha? What sort of interest could y’all have with Overwatch?"]
     :-> [:diner :option 0]]
 

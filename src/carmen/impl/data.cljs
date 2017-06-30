@@ -96,12 +96,14 @@
 
 (defn reify-subscene-characters [character-graph characters]
   (mapv
-   (fn [[name expression & [{:keys [alignment]}]]]
+   (fn [[name expression & [{:keys [alignment] :as animation-map}]]]
      (let [character-base (get-in character-graph [name expression])]
-      {:name name
-       :expression expression
-       :alignment (or alignment (:alignment character-base) [0 0])
-       :img (:img character-base)}))
+       (merge
+        animation-map
+        {:name name
+         :expression expression
+         :alignment (or alignment (:alignment character-base) [0 0])
+         :img (:img character-base)})))
    characters))
 
 ;; TODO: Decide on whether or not this is a public interface
