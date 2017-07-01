@@ -38,6 +38,10 @@
   [state transition-fn graph options]
   (render/render-options state transition-fn graph options))
 
+(defmethod render :miranda/text-option
+  [state transition-fn graph options]
+  (render/render-text-options state transition-fn graph options))
+
 (defn basic-transition [state graph options]
   (let [[_ _ n] (:scene state)
         scene (render/scene-data state graph)
@@ -58,6 +62,10 @@
   (basic-transition state graph options))
 
 (defmethod transition :miranda/option
+  [state graph options args]
+  (merge state args))
+
+(defmethod transition :miranda/text-option
   [state graph options args]
   (merge state args))
 

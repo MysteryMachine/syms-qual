@@ -55,11 +55,18 @@ body{
     border-radius: 4px;
     padding-left: 10%;
     padding-right: 10%;
+}
+
+.textbox-inner{
     display: flex;
 }
 
+.text-option.textbox-inner{
+    flex-flow: row wrap;
+}
+
 .textbox.dialogue,
-.textbox.narration{
+.textbox.narration {
     cursor: pointer;
 }
 
@@ -76,11 +83,13 @@ body{
     text-align: center;
 }
 
-.narration.textbox-inner{
+.narration.textbox-inner,
+.text-option{
     align-items: center;
 }
 
-.options.option-outer{
+.options.option-outer,
+.text-option.text{
     padding-bottom: 0.8em;
 }
 

@@ -91,6 +91,12 @@
    :option/margin 5
    :option/ratio 0.25
 
+   :text-option/border-width 3
+   :text-option/padding 16
+   :text-option/margin 5
+   :text-option/y-ratio 0.4
+   :text-option/x-ratio 0.45
+
    :narration/border-width 3
    :narration/padding 16
    :narration/margin 5
@@ -152,6 +158,44 @@
         :margin (px margin)
         :height (px textbox-height)}}
       [:div.narration.miranda.text (subscene state graph)]]]))
+
+(defn text-option-textbox [{:keys [window] :as state} transition-fn graph options]
+  (let [{border-width :text-option/border-width
+         padding :text-option/padding
+         margin :text-option/margin
+         y-ratio :text-option/y-ratio
+         x-ratio :text-option/x-ratio}
+        (merge default-options options)
+        y (:y window)
+        x (:x window)
+        height (* y y-ratio)
+        width (* x x-ratio)
+        left (* (- 1 x-ratio) x (/ 1 2))
+        top (* (- 1 y-ratio) y (/ 1 2))
+        textbox-height (- height (* 2 (+ border-width padding margin)))]
+    [:div.miranda.text-option.textbox
+     {:style {:height (px height)
+              :width (px width)
+              :top (px top)
+              :left (px left)}}
+     [:div.miranda.text-option.textbox-inner
+      {:style
+       {:border-width (px border-width)
+        :padding-top (px padding)
+        :padding-bottom (px padding)
+        :margin (px margin)
+        :height (px textbox-height)}}
+      [:div
+       [:div.text-option.miranda.text (:text (subscene state graph))]
+       (into
+        [:div.miranda.text-option.options]
+        (map
+         (fn [[text transition-stat]]
+           [:div.miranda.text-option.options.option-outer
+            [:span.miranda.text-option.options.option-inner
+             {:on-click (partial transition-fn transition-stat)}
+             text]]))
+        (scene-options state graph))]]]))
 
 (defn option-textbox [{:keys [window] :as state} transition-fn graph options]
   (let [{border-width :option/border-width
@@ -215,4 +259,13 @@
             (style state graph))}
    (render-characters (actors state graph) (:miranda/time state))
    (option-textbox state transition-fn graph options)])
+
+(defn render-text-options
+  [{:keys [window] :as state} transition-fn graph options]
+  [:div.base-scene
+   {:style (merge
+            {:height (px (:y window))
+             :width (px (:x window))}
+            (style state graph))}
+   (text-option-textbox state transition-fn graph options)])
 

@@ -120,6 +120,12 @@
       :scene-options (partition 2 options)
       :speaker speaker}]))
 
+(defmethod reify-subscenes :miranda/text-option
+  [render-type character-graph subscenes]
+  (let [[text & options] subscenes]
+    [{:scene-options (partition 2 options)
+      :text text}]))
+
 (defmethod reify-subscenes :default
   [render-type charagraph-graph subscenes]
   subscenes)

@@ -141,13 +141,13 @@
      "It will be my pleasure to ensure that he is unable to pose an effective threat to our operation."]
     ["Reaper" [[:reaper :_point-up (scoot 10)] [:mccree :_neutral (scoot -10)] [:ana :_sass (scoot -25)] [:symmetra :_neutral (scoot 10)]]
      "WONDERFUL. I WILL COMPLETE MY PREPARATIONS IN SOLITUDE."]
-    :-> [:diner :option 2]]
+    :-> [:diner :option 3]]
 
    [:diner :option 2 :b]
    [:miranda/dialogue
     ["Reaper" [[:reaper :_point-up (scoot 10)] [:mccree :_neutral (scoot -10)] [:ana :_sass (scoot -25)] [:symmetra :_neutral (scoot 10)]]
      "MY GRUDGES ARE CRITICAL. REVENGE WILL BE HAD. NOW. I HAVE TO GO LISTEN TO SOME MUSIC BEFORE THE MATCH BEGINS."]
-    :-> [:diner :option 2]]
+    :-> [:diner :option 3]]
 
    [:diner :option 2 :c]
    [:miranda/dialogue
@@ -159,4 +159,16 @@
      "Oh! We’re up against her today."]
     ["Reaper" [[:reaper :_extra (scoot 10)] [:mccree :_laugh (scoot -10)] [:ana :_roll-eyes (scoot -25)] [:symmetra :_confused (scoot 10)]]
      "WHAT? IT IS CRITICAL THAT I AM PREPARED, THEN. LEAVE ME BE."]
-    :-> [:diner :option 2]]})
+    :-> [:diner :option 3]]
+
+   [:diner :option 3]
+   [:miranda/text-option
+    "You have a few minutes before the match begins, which teammates will you engage with?"
+    "Reaper" {:scene [:route-66 [:diner :dialogue [:option 3 :reaper] 0] 0]}
+    "Ana and McCree" {:scene [:route-66 [:diner :dialogue [:option 3 :ana] 0] 0]}
+    "Roadhog" {:scene [:route-66 [:diner :dialogue [:option 3 :roadhog] 0] 0]}]
+
+   [:diner :dialogue [:option 3 :reaper] 0]
+   [:miranda/dialogue
+    []
+    :-> [:diner :option 3]]})
