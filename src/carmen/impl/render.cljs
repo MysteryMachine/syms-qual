@@ -97,7 +97,7 @@
    :narration/y-ratio 0.5
    :narration/x-ratio 0.8})
 
-(defn dialogue-textbox [{:keys [window] :as state} graph options]
+(defn dialogue-textbox [{:keys [window] :as state} transition-fn graph options]
   (let [{border-width :dialogue/border-width
          padding :dialogue/padding
          margin :dialogue/margin
@@ -111,7 +111,8 @@
     [:div.miranda.dialogue.textbox
      {:style {:height (px height)
               :width (px x)
-              :top (px top)}}
+              :top (px top)}
+      :on-click transition-fn}
      [:div.miranda.dialogue.textbox-inner
       {:style
        {:border-width (px border-width)
@@ -123,7 +124,7 @@
        (speaker state graph)]
       [:div.miranda.dialogue.text (dialogue state graph)]]]))
 
-(defn narration-textbox [{:keys [window] :as state} graph options]
+(defn narration-textbox [{:keys [window] :as state} transition-fn graph options]
   (let [{border-width :narration/border-width
          padding :narration/padding
          margin :narration/margin
@@ -141,7 +142,8 @@
      {:style {:height (px height)
               :width (px width)
               :top (px top)
-              :left (px left)}}
+              :left (px left)}
+      :on-click transition-fn}
      [:div.miranda.narration.textbox-inner
       {:style
        {:border-width (px border-width)
@@ -191,9 +193,8 @@
    {:style (merge
             {:height (px (:y window))
              :width (px (:x window))}
-            (style state graph))
-    :on-click transition-fn}
-   (narration-textbox state graph options)])
+            (style state graph))}
+   (narration-textbox state transition-fn graph options)])
 
 (defn render-dialogue
   [{:keys [window] :as state} transition-fn graph options]
@@ -201,10 +202,9 @@
    {:style (merge
             {:height (px (:y window))
              :width (px (:x window))}
-            (style state graph))
-    :on-click transition-fn}
+            (style state graph))}
    (render-characters (actors state graph) (:miranda/time state))
-   (dialogue-textbox state graph options)])
+   (dialogue-textbox state transition-fn graph options)])
 
 (defn render-options
   [{:keys [window] :as state} transition-fn graph options]

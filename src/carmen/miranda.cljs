@@ -38,29 +38,32 @@
   [state transition-fn graph options]
   (render/render-options state transition-fn graph options))
 
-(defn basic-transition [state graph]
+(defn basic-transition [state graph options]
   (let [[_ _ n] (:scene state)
         scene (render/scene-data state graph)
-        subscene-count (count (:subscenes scene))]
-    (if (>= n (dec subscene-count))
-      (assoc state :scene (:transition scene))
-      (update-in state [:scene 2] inc))))
+        subscene-count (count (:subscenes scene))
+        delay (:miranda/click-delay options)
+        cant-transition (and delay (< (:miranda/time state) delay))]
+    (cond
+      cant-transition state
+      (>= n (dec subscene-count)) (assoc state :scene (:transition scene))
+      :else (update-in state [:scene 2] inc))))
 
 (defmulti transition
-  (fn [state graph args]
+  (fn [state graph options args]
     (:render-type (render/scene-data state graph))))
 
 (defmethod transition :default
-  [state graph args]
-  (basic-transition state graph))
+  [state graph options args]
+  (basic-transition state graph options))
 
 (defmethod transition :miranda/option
-  [state graph args]
+  [state graph options args]
   (merge state args))
 
 (defn transition!
-  [state-atom graph]
-  (partial swap! state-atom transition graph))
+  [state-atom graph options]
+  (partial swap! state-atom transition graph options))
 
 (defn render-game-inner [state-atom transition-fn graph options]
   [render @state-atom transition-fn graph options])
@@ -77,8 +80,7 @@
     (swap! -state #(assoc % :miranda/animation event))))
 
 (defn samba [state-atom graph options]
-  (data/initialize-state! state-atom)
-  (let [transition-fn (transition! state-atom graph)]
+  (let [transition-fn (transition! state-atom graph options)]
    (fn render-game []
       [render-game-inner state-atom transition-fn graph options])))
 

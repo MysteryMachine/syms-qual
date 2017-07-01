@@ -17,6 +17,13 @@ body{
     font-size: 1.1em;
     font-family: main;
     line-height: 1.6;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
 
 .characters{
@@ -49,6 +56,11 @@ body{
     padding-left: 10%;
     padding-right: 10%;
     display: flex;
+}
+
+.textbox.dialogue,
+.textbox.narration{
+    cursor: pointer;
 }
 
 .textbox-speaker{

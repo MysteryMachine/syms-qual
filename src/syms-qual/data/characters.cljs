@@ -7,7 +7,7 @@
     "_drink"
     "_explain"
     "_phone"
-    "_rolls-eyes"
+    "_roll-eyes"
     "_sass" ]
 
    "Efi"

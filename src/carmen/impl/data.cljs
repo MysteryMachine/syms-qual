@@ -17,7 +17,9 @@
   (swap!
    state-atom
    (fn [state]
-     (assoc-in state prev-scene-ptr (:scene state)))))
+     (-> state
+         (assoc-in prev-scene-ptr (:scene state))
+         (assoc :miranda/time 0)))))
 
 (defn create-animation-event! [state-atom period]
   (js/window.setInterval
@@ -33,15 +35,6 @@
                 (assoc :miranda/time 0)
                 (assoc-in prev-scene-ptr current-scene)))))))
    period))
-
-(def initial-internals
-  {:miranda/transition {}})
-
-(defn validate-state [state])
-
-(defn initialize-state! [state-atom]
-  (validate-state @state-atom)
-  (swap! state-atom assoc internal-state-key initial-internals))
 
 ;; --- Character Functions ---
 

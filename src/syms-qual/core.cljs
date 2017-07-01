@@ -7,7 +7,10 @@
 
 (defonce state-atom (atom base-state))
 
-(def app (miranda/samba state-atom graph {}))
+(def options
+  {:miranda/click-delay 500})
+
+(def app (miranda/samba state-atom graph options))
 
 ;; TODO: This is ripe for a more declarative interface
 (let [root (. js/document (getElementById "app"))]
