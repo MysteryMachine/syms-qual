@@ -113,7 +113,8 @@
         x (:x window)
         height (* y ratio)
         top (* (- 1 ratio) (:y window))
-        textbox-height (- height (* 2 (+ border-width padding margin)))]
+        textbox-height (- height (* 2 (+ border-width padding margin)))
+        speaker-text (speaker state graph)]
     [:div.miranda.dialogue.textbox
      {:style {:height (px height)
               :width (px x)
@@ -126,8 +127,7 @@
         :padding-bottom (px padding)
         :margin (px margin)
         :height (px textbox-height)}}
-      [:div.miranda.dialogue.textbox-speaker
-       (speaker state graph)]
+      (when speaker-text [:div.miranda.dialogue.textbox-speaker speaker-text])
       [:div.miranda.dialogue.text (dialogue state graph)]]]))
 
 (defn narration-textbox [{:keys [window] :as state} transition-fn graph options]
