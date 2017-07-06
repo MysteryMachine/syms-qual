@@ -1,4 +1,4 @@
-(ns syms-qual.data.scenes.route.options
+(ns syms-qual.data.scenes.route-66.options
   (:require [syms-qual.data.animation :as anim :refer [scoot]]))
 
 (def data
