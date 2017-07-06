@@ -53,7 +53,7 @@
 
   [:diner :option [:option 3 :reaper] 0 :a]
   [:miranda/dialogue
-   ["Reaper" [:diner :dialogue [:option 3 :reaper] 1]
+   ["Reaper" []
     "GOOD EYES. THESE SWEET VIBRAMS ARE THE SOURCE OF HER LEGENDARY MOBILITY."]
    :-> [:diner :dialogue [:option 3 :reaper] 1]]
 
@@ -134,7 +134,7 @@
   [:diner :option [:option 3 :ana] 0 :c]
   [:miranda/dialogue
    ["Ana" []
-    "Well! That’s rather rude"]
+     "Well! That’s rather rude"]
    ["Symmetra" []
     "You seemed to be keen on poking fun at Reaper earlier. Why defend him now"]
    ["Ana" []

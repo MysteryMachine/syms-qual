@@ -128,16 +128,28 @@
 
 (defmethod reify-subscenes :default
   [render-type charagraph-graph subscenes]
-  subscenes)
+  (vec subscenes))
 
 (defn split-transition [level-name rem-data]
   (let [[minor-subsc [_ minor-trans]] (split-with #(not= :-> %) rem-data)
-        [major-subsc [_ major-trans]] (split-with #(not= :=> %) rem-data)]
+        [major-subsc [_ major-trans]] (split-with #(not= :=> %) rem-data)
+        [cond-subsc  [_ type args]]   (split-with #(not= :transition %)  rem-data)]
     (cond
-      (not (empty? minor-trans)) [minor-subsc [level-name minor-trans 0]]
-      (not (empty? major-trans)) (let [[maj min & [n]] major-trans]
-                                   [major-subsc (if n major-trans [maj min 0])])
-      :else [rem-data nil])))
+      (some? minor-trans)
+      [minor-subsc
+       {:transition/type :miranda/default
+        :transition/args [level-name minor-trans 0]}]
+
+      (some? major-trans)
+      (let [[maj min & [n]] major-trans]
+        [major-subsc
+         {:transition/type :miranda/default
+          :transition/args (if n major-trans [maj min 0])}])
+
+      (some? type)
+      [cond-subsc {:transition/type type :transition/args args}]
+
+      :else [rem-data {:transition/type :miranda/default}])))
 
 (defn get-bg-img [bgs level-name subscene-name]
   (let [k (keyword (str (name level-name) "-" (name subscene-name)))]
@@ -151,14 +163,14 @@
                [subscenes transition] (split-transition level-name rem-data)
                ;; TODO: Add better error handling around non-vec subscene names
                bg-img (get-bg-img bgs level-name (first subscene-name))
-               reified-subscenes (vec (reify-subscenes render-type character-graph subscenes))]
+               reified-subscenes (reify-subscenes render-type character-graph subscenes)]
            [subscene-name
-            (cond-> {:style {:background-image bg-img}
-                     :render-type render-type
-                     :subscenes reified-subscenes}
-               (some? transition) (assoc :transition transition))])))))
+            (merge transition
+             {:style {:background-image bg-img}
+              :render-type render-type
+              :subscenes reified-subscenes})])))))
 
-(defn reify-scenes-xf [character-graph bgs]
+(defn reify-scenes-xf [character-graph bgs] 
   (map
    (fn [[level-name level-data]]
      [level-name

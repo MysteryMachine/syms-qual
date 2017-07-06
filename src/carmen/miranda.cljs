@@ -50,24 +50,35 @@
         cant-transition (and delay (< (:miranda/time state) delay))]
     (cond
       cant-transition state
-      (>= n (dec subscene-count)) (assoc state :scene (:transition scene))
+      (>= n (dec subscene-count)) (assoc state :scene (:transition/args scene))
       :else (update-in state [:scene 2] inc))))
+
+(defmulti default-transition-type identity)
+
+(defmethod default-transition-type :default
+  [_] :miranda/basic)
+
+(defmethod default-transition-type :miranda/option
+  [_] :miranda/merge)
+
+(defmethod default-transition-type :miranda/text-option
+  [_] :miranda/merge)
 
 (defmulti transition
   (fn [state graph options args]
-    (:render-type (render/scene-data state graph))))
+    (let [scene (render/scene-data state graph)
+          transition-type (:transition/type scene)]
+      (if (= :miranda/default transition-type)
+        (default-transition-type (:render-type scene))
+        transition-type))))
 
-(defmethod transition :default
+(defmethod transition :miranda/merge
+  [state graph options args]
+  (merge state args))
+
+(defmethod transition :miranda/basic
   [state graph options args]
   (basic-transition state graph options))
-
-(defmethod transition :miranda/option
-  [state graph options args]
-  (merge state args))
-
-(defmethod transition :miranda/text-option
-  [state graph options args]
-  (merge state args))
 
 (defn transition!
   [state-atom graph options]
