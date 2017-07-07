@@ -123,7 +123,7 @@
 (defmethod reify-subscenes :miranda/text-option
   [render-type character-graph subscenes]
   (let [[text & options] subscenes]
-    [{:scene-options (partition 2 options)
+    [{:scene-options options
       :text text}]))
 
 (defmethod reify-subscenes :default
