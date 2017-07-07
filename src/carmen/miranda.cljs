@@ -1,6 +1,7 @@
 (ns carmen.miranda
   (:require [carmen.impl.render :as render]
-            [carmen.impl.data :as data]))
+            [carmen.impl.data :as data]
+            [carmen.util :as util]))
 
 (def -state (atom {}))
 
@@ -24,7 +25,7 @@
 
 (defmulti render
   (fn [state _ graph options]
-    (render/render-type state graph)))
+    (util/render-type state graph)))
 
 (defmethod render :miranda/narration
   [state transition-fn graph options]
@@ -42,17 +43,6 @@
   [state transition-fn graph options]
   (render/render-text-options state transition-fn graph options))
 
-(defn basic-transition [state graph options]
-  (let [[_ _ n] (:scene state)
-        scene (render/scene-data state graph)
-        subscene-count (count (:subscenes scene))
-        delay (:miranda/click-delay options)
-        cant-transition (and delay (< (:miranda/time state) delay))]
-    (cond
-      cant-transition state
-      (>= n (dec subscene-count)) (assoc state :scene (:transition/args scene))
-      :else (update-in state [:scene 2] inc))))
-
 (defmulti default-transition-type identity)
 
 (defmethod default-transition-type :default
@@ -66,11 +56,15 @@
 
 (defmulti transition
   (fn [state graph options args]
-    (let [scene (render/scene-data state graph)
+    (let [scene (util/scene-data state graph)
           transition-type (:transition/type scene)]
       (if (= :miranda/default transition-type)
         (default-transition-type (:render-type scene))
         transition-type))))
+
+(defn default-transition [state graph options args]
+  (let [graph' (assoc-in graph (util/transition-type* state graph) :miranda/default)]
+   (transition state graph' options args)))
 
 (defmethod transition :miranda/merge
   [state graph options args]
@@ -85,7 +79,17 @@
 
 (defmethod transition :miranda/basic
   [state graph options args]
-  (basic-transition state graph options))
+  (data/basic-transition state graph options))
+
+(defmethod transition :miranda/stateful-default
+  [state graph options args]
+  state)
+
+(defmethod transition :miranda/mutative-default
+  [state graph option args]
+  (default-transition
+   (data/alter-state state graph)
+   graph option args))
 
 (defn transition!
   [state-atom graph options]

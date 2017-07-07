@@ -1,5 +1,6 @@
 (ns carmen.impl.data
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str]
+            [carmen.util :as util]))
 
 (defn url [s] (str "url(\"" s "\")"))
 
@@ -35,6 +36,50 @@
                 (assoc :miranda/time 0)
                 (assoc-in prev-scene-ptr current-scene)))))))
    period))
+
+(defn basic-transition [state graph options]
+  (let [[_ _ n] (util/scene state)
+        scene (util/scene-data state graph)
+        subscene-count (count (:subscenes scene))
+        delay (:miranda/click-delay options)
+        cant-transition (and delay (< (:miranda/time state) delay))]
+    (cond
+      cant-transition state
+      (>= n (dec subscene-count)) (assoc state :scene (:transition/args scene))
+      :else (update-in state [:scene 2] inc))))
+
+;; TODO: Could possibly be a public interface?
+(defn ensure-ptr [k] (if (keyword? k) k [k]))
+
+(defmulti alter #(nth %2 2))
+
+(defmethod alter :default
+  [state [k v & _]]
+  (if (keyword? k)
+    (assoc state k v)
+    (assoc-in state k v)))
+
+(defmethod alter :no-overwrite
+  [state [k v & _]]
+  (let [k (ensure-ptr k)]
+   (if (get-in state k) state
+       (assoc-in state k v))))
+
+(defmethod alter :add
+  [state [k v & _]]
+  (update-in state (ensure-ptr k) + v))
+
+(defmethod alter :conj
+  [state [k v & _]]
+  (update-in state (ensure-ptr k) conj v))
+
+(defn alter-state [state graph]
+  (let [args (util/transition-stateful-args state graph)]
+    (loop [args args
+           state state]
+      (if (seq args)
+        (recur (rest args) (alter state (first args)))
+        state))))
 
 ;; --- Character Functions ---
 
@@ -145,6 +190,13 @@
         [major-subsc
          {:transition/type :miranda/default
           :transition/args (if n major-trans [maj min 0])}])
+
+      (#{:miranda/stateful-default} type)
+      (let [[trans-args mut-args] args
+            [_ transition] (split-transition trans-args)]
+        [cond-subsc {:transition/type type
+                     :transition/stateful-args mut-args
+                     :transition/args (:transition/args transition)}])
 
       (some? type)
       [cond-subsc {:transition/type type :transition/args args}]

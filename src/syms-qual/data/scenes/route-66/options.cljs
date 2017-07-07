@@ -31,7 +31,10 @@
     "YES. AN EFFECTIVE HACKER. SHE COUNTERS MY GHOST FORM INTO DEATH BLOSSOM PERFECTLY BY HACKING."]
    ["Reaper" []
     "HERE ARE WE ON VACATION"]
-   :-> [:diner :dialogue [:option 3 :reaper] :photo]]
+   :transition :miranda/mutative-default
+   [[:-> [:diner :dialogue [:option 3 :reaper] :photo]]
+    [:route-66/reaper true]
+    [:route-66/first-chat :reaper :no-overwrite]]]
 
   [:diner :dialogue [:option 3 :reaper] :photo]
   [:miranda/dialogue

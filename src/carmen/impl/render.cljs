@@ -1,73 +1,11 @@
 (ns carmen.impl.render
-  (:require [clojure.string :as str]))
-
-;; CSS Helpers
-
-(defn px [s] (str s "px"))
-(defn pct [s] (str s "%"))
-
-;; Data Helpers
-;; TODO: Move these fns
-
-(defn scene-data [state graph]
-  (let [[major minor & _] (:scene state)]
-    (-> (:scenes graph)
-        (get major)
-        (get minor))))
-
-(defn style [state graph]
-  (:style (scene-data state graph)))
-
-(defn render-type [state graph]
-  (:render-type (scene-data state graph)))
-
-(defn subscene-ptr [state]
-  (let [[major minor & ptr] (:scene state)]
-    ptr))
-
-(defn subscene [state graph]
-  (-> (scene-data state graph)
-      (:subscenes)
-      (get-in (subscene-ptr state))))
-
-(defn actors [state graph]
-  (as-> (subscene state graph) <>
-    (get <> :characters)))
-
-(defn dialogue [state graph]
-  (get (subscene state graph) :dialogue))
-
-(defn speaker [state graph]
-  (get (subscene state graph) :speaker))
-
-(defn scene-options [state graph]
-  (get (subscene state graph) :scene-options))
-
-;; Rendering
-
-;; TODO: This is a public interface, so move it there
-(defmulti tween
-  (fn [animation-map elapsed-time]
-    (:tween-type animation-map)))
-
-(defmethod tween :miranda/basic
-  [{:keys [tween-type alignment animate time]} elapsed-time]
-  (let [[ix iy] alignment
-        [fx fy] animate
-        dx (- fx ix)
-        dy (- fy iy)
-        dt-by-t (/ elapsed-time time)
-        pct (if (> dt-by-t 1) 1 dt-by-t)]
-    [(+ ix (* dx pct)) (+ iy (* dy pct))]))
-
-(defmethod tween :default
-  [animation-map elapsed-time]
-  (:alignment animation-map))
+  (:require [clojure.string :as str]
+            [carmen.util :as util :refer [pct px default-render-options]]))
 
 (defn render-character-xf [elapsed-time]
   (map
    (fn [{:keys [img] :as animation-map}]
-     (let [[x y] (tween animation-map elapsed-time)]
+     (let [[x y] (util/tween animation-map elapsed-time)]
        [:div.character
         {:style
          {:background-image img
@@ -77,44 +15,18 @@
 (defn render-characters [characters elapsed-time]
   (into [:div.characters] (render-character-xf elapsed-time) characters))
 
-;; TODO: Move to an api ns
-;; TODO: I've hardcoded a bunch of math assumptions in here. If I didn't,
-;; i could have a generalized model for all the textboxes and save on code
-(def default-options
-  {:dialogue/border-width 3
-   :dialogue/padding 16
-   :dialogue/margin 5
-   :dialogue/ratio 0.25
-
-   :option/border-width 3
-   :option/padding 16
-   :option/margin 5
-   :option/ratio 0.25
-
-   :text-option/border-width 3
-   :text-option/padding 16
-   :text-option/margin 5
-   :text-option/y-ratio 0.4
-   :text-option/x-ratio 0.45
-
-   :narration/border-width 3
-   :narration/padding 16
-   :narration/margin 5
-   :narration/y-ratio 0.5
-   :narration/x-ratio 0.8})
-
 (defn dialogue-textbox [{:keys [window] :as state} transition-fn graph options]
   (let [{border-width :dialogue/border-width
          padding :dialogue/padding
          margin :dialogue/margin
          ratio :dialogue/ratio}
-        (merge default-options options)
+        (merge util/default-render-options options)
         y (:y window)
         x (:x window)
         height (* y ratio)
         top (* (- 1 ratio) (:y window))
         textbox-height (- height (* 2 (+ border-width padding margin)))
-        speaker-text (speaker state graph)]
+        speaker-text (util/speaker state graph)]
     [:div.miranda.dialogue.textbox
      {:style {:height (px height)
               :width (px x)
@@ -128,7 +40,7 @@
         :margin (px margin)
         :height (px textbox-height)}}
       (when speaker-text [:div.miranda.dialogue.textbox-speaker speaker-text])
-      [:div.miranda.dialogue.text (dialogue state graph)]]]))
+      [:div.miranda.dialogue.text (util/dialogue state graph)]]]))
 
 (defn narration-textbox [{:keys [window] :as state} transition-fn graph options]
   (let [{border-width :narration/border-width
@@ -136,7 +48,7 @@
          margin :narration/margin
          y-ratio :narration/y-ratio
          x-ratio :narration/x-ratio}
-        (merge default-options options)
+        (merge util/default-render-options options)
         y (:y window)
         x (:x window)
         height (* y y-ratio)
@@ -157,7 +69,7 @@
         :padding-bottom (px padding)
         :margin (px margin)
         :height (px textbox-height)}}
-      [:div.narration.miranda.text (subscene state graph)]]]))
+      [:div.narration.miranda.text (util/subscene state graph)]]]))
 
 (defn text-option-textbox [{:keys [window] :as state} transition-fn graph options]
   (let [{border-width :text-option/border-width
@@ -165,7 +77,7 @@
          margin :text-option/margin
          y-ratio :text-option/y-ratio
          x-ratio :text-option/x-ratio}
-        (merge default-options options)
+        (merge util/default-render-options options)
         y (:y window)
         x (:x window)
         height (* y y-ratio)
@@ -186,7 +98,7 @@
         :margin (px margin)
         :height (px textbox-height)}}
       [:div
-       [:div.text-option.miranda.text (:text (subscene state graph))]
+       [:div.text-option.miranda.text (:text (util/subscene state graph))]
        (into
         [:div.miranda.text-option.options]
         (map-indexed
@@ -195,14 +107,14 @@
             [:span.miranda.text-option.options.option-inner
              {:on-click (partial transition-fn i)}
              text]]))
-        (scene-options state graph))]]]))
+        (util/scene-options state graph))]]]))
 
 (defn option-textbox [{:keys [window] :as state} transition-fn graph options]
   (let [{border-width :option/border-width
          padding :option/padding
          margin :option/margin
          ratio :option/ratio}
-        (merge default-options options)
+        (merge default-render-options options)
         y (:y window)
         x (:x window)
         height (* y ratio)
@@ -220,7 +132,7 @@
         :margin (px margin)
         :height (px textbox-height)}}
       [:div.miranda.option.textbox-speaker
-       (speaker state graph)]
+       (util/speaker state graph)]
       (into
        [:div.miranda.option-render.options]
        (map-indexed
@@ -229,7 +141,7 @@
            [:span.miranda.option-render.options.option-inner
             {:on-click (partial transition-fn i)}
             text]]))
-       (scene-options state graph))]]))
+       (util/scene-options state graph))]]))
 
 (defn render-narration
   [{:keys [window] :as state} transition-fn graph options]
@@ -237,7 +149,7 @@
    {:style (merge
             {:height (px (:y window))
              :width (px (:x window))}
-            (style state graph))}
+            (util/style state graph))}
    (narration-textbox state transition-fn graph options)])
 
 (defn render-dialogue
@@ -246,8 +158,8 @@
    {:style (merge
             {:height (px (:y window))
              :width (px (:x window))}
-            (style state graph))}
-   (render-characters (actors state graph) (:miranda/time state))
+            (util/style state graph))}
+   (render-characters (util/actors state graph) (:miranda/time state))
    (dialogue-textbox state transition-fn graph options)])
 
 (defn render-options
@@ -256,8 +168,8 @@
    {:style (merge
             {:height (px (:y window))
              :width (px (:x window))}
-            (style state graph))}
-   (render-characters (actors state graph) (:miranda/time state))
+            (util/style state graph))}
+   (render-characters (util/actors state graph) (:miranda/time state))
    (option-textbox state transition-fn graph options)])
 
 (defn render-text-options
@@ -266,6 +178,6 @@
    {:style (merge
             {:height (px (:y window))
              :width (px (:x window))}
-            (style state graph))}
+            (util/style state graph))}
    (text-option-textbox state transition-fn graph options)])
 
