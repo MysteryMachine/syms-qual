@@ -43,8 +43,8 @@
 (defn scenes* [] [:scenes])
 
 (defn scene-data* [state graph]
-  (let [[major minor & subscene-ptr] (state state)]
-    (into scenes* [major minor])))
+  (let [[major minor & subscene-ptr] (scene state)]
+    (into (scenes*) [major minor])))
 
 (defn style* [state graph]
   (conj (scene-data* state graph) :style))
@@ -83,7 +83,7 @@
 (defn scenes
   "Given a graph, return its set of scenes."
   [graph]
-  (get-in graph scenes*))
+  (get-in graph (scenes*)))
 
 ;; Graph -> Scene Functions
 
