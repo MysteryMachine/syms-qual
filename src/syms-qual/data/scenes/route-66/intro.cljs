@@ -17,27 +17,22 @@
    [:miranda/option
     "Symmetra" [[:mccree :_coffeePoint] [:ana :_sass (scoot -20)] [:symmetra :_neutral]]
     "I do not know."
-    {:scene [:route-66 [:diner :option 0 :a] 0]}
-
     "Vishkar's motivations are not for me to reveal."
-    {:scene [:route-66 [:diner :option 0 :b] 0]}
+    "My conjecture is that Vishkar wants data on you Overwatch anarchists."]
 
-    "My conjecture is that Vishkar wants data on you Overwatch anarchists."
-    {:scene [:route-66 [:diner :option 0 :c] 0]}]
-
-   [:diner :option 0 :a]
+   [:diner :option 0 0]
    [:miranda/dialogue
     ["Symmetra" [[:mccree :_coffeePoint] [:ana :_sass (scoot -20)] [:symmetra :_neutral]]
      "As a Vishkar agent, I am often required to perform my duties without direct explanation from executives. If every part of the machine questioned the machinemaker, it could not operate efficiently. Vishkar is committed to bringing order to the world. Knowing that is enough to comfort my curiosity. How about you two? Today, will be acting with a Gabriel Reyes -"]
     :-> [:diner :dialogue 1]]
 
-   [:diner :option 0 :b]
+   [:diner :option 0 1]
    [:miranda/dialogue
     ["Symmetra" [[:mccree :_coffeePoint] [:ana :_sass (scoot -20)] [:symmetra :_neutral]]
      "I am much more concerned with performing my function in the here and now. Our remaining teammates are yet to arrive. We still have Amelie, Mako and Gabriel - "]
     :-> [:diner :dialogue 1]]
 
-   [:diner :option 0 :c]
+   [:diner :option 0 2]
    [:miranda/dialogue
     ["Symmetra" [[:mccree :_coffeeHold] [:ana :_sass (scoot -20)] [:symmetra :_explain]]
      "Your operations present a great risk to our developments. Overwatch has always been an unpredictable, anarchic, destabilizing force in the world. This irresponsible development cannot go unwatched. Especially with former Blackwatch agents like you and Gabriel Reyes -"]
@@ -87,21 +82,16 @@
    [:miranda/option
     "Symmetra" [[:reaper :_neutral (scoot 10)] [:mccree :_neutral (scoot -10)] [:ana :_sass (scoot -25)] [:symmetra :_neutral (scoot 10)]]
     "What is a Nano Blossom?"
-    {:scene [:route-66 [:diner :option 1 :a] 0]}
-
     "Is this relating to your, so called, Death Blossom ultimate?"
-    {:scene [:route-66 [:diner :option 1 :b] 0]}
+    "[Be quiet]"]
 
-    "[Be quiet]"
-    {:scene [:route-66 [:diner :option 1 :c] 0]}]
-
-   [:diner :option 1 :a]
+   [:diner :option 1 0]
    [:miranda/dialogue
     ["Reaper" [[:reaper :_explain (scoot 10)] [:mccree :_phoneTexting (scoot -10)] [:ana :_roll-eyes (scoot -25)] [:symmetra :_neutral (scoot 10)]]
      "THE NANO BLOSSOM IS THE DEVASTATING COMBINATION OF ANA’S NANO BOOST TECHNOLOGY AND MY SIGNATURE MOVE, THE DEATH BLOSSOM. MY OLD...FRIEND HERE, ANA AND I DEVELOPED IT TO OBTAIN PLAYS OF THE MATCH."]
     :-> [:diner :dialogue 2]]
 
-   [:diner :option 1 :b]
+   [:diner :option 1 1]
    [:miranda/dialogue
     ["Symmetra" [[:reaper :_neutral (scoot 10)] [:mccree :_phoneTexting (scoot -10)] [:ana :_sass (scoot -25)] [:symmetra :_explain (scoot 10)]]
      "I have heard of this move. You, uh, supposedly just spin around, shooting a shot per shotgun, and discarding them after each move? Why would a Blackwatch agent such as yourself utilize such a crude, and frankly, bizarre method of attack?"]
@@ -109,7 +99,7 @@
      "I DON’T KNOW WHAT THEY TAUGHT YOU IN VISHKAR, BUT THE DEATH BLOSSOM IS MY ART. MY PASSION. MY SPEED AT GUNS, A SPEED POWERED BY DEATH ITSELF, ALLOWS ME TO PAINT MY ART ON THE BATTLEFIELD."]
     :-> [:diner :dialogue 2]]
 
-   [:diner :option 1 :c]
+   [:diner :option 1 2]
    [:miranda/dialogue
     ["Reaper" [[:reaper :_extra (scoot 10)] [:mccree :_phoneTexting (scoot -10)] [:ana :_cranky (scoot -25)] [:symmetra :_neutral (scoot 10)]]
      "THIS COMBINATION IS THE HEIGHT OF THE META, NO ONE HAS A STRONG COUNTER."]
@@ -127,15 +117,10 @@
    [:miranda/option
     "Symmetra" [[:reaper :_neutral (scoot 10)] [:mccree :_neutral (scoot -10)] [:ana :_sass (scoot -25)] [:symmetra :_neutral (scoot 10)]]
     "Ah, yes. He has directly opposed many Vishkar developments."
-    {:scene [:route-66 [:diner :option 2 :a] 0]}
-
     "I agree. Lucio presents himself as a high priority target, your grudges aside."
-    {:scene [:route-66 [:diner :option 2 :b] 0]}
+    "Mobility is not my strong suit. Pursuing such a mobile target is folly."]
 
-    "Mobility is not my strong suit. Pursuing such a mobile target is folly."
-    {:scene [:route-66 [:diner :option 2 :c] 0]}]
-
-   [:diner :option 2 :a]
+   [:diner :option 2 0]
    [:miranda/dialogue
     ["Symmetra" [[:reaper :_neutral (scoot 10)] [:mccree :_neutral (scoot -10)] [:ana :_drink (scoot -25)] [:symmetra :_frown (scoot 10)]]
      "It will be my pleasure to ensure that he is unable to pose an effective threat to our operation."]
@@ -143,13 +128,13 @@
      "WONDERFUL. I WILL COMPLETE MY PREPARATIONS IN SOLITUDE."]
     :-> [:diner :option 3]]
 
-   [:diner :option 2 :b]
+   [:diner :option 2 1]
    [:miranda/dialogue
     ["Reaper" [[:reaper :_point-up (scoot 10)] [:mccree :_neutral (scoot -10)] [:ana :_sass (scoot -25)] [:symmetra :_neutral (scoot 10)]]
      "MY GRUDGES ARE CRITICAL. REVENGE WILL BE HAD. NOW. I HAVE TO GO LISTEN TO SOME MUSIC BEFORE THE MATCH BEGINS."]
     :-> [:diner :option 3]]
 
-   [:diner :option 2 :c]
+   [:diner :option 2 2]
    [:miranda/dialogue
     ["Symmetra" [[:reaper :_neutral (scoot 10)] [:mccree :_neutral (scoot -10)] [:ana :_drink (scoot -25)] [:symmetra :_neutral (scoot 10)]]
      "You are much more suited to hunt down such a target. I will stay on the payload."]

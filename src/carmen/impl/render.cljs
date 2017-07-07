@@ -189,11 +189,11 @@
        [:div.text-option.miranda.text (:text (subscene state graph))]
        (into
         [:div.miranda.text-option.options]
-        (map
-         (fn [[text transition-stat]]
+        (map-indexed
+         (fn [i text]
            [:div.miranda.text-option.options.option-outer
             [:span.miranda.text-option.options.option-inner
-             {:on-click (partial transition-fn transition-stat)}
+             {:on-click (partial transition-fn i)}
              text]]))
         (scene-options state graph))]]]))
 
@@ -223,11 +223,11 @@
        (speaker state graph)]
       (into
        [:div.miranda.option-render.options]
-       (map
-        (fn [[text transition-stat]]
+       (map-indexed
+        (fn [i text]
           [:div.miranda.option-render.options.option-outer
            [:span.miranda.option-render.options.option-inner
-            {:on-click (partial transition-fn transition-stat)}
+            {:on-click (partial transition-fn i)}
             text]]))
        (scene-options state graph))]]))
 

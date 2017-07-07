@@ -25,9 +25,9 @@
      "I think of it more as a statement of fact"]
     ["Junkrat" []
      "So! Allow me to introduce you! I’m the bombastic Junkrat!"]
-    :transition :miranda/simple-split
-    {[:a] [:diner :dialogue 3 :a]
-     [:b] [:diner :dialogue 3 :b]}]
+    :transition :miranda/simple-cond
+    [[:route-66/roadhog] [:diner :dialogue 3 :a]
+     :else [:diner :dialogue 3 :b]]]
 
   [:diner :dialogue 3 :a]
   [:miranda/dialogue
@@ -102,9 +102,9 @@
     "What"]
    ["Sombra" []
     "I’m just saying! People deal with the stress of this fucked up military sisphysian bullshit in different ways -- they hack the system, you know"]
-   :transition :miranda/simple-split
-   {[:a] [:diner :sombra :extra]
-    [:b] [:diner :dialogue 6]}]
+   :transition :miranda/simple-cond
+   [[:route-66/reaper] [:diner :sombra :extra]
+    :else [:diner :dialogue 6]]]
 
   [:diner :sombra :extra]
   [:miranda/dialogue
@@ -130,10 +130,11 @@
     "I don’t believe we exchanged proper introductions. My real name is Satya"]
    ["Sombra" []
     "And mine is Sombra. Call it another hack. Hasta"]
-   :transition :miranda/simple-split
-   {[:a] [:diner :ending :ana]
-    [:b] [:diner :ending :reaper]
-    [:c] [:diner :ending :roadhog]}]
+   :transition :miranda/case
+   [:route-66/ending
+    [:ana     [:diner :ending :ana]
+     :reaper  [:diner :ending :reaper]
+     :roadhog [:diner :ending :roadhog]]]]
 
   [:diner :ending :reaper]
   [:miranda/narration
@@ -154,9 +155,9 @@
   [:miranda/dialogue
    ["Symmetra" []
     "I should return to the diner to pick up my belongings."]
-   :transition :miranda/simple-split
-   {[:a] [:diner :scene 7 :a]
-    [:b] [:diner :scene 7 :b]}]
+   :transition :miranda/simple-cond
+   [[:route-66/ana] [:diner :scene 7 :a]
+    :else [:diner :scene 7 :b]]]
 
   [:diner :scene 7 :a]
   [:miranda/narration

@@ -8,7 +8,7 @@
 (defonce state-atom (atom base-state))
 
 (def options
-  {:miranda/click-delay 500})
+  {:miranda/click-delay 100})
 
 (def app (miranda/samba state-atom graph options))
 

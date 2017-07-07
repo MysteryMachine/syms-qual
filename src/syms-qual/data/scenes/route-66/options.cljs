@@ -5,17 +5,17 @@
   {[:diner :option 3]
   [:miranda/text-option
    "You have a few minutes before the match begins, which teammates will you engage with?"
-   "Reaper" {:scene [:route-66 [:diner :dialogue [:option 3 :reaper] 0] 0]}
-   "Ana and McCree" {:scene [:route-66 [:diner :dialogue [:option 3 :ana] 0] 0]}
-   "Roadhog" {:scene [:route-66 [:diner :dialogue [:option 3 :roadhog] 0] 0]}]
+   "Reaper"
+   "Ana and McCree"
+   "Roadhog"]
 
   [:diner :prepare]
   [:miranda/text-option
    "What will you do?"
-   "Converse with your other teammates" {:scene [:route-66 [:diner :option 3] 0]}
-   "Prepare for the attack" {:scene [:diner :junkrat]}]
+   "Converse with your other teammates"
+   "Prepare for the attack"]
 
-  [:diner :dialogue [:option 3 :reaper] 0]
+  [:diner :option 3 0]
   [:miranda/dialogue
    ["Symmetra" []
     "Gabriel, I mean, Reaper."]
@@ -89,7 +89,7 @@
     "GOOD TALK. NOW IF YOU’LL EXCUSE ME I HAVE SOME EVANESCENCE I NEED TO GO LISTEN TO."]
    :-> [:diner :prepare]]
 
-  [:diner :dialogue [:option 3 :ana] 0]
+  [:diner :option 3 1]
   [:miranda/dialogue
    ["Ana" [] "Satya, darling. Why don’t you take a seat?"]
    ["Symmetra" [] "Thank you. I will rest my feet for a while"]
@@ -99,15 +99,10 @@
   [:miranda/option
    "Symmetra" []
    "Who are we up against today?"
-   {:scene [:route-66 [:diner :option [:option 3 :ana] 0 :a] 0]}
-
    "You didn’t finish telling me what your motivations were for engaging in this dirty business."
-   {:scene [:route-66 [:diner :option [:option 3 :ana] 0 :b] 0]}
+   "The team captain seems rather bizarre."]
 
-   "The team captain seems rather bizarre."
-   {:scene [:route-66 [:diner :option [:option 3 :ana] 0 :c] 0]}]
-
-  [:diner :option [:option 3 :ana] 0 :a]
+  [:diner :option [:option 3 :ana] 0 0]
   [:miranda/dialogue
    ["Ana" []
     "Reaper? He’s not captain darling, I am"]
@@ -119,7 +114,7 @@
     "It’s an edgy gay thing, darling"]
    :-> [:diner :dialogue [:option 3 :ana] 1]]
 
-  [:diner :option [:option 3 :ana] 0 :b]
+  [:diner :option [:option 3 :ana] 0 1]
   [:miranda/dialogue
    ["Ana" []
     "What is there to say? When does violence actually resolve much in the world? Sure, Overwatch was needed for the Omnic Crisis, but outside of situations like that, violence only tends to exacerbate the conditions that caused the violence in the first place. You enjoy order, do you not? We Overwatch agents are dangerous. There cannot be order if we are allowed to go free. The world cannot get rid of us either. God forbid, another Omnic Crisis type event occurs, and the world no longer has such a military force"]
@@ -131,7 +126,7 @@
     "Vishkar was probably invited to send an agent"]
    :-> [:diner :dialogue [:option 3 :ana] 1]]
 
-  [:diner :option [:option 3 :ana] 0 :c]
+  [:diner :option [:option 3 :ana] 0 2]
   [:miranda/dialogue
    ["Ana" []
      "Well! That’s rather rude"]
@@ -175,7 +170,7 @@
     "Ana, pleeeeeeease"]
    :-> [:diner :prepare]]
 
-  [:diner :dialogue [:option 3 :roadhog] 0]
+  [:diner :option 3 2]
   [:miranda/dialogue
    ["Roadhog" []
     "Hi"]
@@ -183,18 +178,15 @@
     "H-hello"]
    ["Roadhog" []
     "Welcome to the team. I’m the Hog. Want some tea"]
-   :-> [:diner :option [:option 3 :roadhog] 0]]
+   :-> [:diner :option :roadhog]]
 
-  [:diner :option [:option 3 :roadhog] 0]
+  [:diner :option :roadhog]
   [:miranda/option
    "Symmetra" []
    "You don’t strike me as the sort of person who drinks tea."
-   {:scene [:route-66 [:diner :dialogue [:option 3 :roadhog] :a] 0]}
+   "Oh! Thank you."]
 
-   "Oh! Thank you."
-   {:scene [:route-66 [:diner :dialogue [:option 3 :roadhog] :a] 0]}]
-
-  [:diner :dialogue [:option 3 :roadhog] :a]
+  [:diner :option :roadhog 0]
   [:miranda/dialogue
    ["Roadhog" []
     "Old habit. Helps me focus. Cups are over there"]
@@ -202,7 +194,7 @@
     "Thank you, but I will decline. I would like to avoid caffeine jitters"]
    :-> [:diner :dialogue [:option 3 :roadhog] 1]]
 
-  [:diner :dialogue [:option 3 :roadhog] :b]
+  [:diner :option :roadhog 1]
   [:miranda/dialogue
    ["Roadhog" []
     "Help yourself. I make it strong, there’s hot water in the back if you want it weaker"]

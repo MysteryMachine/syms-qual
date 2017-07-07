@@ -59,10 +59,10 @@
   [_] :miranda/basic)
 
 (defmethod default-transition-type :miranda/option
-  [_] :miranda/merge)
+  [_] :miranda/option)
 
 (defmethod default-transition-type :miranda/text-option
-  [_] :miranda/merge)
+  [_] :miranda/option)
 
 (defmulti transition
   (fn [state graph options args]
@@ -75,6 +75,13 @@
 (defmethod transition :miranda/merge
   [state graph options args]
   (merge state args))
+
+(defmethod transition :miranda/option
+  [state graph options args]
+  (update
+   state :scene
+   (fn [[major minor n]]
+     [major (conj minor args) 0])))
 
 (defmethod transition :miranda/basic
   [state graph options args]

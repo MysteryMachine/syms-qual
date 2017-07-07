@@ -117,7 +117,7 @@
   [render-type character-graph subscenes]
   (let [[speaker characters & options] subscenes]
     [{:characters (reify-subscene-characters character-graph characters)
-      :scene-options (partition 2 options)
+      :scene-options options
       :speaker speaker}]))
 
 (defmethod reify-subscenes :miranda/text-option
