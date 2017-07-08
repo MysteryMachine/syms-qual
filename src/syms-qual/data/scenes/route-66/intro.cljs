@@ -144,4 +144,4 @@
      "Oh! We’re up against her today."]
     ["Reaper" [[:reaper :_extra (scoot 10)] [:mccree :_laugh (scoot -10)] [:ana :_roll-eyes (scoot -25)] [:symmetra :_confused (scoot 10)]]
      "WHAT? IT IS CRITICAL THAT I AM PREPARED, THEN. LEAVE ME BE."]
-    :-> [:diner :option 3]]})
+    :-> [:diner :prepare 0]]})

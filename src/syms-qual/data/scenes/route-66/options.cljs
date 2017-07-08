@@ -2,18 +2,26 @@
   (:require [syms-qual.data.animation :as anim :refer [scoot]]))
 
 (def data
-  {[:diner :option 3]
+  {[:diner :prepare 0]
   [:miranda/text-option
    "You have a few minutes before the match begins, which teammates will you engage with?"
-   "Reaper"
-   "Ana and McCree"
-   "Roadhog"]
+   ["Reaper"
+    (comp not :route-66/reaper)
+    [:-> [:diner :option 3 0]]]
+   ["Ana"
+    (comp not :route-66/ana)
+    [:-> [:diner :option 3 1]]]
+   ["Roadhog"
+    (comp not :route-66/roadhog)
+    [:-> [:diner :option 3 2]]]]
 
   [:diner :prepare]
   [:miranda/text-option
    "What will you do?"
-   "Converse with your other teammates"
-   "Prepare for the attack"]
+   ["Converse with your other teammates"
+    #(not (and (:route-66/ana %) (:route-66/reaper %) (:route-66/roadhog %)))]
+   ["Prepare for the attack"
+    (constantly true)]]
 
   [:diner :option 3 0]
   [:miranda/dialogue
@@ -33,9 +41,11 @@
     "HERE ARE WE ON VACATION"]
    :transition :miranda/mutative-default
    [[:-> [:diner :dialogue [:option 3 :reaper] :photo]]
-    [:route-66/reaper true]
-    [:route-66/first-chat :reaper :no-overwrite]
-    [:points/sombra 1 :add]]]
+    (fn [state]
+      (-> state
+          (assoc  :route-66/reaper true)
+          (update :route-66/first-chat #(or %1 %2) :reaper)
+          (update :route-66/sombra + 1)))]]
 
   [:diner :dialogue [:option 3 :reaper] :photo]
   [:miranda/dialogue
@@ -45,29 +55,23 @@
   [:diner :option [:option 3 :reaper] 0]
   [:miranda/option
    "Symmetra" []
-
    "Are those...vibrams? "
-   {:scene [:route-66 [:diner :option [:option 3 :reaper] 0 :a] 0]}
-
    "The chaos of her hair is, interesting."
-   {:scene [:route-66 [:diner :option [:option 3 :reaper] 0 :b] 0]}
+   "[Quietly blush]"]
 
-   "[Quietly blush]"
-   {:scene [:route-66 [:diner :option [:option 3 :reaper] 0 :c] 0]}]
-
-  [:diner :option [:option 3 :reaper] 0 :a]
+  [:diner :option [:option 3 :reaper] 0 0]
   [:miranda/dialogue
    ["Reaper" []
     "GOOD EYES. THESE SWEET VIBRAMS ARE THE SOURCE OF HER LEGENDARY MOBILITY."]
    :-> [:diner :dialogue [:option 3 :reaper] 1]]
 
-  [:diner :option [:option 3 :reaper] 0 :b]
+  [:diner :option [:option 3 :reaper] 0 1]
   [:miranda/dialogue
    ["Reaper" []
     "I AGREE. ALL BLACK IS THE BEST COLOR. SHE INSISTS ON THE PURPLE FOR DATING PURPOSES."]
    :-> [:diner :dialogue [:option 3 :reaper] 1]]
 
-  [:diner :option [:option 3 :reaper] 0 :c]
+  [:diner :option [:option 3 :reaper] 0 2]
   [:miranda/dialogue
    ["Reaper" []
     "YES, YOUR SILENCE SPEAKS VOLUMES. AN INTIMIDATING AGENT. I RECOMMEND STAYING AWAY FROM HER."]

@@ -48,38 +48,9 @@
       (>= n (dec subscene-count)) (assoc state :scene (:transition/args scene))
       :else (update-in state [:scene 2] inc))))
 
-;; TODO: Could possibly be a public interface?
-(defn ensure-ptr [k] (if (keyword? k) [k] k))
-
-(defmulti alter (fn [state [k v & [type]]] type))
-
-(defmethod alter :default
-  [state [k v & _]]
-  (if (keyword? k)
-    (assoc state k v)
-    (assoc-in state k v)))
-
-(defmethod alter :no-overwrite
-  [state [k v & _]]
-  (let [k (ensure-ptr k)]
-   (if (get-in state k) state
-       (assoc-in state k v))))
-
-(defmethod alter :add
-  [state [k v & _]]
-  (update-in state (ensure-ptr k) + v))
-
-(defmethod alter :conj
-  [state [k v & _]]
-  (update-in state (ensure-ptr k) conj v))
-
 (defn alter-state [state graph]
-  (let [args (util/transition-stateful-args state graph)]
-    (loop [args args
-           state state]
-      (if (seq args)
-        (recur (rest args) (alter state (first args)))
-        state))))
+  (let [transition-fn (util/transition-stateful-args state graph)]
+    (transition-fn state)))
 
 ;; --- Character Functions ---
 
@@ -144,13 +115,15 @@
          :img (:img character-base)})))
    characters))
 
+(declare reify-options)
+
 ;; TODO: Decide on whether or not this is a public interface
 (defmulti reify-subscenes
-  (fn [render-type character-graph subscenes]
+  (fn [level-name scene-name render-type character-graph subscenes]
     render-type))
 
 (defmethod reify-subscenes :miranda/dialogue
-  [render-type character-graph subscenes]
+  [level-name scene-name render-type character-graph subscenes]
   (mapv
    (fn [[speaker characters dialogue]]
      {:characters (reify-subscene-characters character-graph characters)
@@ -159,20 +132,20 @@
    subscenes))
 
 (defmethod reify-subscenes :miranda/option
-  [render-type character-graph subscenes]
+  [level-name scene-name render-type character-graph subscenes]
   (let [[speaker characters & options] subscenes]
     [{:characters (reify-subscene-characters character-graph characters)
-      :scene-options options
+      :scene-options (reify-options level-name scene-name options)
       :speaker speaker}]))
 
 (defmethod reify-subscenes :miranda/text-option
-  [render-type character-graph subscenes]
+  [level-name scene-name render-type character-graph subscenes]
   (let [[text & options] subscenes]
-    [{:scene-options options
+    [{:scene-options (reify-options level-name scene-name options)
       :text text}]))
 
 (defmethod reify-subscenes :default
-  [render-type charagraph-graph subscenes]
+  [level-name scene-name render-type charagraph-graph subscenes]
   (vec subscenes))
 
 ;; TODO: This might require a multimethod...
@@ -204,26 +177,54 @@
 
       :else [rem-data {:transition/type :miranda/default}])))
 
+(defn default-option-transition [major minor i]
+  (second (split-transition major [:-> (conj minor i)])))
+
+(defn override-default-transition-type [transition]
+  (if (= (:transition/type transition) :miranda/default)
+    (assoc transition :transition/type :miranda/basic)
+    transition))
+
+(defn reify-options [level-name scene-name options]
+  (into
+   []
+   (map-indexed
+    (fn [i option]
+      (if (string? option)
+        {:text option
+         :conditional (constantly true)
+         :transition (-> level-name
+                         (default-option-transition scene-name i)
+                         (override-default-transition-type))}
+        (let [[text & [conditional transition]] option]
+          {:text text
+           :conditional (or conditional (constantly true))
+           :transition (-> (if transition
+                             (second (split-transition level-name transition))
+                             (default-option-transition level-name scene-name i))
+                           (override-default-transition-type))}))))
+   options))
+
 (defn get-bg-img [bgs level-name subscene-name]
   (let [k (keyword (str (name level-name) "-" (name subscene-name)))]
     (get bgs k)))
 
 (defn reify-scene-xf [level-name character-graph bgs]
   (map
-   (fn [[subscene-name subscene-data]]
-     (if (map? subscene-data) [subscene-name subscene-data]
+   (fn [[scene-name subscene-data]]
+     (if (map? subscene-data) [scene-name subscene-data]
          (let [[render-type & rem-data] subscene-data
                [subscenes transition] (split-transition level-name rem-data)
                ;; TODO: Add better error handling around non-vec subscene names
-               bg-img (get-bg-img bgs level-name (first subscene-name))
-               reified-subscenes (reify-subscenes render-type character-graph subscenes)]
-           [subscene-name
+               bg-img (get-bg-img bgs level-name (first scene-name))
+               reified-subscenes (reify-subscenes level-name scene-name render-type character-graph subscenes)]
+           [scene-name
             (merge transition
              {:style {:background-image bg-img}
               :render-type render-type
               :subscenes reified-subscenes})])))))
 
-(defn reify-scenes-xf [character-graph bgs] 
+(defn reify-scenes-xf [character-graph bgs]
   (map
    (fn [[level-name level-data]]
      [level-name

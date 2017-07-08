@@ -49,10 +49,10 @@
   [_] :miranda/basic)
 
 (defmethod default-transition-type :miranda/option
-  [_] :miranda/option)
+  [_] :miranda/dynamic)
 
 (defmethod default-transition-type :miranda/text-option
-  [_] :miranda/option)
+  [_] :miranda/dynamic)
 
 (defmulti transition
   (fn [state graph options args]
@@ -70,12 +70,10 @@
   [state graph options args]
   (merge state args))
 
-(defmethod transition :miranda/option
+(defmethod transition :miranda/dynamic
   [state graph options args]
-  (update
-   state :scene
-   (fn [[major minor n]]
-     [major (conj minor args) 0])))
+  (let [reified-graph (update-in graph (util/scene-data* state graph) merge args)]
+    (transition state reified-graph options args)))
 
 (defmethod transition :miranda/basic
   [state graph options args]

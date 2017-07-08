@@ -71,6 +71,11 @@
         :height (px textbox-height)}}
       [:div.narration.miranda.text (util/subscene state graph)]]]))
 
+(defn filter-valid-options-xf [state]
+  (filter
+   (fn [option]
+     ((:conditional option) state))))
+
 (defn text-option-textbox [{:keys [window] :as state} transition-fn graph options]
   (let [{border-width :text-option/border-width
          padding :text-option/padding
@@ -101,12 +106,14 @@
        [:div.text-option.miranda.text (:text (util/subscene state graph))]
        (into
         [:div.miranda.text-option.options]
-        (map-indexed
-         (fn [i text]
-           [:div.miranda.text-option.options.option-outer
-            [:span.miranda.text-option.options.option-inner
-             {:on-click (partial transition-fn i)}
-             text]]))
+        (comp
+         (filter-valid-options-xf state)
+         (map
+           (fn [option]
+             [:div.miranda.text-option.options.option-outer
+              [:span.miranda.text-option.options.option-inner
+               {:on-click (partial transition-fn (:transition option))}
+               (:text option)]])))
         (util/scene-options state graph))]]]))
 
 (defn option-textbox [{:keys [window] :as state} transition-fn graph options]
@@ -135,12 +142,14 @@
        (util/speaker state graph)]
       (into
        [:div.miranda.option-render.options]
-       (map-indexed
-        (fn [i text]
-          [:div.miranda.option-render.options.option-outer
-           [:span.miranda.option-render.options.option-inner
-            {:on-click (partial transition-fn i)}
-            text]]))
+       (comp
+        (filter-valid-options-xf state)
+        (map
+          (fn [option]
+            [:div.miranda.option-render.options.option-outer
+             [:span.miranda.option-render.options.option-inner
+              {:on-click (partial transition-fn (:transition option))}
+              (:text option)]])))
        (util/scene-options state graph))]]))
 
 (defn render-narration
