@@ -53,8 +53,8 @@
 
 (defmethod transition :miranda/dynamic
   [state graph options args]
-  (let [graph' (update-in graph (util/scene-data* state graph) merge args)]
-   (transition state graph' options args)))
+  (let [updated-graph (update-in graph (util/scene-data* state graph) merge args)]
+   (transition state updated-graph options args)))
 
 (defmethod transition :miranda/basic
   [state graph options args]

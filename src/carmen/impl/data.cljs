@@ -184,12 +184,9 @@
       :else [rem-data {:transition/type (render-type->default-transition render-type)}])))
 
 (defn default-option-transition [render-type major minor i]
-  (second (split-transition render-type major [:-> (conj minor i)])))
-
-(defn override-default-transition-type [transition]
-  (if (= (:transition/type transition) :miranda/default)
-    (assoc transition :transition/type :miranda/basic)
-    transition))
+  (-> (split-transition render-type major [:-> (conj minor i)])
+      (second)
+      (assoc :transition/type :miranda/basic)) )
 
 (defn reify-options [render-type level-name scene-name options]
   (into
@@ -199,16 +196,13 @@
       (if (string? option)
         {:text option
          :conditional (constantly true)
-         :transition (-> level-name
-                         (default-option-transition render-type scene-name i)
-                         (override-default-transition-type))}
+         :transition (default-option-transition render-type level-name scene-name i)}
         (let [[text & [conditional transition]] option]
           {:text text
            :conditional (or conditional (constantly true))
-           :transition (-> (if transition
-                             (second (split-transition render-type level-name transition))
-                             (default-option-transition render-type level-name scene-name i))
-                           (override-default-transition-type))}))))
+           :transition (if transition
+                         (second (split-transition render-type level-name transition))
+                         (default-option-transition render-type level-name scene-name i))}))))
    options))
 
 (defn get-bg-img [bgs level-name subscene-name]

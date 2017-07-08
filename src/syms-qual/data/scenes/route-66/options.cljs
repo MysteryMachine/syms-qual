@@ -31,10 +31,8 @@
   [:diner :prepare]
   [:miranda/text-option
    "What will you do?"
-   ["Converse with your other teammates"
-    #(not (and (:route-66/ana %) (:route-66/reaper %) (:route-66/roadhog %)))]
-   ["Prepare for the attack"
-    (constantly true)]]
+   "Converse with your other teammates"
+   "Prepare for the attack"]
 
   [:diner :option 3 0]
   [:miranda/dialogue
