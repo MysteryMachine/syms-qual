@@ -171,7 +171,7 @@
          {:transition/type (render-type->default-transition render-type)
           :transition/args (if n major-trans [maj min 0])}])
 
-      (#{:miranda/mutative->basic} type)
+      (#{:miranda/mutation->basic} type)
       (let [[trans-args mut-args] args
             reified-trans-args (->> trans-args (split-transition render-type level-name) last :transition/args)]
         [cond-subsc {:transition/type type

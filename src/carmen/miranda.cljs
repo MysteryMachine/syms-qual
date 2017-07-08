@@ -64,7 +64,7 @@
   [state graph options args]
   state)
 
-(defmethod transition :miranda/mutative->basic
+(defmethod transition :miranda/mutation->basic
   [state graph options args]
   (data/basic-transition
    (data/alter-state state graph)

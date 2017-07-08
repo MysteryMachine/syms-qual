@@ -14,17 +14,17 @@
    "You have a few minutes before the match begins, which teammates will you engage with?"
    ["Reaper"
     (comp not :route-66/reaper)
-    [:transition :miranda/mutative->basic
+    [:transition :miranda/mutation->basic
      [[:-> [:diner :option 3 0]]
       (talk-to "reaper" "sombra")]]]
    ["Ana"
     (comp not :route-66/ana)
-    [:transition :miranda/mutative->basic
+    [:transition :miranda/mutation->basic
      [[:-> [:diner :option 3 1]]
       (talk-to "ana" "pharah")]]]
    ["Roadhog"
     (comp not :route-66/roadhog)
-    [:transition :miranda/mutative->basic
+    [:transition :miranda/mutation->basic
      [[:-> [:diner :option 3 2]]
       (talk-to "roadhog" "junkrat")]]]]
 
