@@ -49,9 +49,9 @@
       :else (update-in state [:scene 2] inc))))
 
 ;; TODO: Could possibly be a public interface?
-(defn ensure-ptr [k] (if (keyword? k) k [k]))
+(defn ensure-ptr [k] (if (keyword? k) [k] k))
 
-(defmulti alter #(nth %2 2))
+(defmulti alter (fn [state [k v & [type]]] type))
 
 (defmethod alter :default
   [state [k v & _]]
@@ -175,6 +175,7 @@
   [render-type charagraph-graph subscenes]
   (vec subscenes))
 
+;; TODO: This might require a multimethod...
 (defn split-transition [level-name rem-data]
   (let [[minor-subsc [_ minor-trans]] (split-with #(not= :-> %) rem-data)
         [major-subsc [_ major-trans]] (split-with #(not= :=> %) rem-data)
@@ -191,12 +192,12 @@
          {:transition/type :miranda/default
           :transition/args (if n major-trans [maj min 0])}])
 
-      (#{:miranda/stateful-default} type)
-      (let [[trans-args mut-args] args
-            [_ transition] (split-transition trans-args)]
+      (#{:miranda/mutative-default} type)
+      (let [[trans-args & mut-args] args
+            reified-trans-args (->> trans-args (split-transition level-name) last :transition/args)]
         [cond-subsc {:transition/type type
                      :transition/stateful-args mut-args
-                     :transition/args (:transition/args transition)}])
+                     :transition/args reified-trans-args}])
 
       (some? type)
       [cond-subsc {:transition/type type :transition/args args}]

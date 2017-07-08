@@ -34,7 +34,8 @@
    :transition :miranda/mutative-default
    [[:-> [:diner :dialogue [:option 3 :reaper] :photo]]
     [:route-66/reaper true]
-    [:route-66/first-chat :reaper :no-overwrite]]]
+    [:route-66/first-chat :reaper :no-overwrite]
+    [:point/sombra 1 :add]]]
 
   [:diner :dialogue [:option 3 :reaper] :photo]
   [:miranda/dialogue

@@ -78,7 +78,7 @@
   (conj (subscene* state graph) :scene-options))
 
 ;; Graph Helpers
-;; TODO: Considering caching results of these functions?
+;; TODO: Considering memoizing results of these functions?
 
 (defn scenes
   "Given a graph, return its set of scenes."
@@ -120,10 +120,10 @@
   (get-in graph (actors* state graph)))
 
 (defn dialogue [state graph]
-  (get-in graph (actors* state graph)))
+  (get-in graph (dialogue* state graph)))
 
 (defn speaker [state graph]
-  (get-in graph (actors* state graph)))
+  (get-in graph (speaker* state graph)))
 
 (defn scene-options [state graph]
   (get-in graph (scene-options* state graph)))
