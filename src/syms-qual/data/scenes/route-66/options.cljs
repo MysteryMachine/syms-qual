@@ -8,6 +8,16 @@
         (update :route-66/first-chat #(or %1 %2) (keyword name))
         (update (keyword "points" date) + 1))))
 
+(defn talked-all [state]
+  (and
+   (:route-66/reaper state)
+   (:route-66/ana state)
+   (:route-66/roadhog state)))
+
+(def option-end
+  [talked-all [:-> [:diner :junkrat]]
+   :else      [:-> [:diner :prepare]]])
+
 (def data
   {[:diner :prepare 0]
   [:miranda/text-option
@@ -32,7 +42,9 @@
   [:miranda/text-option
    "What will you do?"
    "Converse with your other teammates"
-   "Prepare for the attack"]
+   ["Prepare for the attack"
+    (constantly true)
+    [:-> [:diner :junkrat]]]]
 
   [:diner :option 3 0]
   [:miranda/dialogue
@@ -207,7 +219,7 @@
     "Thank you, but I will decline. I would like to avoid caffeine jitters"]
    :-> [:diner :dialogue [:option 3 :roadhog] 1]]
 
-  [:diner :option :roadhog 1]
+   [:diner :option :roadhog 1]
   [:miranda/dialogue
    ["Roadhog" []
     "Help yourself. I make it strong, there’s hot water in the back if you want it weaker"]
@@ -247,4 +259,5 @@
     "..."]
    ["Symmetra" []
     "..."]
-   :-> [:diner :prepare]]})
+   :transition :miranda/conditional
+   option-end]})

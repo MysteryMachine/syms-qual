@@ -62,7 +62,7 @@
 
 (defmethod transition :miranda/conditional
   [state graph options args]
-  state)
+  (data/conditional-transition transition state graph options args))
 
 (defmethod transition :miranda/mutation->basic
   [state graph options args]
@@ -72,7 +72,11 @@
 
 (defn transition!
   [state-atom graph options]
-  (partial swap! state-atom transition graph options))
+  (fn [args]
+    (swap!
+     state-atom
+     (fn [state]
+       (data/guard-transition transition state graph options args)))))
 
 (defn render-game-inner [state-atom transition-fn graph options]
   [render @state-atom transition-fn graph options])

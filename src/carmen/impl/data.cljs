@@ -38,6 +38,9 @@
    period))
 
 (defn basic-transition [state graph options]
+  (assoc state :scene (util/transition-args state graph)))
+
+(defn guard-transition [transition-fn state graph options args]
   (let [[_ _ n] (util/scene state)
         scene (util/scene-data state graph)
         subscene-count (count (:subscenes scene))
@@ -45,12 +48,22 @@
         cant-transition (and delay (< (:miranda/time state) delay))]
     (cond
       cant-transition state
-      (>= n (dec subscene-count)) (assoc state :scene (:transition/args scene))
+      (>= n (dec subscene-count)) (transition-fn state graph options args)
       :else (update-in state [:scene 2] inc))))
 
 (defn alter-state [state graph]
   (let [transition-fn (util/transition-stateful-args state graph)]
     (transition-fn state)))
+
+(defn conditional-transition [transition-fn state graph options args]
+  (loop [candidates (util/transition-args state graph)]
+    (if (seq candidates)
+      (let [[[test transition] & rem] candidates]
+        (if (test state)
+          (let [updated-graph (update-in graph (util/scene-data* state graph) merge transition)]
+           (transition-fn state updated-graph options args))
+          (recur rem)))
+      (throw (js/Error. "No valid transition found.")))))
 
 ;; --- Character Functions ---
 
@@ -154,34 +167,69 @@
        render-type
        :miranda/basic))
 
-;; TODO: This might require a multimethod...
-(defn split-transition [render-type level-name rem-data]
-  (let [[minor-subsc [_ minor-trans]] (split-with #(not= :-> %) rem-data)
-        [major-subsc [_ major-trans]] (split-with #(not= :=> %) rem-data)
-        [cond-subsc  [_ type args]]   (split-with #(not= :transition %)  rem-data)]
-    (cond
-      (some? minor-trans)
-      [minor-subsc
-       {:transition/type (render-type->default-transition render-type)
-        :transition/args [level-name minor-trans 0]}]
+(defmulti split-transition
+  (fn [render-type level-name rem-data]
+    (condp some rem-data
+      #{:->} :minor
+      #{:=>} :major
+      #{:transition}
+      (condp some rem-data
+        #{:miranda/conditional} :conditional
+        #{:miranda/mutation->basic} :stateful
+        :custom)
+      :default)))
 
-      (some? major-trans)
-      (let [[maj min & [n]] major-trans]
-        [major-subsc
-         {:transition/type (render-type->default-transition render-type)
-          :transition/args (if n major-trans [maj min 0])}])
+(defmethod split-transition :minor
+  [render-type level-name rem-data]
+  (let [[minor-subsc [_ minor-trans]] (split-with #(not= :-> %) rem-data)]
+   [minor-subsc
+     {:transition/type (render-type->default-transition render-type)
+      :transition/args [level-name minor-trans 0]}]))
 
-      (#{:miranda/mutation->basic} type)
-      (let [[trans-args mut-args] args
-            reified-trans-args (->> trans-args (split-transition render-type level-name) last :transition/args)]
-        [cond-subsc {:transition/type type
-                     :transition/stateful-args mut-args
-                     :transition/args reified-trans-args}])
+(defmethod split-transition :major
+  [render-type level-name rem-data]
+  (let [[major-subsc [_ major-trans]] (split-with #(not= :=> %) rem-data)
+        [maj min & [n]] major-trans]
+    [major-subsc
+     {:transition/type (render-type->default-transition render-type)
+      :transition/args (if n major-trans [maj min 0])}]))
 
-      (some? type)
-      [cond-subsc {:transition/type type :transition/args args}]
+(defmethod split-transition :stateful
+  [render-type level-name rem-data]
+  (let [[custom-subsc  [_ type args]] (split-with #(not= :transition %)  rem-data)
+        [trans-args mut-args] args
+        reified-trans-args (->> trans-args (split-transition render-type level-name) last :transition/args)]
+    [custom-subsc {:transition/type type
+                   :transition/stateful-args mut-args
+                   :transition/args reified-trans-args}]))
 
-      :else [rem-data {:transition/type (render-type->default-transition render-type)}])))
+(defn reify-conditional-pairs [render-type level-name pairs]
+  (mapv #(update
+          % 1
+          (comp
+           second
+           (partial split-transition
+                    render-type
+                    level-name)))
+        pairs))
+
+(defmethod split-transition :conditional
+  [render-type level-name rem-data]
+  (let [[custom-subsc  [_ type args]] (split-with #(not= :transition %)  rem-data)
+        reified-args (->> args
+                          (partition 2)
+                          (map vec)
+                          (reify-conditional-pairs render-type level-name))]
+    [custom-subsc {:transition/type type :transition/args reified-args}]))
+
+(defmethod split-transition :custom
+  [render-type level-name rem-data]
+  (let [[custom-subsc  [_ type args]] (split-with #(not= :transition %)  rem-data)]
+    [custom-subsc {:transition/type type :transition/args args}]))
+
+(defmethod split-transition :default
+  [render-type level-name rem-data]
+  [rem-data {:transition/type (render-type->default-transition render-type)}])
 
 (defn default-option-transition [render-type major minor i]
   (-> (split-transition render-type major [:-> (conj minor i)])
