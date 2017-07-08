@@ -43,28 +43,9 @@
   [state transition-fn graph options]
   (render/render-text-options state transition-fn graph options))
 
-(defmulti default-transition-type identity)
-
-(defmethod default-transition-type :default
-  [_] :miranda/basic)
-
-(defmethod default-transition-type :miranda/option
-  [_] :miranda/dynamic)
-
-(defmethod default-transition-type :miranda/text-option
-  [_] :miranda/dynamic)
-
 (defmulti transition
   (fn [state graph options args]
-    (let [scene (util/scene-data state graph)
-          transition-type (:transition/type scene)]
-      (if (= :miranda/default transition-type)
-        (default-transition-type (:render-type scene))
-        transition-type))))
-
-(defn default-transition [state graph options args]
-  (let [graph' (assoc-in graph (util/transition-type* state graph) :miranda/default)]
-   (transition state graph' options args)))
+    (util/transition-type state graph)))
 
 (defmethod transition :miranda/merge
   [state graph options args]
@@ -72,22 +53,22 @@
 
 (defmethod transition :miranda/dynamic
   [state graph options args]
-  (let [reified-graph (update-in graph (util/scene-data* state graph) merge args)]
-    (transition state reified-graph options args)))
+  (let [graph' (update-in graph (util/scene-data* state graph) merge args)]
+   (transition state graph' options args)))
 
 (defmethod transition :miranda/basic
   [state graph options args]
   (data/basic-transition state graph options))
 
-(defmethod transition :miranda/stateful-default
+(defmethod transition :miranda/conditional
   [state graph options args]
   state)
 
-(defmethod transition :miranda/mutative-default
-  [state graph option args]
-  (default-transition
+(defmethod transition :miranda/mutative->basic
+  [state graph options args]
+  (data/basic-transition
    (data/alter-state state graph)
-   graph option args))
+   graph options))
 
 (defn transition!
   [state-atom graph options]

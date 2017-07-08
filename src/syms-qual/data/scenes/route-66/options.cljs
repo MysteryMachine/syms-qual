@@ -1,19 +1,32 @@
 (ns syms-qual.data.scenes.route-66.options
   (:require [syms-qual.data.animation :as anim :refer [scoot]]))
 
+(defn talk-to [name date]
+  (fn [state]
+    (-> state
+        (assoc  (keyword "route-66" name) true)
+        (update :route-66/first-chat #(or %1 %2) (keyword name))
+        (update (keyword "points" date) + 1))))
+
 (def data
   {[:diner :prepare 0]
   [:miranda/text-option
    "You have a few minutes before the match begins, which teammates will you engage with?"
    ["Reaper"
     (comp not :route-66/reaper)
-    [:-> [:diner :option 3 0]]]
+    [:transition :miranda/mutative->basic
+     [[:-> [:diner :option 3 0]]
+      (talk-to "reaper" "sombra")]]]
    ["Ana"
     (comp not :route-66/ana)
-    [:-> [:diner :option 3 1]]]
+    [:transition :miranda/mutative->basic
+     [[:-> [:diner :option 3 1]]
+      (talk-to "ana" "pharah")]]]
    ["Roadhog"
     (comp not :route-66/roadhog)
-    [:-> [:diner :option 3 2]]]]
+    [:transition :miranda/mutative->basic
+     [[:-> [:diner :option 3 2]]
+      (talk-to "roadhog" "junkrat")]]]]
 
   [:diner :prepare]
   [:miranda/text-option
@@ -39,13 +52,7 @@
     "YES. AN EFFECTIVE HACKER. SHE COUNTERS MY GHOST FORM INTO DEATH BLOSSOM PERFECTLY BY HACKING."]
    ["Reaper" []
     "HERE ARE WE ON VACATION"]
-   :transition :miranda/mutative-default
-   [[:-> [:diner :dialogue [:option 3 :reaper] :photo]]
-    (fn [state]
-      (-> state
-          (assoc  :route-66/reaper true)
-          (update :route-66/first-chat #(or %1 %2) :reaper)
-          (update :route-66/sombra + 1)))]]
+   :-> [:diner :dialogue [:option 3 :reaper] :photo]]
 
   [:diner :dialogue [:option 3 :reaper] :photo]
   [:miranda/dialogue

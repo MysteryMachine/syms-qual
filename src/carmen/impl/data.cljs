@@ -135,39 +135,45 @@
   [level-name scene-name render-type character-graph subscenes]
   (let [[speaker characters & options] subscenes]
     [{:characters (reify-subscene-characters character-graph characters)
-      :scene-options (reify-options level-name scene-name options)
+      :scene-options (reify-options render-type level-name scene-name options)
       :speaker speaker}]))
 
 (defmethod reify-subscenes :miranda/text-option
   [level-name scene-name render-type character-graph subscenes]
   (let [[text & options] subscenes]
-    [{:scene-options (reify-options level-name scene-name options)
+    [{:scene-options (reify-options render-type level-name scene-name options)
       :text text}]))
 
 (defmethod reify-subscenes :default
   [level-name scene-name render-type charagraph-graph subscenes]
   (vec subscenes))
 
+(defn render-type->default-transition [render-type]
+  (get {:miranda/text-option :miranda/dynamic
+        :miranda/option      :miranda/dynamic}
+       render-type
+       :miranda/basic))
+
 ;; TODO: This might require a multimethod...
-(defn split-transition [level-name rem-data]
+(defn split-transition [render-type level-name rem-data]
   (let [[minor-subsc [_ minor-trans]] (split-with #(not= :-> %) rem-data)
         [major-subsc [_ major-trans]] (split-with #(not= :=> %) rem-data)
         [cond-subsc  [_ type args]]   (split-with #(not= :transition %)  rem-data)]
     (cond
       (some? minor-trans)
       [minor-subsc
-       {:transition/type :miranda/default
+       {:transition/type (render-type->default-transition render-type)
         :transition/args [level-name minor-trans 0]}]
 
       (some? major-trans)
       (let [[maj min & [n]] major-trans]
         [major-subsc
-         {:transition/type :miranda/default
+         {:transition/type (render-type->default-transition render-type)
           :transition/args (if n major-trans [maj min 0])}])
 
-      (#{:miranda/mutative-default} type)
-      (let [[trans-args & mut-args] args
-            reified-trans-args (->> trans-args (split-transition level-name) last :transition/args)]
+      (#{:miranda/mutative->basic} type)
+      (let [[trans-args mut-args] args
+            reified-trans-args (->> trans-args (split-transition render-type level-name) last :transition/args)]
         [cond-subsc {:transition/type type
                      :transition/stateful-args mut-args
                      :transition/args reified-trans-args}])
@@ -175,17 +181,17 @@
       (some? type)
       [cond-subsc {:transition/type type :transition/args args}]
 
-      :else [rem-data {:transition/type :miranda/default}])))
+      :else [rem-data {:transition/type (render-type->default-transition render-type)}])))
 
-(defn default-option-transition [major minor i]
-  (second (split-transition major [:-> (conj minor i)])))
+(defn default-option-transition [render-type major minor i]
+  (second (split-transition render-type major [:-> (conj minor i)])))
 
 (defn override-default-transition-type [transition]
   (if (= (:transition/type transition) :miranda/default)
     (assoc transition :transition/type :miranda/basic)
     transition))
 
-(defn reify-options [level-name scene-name options]
+(defn reify-options [render-type level-name scene-name options]
   (into
    []
    (map-indexed
@@ -194,14 +200,14 @@
         {:text option
          :conditional (constantly true)
          :transition (-> level-name
-                         (default-option-transition scene-name i)
+                         (default-option-transition render-type scene-name i)
                          (override-default-transition-type))}
         (let [[text & [conditional transition]] option]
           {:text text
            :conditional (or conditional (constantly true))
            :transition (-> (if transition
-                             (second (split-transition level-name transition))
-                             (default-option-transition level-name scene-name i))
+                             (second (split-transition render-type level-name transition))
+                             (default-option-transition render-type level-name scene-name i))
                            (override-default-transition-type))}))))
    options))
 
@@ -214,7 +220,7 @@
    (fn [[scene-name subscene-data]]
      (if (map? subscene-data) [scene-name subscene-data]
          (let [[render-type & rem-data] subscene-data
-               [subscenes transition] (split-transition level-name rem-data)
+               [subscenes transition] (split-transition render-type level-name rem-data)
                ;; TODO: Add better error handling around non-vec subscene names
                bg-img (get-bg-img bgs level-name (first scene-name))
                reified-subscenes (reify-subscenes level-name scene-name render-type character-graph subscenes)]
