@@ -6,4 +6,7 @@
   {:scenes scenes/data})
 
 (def base-state
-  {:scene [:route-66 [:diner :option 3 0] 6]})
+  {:scene [:route-66 [:diner :option 3 0] 6]
+   :points/sombra 0
+   :points/junkrat 0
+   :points/pharah 0})
