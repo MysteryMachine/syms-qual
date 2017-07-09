@@ -8,40 +8,46 @@
         (update :route-66/first-chat #(or %1 %2) (keyword name))
         (update (keyword "points" date) + 1))))
 
-(defn talked-all [state]
-  (and
-   (:route-66/reaper state)
-   (:route-66/ana state)
-   (:route-66/roadhog state)))
+(defn talked [& names]
+  (fn [state] (reduce #(and %1 (%2 state)) true names)))
 
 (def option-end
-  [talked-all [:-> [:diner :junkrat]]
-   :else      [:-> [:diner :prepare]]])
+  [(talked :route-66/roadhog :route-66/ana :route-66/reaper) [:-> [:diner :junkrat]]
+   :else [:-> [:diner :prepare]]])
+
+(def reaper-option
+  [:transition :miranda/mutation->basic
+   [[:-> [:diner :option 3 0]]
+    (talk-to "reaper" "sombra")]])
+
+(def ana-option
+  [:transition :miranda/mutation->basic
+   [[:-> [:diner :option 3 1]]
+    (talk-to "ana" "pharah")]])
+
+(def roadhog-option
+  [:transition :miranda/mutation->basic
+   [[:-> [:diner :option 3 2]]
+    (talk-to "roadhog" "junkrat")]])
 
 (def data
   {[:diner :prepare 0]
   [:miranda/text-option
    "You have a few minutes before the match begins, which teammates will you engage with?"
-   ["Reaper"
-    (comp not :route-66/reaper)
-    [:transition :miranda/mutation->basic
-     [[:-> [:diner :option 3 0]]
-      (talk-to "reaper" "sombra")]]]
-   ["Ana"
-    (comp not :route-66/ana)
-    [:transition :miranda/mutation->basic
-     [[:-> [:diner :option 3 1]]
-      (talk-to "ana" "pharah")]]]
-   ["Roadhog"
-    (comp not :route-66/roadhog)
-    [:transition :miranda/mutation->basic
-     [[:-> [:diner :option 3 2]]
-      (talk-to "roadhog" "junkrat")]]]]
+   ["Reaper" (comp not :route-66/reaper) reaper-option]
+   ["Ana" (comp not :route-66/ana) ana-option]
+   ["Roadhog" (comp not :route-66/roadhog) roadhog-option]]
 
   [:diner :prepare]
   [:miranda/text-option
    "What will you do?"
-   "Converse with your other teammates"
+   ["Converse with your other teammates"
+    (constantly true)
+    [:transition :miranda/conditional
+     [(talked :route-66/roadhog :route-66/ana)    reaper-option
+      (talked :route-66/roadhog :route-66/reaper) ana-option
+      (talked :route-66/ana :route-66/reaper)     roadhog-option
+      :else [:-> [:diner :prepare 0]]]]]
    ["Prepare for the attack"
     (constantly true)
     [:-> [:diner :junkrat]]]]
@@ -227,7 +233,7 @@
     "I will not take much. I’d like to avoid the jitters"]
    :-> [:diner :dialogue [:option 3 :roadhog] 1]]
 
-  [:diner :dialogue [:option 3 :roadhog] 1]
+   [:diner :dialogue [:option 3 :roadhog] 1]
   [:miranda/dialogue
    ["Symmetra" []
     "So, what brings you to Overwatch"]

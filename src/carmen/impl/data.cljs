@@ -59,7 +59,7 @@
   (loop [candidates (util/transition-args state graph)]
     (if (seq candidates)
       (let [[[test transition] & rem] candidates]
-        (if (test state)
+        (if (or (= :else test) (test state))
           (let [updated-graph (update-in graph (util/scene-data* state graph) merge transition)]
            (transition-fn state updated-graph options args))
           (recur rem)))
@@ -183,7 +183,7 @@
   [render-type level-name rem-data]
   (let [[minor-subsc [_ minor-trans]] (split-with #(not= :-> %) rem-data)]
    [minor-subsc
-     {:transition/type (render-type->default-transition render-type)
+     {:transition/type :miranda/basic
       :transition/args [level-name minor-trans 0]}]))
 
 (defmethod split-transition :major
@@ -191,7 +191,7 @@
   (let [[major-subsc [_ major-trans]] (split-with #(not= :=> %) rem-data)
         [maj min & [n]] major-trans]
     [major-subsc
-     {:transition/type (render-type->default-transition render-type)
+     {:transition/type :miranda/basic
       :transition/args (if n major-trans [maj min 0])}]))
 
 (defmethod split-transition :stateful
@@ -204,14 +204,9 @@
                    :transition/args reified-trans-args}]))
 
 (defn reify-conditional-pairs [render-type level-name pairs]
-  (mapv #(update
-          % 1
-          (comp
-           second
-           (partial split-transition
-                    render-type
-                    level-name)))
-        pairs))
+  (let [partial-transition (partial split-transition render-type level-name)
+        update-fn (comp second partial-transition)]
+   (mapv #(update % 1 update-fn) pairs)))
 
 (defmethod split-transition :conditional
   [render-type level-name rem-data]
