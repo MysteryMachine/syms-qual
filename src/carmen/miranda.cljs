@@ -31,6 +31,10 @@
   [state transition-fn graph options]
   (render/render-narration state transition-fn graph options))
 
+(defmethod render :miranda/characters
+  [state transition-fn graph options]
+  (render/render-just-characters state transition-fn graph options))
+
 (defmethod render :miranda/dialogue
   [state transition-fn graph options]
   (render/render-dialogue state transition-fn graph options))

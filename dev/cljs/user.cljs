@@ -3,4 +3,5 @@
             [syms-qual.data :refer [graph]]
             [carmen.util :as u]))
 
-(def a 1)
+(defn s [args]
+  (swap! state-atom (fn [s] (assoc s :scene args))))

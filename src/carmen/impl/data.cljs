@@ -144,6 +144,13 @@
       :dialogue dialogue})
    subscenes))
 
+(defmethod reify-subscenes :miranda/characters
+  [level-name scene-name render-type character-graph subscenes]
+  (mapv
+   (fn [[characters]]
+     {:characters (reify-subscene-characters character-graph characters)})
+   subscenes))
+
 (defmethod reify-subscenes :miranda/option
   [level-name scene-name render-type character-graph subscenes]
   (let [[speaker characters & options] subscenes]

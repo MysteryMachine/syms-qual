@@ -15,20 +15,20 @@
 
    [:diner :option 0]
    [:miranda/option
-    "Symmetra" [[:mccree :_coffeePoint] [:ana :_sass (scoot -20)] [:symmetra :_neutral]]
+    "Symmetra" [[:mccree :_coffeeHold] [:ana :_sass (scoot -20)] [:symmetra :_neutral]]
     "I do not know."
     "Vishkar's motivations are not for me to reveal."
     "My conjecture is that Vishkar wants data on you Overwatch anarchists."]
 
    [:diner :option 0 0]
    [:miranda/dialogue
-    ["Symmetra" [[:mccree :_coffeePoint] [:ana :_sass (scoot -20)] [:symmetra :_neutral]]
+    ["Symmetra" [[:mccree :_coffeeHold] [:ana :_sass (scoot -20)] [:symmetra :_neutral]]
      "As a Vishkar agent, I am often required to perform my duties without direct explanation from executives. If every part of the machine questioned the machinemaker, it could not operate efficiently. Vishkar is committed to bringing order to the world. Knowing that is enough to comfort my curiosity. How about you two? Today, will be acting with a Gabriel Reyes -"]
     :-> [:diner :dialogue 1]]
 
    [:diner :option 0 1]
    [:miranda/dialogue
-    ["Symmetra" [[:mccree :_coffeePoint] [:ana :_sass (scoot -20)] [:symmetra :_neutral]]
+    ["Symmetra" [[:mccree :_coffeeHold] [:ana :_sass (scoot -20)] [:symmetra :_neutral]]
      "I am much more concerned with performing my function in the here and now. Our remaining teammates are yet to arrive. We still have Amelie, Mako and Gabriel - "]
     :-> [:diner :dialogue 1]]
 
@@ -42,9 +42,9 @@
    [:miranda/dialogue
     ["McCree" [[:mccree :_coffeeDrink] [:ana :_cranky (scoot -20)] [:symmetra :_neutral]]
      "Reaper!"]
-    ["Symmetra" [[:mccree :_coffeeDrink] [:ana :_cranky (scoot -20)] [:symmetra :_confused]]
+    ["Symmetra" [[:mccree :_coffeeDrink] [:ana :_sass (scoot -20)] [:symmetra :_confused]]
      "Excuse me?"]
-    ["McCree" [[:mccree :_coffeeHold] [:ana :_cranky (scoot -20)] [:symmetra :_neutral]]
+    ["McCree" [[:mccree :_coffeeHold] [:ana :_sass (scoot -20)] [:symmetra :_neutral]]
      "It’s Reaper. He prefers to go by Reaper."]
     ["Ana" [[:mccree :_coffeeHold] [:ana :_drink (scoot -20)] [:symmetra :_neutral]]
      "He sure does."]
@@ -56,9 +56,9 @@
      "I, personally, enjoy the thrill of going, “it’s high noon” and shooting a bunch of technicolor weirdos. Well, that and sitting on the payload with my boyfriend."]
     ["Symmetra" [[:mccree :_coffeeHold] [:ana :_sass (scoot -20)] [:symmetra :_explain]]
      "You engage in a deathsport where you are revived from the dead dozens of times for commendations and...a catchphrase. That’s -"]
-    ["Reaper" [[:mccree :_coffeeSteal] [:ana :_cranky (scoot -20)] [:symmetra :_neutral]]
+    ["Reaper" [[:mccree :_coffeeSteal] [:ana :_cranky (scoot -20)] [:symmetra :_bewildered]]
      "DEATH COMES."]
-    ["Reaper" [[:symmetra :_confused (scoot 0 10 1)] [:reaper :_spit (scoot 10)] [:mccree :_laugh (scoot 0 -10 1)] [:ana :_roll-eyes (scoot -20 -25 1)]]
+    ["Reaper" [[:symmetra :_confused (scoot 0 10 0.5)] [:reaper :_spit (scoot 10)] [:mccree :_laugh (scoot 0 -10 0.5)] [:ana :_roll-eyes (scoot -20 -25 0.5)]]
      "OH MERCIFUL MUERTE WHAT IS THIS CRAP."]
     ["McCree" [[:reaper :_exasperated (scoot 10)] [:mccree :_laugh (scoot -10)] [:ana :_roll-eyes (scoot -25)] [:symmetra :_eyeRoll (scoot 10)]]
      "Haha! I told you ol’ edgy couldn’t help himself. This coffee’s terrible!"]
@@ -68,7 +68,7 @@
      "Oh, Mako? Mako’s having some calm meditation time."]
     ["Reaper" [[:reaper :_explain (scoot 10)] [:mccree :_neutral (scoot -10)] [:ana :_cranky (scoot -25)] [:symmetra :_neutral (scoot 10)]]
      "WHY IS HE NOT GETTING PUMPED?"]
-    ["Ana" [[:reaper :_neutral (scoot 10)] [:mccree :_neutral (scoot -10)] [:ana :_drink (scoot -25)] [:symmetra :_neutral (scoot 10)]]
+    ["Ana" [[:reaper :_neutral (scoot 10)] [:mccree :_neutral (scoot -10)] [:ana :_drink (scoot -25)] [:symmetra :_neutral (scoot 10)]] 
      "Gabriel, darling, not everyone gets ready for action by shooting plates and cutlery."]
     ["Reaper" [[:reaper :_point-up (scoot 10)] [:mccree :_neutral (scoot -10)] [:ana :_sass (scoot -25)] [:symmetra :_neutral (scoot 10)]]
      "AND GRAFFITI."]
@@ -101,7 +101,7 @@
 
    [:diner :option 1 2]
    [:miranda/dialogue
-    ["Reaper" [[:reaper :_extra (scoot 10)] [:mccree :_phoneTexting (scoot -10)] [:ana :_cranky (scoot -25)] [:symmetra :_neutral (scoot 10)]]
+    ["Reaper" [[:reaper :_extra (scoot 10)] [:mccree :_phoneTexting (scoot -10)] [:ana :_cranky (scoot -25)] [:symmetra :_awkward (scoot 10)]]
      "THIS COMBINATION IS THE HEIGHT OF THE META, NO ONE HAS A STRONG COUNTER."]
     :-> [:diner :dialogue 2]]
 
@@ -109,7 +109,7 @@
    [:miranda/dialogue
     ["Ana" [[:reaper :_neutral (scoot 10)] [:mccree :_phoneTexting (scoot -10)] [:ana :_drink (scoot -25)] [:symmetra :_neutral (scoot 10)]]
      "And yet last time we tried it, you let Lucio blast dubstep onto you, shooting you straight into a pit."]
-    ["Reaper" [[:reaper :_explain (scoot 10)] [:mccree :_neutral (scoot -10)] [:ana :_drink (scoot -25)] [:symmetra :_neutral (scoot 10)]]
+    ["Reaper" [[:reaper :_point-up (scoot 10)] [:mccree :_neutral (scoot -10)] [:ana :_drink (scoot -25)] [:symmetra :_neutral (scoot 10)]]
      "SHAPE GIRL. IT WILL BE YOUR JOB TO ENSURE LUCIO DOES NOT COME CLOSE TO ME. MAKE HIS LIFE HELL."]
     :=> [:route-66 [:diner :option 2]]]
 
@@ -136,7 +136,7 @@
 
    [:diner :option 2 2]
    [:miranda/dialogue
-    ["Symmetra" [[:reaper :_neutral (scoot 10)] [:mccree :_neutral (scoot -10)] [:ana :_drink (scoot -25)] [:symmetra :_neutral (scoot 10)]]
+    ["Symmetra" [[:reaper :_neutral (scoot 10)] [:mccree :_neutral (scoot -10)] [:ana :_drink (scoot -25)] [:symmetra :_explain (scoot 10)]]
      "You are much more suited to hunt down such a target. I will stay on the payload."]
     ["Reaper" [[:reaper :_exasperated (scoot 10)] [:mccree :_neutral (scoot -10)] [:ana :_drink (scoot -25)] [:symmetra :_neutral (scoot 10)]]
      "WHERE IS SOMBRA WHEN YOU NEED HER? SHE WOULD LISTEN TO ME."]

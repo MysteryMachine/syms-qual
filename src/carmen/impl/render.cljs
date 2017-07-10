@@ -161,6 +161,16 @@
             (util/style state graph))}
    (narration-textbox state transition-fn graph options)])
 
+(defn render-just-characters
+  [{:keys [window] :as state} transition-fn graph options]
+  [:div.base-scene.just-characters
+   {:style (merge
+            {:height (px (:y window))
+             :width (px (:x window))}
+            (util/style state graph))
+    :on-click transition-fn}
+   (render-characters (util/actors state graph) (:miranda/time state))])
+
 (defn render-dialogue
   [{:keys [window] :as state} transition-fn graph options]
   [:div.base-scene

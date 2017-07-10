@@ -16,9 +16,9 @@
 
    "route_66_diner"
    "route_66_street"
-   "route66Ana"
-   "route66Hog"
-   "route66Reaper"
+   "route_66_ana"
+   "route_66_hog"
+   "route_66_reaper"
 
    "volskaya_spawn"
    "VolskayaZenyatta"])

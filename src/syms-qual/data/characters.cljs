@@ -62,6 +62,8 @@
     "_triggerAdoringBlush"
     "_triggerExplain"
     "_triggerIntro"
+    "_triggerNeutral"
+    "_triggerSmile"
     "_triggerWave"
     "_triggerWink"]
 
@@ -88,14 +90,15 @@
     "_laugh"
     "_neutral"
     "_phoneShow"
-    "_phoneSteal"
+    "_phoneSteals"
+    "_phoneSteal2"
     "_phoneTexting"
     "_selfie"]
 
    "Orisa"
    ["_neutral"]
 
-   "Pharah" ;;
+   "Pharah"
    ["_AnguishGay"
     "_anguishMild"
     "_cold"
@@ -144,11 +147,11 @@
     "_wanted"]
 
    "Reaper"
-   ["_evanescence"
-    "_exasperated"
+   ["_exasperated"
     "_explain"
     "_extra"
     "_fingerGuns"
+    "_headphones"
     "_leave"
     "_neutral"
     "_phoneCheck"
@@ -160,6 +163,7 @@
    "Roadhog"
    ["_drink"
     "_neutral"
+    "_neutral2"
     "_shrug"]
 
    "Soldier76"
@@ -206,6 +210,7 @@
    "Symmetra"
    ["_1000Mile"
     "_angry"
+    "_awkward"
     "_bewildered"
     "_bored"
     "_confused"
@@ -216,6 +221,7 @@
     "_explain"
     "_explainAngry"
     "_explainUncomfortable"
+    "_explainWTF"
     "_eyeRoll"
     "_flirty"
     "_frown"
@@ -235,6 +241,7 @@
     "_noUncomfortable"
     "_pointBack"
     "_sadSmile"
+    "_sass"
     "_skeptical"
     "_smile"
     "_smug"

@@ -105,3 +105,7 @@ body{
 .options.option-inner:hover{
     color: #FFF;
 }
+
+.just-characters{
+    cursor: pointer;
+}
