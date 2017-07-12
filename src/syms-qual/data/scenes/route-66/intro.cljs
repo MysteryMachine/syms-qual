@@ -126,13 +126,13 @@
      "It will be my pleasure to ensure that he is unable to pose an effective threat to our operation."]
     ["Reaper" [[:reaper :_point-up (scoot 10)] [:mccree :_neutral (scoot -10)] [:ana :_sass (scoot -25)] [:symmetra :_neutral (scoot 10)]]
      "WONDERFUL. I WILL COMPLETE MY PREPARATIONS IN SOLITUDE."]
-    :-> [:diner :option 3]]
+    :-> [:diner :prepare 0]]
 
    [:diner :option 2 1]
    [:miranda/dialogue
     ["Reaper" [[:reaper :_point-up (scoot 10)] [:mccree :_neutral (scoot -10)] [:ana :_sass (scoot -25)] [:symmetra :_neutral (scoot 10)]]
      "MY GRUDGES ARE CRITICAL. REVENGE WILL BE HAD. NOW. I HAVE TO GO LISTEN TO SOME MUSIC BEFORE THE MATCH BEGINS."]
-    :-> [:diner :option 3]]
+    :-> [:diner :prepare 0]]
 
    [:diner :option 2 2]
    [:miranda/dialogue

@@ -10,7 +10,7 @@
 
 (def transition-state-ptr [internal-state-key :miranda/transition])
 
-(def prev-scene-ptr (conj transition-state-ptr :miranda/prev-state))
+(def animation-name-ptr (conj transition-state-ptr :miranda/animation-name))
 
 ;; --- State Functions ---
 
@@ -19,7 +19,7 @@
    state-atom
    (fn [state]
      (-> state
-         (assoc-in prev-scene-ptr (:scene state))
+         (assoc-in animation-name-ptr (:scene state))
          (assoc :miranda/time 0)))))
 
 (defn create-animation-event! [state-atom period]
@@ -28,13 +28,13 @@
      (swap!
       state-atom
       (fn [state]
-        (let [prev-scene (get-in state prev-scene-ptr)
+        (let [animation-name (get-in state animation-name-ptr)
               current-scene (:scene state)]
-          (if (= prev-scene current-scene)
+          (if (= animation-name current-scene)
             (update state :miranda/time + period)
             (-> state
                 (assoc :miranda/time 0)
-                (assoc-in prev-scene-ptr current-scene)))))))
+                (assoc-in animation-name-ptr current-scene)))))))
    period))
 
 (defn basic-transition [state graph options]
