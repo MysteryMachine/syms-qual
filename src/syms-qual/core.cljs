@@ -17,6 +17,6 @@
   {:miranda/click-delay 100
    :miranda/auto-save true})
 
-(defonce state-atom (atom base-state))
+(defonce state-atom (reagent.core/atom base-state))
 
 (miranda/samba! "app" state-atom graph options)

@@ -118,13 +118,13 @@
 
 (defn reify-subscene-characters [character-graph characters]
   (mapv
-   (fn [[name expression & [{:keys [alignment] :as animation-map}]]]
+   (fn [[name expression & [{:keys [finish] :as animation-map}]]]
      (let [character-base (get-in character-graph [name expression])]
        (merge
         animation-map
         {:name name
          :expression expression
-         :alignment (or alignment (:alignment character-base) [0 0])
+         :finish (or finish (:finish character-base) [0 0])
          :img (:img character-base)})))
    characters))
 

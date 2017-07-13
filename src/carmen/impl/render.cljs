@@ -5,7 +5,8 @@
 (defn render-character-xf [elapsed-time]
   (map
    (fn [{:keys [img] :as animation-map}]
-     (let [[x y] (util/tween animation-map elapsed-time)]
+     (let [{[x y] :position}
+           (util/tween animation-map elapsed-time)]
        [:div.character
         {:style
          {:background-image img

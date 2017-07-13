@@ -84,7 +84,8 @@
            (fn [state]
              (data/guard-transition transition state graph options args)))]
       (when (:miranda/auto-save options)
-        (util/save! (:save-name state :miranda/save) state)))))
+        (util/save! (:save-name state :miranda/save) state))
+      state)))
 
 (defn render-game-inner [state-atom transition-fn graph options]
   (let [state @state-atom]
@@ -116,7 +117,7 @@
    (doseq [arg args]
      (case arg
        :animation (animation! state-atom 24)
-       :resize (register-listener! state-atom "resize" (resize-event state-atom) true)))))
+       "resize" (register-listener! state-atom "resize" (resize-event state-atom) true)))))
 
 (defn samba! [root-id state-atom graph options]
   (let [app (reagent-component state-atom graph options)]

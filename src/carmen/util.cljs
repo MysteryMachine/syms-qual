@@ -151,7 +151,7 @@
         dy (- fy iy)
         dt-by-t (/ elapsed-time time)
         pct (if (> dt-by-t 1) 1 dt-by-t)]
-    [(+ ix (* dx pct)) (+ iy (* dy pct))]))
+    {:position [(+ ix (* dx pct)) (+ iy (* dy pct))]}))
 
 (defn cubic-tween [x]
   (- (* 3 x x) (* 2 x x x)))
@@ -166,8 +166,8 @@
         dx (- fx ix)
         dy (- fy iy)]
     (if done? fpos
-        [(+ ix (* dx (cubic-tween dt-by-t)))
-         (+ iy (* dy (cubic-tween dt-by-t)))])))
+        {:position [(+ ix (* dx (cubic-tween dt-by-t)))
+                    (+ iy (* dy (cubic-tween dt-by-t)))]})))
 
 (defmethod tween :default
   [animation-map elapsed-time]
