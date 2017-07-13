@@ -1,5 +1,5 @@
 (ns syms-qual.data.scenes.route-66.dates
-  (:require [syms-qual.data.animation :as anim :refer [scoot]]))
+  (:require [carmen.util :as anim :refer [scoot move fade-out]]))
 
 (defn first-chat [char]
   #(= char (:route-66/first-chat %)))
@@ -131,7 +131,7 @@
      "The round is starting. You should hurry."]
     ["Symmetra" [[:sombra :_smile (scoot -10)] [:symmetra :_smile]]
      "I don’t believe we exchanged proper introductions. My real name is Satya."]
-    ["Sombra" [[:sombra :_camo (scoot -10)] [:symmetra :_smile]]
+    ["Sombra" [[:sombra :_camo (fade-out [-10 0] 1)] [:symmetra :_smile]]
      "And mine is Sombra. Call it another hack. Hasta."]
     :transition :miranda/conditional
     [(first-chat :ana)     [:-> [:ana]]
@@ -249,11 +249,7 @@
      "Um. Like. It’s all set. You know. Um. I have to jet."]
     ["Symmetra" [[:pharah :_helmetNervous (scoot -15)] [:symmetra :_confused]]
      "I have to jet?"]
-    ["Symmetra" [[:pharah :_flying
-                  {:alignment [-15 0]
-                   :animate [-15 -100]
-                   :time 1000
-                   :tween-type :miranda/basic}]
+    ["Symmetra" [[:pharah :_flying (move [-15 0] [-15 -100] 2)]
                  [:symmetra :_bewildered]]
      "Oh."]
     :-> [:street :finale]]

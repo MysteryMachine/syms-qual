@@ -1,5 +1,5 @@
 (ns syms-qual.data.scenes.route-66.intro
-  (:require [syms-qual.data.animation :as anim :refer [scoot]]))
+  (:require [carmen.util :as anim :refer [scoot]]))
 
 (def data
   {[:diner :intro]

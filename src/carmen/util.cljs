@@ -3,7 +3,8 @@
    for a vector that, when used with assoc-in, update-in, or get-in, addresses the proper
    section of the data structure."
   (:require [cljs.reader :refer [read-string]]
-            [clojure.string :as str]))
+            [clojure.string :as str]
+            [carmen.impl.utils :as impl]))
 
 (defn px [s] (str s "px"))
 (defn pct [s] (str s "%"))
@@ -144,34 +145,48 @@
     (:tween-type animation-map)))
 
 (defmethod tween :miranda/basic
-  [{:keys [tween-type start finish time]} elapsed-time]
-  (let [[ix iy] (:position start)
-        [fx fy] (:position finish)
-        dx (- fx ix)
-        dy (- fy iy)
-        dt-by-t (/ elapsed-time time)
-        pct (if (> dt-by-t 1) 1 dt-by-t)]
-    {:position [(+ ix (* dx pct)) (+ iy (* dy pct))]}))
-
-(defn cubic-tween [x]
-  (- (* 3 x x) (* 2 x x x)))
+  [animation-map elapsed-time]
+  (impl/generic-tween animation-map elapsed-time impl/linear-tween))
 
 (defmethod tween :miranda/cubic
-  [{:keys [tween-type start finish time]} elapsed-time]
-  (let [fpos (:position finish)
-        [ix iy] (:position start)
-        [fx fy] fpos
-        dt-by-t (/ elapsed-time time)
-        done? (> dt-by-t 1)
-        dx (- fx ix)
-        dy (- fy iy)]
-    (if done? fpos
-        {:position [(+ ix (* dx (cubic-tween dt-by-t)))
-                    (+ iy (* dy (cubic-tween dt-by-t)))]})))
+  [animation-map elapsed-time]
+  (impl/generic-tween animation-map elapsed-time impl/cubic-tween))
 
 (defmethod tween :default
   [animation-map elapsed-time]
   (:finish animation-map))
+
+(defn scoot
+  ([n]
+   {:finish {:position [n 0]}})
+  ([n m t]
+   {:start {:position [n 0]}
+    :finish {:position [m 0]}
+    :time (* 1000 t)
+    :tween-type :miranda/cubic}))
+
+(defn move
+  [i f t]
+  {:start {:position i}
+   :finish {:position f}
+   :time (* 1000 t)
+   :tween-type :miranda/cubic})
+
+(defn fade-in [pos t]
+  {:finish {:position pos
+            :opacity 1}
+   :start {:position pos
+           :opacity 0}
+   :time (* 1000 t)
+   :tween-type :miranda/cubic})
+
+(defn fade-out [pos t]
+  {:start {:position pos
+           :opacity 1}
+   :finish {:position pos
+            :opacity 0}
+   :time (* 1000 t)
+   :tween-type :miranda/cubic})
 
 (defn save! [file state]
   (set! js/document.cookie (str (name file) "=" state ";")))

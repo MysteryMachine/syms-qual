@@ -1,5 +1,5 @@
 (ns syms-qual.data.scenes.route-66.options
-  (:require [syms-qual.data.animation :as anim :refer [scoot]]))
+  (:require [carmen.util :as anim :refer [scoot]]))
 
 (defn talk-to [name date]
   (fn [state]

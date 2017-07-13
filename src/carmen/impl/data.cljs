@@ -116,15 +116,22 @@
 
 ;; --- Scene Functions ---
 
+(def default-finish
+  {:position [0 0]
+   :opacity  1})
+
+(def default-start default-finish)
+
 (defn reify-subscene-characters [character-graph characters]
   (mapv
-   (fn [[name expression & [{:keys [finish] :as animation-map}]]]
+   (fn [[name expression & [{:keys [finish start] :as animation-map}]]]
      (let [character-base (get-in character-graph [name expression])]
        (merge
         animation-map
         {:name name
          :expression expression
-         :finish (or finish (:finish character-base) [0 0])
+         :start (merge default-start (:start character-base) start)
+         :finish (merge default-finish (:finish character-base) finish)
          :img (:img character-base)})))
    characters))
 

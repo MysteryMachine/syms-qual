@@ -5,12 +5,13 @@
 (defn render-character-xf [elapsed-time]
   (map
    (fn [{:keys [img] :as animation-map}]
-     (let [{[x y] :position}
+     (let [{[x y] :position opacity :opacity}
            (util/tween animation-map elapsed-time)]
        [:div.character
         {:style
          {:background-image img
           :left (pct x)
+          :opacity (str opacity)
           :top (pct y)}}]))))
 
 (defn render-characters [characters elapsed-time]
