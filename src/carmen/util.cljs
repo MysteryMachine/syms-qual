@@ -151,6 +151,21 @@
         pct (if (> dt-by-t 1) 1 dt-by-t)]
     [(+ ix (* dx pct)) (+ iy (* dy pct))]))
 
+(defn cubic-tween [x]
+  (- (* 3 x x) (* 2 x x x)))
+ 
+(defmethod tween :miranda/cubic
+  [{:keys [tween-type alignment animate time]} elapsed-time]
+  (let [dt-by-t (/ elapsed-time time)
+        done? (> dt-by-t 1)
+        [ix iy] alignment
+        [fx fy] animate
+        dx (- fx ix)
+        dy (- fy iy)]
+    (if done? animate
+        [(+ ix (* dx (cubic-tween dt-by-t)))
+         (+ iy (* dy (cubic-tween dt-by-t)))])))
+
 (defmethod tween :default
   [animation-map elapsed-time]
   (:alignment animation-map))

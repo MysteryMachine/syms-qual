@@ -212,4 +212,4 @@
      [:div.preload {:style empty-style}]
      (map
       (fn [img] [:div {:style (merge empty-style {:background-image img})}]))
-     (:miranda/preload scene))))
+     (:miranda.internal/preload scene))))

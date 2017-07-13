@@ -16,7 +16,7 @@
      "What is this snickering I hear at the door? Is a foe setting up a trap?"]
     ["???" [[:symmetra :_frown (scoot -25)]]
      "Hee hee hee hee."]
-    ["Symmetra" [[:junkrat :_triggerWave (scoot -65 -10 1)] [:symmetra :_frown (scoot -25 0 0.5)]]
+    ["Symmetra" [[:junkrat :_triggerWave (scoot -65 -10 3)] [:symmetra :_frown (scoot -25 0 2)]]
      "Just what do you think you’re doing?"]
     ["Junkrat" [[:junkrat :_fibbin (scoot -10)] [:symmetra :_frown]]
      "Oi! Oh! Wowee! Why hello there! Fine weather we’re having!"]

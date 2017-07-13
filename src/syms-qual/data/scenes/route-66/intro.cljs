@@ -58,7 +58,7 @@
      "You engage in a deathsport where you are revived from the dead dozens of times for commendations and...a catchphrase. That’s -"]
     ["Reaper" [[:mccree :_coffeeSteal] [:ana :_cranky (scoot -20)] [:symmetra :_bewildered]]
      "DEATH COMES."]
-    ["Reaper" [[:symmetra :_confused (scoot 0 10 0.5)] [:reaper :_spit (scoot 10)] [:mccree :_laugh (scoot 0 -10 0.5)] [:ana :_roll-eyes (scoot -20 -25 0.5)]]
+    ["Reaper" [[:symmetra :_confused (scoot 0 10 2)] [:reaper :_spit (scoot 10)] [:mccree :_laugh (scoot 0 -10 2)] [:ana :_roll-eyes (scoot -20 -25 2)]]
      "OH MERCIFUL MUERTE WHAT IS THIS CRAP."]
     ["McCree" [[:reaper :_exasperated (scoot 10)] [:mccree :_laugh (scoot -10)] [:ana :_roll-eyes (scoot -25)] [:symmetra :_eyeRoll (scoot 10)]]
      "Haha! I told you ol’ edgy couldn’t help himself. This coffee’s terrible!"]

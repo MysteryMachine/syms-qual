@@ -5,4 +5,4 @@
   ([n m t] {:alignment [n 0]
             :animate [m 0]
             :time (* 1000 t)
-            :tween-type :miranda/basic}))
+            :tween-type :miranda/cubic}))

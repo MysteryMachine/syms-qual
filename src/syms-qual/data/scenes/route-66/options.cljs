@@ -110,7 +110,7 @@
    [:miranda/dialogue
     ["Symmetra" [[:symmetra :_embarassed (scoot -25)]]
      "What a striking agent. I have heard tales of her sabotaging Vishkar operations in Mexico. She is the enemy, but I can’t help but stare!"]
-    ["Reaper" [[:reaper :_point-up (scoot -75 -10 1)] [:symmetra :_embarassed (scoot -25 0 0.5)]]
+    ["Reaper" [[:reaper :_point-up (scoot -75 -10 3)] [:symmetra :_embarassed (scoot -25 0 2)]]
      "SHE WILL HACK HEALTHPACKS, WHICH IS CRITICAL SINCE ANA SPENDS MORE TIME SHOOTING THE ENEMY THAN HEALING. THANKFULLY, WE HAVE YOU AS ADDITIONAL SUPPORT."]
     ["Symmetra" [[:reaper :_neutral (scoot -10)] [:symmetra :_explain]]
      "Healing is not part of my functions. I have turrets, shields both personal and mobile, teleporters, slow zoning projectiles, and a low range homing laser."]
@@ -208,7 +208,7 @@
      "It's Pharah in the gym squatting some serious weight with Mercy spotting, behind Hanzo and McCree in a selfie, Ana quickly snatches the phone away."]
     ["Symmetra" [[:symmetra :_embarassed (scoot -25)]]
      "Such power. I can see in her eyes that she is a woman of much discipline. I admire that."]
-    ["Ana" [[:mccree :_phoneSteal (scoot -60 -0 1)] [:symmetra :_embarassed (scoot -25 0 0.5)]]
+    ["Ana" [[:mccree :_phoneSteal (scoot -60 -0 3)] [:symmetra :_embarassed (scoot -25 0 2)]]
      "This is mine now. You’re not getting it back."]
     ["McCree" [[:mccree :_phoneSteal2] [:ana :_cranky (scoot -20)] [:symmetra :_neutral]]
      "But Hanzo hasn’t sent me a selfie back."]

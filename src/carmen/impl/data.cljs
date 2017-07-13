@@ -278,7 +278,7 @@
              {:style {:background-image bg-img}
               :render-type render-type
               :subscenes reified-subscenes
-              :preload (into #{} subscene-preload reified-subscenes)})])))))
+              :miranda.internal/preload (into #{} subscene-preload reified-subscenes)})])))))
 
 (defn reify-scenes-xf [character-graph bgs]
   (map
@@ -291,9 +291,9 @@
    (fn [[scene-name scene-data]]
      [scene-name
       (assoc
-       scene-data :miranda/preload
+       scene-data :miranda.internal/preload
        (into #{(:background-image scene-data)}
-             (mapcat (comp :preload second))
+             (mapcat (comp :miranda.internal/preload second))
              scene-data))])))
 
 (defn reify-scenes [character-graph bgs structure]
