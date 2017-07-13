@@ -131,12 +131,13 @@
      "The round is starting. You should hurry."]
     ["Symmetra" [[:sombra :_smile (scoot -10)] [:symmetra :_smile]]
      "I don’t believe we exchanged proper introductions. My real name is Satya."]
-    ["Sombra" [[:sombra :_camo (fade-out [-10 0] 1)] [:symmetra :_smile]]
+    ["Sombra" [[:sombra :_camo (fade-out [-10 0] 2)] [:symmetra :_smile]]
      "And mine is Sombra. Call it another hack. Hasta."]
     :transition :miranda/conditional
     [(first-chat :ana)     [:-> [:ana]]
-     (first-chat :reaper)  [:-> [:hog]]
-     (first-chat :roadhog) [:-> [:reaper]]]]
+     (first-chat :reaper)  [:-> [:reaper]]
+     (first-chat :roadhog) [:-> [:hog]]
+     :else [:-> [:hog]]]]
 
    [:reaper]
    [:miranda/characters
@@ -146,27 +147,27 @@
    [:reaper :dialogue]
    [:miranda/narration
     "Reaper was distraught this round. Between Ana Nanoboosting you, and his dismay at recruiting a support who was not a real support, he could maintain his composure. By the end of the round, he was charging alone headfirst into the enemy team, neglecting any attempt at proper positioning. With your team perpetually split, the enemy succeeded in capturing relatively quickly."
-    :-> [:diner :dialogue 7]]
+    :-> [:street :dialogue 7]]
 
-   [:route66Hog]
+   [:hog]
    [:miranda/characters
     [[]]
-    :-> [:route66Hog :dialogue]]
+    :-> [:hog :dialogue]]
 
-   [:route66Hog :dialogue]
+   [:hog :dialogue]
    [:miranda/narration
     "The final round was hotly contested, and you almost succeeded in holding the first choke, pushing the point into Overtime until Junkrat and Sombra managed to obliterate half your team, blowing them up with two well co-ordinated ultimates. Your team held decently in the subsequent parts of the map, but lost the final point in Overtime."
-    :-> [:diner :dialogue 7]]
+    :-> [:street :dialogue 7]]
 
-   [:route66Ana]
+   [:ana]
    [:miranda/characters
     [[]]
-    :-> [:route66Ana :dialogue]]
+    :-> [:ana :dialogue]]
 
-   [:route66Ana :dialogue]
+   [:ana :dialogue]
    [:miranda/narration
     "Ana’s advice paid off this round. You kept your teleporter outside of Junkrat and Pharah’s artillery range, and you covered Sombra’s several flanking routes, severely reducing her effectiveness in combat. You held out the first point into a deep Overtime contest, and managed to squeak by a win as your teleporter pushed your entire team back to the frontline to support Roadhog."
-    :-> [:diner :dialogue 7]]
+    :-> [:street :dialogue 7]]
 
    [:street :dialogue 7]
    [:miranda/dialogue

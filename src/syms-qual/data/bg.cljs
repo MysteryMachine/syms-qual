@@ -5,14 +5,15 @@
   ["anubis_cafe"
    "anubis_flashback"
    "anubis_spawn"
-   "AnubisGenji"
-   "AnubisPharah"
-   "AnubisPharahB"
-   "AnubisZarya"
+   "anubis_genji"
+   "anubis_pharah"
+   "anubis_pharah_b"
+   "anubis_zarya"
 
    "hollywood_objective"
    "hollywood_set"
    "hollywood_theatre"
+   "hollywood_soldier"
 
    "route_66_diner"
    "route_66_street"
@@ -21,7 +22,7 @@
    "route_66_reaper"
 
    "volskaya_spawn"
-   "VolskayaZenyatta"])
+   "volskaya_zenyatta"])
 
 (def options
   {:path "img/Backgrounds/"
