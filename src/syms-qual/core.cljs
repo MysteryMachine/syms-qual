@@ -1,22 +1,22 @@
 (ns syms-qual.core
-  (:require [reagent.core :as reagent :refer [atom]]
-            [carmen.miranda :as miranda]
-            [syms-qual.data :refer [base-state graph]]))
+  (:require [carmen.miranda :as miranda]
+            [syms-qual.data.scenes :as scenes]))
 
 (enable-console-print!)
 
-(defonce state-atom (atom base-state))
+(def graph
+  {:scenes scenes/data})
+
+(def base-state
+  {:scene [:route-66 [:diner :intro] 0]
+   :points/sombra 0
+   :points/junkrat 0
+   :points/pharah 0})
 
 (def options
-  {:miranda/click-delay 100})
+  {:miranda/click-delay 100
+   :miranda/auto-save true})
 
-(def app (miranda/samba state-atom graph options))
+(defonce state-atom (atom base-state))
 
-;; TODO: This is ripe for a more declarative interface
-(let [root (. js/document (getElementById "app"))]
-  (miranda/clear-listeners!)
-  (miranda/register-listener! state-atom "resize" (miranda/resize-event state-atom) true)
-  (miranda/animation! state-atom 24)
-  (reagent/render [app] root))
-
-
+(miranda/samba! "app" state-atom graph options)

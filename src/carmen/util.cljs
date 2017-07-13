@@ -1,7 +1,9 @@
 (ns carmen.util
   "All the helpers here all built off of pointers. A pointer, in this case, is a nickname
    for a vector that, when used with assoc-in, update-in, or get-in, addresses the proper
-   section of the data structure.")
+   section of the data structure."
+  (:require [cljs.reader :refer [read-string]]
+            [clojure.string :as str]))
 
 (defn px [s] (str s "px"))
 (defn pct [s] (str s "%"))
@@ -169,3 +171,18 @@
 (defmethod tween :default
   [animation-map elapsed-time]
   (:alignment animation-map))
+
+(defn save! [file state]
+  (set! js/document.cookie (str (name file) "=" state ";")))
+
+(defn load!
+  ([file]
+   (get (load!) file))
+  ([]
+   (as-> js/document.cookie <>
+     (str/split <> #"; ")
+     (into {}
+           (map (fn [s]
+                  (let [[k v] (str/split s #"=")]
+                    [(keyword k) (read-string v)])))
+           <>))))

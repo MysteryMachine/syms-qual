@@ -1,5 +1,6 @@
 (ns carmen.miranda
-  (:require [carmen.impl.render :as render]
+  (:require [reagent.core :as reagent]
+            [carmen.impl.render :as render]
             [carmen.impl.data :as data]
             [carmen.util :as util]))
 
@@ -77,12 +78,13 @@
 (defn transition!
   [state-atom graph options]
   (fn [args]
-    (data/save!
-     :save
-     (swap!
-       state-atom
-       (fn [state]
-         (data/guard-transition transition state graph options args))))))
+    (let [state
+          (swap!
+           state-atom
+           (fn [state]
+             (data/guard-transition transition state graph options args)))]
+      (when (:miranda/auto-save options)
+        (util/save! (:save-name state :miranda/save) state)))))
 
 (defn render-game-inner [state-atom transition-fn graph options]
   (let [state @state-atom]
@@ -101,8 +103,22 @@
         event (data/create-animation-event! state-atom period)]
     (swap! -state #(assoc % :miranda/animation event))))
 
-(defn samba [state-atom graph options]
+(defn reagent-component [state-atom graph options]
   (let [transition-fn (transition! state-atom graph options)]
    (fn render-game []
       [render-game-inner state-atom transition-fn graph options])))
 
+(defn listen!
+  ([state-atom]
+   (listen! state-atom #{:animation "resize"}))
+  ([state-atom args]
+   (clear-listeners!)
+   (doseq [arg args]
+     (case arg
+       :animation (animation! state-atom 24)
+       :resize (register-listener! state-atom "resize" (resize-event state-atom) true)))))
+
+(defn samba! [root-id state-atom graph options]
+  (let [app (reagent-component state-atom graph options)]
+    (listen! state-atom)
+    (reagent/render [app] (. js/document (getElementById root-id)))))
