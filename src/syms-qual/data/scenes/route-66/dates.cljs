@@ -1,5 +1,5 @@
 (ns syms-qual.data.scenes.route-66.dates
-  (:require [carmen.util :as anim :refer [scoot move fade-out]]))
+  (:require [carmen.util :as anim :refer [scoot qmove fade-out]]))
 
 (defn first-chat [char]
   #(= char (:route-66/first-chat %)))
@@ -250,7 +250,7 @@
      "Um. Like. It’s all set. You know. Um. I have to jet."]
     ["Symmetra" [[:pharah :_helmetNervous (scoot -15)] [:symmetra :_confused]]
      "I have to jet?"]
-    ["Symmetra" [[:pharah :_flying (move [-15 0] [-15 -100] 2)]
+    ["Symmetra" [[:pharah :_flying (qmove [0 0] [0 -1000] 10)]
                  [:symmetra :_bewildered]]
      "Oh."]
     :-> [:street :finale]]

@@ -12,6 +12,11 @@
   (let [p (-- t tf)]
     (+ i (* (- f i) (- (* 3 p p) (* 2 p p p))))))
 
+(defn quadratic-tween
+  [i f t tf]
+  (let [p (-- t tf)]
+    (+ i (* (- f i) (* p p)))))
+
 (defn generic-tween
   [{:keys [tween-type start finish time]} elapsed-time transition-fn]
   (let [[xi yi] (:position start [0 0])

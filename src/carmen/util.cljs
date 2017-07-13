@@ -144,9 +144,13 @@
   (fn [animation-map elapsed-time]
     (:tween-type animation-map)))
 
-(defmethod tween :miranda/basic
+(defmethod tween :miranda/linear
   [animation-map elapsed-time]
   (impl/generic-tween animation-map elapsed-time impl/linear-tween))
+
+(defmethod tween :miranda/quadratic
+  [animation-map elapsed-time]
+  (impl/generic-tween animation-map elapsed-time impl/quadratic-tween))
 
 (defmethod tween :miranda/cubic
   [animation-map elapsed-time]
@@ -170,6 +174,20 @@
   {:start {:position i}
    :finish {:position f}
    :time (* 1000 t)
+   :tween-type :miranda/linear})
+
+(defn qmove
+  [i f t]
+  {:start {:position i}
+   :finish {:position f}
+   :time (* 1000 t)
+   :tween-type :miranda/quadratic})
+
+(defn cmove
+  [i f t]
+  {:start {:position i}
+   :finish {:position f}
+   :time (* 1000 t)
    :tween-type :miranda/cubic})
 
 (defn fade-in [pos t]
@@ -178,7 +196,7 @@
    :start {:position pos
            :opacity 0}
    :time (* 1000 t)
-   :tween-type :miranda/cubic})
+   :tween-type :miranda/quadratic})
 
 (defn fade-out [pos t]
   {:start {:position pos
@@ -186,7 +204,7 @@
    :finish {:position pos
             :opacity 0}
    :time (* 1000 t)
-   :tween-type :miranda/cubic})
+   :tween-type :miranda/quadratic})
 
 (defn save! [file state]
   (set! js/document.cookie (str (name file) "=" state ";")))

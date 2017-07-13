@@ -9,10 +9,11 @@
            (util/tween animation-map elapsed-time)]
        [:div.character
         {:style
-         {:background-image img
-          :left (pct x)
-          :opacity (str opacity)
-          :top (pct y)}}]))))
+         {:left (pct x)
+          :top (pct y)}}
+        [:img.character
+         {:style {:opacity (str opacity)}
+          :src img}]]))))
 
 (defn render-characters [characters elapsed-time]
   (into [:div.characters] (render-character-xf elapsed-time) characters))

@@ -26,22 +26,27 @@ body{
                                   supported by Chrome and Opera */
 }
 
+.base-scene{
+    background-size: cover;
+}
+
 .characters{
     width: 100%;
     height: 100%;
 }
 
-.base-scene{
-    background-size: cover;
-}
-
-.character{
-    height: 100%;
+div.character{
+    position:absolute;
     width: 100%;
-    position: absolute;
-    background-size: cover;
+    height: 100%;
 }
 
+img.character{
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+}
 
 .textbox{
     position: fixed;

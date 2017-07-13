@@ -70,7 +70,7 @@
 (defn reify-character-xf [name path ext]
   (map
    (fn [[expression data]]
-     (let [css-data {:img (url (str path name "/" expression "." ext))}]
+     (let [css-data {:img (str path name "/" expression "." ext)}]
        (vector (keyword expression) (merge data css-data))))))
 
 (defn split-character-data [data]
