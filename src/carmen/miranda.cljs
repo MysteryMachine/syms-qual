@@ -77,10 +77,12 @@
 (defn transition!
   [state-atom graph options]
   (fn [args]
-    (swap!
-     state-atom
-     (fn [state]
-       (data/guard-transition transition state graph options args)))))
+    (data/save!
+     :save
+     (swap!
+       state-atom
+       (fn [state]
+         (data/guard-transition transition state graph options args))))))
 
 (defn render-game-inner [state-atom transition-fn graph options]
   (let [state @state-atom]

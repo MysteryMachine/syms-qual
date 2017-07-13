@@ -1,5 +1,6 @@
 (ns carmen.impl.data
   (:require [clojure.string :as str]
+            [cljs.reader :refer [read-string]]
             [carmen.util :as util]))
 
 (defn url [s] (str "url(\"" s "\")"))
@@ -302,3 +303,16 @@
          (reify-scenes-xf character-graph bgs)
          scene-preload)
         structure))
+
+(defn save! [file state]
+  (set! js/document.cookie (str (name file) "=" state ";")))
+
+(defn load! [file]
+  (as-> js/document.cookie <>
+    (str/split <> #"; ")
+    (into {}
+     (map (fn [s]
+             (let [[k v] (str/split s #"=")]
+               [(keyword k) (read-string v)])))
+     <>)
+    (file <>)))
