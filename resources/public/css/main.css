@@ -71,8 +71,14 @@ body{
 }
 
 .textbox-speaker{
-    margin-right: 20px;
+    padding-right: 20px;
     text-transform: uppercase;
+    text-align: right;
+}
+
+.textbox-speaker{
+    min-width: 80px;
+    max-width: 80px;
 }
 
 .textbox-speaker::after{
@@ -109,3 +115,4 @@ body{
 .just-characters{
     cursor: pointer;
 }
+
