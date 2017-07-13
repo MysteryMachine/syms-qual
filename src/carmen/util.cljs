@@ -144,9 +144,9 @@
     (:tween-type animation-map)))
 
 (defmethod tween :miranda/basic
-  [{:keys [tween-type alignment animate time]} elapsed-time]
-  (let [[ix iy] alignment
-        [fx fy] animate
+  [{:keys [tween-type start finish time]} elapsed-time]
+  (let [[ix iy] (:position start)
+        [fx fy] (:position finish)
         dx (- fx ix)
         dy (- fy iy)
         dt-by-t (/ elapsed-time time)
@@ -155,22 +155,23 @@
 
 (defn cubic-tween [x]
   (- (* 3 x x) (* 2 x x x)))
- 
+
 (defmethod tween :miranda/cubic
-  [{:keys [tween-type alignment animate time]} elapsed-time]
-  (let [dt-by-t (/ elapsed-time time)
+  [{:keys [tween-type start finish time]} elapsed-time]
+  (let [fpos (:position finish)
+        [ix iy] (:position start)
+        [fx fy] fpos
+        dt-by-t (/ elapsed-time time)
         done? (> dt-by-t 1)
-        [ix iy] alignment
-        [fx fy] animate
         dx (- fx ix)
         dy (- fy iy)]
-    (if done? animate
+    (if done? fpos
         [(+ ix (* dx (cubic-tween dt-by-t)))
          (+ iy (* dy (cubic-tween dt-by-t)))])))
 
 (defmethod tween :default
   [animation-map elapsed-time]
-  (:alignment animation-map))
+  (:finish animation-map))
 
 (defn save! [file state]
   (set! js/document.cookie (str (name file) "=" state ";")))

@@ -130,7 +130,6 @@
 
 (declare reify-options)
 
-;; TODO: Decide on whether or not this is a public interface
 (defmulti reify-subscenes
   (fn [level-name scene-name render-type character-graph subscenes]
     render-type))
