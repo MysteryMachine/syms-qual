@@ -83,7 +83,10 @@
        (data/guard-transition transition state graph options args)))))
 
 (defn render-game-inner [state-atom transition-fn graph options]
-  [render @state-atom transition-fn graph options])
+  (let [state @state-atom]
+   [:div
+     [render/preload state graph]
+     [render state transition-fn graph options]]))
 
 (defn register-listener! [state-atom event-name event & [activate?]]
   (when activate? (event))

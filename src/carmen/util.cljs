@@ -42,6 +42,10 @@
 
 (defn scenes* [] [:scenes])
 
+(defn major-scene* [state graph]
+  (let [[major minor & subscene-ptr] (scene state)]
+    (into (scenes*) [major])))
+
 (defn scene-data* [state graph]
   (let [[major minor & subscene-ptr] (scene state)]
     (into (scenes*) [major minor])))
@@ -86,6 +90,9 @@
   (get-in graph (scenes*)))
 
 ;; Graph -> Scene Functions
+
+(defn major-scene [state graph]
+  (get-in graph (major-scene* state graph)))
 
 (defn scene-data
   "Given a state and a graph, dig into the graph and return

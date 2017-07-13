@@ -259,6 +259,11 @@
   (let [k (keyword (str (name level-name) "-" (name subscene-name)))]
     (get bgs k)))
 
+(def subscene-preload
+  (mapcat
+   (fn [subscene]
+     (map :img (:characters subscene)))))
+
 (defn reify-scene-xf [level-name character-graph bgs]
   (map
    (fn [[scene-name subscene-data]]
@@ -272,7 +277,8 @@
             (merge transition
              {:style {:background-image bg-img}
               :render-type render-type
-              :subscenes reified-subscenes})])))))
+              :subscenes reified-subscenes
+              :preload (into #{} subscene-preload reified-subscenes)})])))))
 
 (defn reify-scenes-xf [character-graph bgs]
   (map
@@ -280,5 +286,19 @@
      [level-name
       (into {} (reify-scene-xf level-name character-graph bgs) level-data)])))
 
+(def scene-preload
+  (map
+   (fn [[scene-name scene-data]]
+     [scene-name
+      (assoc
+       scene-data :miranda/preload
+       (into #{(:background-image scene-data)}
+             (mapcat (comp :preload second))
+             scene-data))])))
+
 (defn reify-scenes [character-graph bgs structure]
-  (into {} (reify-scenes-xf character-graph bgs) structure))
+  (into {}
+        (comp
+         (reify-scenes-xf character-graph bgs)
+         scene-preload)
+        structure))

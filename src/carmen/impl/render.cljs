@@ -200,3 +200,16 @@
             (util/style state graph))}
    (text-option-textbox state transition-fn graph options)])
 
+(def empty-style
+  {:height "0px"
+   :width "0px"
+   :padding "0"
+   :margin "0"})
+
+(defn preload [state graph]
+  (let [scene (util/major-scene state graph)]
+    (into
+     [:div.preload {:style empty-style}]
+     (map
+      (fn [img] [:div {:style (merge empty-style {:background-image img})}]))
+     (:miranda/preload scene))))
