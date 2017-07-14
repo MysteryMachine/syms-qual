@@ -8,6 +8,16 @@
     src: url(AlteHaasGroteskBold.ttf);
 }
 
+@font-face {
+    font-family: overwatch;
+    src: url(big_noodle_titling.ttf);
+}
+
+@font-face {
+    font-family: overwatch-italic;
+    src: url(big_noodle_titling_oblique.ttf);
+}
+
 body{
     background-color: #111;
     padding: 0;
@@ -116,4 +126,86 @@ img.character{
 .just-characters{
     cursor: pointer;
 }
+
+.title-screen.menu-container{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.outer-container{
+    font-family: overwatch-italic;
+    font-size: 1.65em;
+}
+
+.title{
+    font-family: overwatch;
+    font-style: italic;
+    font-size: 2.5em;
+    line-height: 1.4;
+    padding-left: 0.3em;
+}
+
+span.symmetra{
+    color: #FFE300;
+}
+
+.title-screen .menu{
+    background-color: #EC36BB;
+    display: flex;
+    padding: 0 0.75em;
+    width: 100%;
+}
+
+.inner-container, .inner-text{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.outer-container{
+    margin-left: auto;
+}
+
+.inner-container{
+    height: 100%;
+    width: 100%;
+}
+
+.inner-container:last-child{
+    margin-right: 2em;
+}
+
+.inner-text{
+    width: 100%;
+}
+
+.inner-container .menu-text{
+    margin: 0 1.5em;
+}
+
+.inner-container .menu-text:hover{
+    color: #FFE300;
+    cursor: pointer;
+}
+
+.inner-container .menu-text.disabled:hover{
+    color: #EC36BB;
+    cursor: default;
+}
+
+.inner-container .menu-text.disabled{
+    color: #EC36BB;
+}
+
+.arrow, .inner-container .menu-text.disabled:hover .arrow{
+    font-size: 0.5em;
+    padding-right: 0.3em;
+    color: #EC36BB;
+}
+
+.inner-container .menu-text:hover .arrow{
+    color: #FFE300;
+}
+
 

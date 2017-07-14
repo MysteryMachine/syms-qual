@@ -83,8 +83,8 @@
            state-atom
            (fn [state]
              (data/guard-transition transition state graph options args)))]
-      (when (:miranda/auto-save options)
-        (util/save! (:save-name state :miranda/save) state))
+      (when (:miranda/auto-save state)
+        (util/save! (:save-name state :save) state))
       state)))
 
 (defn render-game-inner [state-atom transition-fn graph options]

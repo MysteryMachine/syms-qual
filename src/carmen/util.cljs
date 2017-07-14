@@ -213,10 +213,11 @@
   ([file]
    (get (load!) file))
   ([]
-   (as-> js/document.cookie <>
-     (str/split <> #"; ")
-     (into {}
-           (map (fn [s]
-                  (let [[k v] (str/split s #"=")]
-                    [(keyword k) (read-string v)])))
-           <>))))
+   (if (= "" js/document.cookie) {}
+    (as-> js/document.cookie <>
+       (str/split <> #"; ")
+       (into {}
+             (map (fn [s]
+                    (let [[k v] (str/split s #"=")]
+                      [(keyword k) (if (nil? v) v (read-string v))])))
+             <>)))))

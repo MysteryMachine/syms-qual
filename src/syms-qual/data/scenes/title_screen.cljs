@@ -2,17 +2,13 @@
 
 (def data
   {[:bg :default]
-   {:transition/type :miranda/dynamic
-    :render-type :intro
-    :subscenes
-    [{:scene-options
-      [{:text "New Game"
-        :conditional (constantly true)
-        :transition
-        {:transition/type :miranda/basic,
-         :transition/args []}}
-       {:text "Load Game"
-        :conditional (constantly true)
-        :transition
-        {:transition/type :miranda/load
-         :transition/args nil}}]}]}})
+   {:transition/type :syms-qual/intro
+    :render-type :syms-qual/intro}
+
+   [:bg :new-game-guard]
+   {:transition/type :syms-qual/intro
+    :render-type :syms-qual/new-game-guard}
+
+   [:bg :options]
+   {:transition/type :syms-qual/intro
+    :render-type :syms-qual/options}})
