@@ -21,6 +21,8 @@
    "route_66_hog"
    "route_66_reaper"
 
+   "title_screen_bg"
+
    "volskaya_spawn"
    "volskaya_zenyatta"])
 

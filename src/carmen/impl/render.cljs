@@ -2,21 +2,29 @@
   (:require [clojure.string :as str]
             [carmen.util :as util :refer [pct px default-render-options]]))
 
-(defn render-character-xf [elapsed-time]
+(defn render-character-xf [{:keys [x y]} elapsed-time options]
   (map
-   (fn [{:keys [img] :as animation-map}]
-     (let [{[x y] :position opacity :opacity}
-           (util/tween animation-map elapsed-time)]
+   (fn [{:keys [img sizing] :as animation-map}]
+     (let [[nrx nry :as native-res] (:miranda/native-resolution options)
+           [ix iy] (:size sizing native-res)
+           [ax ay] (:anchor sizing [0 0])
+           {[i j] :position opacity :opacity} (util/tween animation-map elapsed-time)
+           yr (/ y nry)
+           dpad (px (/ (- x (* yr ix)) 2))]
        [:div.character
         {:style
-         {:left (pct x)
-          :top (pct y)}}
+         {:height (px (* yr iy))
+          :width (px x)
+          :margin-left dpad
+          :margin-right dpad}}
         [:img.character
-         {:style {:opacity (str opacity)}
+         {:style {:opacity (str opacity)
+                  :left (pct i)
+                  :top (pct j)}
           :src img}]]))))
 
-(defn render-characters [characters elapsed-time]
-  (into [:div.characters] (render-character-xf elapsed-time) characters))
+(defn render-characters [characters window elapsed-time options]
+  (into [:div.characters] (render-character-xf window elapsed-time options) characters))
 
 (defn dialogue-textbox [{:keys [window] :as state} transition-fn graph options]
   (let [{border-width :dialogue/border-width
@@ -172,7 +180,7 @@
              :width (px (:x window))}
             (util/style state graph))
     :on-click transition-fn}
-   (render-characters (util/actors state graph) (:miranda/time state))])
+   (render-characters (util/actors state graph) window (:miranda/time state) options)])
 
 (defn render-dialogue
   [{:keys [window] :as state} transition-fn graph options]
@@ -181,7 +189,7 @@
             {:height (px (:y window))
              :width (px (:x window))}
             (util/style state graph))}
-   (render-characters (util/actors state graph) (:miranda/time state))
+   (render-characters (util/actors state graph) window (:miranda/time state) options)
    (dialogue-textbox state transition-fn graph options)])
 
 (defn render-options
@@ -191,7 +199,7 @@
             {:height (px (:y window))
              :width (px (:x window))}
             (util/style state graph))}
-   (render-characters (util/actors state graph) (:miranda/time state))
+   (render-characters (util/actors state graph) window (:miranda/time state) options)
    (option-textbox state transition-fn graph options)])
 
 (defn render-text-options

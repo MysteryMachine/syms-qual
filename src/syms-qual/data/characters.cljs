@@ -108,7 +108,7 @@
     "_embarassedBack"
     "_embarassedForward"
     "_explainEmbarassed"
-    "_flying"
+    "_flying" {:sizing {:anchor [0 0] :size [2048 3080]}}
     "_frown"
     "_geez"
     "_helloAwkward"

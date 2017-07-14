@@ -250,7 +250,7 @@
      "Um. Like. It’s all set. You know. Um. I have to jet."]
     ["Symmetra" [[:pharah :_helmetNervous (scoot -15)] [:symmetra :_confused]]
      "I have to jet?"]
-    ["Symmetra" [[:pharah :_flying (qmove [0 0] [0 -1000] 10)]
+    ["Symmetra" [[:pharah :_flying (qmove [-15 0] [-15 -100] 2)]
                  [:symmetra :_bewildered]]
      "Oh."]
     :-> [:street :finale]]
@@ -258,4 +258,9 @@
    [:street :finale]
    [:miranda/narration
     "The days event have done nothing to assuage your doubts about the Overwatch program but you can’t say they haven’t been interesting. As you board your homeward bound shuttle you cannot help but wonder what the coming days will bring."
-    :-> [:route-66]]})
+    :-> [:street :thanks]]
+
+   [:street :thanks]
+   [:miranda/narration
+    "Thanks for playing! We appreciate any feedback you might have!"
+    :=> [:title-screen [:bg :default] 0]]})

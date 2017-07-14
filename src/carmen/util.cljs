@@ -161,8 +161,7 @@
   (:finish animation-map))
 
 (defn scoot
-  ([n]
-   {:finish {:position [n 0]}})
+  ([n] {:finish {:position [n 0]}})
   ([n m t]
    {:start {:position [n 0]}
     :finish {:position [m 0]}
@@ -170,11 +169,12 @@
     :tween-type :miranda/cubic}))
 
 (defn move
-  [i f t]
-  {:start {:position i}
-   :finish {:position f}
-   :time (* 1000 t)
-   :tween-type :miranda/linear})
+  ([p] {:finish {:position p}})
+  ([i f t]
+   {:start {:position i}
+    :finish {:position f}
+    :time (* 1000 t)
+    :tween-type :miranda/linear}))
 
 (defn qmove
   [i f t]

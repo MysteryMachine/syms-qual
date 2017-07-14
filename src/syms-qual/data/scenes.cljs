@@ -1,5 +1,6 @@
 (ns syms-qual.data.scenes
-  (:require [syms-qual.data.scenes.route-66.intro :as intro]
+  (:require [syms-qual.data.scenes.title-screen :as title-screen]
+            [syms-qual.data.scenes.route-66.intro :as intro]
             [syms-qual.data.scenes.route-66.options :as options]
             [syms-qual.data.scenes.route-66.dates :as dates]
 
@@ -18,6 +19,6 @@
    :lijiang (merge)
    :kings-row (merge)
    :numbani (merge)
-   :main-menu (merge)})
+   :title-screen (merge title-screen/data)})
 
 (def data (data/reify-scenes char/data bg/data structure))

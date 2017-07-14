@@ -127,6 +127,7 @@
    (fn [[name expression & [{:keys [finish start] :as animation-map}]]]
      (let [character-base (get-in character-graph [name expression])]
        (merge
+        character-base
         animation-map
         {:name name
          :expression expression
