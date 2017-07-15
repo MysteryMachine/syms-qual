@@ -85,13 +85,16 @@
              (data/guard-transition transition state graph options args)))]
       (when (:miranda/auto-save state)
         (util/save! (:save-name state :save) state))
+      ((resize-event state-atom))
       state)))
 
-(defn render-game-inner [state-atom transition-fn graph options]
+(defn render-game-inner [state-atom transition-fn loading-fn graph options]
   (let [state @state-atom]
    [:div
-     [render/preload state graph]
-     [render state transition-fn graph options]]))
+     [render/preload state graph loading-fn]
+    (if (data/done-loading? state options)
+      [render state transition-fn graph options]
+      [(:loading-screen options render/default-loading-screen) state])]))
 
 (defn register-listener! [state-atom event-name event & [activate?]]
   (when activate? (event))
@@ -104,10 +107,23 @@
         event (data/create-animation-event! state-atom period)]
     (swap! -state #(assoc % :miranda/animation event))))
 
+(defn loading! [state-atom options]
+  (fn [i]
+    (fn []
+     (swap!
+       state-atom
+       (fn [state]
+         (if (= (count (get-in state data/reports*)) (get-in state data/max-reports*))
+           (update-in state [:miranda/internal :reports] conj i)
+           (-> state
+               (assoc-in data/reports* nil)
+               (assoc-in data/max-reports* nil))))))))
+
 (defn reagent-component [state-atom graph options]
-  (let [transition-fn (transition! state-atom graph options)]
+  (let [transition-fn (transition! state-atom graph options)
+        loading-fn (loading! state-atom options)]
    (fn render-game []
-      [render-game-inner state-atom transition-fn graph options])))
+      [render-game-inner state-atom transition-fn loading-fn graph options])))
 
 (defn listen!
   ([state-atom]

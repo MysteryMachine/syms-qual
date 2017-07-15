@@ -211,16 +211,25 @@
             (util/style state graph))}
    (text-option-textbox state transition-fn graph options)])
 
+(defn default-loading-screen [{:keys [window] :as state}]
+  [:div.base-scene.loading-screen
+   {:style (merge
+            {:height (px (:y window))
+             :width (px (:x window))})}])
+
 (def empty-style
   {:height "0px"
    :width "0px"
    :padding "0"
    :margin "0"})
 
-(defn preload [state graph]
+(defn preload [state graph loaded]
   (let [scene (util/major-scene state graph)]
     (into
      [:div.preload {:style empty-style}]
-     (map
-      (fn [img] [:div {:style (merge empty-style {:background-image img})}]))
+     (map-indexed
+      (fn [i img]
+        [:img {:style empty-style
+               :src img
+               :onLoad (loaded i)}]))
      (:miranda.internal/preload scene))))

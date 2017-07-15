@@ -2,6 +2,8 @@
   (:require [clojure.string :as str]
             [carmen.util :as util]))
 
+(def default-max-loading-time 30000)
+
 (defn url [s] (str "url(\"" s "\")"))
 
 (defn get-hint [path-hint] (str/split path-hint "*"))
@@ -37,6 +39,22 @@
                 (assoc-in animation-name-ptr current-scene)))))))
    period))
 
+(def reports* [:miranda/internal :reports])
+(def max-reports* [:miranda/internal :max-reports])
+
+(defn handle-loading [old-state new-state graph]
+  (let [om (util/major-scene old-state graph)
+        nm (util/major-scene new-state graph)]
+    (if (= om nm) new-state
+        (-> new-state
+            (assoc-in reports* #{})
+            (assoc-in max-reports* (count (:miranda.internal/preload nm)))))))
+
+(defn done-loading? [state options]
+  (let [max-reports (get-in state max-reports*)]
+    (or (not max-reports)
+        (>= (:miranda/time state) (:miranda/max-load-time options default-max-loading-time)))))
+
 (defn basic-transition [state graph options]
   (assoc state :scene (util/transition-args state graph)))
 
@@ -46,10 +64,13 @@
         subscene-count (count (:subscenes scene))
         delay (:miranda/click-delay options)
         cant-transition (and delay (< (:miranda/time state) delay))]
-    (cond
-      cant-transition state
-      (>= n (dec subscene-count)) (transition-fn state graph options args)
-      :else (update-in state [:scene 2] inc))))
+    (handle-loading
+     state
+     (cond
+        cant-transition state
+        (>= n (dec subscene-count)) (transition-fn state graph options args)
+        :else (update-in state [:scene 2] inc))
+     graph)))
 
 (defn alter-state [state graph]
   (let [transition-fn (util/transition-stateful-args state graph)]
@@ -285,7 +306,9 @@
              {:style {:background-image bg-img}
               :render-type render-type
               :subscenes reified-subscenes
-              :miranda.internal/preload (into #{} subscene-preload reified-subscenes)})])))))
+              :miranda.internal/preload (into #{}
+                                              (comp subscene-preload)
+                                              reified-subscenes)})])))))
 
 (defn reify-scenes-xf [character-graph bgs]
   (map
@@ -299,9 +322,10 @@
      [scene-name
       (assoc
        scene-data :miranda.internal/preload
-       (into #{(:background-image scene-data)}
-             (mapcat (comp :miranda.internal/preload second))
-             scene-data))])))
+       (filter some?
+        (into #{(:background-image scene-data)}
+               (mapcat (comp :miranda.internal/preload second))
+               scene-data)))])))
 
 (defn reify-scenes [character-graph bgs structure]
   (into {}
