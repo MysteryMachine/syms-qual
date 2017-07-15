@@ -16,9 +16,38 @@
    :points/junkrat 0
    :points/pharah 0})
 
+(def logo-size [120 120])
+
+(defn dots [state]
+  (let [n (js/Math.ceil (rem (/ (:miranda/time state) 800) 4))
+        x (if (zero? n) n (dec n))]
+    (map
+     (fn [i]
+       [(if (> x i) :span :span.dark) "."])
+     (range 3))))
+
+(defn loading-screen [{:keys [window] :as state} graph options]
+  (let [rat (/ (:y window) (second (:miranda/native-resolution options)))
+        [x y] logo-size]
+    [:div.base-scene
+     {:style {:height (util/px (:y window))
+              :width (util/px (:x window))}}
+     [:div.loading-outer
+      [:div.loading-inner
+       [:div.loading-screen
+        [:img {:src "img/overwatchLogo.svg"
+               :style {:height (util/px (* rat y))
+                       :width  (util/px (* rat x))}}]
+        (into
+         [:div.loading-screen-text
+          [:span "Loading"]]
+         (dots state))]]]]))
+
 (def options
   {:miranda/click-delay 100
-   :miranda/native-resolution [2048 1080]})
+   :miranda/native-resolution [2048 1080]
+   :miranda/base-text-size 100
+   :loading-screen loading-screen})
 
 (def ng-scene [:route-66 [:diner :intro] 0])
 

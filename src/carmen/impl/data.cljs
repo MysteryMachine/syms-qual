@@ -52,8 +52,9 @@
 
 (defn done-loading? [state options]
   (let [max-reports (get-in state max-reports*)]
-    (or (not max-reports)
-        (>= (:miranda/time state) (:miranda/max-load-time options default-max-loading-time)))))
+    (and (not (:miranda.debug/fail-load options))
+         (or (not max-reports)
+             (>= (:miranda/time state) (:miranda/max-load-time options default-max-loading-time))))))
 
 (defn basic-transition [state graph options]
   (assoc state :scene (util/transition-args state graph)))

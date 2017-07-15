@@ -11,7 +11,7 @@
         yscrn window.innerHeight]
     {:x xscrn :y yscrn}))
 
-(defn resize-event [state-atom]
+(defn resize-event [state-atom options]
   (fn []
     (swap!
      state-atom
@@ -90,10 +90,10 @@
 (defn render-game-inner [state-atom transition-fn loading-fn graph options]
   (let [state @state-atom]
    [:div
-     [render/preload state graph loading-fn]
+    [render/preload state graph loading-fn]
     (if (data/done-loading? state options)
       [render state transition-fn graph options]
-      [(:loading-screen options render/default-loading-screen) state])]))
+      [(:loading-screen options render/default-loading-screen) state graph options])]))
 
 (defn register-listener! [state-atom event-name event & [activate?]]
   (when activate? (event))
@@ -119,7 +119,7 @@
                (assoc-in data/max-reports* nil)))))
       ;; TODO: only do this if we have resizing set in
       ;; TODO: Maybe active all events? Zero time?
-      ((resize-event state-atom)))))
+      ((resize-event state-atom options)))))
 
 (defn reagent-component [state-atom graph options]
   (let [transition-fn (transition! state-atom graph options)
@@ -128,16 +128,16 @@
       [render-game-inner state-atom transition-fn loading-fn graph options])))
 
 (defn listen!
-  ([state-atom]
-   (listen! state-atom #{:animation "resize"}))
-  ([state-atom args]
+  ([state-atom options]
+   (listen! state-atom options #{:animation "resize"}))
+  ([state-atom options args]
    (clear-listeners!)
    (doseq [arg args]
      (case arg
        :animation (animation! state-atom 24)
-       "resize" (register-listener! state-atom "resize" (resize-event state-atom) true)))))
+       "resize" (register-listener! state-atom "resize" (resize-event state-atom options) true)))))
 
 (defn samba! [root-id state-atom graph options]
   (let [app (reagent-component state-atom graph options)]
-    (listen! state-atom)
+    (listen! state-atom options)
     (reagent/render [app] (. js/document (getElementById root-id)))))

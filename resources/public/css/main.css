@@ -208,4 +208,37 @@ span.symmetra{
     color: #FFE300;
 }
 
+.loading-outer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
 
+.loading-inner{
+    margin: 2em 4em;
+    width: 100%;
+}
+
+.loading-screen{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.loading-screen-text{
+    font-family: overwatch-italic;
+    font-size: 3em;
+}
+
+.loading-screen-text .dark{
+    color: #111;
+}
+
+.loading-screen img{
+    padding-right: 1em;
+}
