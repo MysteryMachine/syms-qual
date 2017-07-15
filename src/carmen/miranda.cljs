@@ -85,7 +85,6 @@
              (data/guard-transition transition state graph options args)))]
       (when (:miranda/auto-save state)
         (util/save! (:save-name state :save) state))
-      ((resize-event state-atom))
       state)))
 
 (defn render-game-inner [state-atom transition-fn loading-fn graph options]
@@ -117,7 +116,10 @@
            (update-in state [:miranda/internal :reports] conj i)
            (-> state
                (assoc-in data/reports* nil)
-               (assoc-in data/max-reports* nil))))))))
+               (assoc-in data/max-reports* nil)))))
+      ;; TODO: only do this if we have resizing set in
+      ;; TODO: Maybe active all events? Zero time?
+      ((resize-event state-atom)))))
 
 (defn reagent-component [state-atom graph options]
   (let [transition-fn (transition! state-atom graph options)
