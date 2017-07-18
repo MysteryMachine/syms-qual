@@ -24,9 +24,8 @@ body{
     margin: 0;
     overflow: hidden;
     color: white;
-    font-size: 1.1em;
     font-family: main;
-    line-height: 1.6;
+    line-height: 2;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -63,8 +62,8 @@ img.character{
     border-color: white;
     border-style: solid;
     border-radius: 4px;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .textbox-inner{
@@ -81,14 +80,14 @@ img.character{
 }
 
 .textbox-speaker{
-    padding-right: 20px;
+    padding-right: 1.5em;
     text-transform: uppercase;
     text-align: right;
 }
 
 .textbox-speaker{
-    min-width: 100px;
-    max-width: 100px;
+    min-width: 8em;
+    max-width: 8em;
 }
 
 .textbox-speaker::after{
@@ -107,7 +106,7 @@ img.character{
 
 .options.option-outer,
 .text-option.text{
-    padding-bottom: 0.8em;
+    
 }
 
 .options.option-inner::before{
@@ -135,13 +134,13 @@ img.character{
 
 .outer-container{
     font-family: overwatch-italic;
-    font-size: 1.65em;
+    font-size: 1.3em;
 }
 
 .title{
     font-family: overwatch;
     font-style: italic;
-    font-size: 2.5em;
+    font-size: 2.2em;
     line-height: 1.4;
     padding-left: 0.3em;
 }

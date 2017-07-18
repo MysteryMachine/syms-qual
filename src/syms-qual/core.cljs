@@ -27,7 +27,7 @@
      (range 3))))
 
 (defn loading-screen [{:keys [window] :as state} graph options]
-  (let [rat (/ (:y window) (second (:miranda/native-resolution options)))
+  (let [rat (util/scale state options)
         [x y] logo-size]
     [:div.base-scene
      {:style {:height (util/px (:y window))
@@ -46,7 +46,7 @@
 (def options
   {:miranda/click-delay 100
    :miranda/native-resolution [2048 1080]
-   :miranda/base-text-size 100
+   :miranda/base-text-size 32
    :loading-screen loading-screen})
 
 (def ng-scene [:route-66 [:diner :intro] 0])

@@ -90,7 +90,7 @@
     "_laugh"
     "_neutral"
     "_phoneShow"
-    "_phoneSteals"
+    "_phoneSteal"
     "_phoneSteal2"
     "_phoneTexting"
     "_selfie"]
@@ -163,7 +163,7 @@
    "Roadhog"
    ["_drink"
     "_neutral"
-    "_neutral2"
+    "_neutral2" #_{:sizing {:anchor [-352 -120] :size [2400 1200]}}
     "_shrug"]
 
    "Soldier76"

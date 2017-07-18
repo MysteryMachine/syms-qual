@@ -221,3 +221,6 @@
                     (let [[k v] (str/split s #"=")]
                       [(keyword k) (if (nil? v) v (read-string v))])))
              <>)))))
+
+(defn scale [{:keys [window] :as state} options]
+  (/ (:y window) (second (:miranda/native-resolution options))))

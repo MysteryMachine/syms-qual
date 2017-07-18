@@ -16,7 +16,12 @@
     (swap!
      state-atom
      (fn [game]
-       (assoc game :window (resize-state (:settings game)))))))
+       (let [rs (resize-state (:settings game))
+             state (assoc game :window rs)
+             s (util/scale state options)]
+         (if-let [txts (:miranda/base-text-size options)]
+           (assoc state :miranda/text-scale (* s txts))
+           state))))))
 
 (defn clear-listeners! []
   (doseq [[k v] @-state]
@@ -82,18 +87,24 @@
           (swap!
            state-atom
            (fn [state]
-             (data/guard-transition transition state graph options args)))]
+             ;; TODO: clean up
+             (assoc
+              (data/guard-transition transition state graph options args)
+              :miranda/time 0)))]
       (when (:miranda/auto-save state)
         (util/save! (:save-name state :save) state))
       state)))
 
 (defn render-game-inner [state-atom transition-fn loading-fn graph options]
   (let [state @state-atom]
-   [:div
-    [render/preload state graph loading-fn]
-    (if (data/done-loading? state options)
-      [render state transition-fn graph options]
-      [(:loading-screen options render/default-loading-screen) state graph options])]))
+    [:div
+     [:style
+      ;; TODO: Add style reifier
+      (str "body{font-size:" (util/px (:miranda/text-scale state)) ";}")]
+     [render/preload state graph loading-fn]
+     (if (data/done-loading? state options)
+       [render state transition-fn graph options]
+       [(:loading-screen options render/default-loading-screen) state graph options])]))
 
 (defn register-listener! [state-atom event-name event & [activate?]]
   (when activate? (event))

@@ -16,7 +16,7 @@
      "What is this snickering I hear at the door? Is a foe setting up a trap?"]
     ["???" [[:symmetra :_frown (scoot -25)]]
      "Hee hee hee hee."]
-    ["Symmetra" [[:junkrat :_triggerWave (scoot -65 -10 3)] [:symmetra :_frown (scoot -25 0 2)]]
+    ["Symmetra" [[:junkrat :_triggerWave (scoot -65 -10 1)] [:symmetra :_frown (scoot -25 0 1)]]
      "Just what do you think you’re doing?"]
     ["Junkrat" [[:junkrat :_fibbin (scoot -10)] [:symmetra :_frown]]
      "Oi! Oh! Wowee! Why hello there! Fine weather we’re having!"]
@@ -27,7 +27,7 @@
     ["Symmetra" [[:junkrat :_triggerNeutral (scoot -10)] [:symmetra :_explain]]
      "I think of it more as a statement of fact."]
     ["Junkrat" [[:junkrat :_triggerIntro (scoot -10)] [:symmetra :_neutral]]
-     "So! Allow me to introduce you! I’m the bombastic Junkrat!"]
+     "So! Allow me to introduce myself! I’m the bombastic Junkrat!"]
     :transition :miranda/conditional
     [:route-66/roadhog [:-> [:diner :dialogue 3 :a]]
      :else             [:-> [:diner :dialogue 3 :b]]]]
@@ -57,7 +57,7 @@
    [:diner :dialogue 4]
    [:miranda/dialogue
     ["Junkrat" [[:junkrat :_triggerExplain (scoot -10)] [:symmetra :_neutral]]
-     "The way I see it, I’m a tinkerer, darl. I built all my gear out of others junk. The wonderful thing about junk is that it gives you the opportunity to make something entirely new! And some things, got to be broke before they can be fixed. ‘Wos that phrase they have about omelets and eggs? Hee hee"]
+     "The way I see it, I’m a tinkerer, darl. I built all my gear out of others junk. The wonderful thing about junk is that it gives you the opportunity to make something entirely new! And some things, got to be broke before they can be fixed. ‘Wos that phrase they have about omelets and eggs? Hee hee!"]
     ["Symmetra" [[:junkrat :_triggerNeutral (scoot -10)] [:symmetra :_thinking]]
      "Destruction and reconstruction, huh? I suppose Overwatch gives you room for both things."]
     ["Junkrat" [[:junkrat :_triggerAdoringBlush (scoot -10)] [:symmetra :_thinking]]
@@ -104,7 +104,7 @@
     ["Symmetra" [[:sombra :_flirty (scoot -10)] [:symmetra :_embarassed]]
      "What?"]
     ["Sombra" [[:sombra :_laugh (scoot -10)] [:symmetra :_embarassed]]
-     "I’m just saying! People deal with the stress of this fucked up military sisphysian bullshit in different ways -- they hack the system, you know."]
+     "I’m just saying! People deal with the stress of this fucked up military Sisyphean bullshit in different ways — they hack the system, you know."]
     :transition :miranda/conditional
     [:route-66/reaper [:-> [:diner :sombra :extra]]
      :else            [:-> [:diner :dialogue 6]]]]
@@ -116,9 +116,9 @@
     ["Sombra" [[:sombra :_surprised (scoot -10)] [:symmetra :_flirty]]
      "Hum?"]
     ["Symmetra" [[:sombra :_surprised (scoot -10)] [:symmetra :_sass]]
-     "Reaper sounded quite fond of you when we spoke. I might dare say he even bordered on fatherly?"]
+     "Reaper sounded quite fond of you when we spoke. I might dare say he even bordered on fatherly? In his own bizzare way."]
     ["Sombra" [[:sombra :_nostalgic (scoot -10)] [:symmetra :_smile]]
-     "Pinche abuelo. Giving away my cute secrets. I suppose. We’re a family of sorts."]
+     "Pinche abuelo. Giving away my cute secrets. I suppose. We’re a family of sorts, like I hacked reality and now my dad is gay and goth in a really uncool way."]
     :-> [:diner :dialogue 6]]
 
    [:diner :dialogue 6]
@@ -127,7 +127,7 @@
      "Look, hackers get a bad rap as destructive, but hacking’s history is much richer than that.  When you’re completely out of options, what’s a little bending of the rules? If we have to do this while the world moves on around us, I say we make it our own."]
     ["Symmetra" [[:sombra :_smile (scoot -10)] [:symmetra :_thinking]]
      "Novel."]
-    ["Sombra" [[:sombra :_smile (scoot -10)] [:symmetra :_thinking]]
+    ["Sombra" [[:sombra :_explainHand (scoot -10)] [:symmetra :_thinking]]
      "The round is starting. You should hurry."]
     ["Symmetra" [[:sombra :_smile (scoot -10)] [:symmetra :_smile]]
      "I don’t believe we exchanged proper introductions. My real name is Satya."]
@@ -146,7 +146,7 @@
 
    [:reaper :dialogue]
    [:miranda/narration
-    "Reaper was distraught this round. Between Ana Nanoboosting you, and his dismay at recruiting a support who was not a real support, he could maintain his composure. By the end of the round, he was charging alone headfirst into the enemy team, neglecting any attempt at proper positioning. With your team perpetually split, the enemy succeeded in capturing relatively quickly."
+    "Reaper was distraught this round. Between Ana Nanoboosting you, and his dismay at recruiting a support who was not a real support, he could not maintain his composure. By the end of the round, he was charging alone headfirst into the enemy team, neglecting any attempt at proper positioning. With your team perpetually split, the enemy succeeded in capturing relatively quickly."
     :-> [:street :dialogue 7]]
 
    [:hog]
@@ -166,7 +166,7 @@
 
    [:ana :dialogue]
    [:miranda/narration
-    "Ana’s advice paid off this round. You kept your teleporter outside of Junkrat and Pharah’s artillery range, and you covered Sombra’s several flanking routes, severely reducing her effectiveness in combat. You held out the first point into a deep Overtime contest, and managed to squeak by a win as your teleporter pushed your entire team back to the frontline to support Roadhog."
+    "Ana’s advice paid off this round. You kept your teleporter outside of Junkrat and Pharah’s artillery range, and you covered Sombra’s several flanking routes, severely reducing her effectiveness in combat. You held out the first point into a deep overtime contest, and managed to squeak by a win as your teleporter pushed your entire team back to the frontline to support Roadhog."
     :-> [:street :dialogue 7]]
 
    [:street :dialogue 7]
@@ -179,7 +179,7 @@
 
    [:diner :scene 7 :a]
    [:miranda/narration
-    "Ana and Pharah  seem to be discussing something quietly in the corner. You can barely make out their words."
+    "Ana and Pharah seem to be discussing something quietly in the corner. You can barely make out their words."
     :-> [:diner :dialogue 7 :a]]
 
    [:diner :dialogue 7 :a]
@@ -194,12 +194,12 @@
      "Mama! She’s going to hear us, and then it’ll be weird."]
     ["Ana" [[:pharah :_reversePeek (scoot 15)] [:ana :_explain (scoot -10)]]
      "You military types. You become disciplined and well trained, and it squeezes out all the real social skills. I spent years dealing with this same shyness before I just gave up and dated a civilian. ‘Ibna, if you don’t talk to others, you’ll never get to know them. Just say hello."]
-    :-> [:diner :dialogue 8]]
+    :-> [:street :narration :a]]
 
    [:diner :scene 7 :b]
    [:miranda/narration
     "You see Pharah, Ana, and McCree discussing selfies McCree had sent to Hanzo over the round."
-    :-> [:street :narration :a]]
+    :-> [:diner :dialogue 7 :b]]
 
    [:diner :dialogue 7 :b]
    [:miranda/dialogue
