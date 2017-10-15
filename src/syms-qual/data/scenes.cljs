@@ -9,6 +9,11 @@
             [syms-qual.data.scenes.anubis.genji :as anubis-genji]
             [syms-qual.data.scenes.anubis.zarya :as anubis-zarya]
 
+            [syms-qual.data.scenes.volskaya.intro :as volskaya-intro]
+            [syms-qual.data.scenes.volskaya.mei :as volskaya-mei]
+            [syms-qual.data.scenes.volskaya.zenyatta :as volskaya-zenyatta]
+            [syms-qual.data.scenes.volskaya.sombra :as volskaya-sombra]
+
             [syms-qual.data.characters :as char]
             [syms-qual.data.bg :as bg]
             [carmen.data :as data]))
@@ -16,7 +21,7 @@
 (def structure
   {:route-66 (merge intro/data intro-options/data intro-dates/data)
    :anubis (merge anubis-cutscenes/data anubis-pharah/data anubis-genji/data anubis-zarya/data)
-   :eichenwalde (merge)
+   :eichenwalde (merge volskaya-sombra/data volskaya-zenyatta/data volskaya-mei/data volskaya-intro/data)
    :gibralter (merge)
    :dorado (merge)
    :hollywood (merge)
