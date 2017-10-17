@@ -14,6 +14,11 @@
             [syms-qual.data.scenes.volskaya.zenyatta :as volskaya-zenyatta]
             [syms-qual.data.scenes.volskaya.sombra :as volskaya-sombra]
 
+            [syms-qual.data.scenes.kings-row.junkrat :as kings-row-junkrat]
+            [syms-qual.data.scenes.kings-row.intro :as kings-row-intro]
+            [syms-qual.data.scenes.kings-row.torb :as kings-row-torb]
+            [syms-qual.data.scenes.kings-row.lucio :as kings-row-lucio]
+
             [syms-qual.data.characters :as char]
             [syms-qual.data.bg :as bg]
             [carmen.data :as data]))
@@ -27,7 +32,7 @@
    :hollywood (merge)
    :volskaya (merge)
    :lijiang (merge)
-   :kings-row (merge)
+   :kings-row (merge kings-row-junkrat/data kings-row-torb/data kings-row-lucio/data kings-row-intro/data)
    :numbani (merge)
    :title-screen (merge title-screen/data)})
 
