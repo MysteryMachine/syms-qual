@@ -1,4 +1,4 @@
-(ns syms-qual.data.scenes.volskaya.sombra)
+option 4(ns syms-qual.data.scenes.volskaya.sombra)
 
 (def start-date
   [:transition :miranda/mutation->basic
@@ -254,7 +254,7 @@
     ["Symmetra" [] "There we go."]
     :-> [:volskaya :sombra 8]]
 
-   [:volskaya :sombra :option 4 0]
+   [:volskaya :sombra :option 4 1]
    [:miranda/dialogue
     ["Sombra" [] "A successful first date, then!"]
     ["Symmetra" [] "I wouldn’t call it a success."]

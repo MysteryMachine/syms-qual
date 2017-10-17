@@ -50,7 +50,7 @@
     ["Zarya" [] "Is true. But my ice queen is in the top tenth percentile of strength. Easily! Ice wife! Please demonstrate that value of proper physical conditioning by deadlifting our weak comrade, here."]
     :-> []]
 
-   [:volskaya :mei 1]
+   [:volskaya :mei 2]
    [:miranda/dialogue
     ["Symmetra" [] "She will do no such thing!"]
     ["Mei" [] "Bǎobèi! We have to talk strategy!"]
@@ -75,7 +75,7 @@
    [:volskaya :mei :no]
    [:miranda/dialogue
     ["Symmetra" [] "I’ll, um, be going then."]
-    :-> [:volskaya :mei :no]]
+    :-> [:volskaya :choice]]
 
    [:volskaya :mei :cutscene]
    [:miranda/narration
