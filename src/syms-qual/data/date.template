@@ -1,0 +1,29 @@
+(def start-date
+  [:transition :miranda/mutation->basic
+   [[:-> [:anubis :pharah :confirm]]
+    (fn []
+      ;;TODO: mutate state to indicate date
+      )]])
+
+(def data
+  {[:cba :abc :choice]
+   [:miranda/text-option
+    "What will you do?"
+    ["" (constantly true) start-date]
+    ["Converse with your other teammates" (constantly true)
+     [:cba :abc :no]]]
+
+   [:cba :abc :yes]
+   [:miranda/dialogue
+
+    :-> [:cba :abc :cutscene]]
+
+   [:cba :abc :no]
+   [:miranda/dialogue
+
+    :-> [:cba :choice]]
+
+   [:cba :abc :cutscene]
+   [:miranda/narration
+    ""
+    :-> [:?? :intro]]})

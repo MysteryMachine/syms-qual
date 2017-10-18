@@ -19,6 +19,11 @@
             [syms-qual.data.scenes.kings-row.torb :as kings-row-torb]
             [syms-qual.data.scenes.kings-row.lucio :as kings-row-lucio]
 
+            [syms-qual.data.scenes.hollywood.soldier :as hollywood-soldier]
+            [syms-qual.data.scenes.hollywood.intro :as hollywood-intro]
+            [syms-qual.data.scenes.hollywood.sombra :as hollywood-sombra]
+            [syms-qual.data.scenes.hollywood.efi :as hollywood-efi]
+
             [syms-qual.data.characters :as char]
             [syms-qual.data.bg :as bg]
             [carmen.data :as data]))
@@ -29,7 +34,7 @@
    :eichenwalde (merge volskaya-sombra/data volskaya-zenyatta/data volskaya-mei/data volskaya-intro/data)
    :gibralter (merge)
    :dorado (merge)
-   :hollywood (merge)
+   :hollywood (merge hollywood-efi/data hollywood-sombra/data hollywood-soldier/data hollywood-intro/data)
    :volskaya (merge)
    :lijiang (merge)
    :kings-row (merge kings-row-junkrat/data kings-row-torb/data kings-row-lucio/data kings-row-intro/data)
