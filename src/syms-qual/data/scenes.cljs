@@ -24,6 +24,11 @@
             [syms-qual.data.scenes.hollywood.sombra :as hollywood-sombra]
             [syms-qual.data.scenes.hollywood.efi :as hollywood-efi]
 
+            [syms-qual.data.scenes.lijang.dva :as lijang-dva]
+            [syms-qual.data.scenes.lijang.intro :as lijang-intro]
+            [syms-qual.data.scenes.lijang.winston :as lijang-winston]
+            [syms-qual.data.scenes.lijang.tracer :as lijang-tracer]
+
             [syms-qual.data.characters :as char]
             [syms-qual.data.bg :as bg]
             [carmen.data :as data]))
@@ -36,9 +41,10 @@
    :dorado (merge)
    :hollywood (merge hollywood-efi/data hollywood-sombra/data hollywood-soldier/data hollywood-intro/data)
    :volskaya (merge)
-   :lijiang (merge)
+   :lijiang (merge lijang-dva/data lijang-intro/data lijang-winston/data lijang-tracer/data)
    :kings-row (merge kings-row-junkrat/data kings-row-torb/data kings-row-lucio/data kings-row-intro/data)
    :numbani (merge)
-   :title-screen (merge title-screen/data)})
+   :title-screen (merge title-screen/data)
+   :epilogue (merge)})
 
 (def data (data/reify-scenes char/data bg/data structure))
