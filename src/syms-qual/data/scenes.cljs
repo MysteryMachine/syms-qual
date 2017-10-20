@@ -29,6 +29,11 @@
             [syms-qual.data.scenes.lijang.winston :as lijang-winston]
             [syms-qual.data.scenes.lijang.tracer :as lijang-tracer]
 
+            [syms-qual.data.scenes.eichenwalde.hanzo :as eichenwalde-hanzo]
+            [syms-qual.data.scenes.eichenwalde.intro :as eichenwalde-intro]
+            [syms-qual.data.scenes.eichenwalde.pharah :as eichenwalde-pharah]
+            [syms-qual.data.scenes.eichenwalde.widowmaker :as eichenwalde-widowmaker]
+
             [syms-qual.data.characters :as char]
             [syms-qual.data.bg :as bg]
             [carmen.data :as data]))
@@ -36,11 +41,11 @@
 (def structure
   {:route-66 (merge intro/data intro-options/data intro-dates/data)
    :anubis (merge anubis-cutscenes/data anubis-pharah/data anubis-genji/data anubis-zarya/data)
-   :eichenwalde (merge volskaya-sombra/data volskaya-zenyatta/data volskaya-mei/data volskaya-intro/data)
+   :eichenwalde (merge eichenwalde-pharah/data eichenwalde-hanzo/data eichenwalde-widowmaker/data eichenwalde-intro/data)
    :gibralter (merge)
    :dorado (merge)
    :hollywood (merge hollywood-efi/data hollywood-sombra/data hollywood-soldier/data hollywood-intro/data)
-   :volskaya (merge)
+   :volskaya (merge volskaya-sombra/data volskaya-zenyatta/data volskaya-mei/data volskaya-intro/data)
    :lijiang (merge lijang-dva/data lijang-intro/data lijang-winston/data lijang-tracer/data)
    :kings-row (merge kings-row-junkrat/data kings-row-torb/data kings-row-lucio/data kings-row-intro/data)
    :numbani (merge)
