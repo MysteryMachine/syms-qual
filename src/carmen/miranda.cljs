@@ -10,9 +10,9 @@
   (let [xscrn window.innerWidth
         yscrn window.innerHeight
         r (/ xscrn yscrn)]
-    (if (< r (:miranda/letterbox-ratio options))
+    (if (< r (or (:miranda/letterbox-ratio options) 0))
       (let [y (/ xscrn (:miranda/letterbox-ratio options))]
-       {:x xscrn :y-adjust (- yscrn y) :y y})
+        {:x xscrn :y-adjust (/ (- yscrn y) 2) :y y})
       {:x xscrn :y yscrn :y-adjust 0})))
 
 (defn resize-event [state-atom options]
@@ -104,7 +104,10 @@
     [:div
      [:style
       ;; TODO: Add style reifier
-      (str "body{font-size:" (util/px (:miranda/text-scale state)) ";}")]
+      (str "body{"
+           "font-size:" (util/px (:miranda/text-scale state)) ";"
+           "margin-top:" (util/px (-> state :window :y-adjust))  ";"
+           "}")]
      [render/preload state graph loading-fn]
      (if (data/done-loading? state options)
        [render state transition-fn graph options]
