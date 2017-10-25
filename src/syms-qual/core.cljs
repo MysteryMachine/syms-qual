@@ -47,7 +47,7 @@
   {:miranda/click-delay 100
    :miranda/native-resolution [2048 1080]
    :miranda/base-text-size 32
-   :miranda/letterbox-ratio 1.2
+   :miranda/letterbox-ratio 1.78
    :loading-screen loading-screen})
 
 (def ng-scene [:route-66 [:diner :intro] 0])
@@ -82,10 +82,12 @@
 
 (defn base-scene-style [window]
   {:background-image "url(\"img/Backgrounds/title_screen_bg.png\")"
+   :background-size "cover"
    :height (str (:y window) "px")
    :width (str (:x window) "px")})
 
 (defn title-screen-style [window]
+  ;(js/alert (:y-adjust window))
   {:bottom (str (:y-adjust window) "px")})
 
 (defmethod miranda/render :syms-qual/intro

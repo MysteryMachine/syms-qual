@@ -1,4 +1,4 @@
-option 4(ns syms-qual.data.scenes.volskaya.sombra)
+(ns syms-qual.data.scenes.volskaya.sombra)
 
 (def start-date
   [:transition :miranda/mutation->basic

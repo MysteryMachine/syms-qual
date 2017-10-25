@@ -304,7 +304,8 @@
                reified-subscenes (reify-subscenes level-name scene-name render-type character-graph subscenes)]
            [scene-name
             (merge transition
-             {:style {:background-image bg-img}
+                   {:style {:background-image bg-img
+                            :background-position "center center"}
               :render-type render-type
               :subscenes reified-subscenes
               :miranda.internal/preload (into #{}

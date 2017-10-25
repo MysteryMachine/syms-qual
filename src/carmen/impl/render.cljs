@@ -15,16 +15,23 @@
         {:style
          {:height (px (* yr iy))
           :width (px x)
+          :position "absolute"
           :margin-left dpad
           :margin-right dpad}}
         [:img.character
          {:style {:opacity (str opacity)
+                  :position "absolute"
+                  :height (pct 100)
                   :left (pct i)
                   :top (pct j)}
           :src img}]]))))
 
+(def characters-static-style
+  {:style {:width (pct 100) :height (pct 100) :position "relative" :overflow "hidden"}})
+
 (defn render-characters [characters window elapsed-time options]
-  (into [:div.characters] (render-character-xf window elapsed-time options) characters))
+  (into [:div.characters characters-static-style]
+        (render-character-xf window elapsed-time options) characters))
 
 (defn dialogue-textbox [{:keys [window] :as state} transition-fn graph options]
   (let [{border-width :dialogue/border-width
@@ -34,12 +41,14 @@
         (merge util/default-render-options options)
         y (:y window)
         x (:x window)
+        y-adjust (:y-adjust window)
         height (* y ratio)
-        top (* (- 1 ratio) (:y window))
+        top (+ y-adjust (* (- 1 ratio) (:y window)))
         textbox-height (- height (* 2 (+ border-width padding margin)))
         speaker-text (util/speaker state graph)]
     [:div.miranda.dialogue.textbox
      {:style {:height (px height)
+              :position "absolute"
               :width (px x)
               :top (px top)}
       :on-click transition-fn}
@@ -62,14 +71,16 @@
         (merge util/default-render-options options)
         y (:y window)
         x (:x window)
+        y-adjust (:y-adjust window)
         height (* y y-ratio)
         width (* x x-ratio)
         left (* (- 1 x-ratio) x (/ 1 2))
-        top (* (- 1 y-ratio) y (/ 1 2))
+        top (+ y-adjust (* (- 1 y-ratio) y (/ 1 2)))
         textbox-height (- height (* 2 (+ border-width padding margin)))]
     [:div.miranda.narration.textbox
      {:style {:height (px height)
               :width (px width)
+              :position "absolute"
               :top (px top)
               :left (px left)}
       :on-click transition-fn}
@@ -96,14 +107,16 @@
         (merge util/default-render-options options)
         y (:y window)
         x (:x window)
+        y-adjust (:y-adjust window)
         height (* y y-ratio)
         width (* x x-ratio)
         left (* (- 1 x-ratio) x (/ 1 2))
-        top (* (- 1 y-ratio) y (/ 1 2))
+        top (+ y-adjust (* (- 1 y-ratio) y (/ 1 2)))
         textbox-height (- height (* 2 (+ border-width padding margin)))]
     [:div.miranda.text-option.textbox
      {:style {:height (px height)
               :width (px width)
+              :position "absolute"
               :top (px top)
               :left (px left)}}
      [:div.miranda.text-option.textbox-inner
@@ -135,11 +148,13 @@
         (merge default-render-options options)
         y (:y window)
         x (:x window)
+        y-adjust (:y-adjust window)
         height (* y ratio)
-        top (* (- 1 ratio) (:y window))
+        top (+ y-adjust (* (- 1 ratio) (:y window)))
         textbox-height (- height (* 2 (+ border-width padding margin)))]
     [:div.miranda.option.textbox
      {:style {:height (px height)
+              :position "absolute"
               :width (px x)
               :top (px top)}}
      [:div.miranda.option.textbox-inner
