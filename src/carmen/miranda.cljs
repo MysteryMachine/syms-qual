@@ -6,17 +6,21 @@
 
 (def -state (atom {}))
 
-(defn resize-state [settings]
+(defn resize-state [options]
   (let [xscrn window.innerWidth
-        yscrn window.innerHeight]
-    {:x xscrn :y yscrn}))
+        yscrn window.innerHeight
+        r (/ xscrn yscrn)]
+    (if (< r (:miranda/letterbox-ratio options))
+      (let [y (/ xscrn (:miranda/letterbox-ratio options))]
+       {:x xscrn :y-adjust (- yscrn y) :y y})
+      {:x xscrn :y yscrn :y-adjust 0})))
 
 (defn resize-event [state-atom options]
   (fn []
     (swap!
      state-atom
      (fn [game]
-       (let [rs (resize-state (:settings game))
+       (let [rs (resize-state options)
              state (assoc game :window rs)
              s (util/scale state options)]
          (if-let [txts (:miranda/base-text-size options)]

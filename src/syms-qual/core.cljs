@@ -47,6 +47,7 @@
   {:miranda/click-delay 100
    :miranda/native-resolution [2048 1080]
    :miranda/base-text-size 32
+   :miranda/letterbox-ratio 1.2
    :loading-screen loading-screen})
 
 (def ng-scene [:route-66 [:diner :intro] 0])
@@ -79,29 +80,33 @@
        (container "Continue")
        (container "Return")]]]))
 
+(defn base-scene-style [window]
+  {:background-image "url(\"img/Backgrounds/title_screen_bg.png\")"
+   :height (str (:y window) "px")
+   :width (str (:x window) "px")})
+
+(defn title-screen-style [window]
+  {:bottom (str (:y-adjust window) "px")})
+
 (defmethod miranda/render :syms-qual/intro
   [{:keys [window] :as state} transition-fn graph options]
-  [:div.base-scene
-   {:style {:background-image "url(\"img/Backgrounds/title_screen_bg.png\")"
-            :height (str (:y window) "px")
-            :width (str (:x window) "px")}}
-   [:div.title-screen.menu-container (menu (:saved state) transition-fn)]])
+  [:div.base-scene {:style (base-scene-style window)}
+   [:div.title-screen.menu-container {:style (title-screen-style window)}
+    (menu (:saved state) transition-fn)]])
 
 (defmethod miranda/render :syms-qual/new-game-guard
   [{:keys [window] :as state} transition-fn graph options]
   [:div.base-scene
-   {:style {:background-image "url(\"img/Backgrounds/title_screen_bg.png\")"
-            :height (str (:y window) "px")
-            :width (str (:x window) "px")}}
-   [:div.title-screen.menu-container (new-game-guard-menu transition-fn)]])
+   {:style (base-scene-style window)}
+   [:div.title-screen.menu-container {:style (title-screen-style window)}
+    (new-game-guard-menu transition-fn)]])
 
 (defmethod miranda/render :syms-qual/options
   [{:keys [window] :as state} transition-fn graph options]
   [:div.base-scene
-   {:style {:background-image "url(\"img/Backgrounds/title_screen_bg.png\")"
-            :height (str (:y window) "px")
-            :width (str (:x window) "px")}}
-   [:div.title-screen.menu-container (menu (:saved state))]])
+   {:style (base-scene-style window)}
+   [:div.title-screen.menu-container {:style (title-screen-style window)}
+    (menu (:saved state))]])
 
 (defn continue [state]
   (util/save! :saved true)
