@@ -41,7 +41,7 @@
         (into
          [:div.loading-screen-text
           [:span "Loading"]]
-         (dots state))]]]])) 
+         (dots state))]]]]))
 
 (def options
   {:miranda/click-delay 100
@@ -58,7 +58,7 @@
   (fn [name]
     (let [container
           (if transition-fn
-            [:div.menu-text 
+            [:div.menu-text
              {:on-click (partial transition-fn name)}]
             [:div.menu-text.disabled])]
       (conj container [:div.inner-text [:span.arrow "▶ "] [:span name]]))))
