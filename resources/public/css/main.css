@@ -60,11 +60,11 @@ body{
 }
 
 div.character{
-    
+
 }
 
 img.character{
-    
+
 }
 
 .textbox{
@@ -76,8 +76,7 @@ img.character{
     border-color: white;
     border-style: solid;
     border-radius: 4px;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding: 0 5%;
 }
 
 .textbox-inner{
@@ -120,7 +119,7 @@ img.character{
 
 .options.option-outer,
 .text-option.text{
-    
+
 }
 
 .options.option-inner::before{
@@ -141,7 +140,7 @@ img.character{
 }
 
 .title-screen.menu-container{
-    position: absolute;
+    position: absolute; /*investigate whether this should be pulled into cljs*/
     width: 100%;
 }
 
