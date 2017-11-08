@@ -50,7 +50,7 @@
    :miranda/letterbox-ratio 1.78
    :miranda/full-screen? true
    :loading-screen loading-screen
-   :miranda/key-codes {}})
+   :miranda/key-events {}})
 
 (def ng-scene [:route-66 [:diner :intro] 0])
 
