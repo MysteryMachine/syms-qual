@@ -34,6 +34,22 @@ body{
     user-select: none;
 }
 
+.miranda.full-screen-button{
+    width: 1.5em;
+    height: 1.5em;
+    background-color: white;
+    display: inline;
+    position: absolute;
+    right: 1.5em;
+    margin: .5em;
+    z-index: 20000000;
+}
+
+.miranda.full-screen-button:hover{
+    cursor: pointer;
+    background-color: grey;
+}
+
 .base-scene{
     background-size: cover;
     overflow: hidden;

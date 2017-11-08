@@ -41,14 +41,16 @@
         (into
          [:div.loading-screen-text
           [:span "Loading"]]
-         (dots state))]]]]))
+         (dots state))]]]])) 
 
 (def options
   {:miranda/click-delay 100
    :miranda/native-resolution [2048 1080]
    :miranda/base-text-size 32
    :miranda/letterbox-ratio 1.78
-   :loading-screen loading-screen})
+   :miranda/full-screen? true
+   :loading-screen loading-screen
+   :miranda/key-codes {}})
 
 (def ng-scene [:route-66 [:diner :intro] 0])
 
@@ -56,7 +58,7 @@
   (fn [name]
     (let [container
           (if transition-fn
-            [:div.menu-text
+            [:div.menu-text 
              {:on-click (partial transition-fn name)}]
             [:div.menu-text.disabled])]
       (conj container [:div.inner-text [:span.arrow "▶ "] [:span name]]))))
@@ -87,28 +89,33 @@
    :width (str (:x window) "px")})
 
 (defn title-screen-style [window]
-  ;(js/alert (:y-adjust window))
   {:bottom (str (:y-adjust window) "px")})
 
 (defmethod miranda/render :syms-qual/intro
   [{:keys [window] :as state} transition-fn graph options]
-  [:div.base-scene {:style (base-scene-style window)}
-   [:div.title-screen.menu-container {:style (title-screen-style window)}
-    (menu (:saved state) transition-fn)]])
+  (miranda/wrap-optional-buttons
+   state transition-fn options
+   [:div.base-scene {:style (base-scene-style window)}
+     [:div.title-screen.menu-container {:style (title-screen-style window)}
+      (menu (:saved state) transition-fn)]]))
 
 (defmethod miranda/render :syms-qual/new-game-guard
   [{:keys [window] :as state} transition-fn graph options]
-  [:div.base-scene
-   {:style (base-scene-style window)}
-   [:div.title-screen.menu-container {:style (title-screen-style window)}
-    (new-game-guard-menu transition-fn)]])
+  (miranda/wrap-optional-buttons
+   state transition-fn options
+   [:div.base-scene
+    {:style (base-scene-style window)}
+    [:div.title-screen.menu-container {:style (title-screen-style window)}
+     (new-game-guard-menu transition-fn)]]))
 
 (defmethod miranda/render :syms-qual/options
   [{:keys [window] :as state} transition-fn graph options]
-  [:div.base-scene
-   {:style (base-scene-style window)}
-   [:div.title-screen.menu-container {:style (title-screen-style window)}
-    (menu (:saved state))]])
+  (miranda/wrap-optional-buttons
+   state transition-fn options
+   [:div.base-scene
+    {:style (base-scene-style window)}
+    [:div.title-screen.menu-container {:style (title-screen-style window)}
+     (menu (:saved state))]]))
 
 (defn continue [state]
   (util/save! :saved true)
