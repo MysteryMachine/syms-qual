@@ -361,11 +361,19 @@
     "_symHand"]
 
    "Photos"
-   ["_indiana"
+   ["_familyPhoto"
+    "_fancyDress"
+    "_fancyDressJunk"
+    "_guyFieri"
+    "_indiana"
     "_junkratDate0"
+    "_junkratDate1"
+    "_junkratDate1Junkrat"
     "_pharahDate0"
     "_pharahDate1"
+    "_rollerSkate"
     "_sombraDate0"
+    "_sombraDate1"
     "_wanted"]
 
    "Reaper"
