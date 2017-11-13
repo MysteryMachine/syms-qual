@@ -214,13 +214,19 @@
    (get (load!) file))
   ([]
    (if (= "" js/document.cookie) {}
-    (as-> js/document.cookie <>
-       (str/split <> #"; ")
-       (into {}
-             (map (fn [s]
-                    (let [[k v] (str/split s #"=")]
-                      [(keyword k) (if (nil? v) v (read-string v))])))
-             <>)))))
+       (as-> js/document.cookie <>
+         (str/split <> #"; ")
+         (into {}
+               (comp
+                (map (fn [s]
+                        (let [[k v] (str/split s #"=")]
+                          (try
+                            [(keyword k) (if (nil? v) v (read-string v))]
+                            (catch js/Error e
+                              (do (js/console.log (str "Cannot load cookie: " v))
+                                  [(keyword k) nil]))))))
+                (filter (fn [[k v]] v)))
+               <>)))))
 
 (defn scale [{:keys [window] :as state} options]
   (/ (:y window) (second (:miranda/native-resolution options))))

@@ -258,9 +258,4 @@
    [:street :finale]
    [:miranda/narration
     "The days event have done nothing to assuage your doubts about the Overwatch program but you can’t say they haven’t been interesting. As you board your homeward bound shuttle you cannot help but wonder what the coming days will bring."
-    :-> [:street :thanks]]
-
-   [:street :thanks]
-   [:miranda/narration
-    "Thanks for playing! We appreciate any feedback you might have!"
-    :=> [:title-screen [:bg :default] 0]]})
+    :=> [:anubis [:spawn :intro] 0]]})

@@ -1,7 +1,8 @@
 (ns syms-qual.core
   (:require [carmen.miranda :as miranda]
             [carmen.util :as util]
-            [syms-qual.data.scenes :as scenes]))
+            [syms-qual.data.scenes :as scenes]
+            [syms-qual.data.state-dump :as dump]))
 
 (enable-console-print!)
 
@@ -49,6 +50,8 @@
    :miranda/base-text-size 32
    :miranda/letterbox-ratio 1.78
    :miranda/full-screen? true
+   ;;TODO: Change me for production
+   :miranda/max-load-time 0
    :loading-screen loading-screen
    :miranda/key-events {}})
 
@@ -150,4 +153,18 @@
 
 (defonce state-atom (reagent.core/atom base-state))
 
+;; TODO: think harder about this tooling
+(defonce saved-state (atom {}))
+
+(defn save [] (reset! saved-state @state-atom))
+
+(defn load
+  ([] (load @saved-state))
+  ([a]
+   (case a
+     2 (reset! state-atom dump/day-2)
+     (reset! state-atom a))))
+
 (miranda/samba! "app" state-atom graph options)
+
+
