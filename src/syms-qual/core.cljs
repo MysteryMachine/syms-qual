@@ -163,6 +163,7 @@
   ([a]
    (case a
      2 (reset! state-atom dump/day-2)
+     3 (reset! state-atom dump/day-3)
      (reset! state-atom a))))
 
 (miranda/samba! "app" state-atom graph options)
