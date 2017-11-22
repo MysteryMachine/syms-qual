@@ -39,10 +39,13 @@
    "title_screen_bg"
 
    "volskaya_apartment"
+   "volskaya_point_a"
+   "volskaya_point_a_notp"
+   "volskaya_sombra_a"
    "volskaya_sombra_b"
    "volskaya_spawn"
-   "volskaya_zenyatta"
-   "volskaya_point_a"])
+   "volskaya_zarya"
+   "volskaya_zenyatta"])
 
 (def options
   {:path "img/Backgrounds/"

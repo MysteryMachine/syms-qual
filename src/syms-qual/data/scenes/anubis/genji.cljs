@@ -94,7 +94,7 @@ I am sorry, Dr. Ziegler, what you ask is infeasible. Vishkar Corporation safety 
       "Alright you’ve won me over. I do love a good design challenge."]
      ["Genji" [[:genji_mercy :_bow (scoot -5)] [:symmetra :_sass (scoot 3)]]
       "Thank you, you won’t regret it!"]]
-    (inc-transition [:-> [:spawn :genji :yes]] :points/payload))
+    (inc-transition [:-> [:genji :cutscene]] :points/payload))
 
    [:spawn :genji :no]
    [:miranda/dialogue

@@ -453,6 +453,7 @@
     "_tongue"
     "_vodkaHoldOn"
     "_wave"
+    "_wink"
     "_whisper"
     "_yell"]
 

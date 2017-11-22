@@ -13,6 +13,7 @@
             [syms-qual.data.scenes.volskaya.mei :as volskaya-mei]
             [syms-qual.data.scenes.volskaya.zenyatta :as volskaya-zenyatta]
             [syms-qual.data.scenes.volskaya.sombra :as volskaya-sombra]
+            [syms-qual.data.scenes.volskaya.date :as volskaya-date]
 
             [syms-qual.data.scenes.kings-row.junkrat :as kings-row-junkrat]
             [syms-qual.data.scenes.kings-row.intro :as kings-row-intro]
@@ -45,7 +46,7 @@
    :gibralter (merge)
    :dorado (merge)
    :hollywood (merge hollywood-efi/data hollywood-sombra/data hollywood-soldier/data hollywood-intro/data)
-   :volskaya (merge volskaya-sombra/data volskaya-zenyatta/data volskaya-mei/data volskaya-intro/data)
+   :volskaya (merge volskaya-sombra/data volskaya-date/data volskaya-zenyatta/data volskaya-mei/data volskaya-intro/data)
    :lijiang (merge lijang-dva/data lijang-intro/data lijang-winston/data lijang-tracer/data)
    :kings-row (merge kings-row-junkrat/data kings-row-torb/data kings-row-lucio/data kings-row-intro/data)
    :numbani (merge)

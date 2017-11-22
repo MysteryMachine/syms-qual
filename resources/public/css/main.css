@@ -37,16 +37,17 @@ body{
 .miranda.full-screen-button{
     width: 1.5em;
     height: 1.5em;
-    background-color: white;
     position: absolute;
     right: 1.5em;
     margin: .5em;
     z-index: 100;
+    background-image: url("../img/Main_Menu/fullscreen.png");
+    background-size: cover;
 }
 
 .miranda.full-screen-button:hover{
     cursor: pointer;
-    background-color: grey;
+    background-image: url("../img/Main_Menu/fullscreenHover.png");
 }
 
 .base-scene{
