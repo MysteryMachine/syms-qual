@@ -9,8 +9,8 @@
     ["Symmetra" [[:zarya_mei :_neutralUp (scoot -20)] [:symmetra :_confused (scoot 3)]]
      "Um, yes?"]
     :transition :miranda/conditional
-    [:anubis/zarya [:-> [:spawn :mei 1]]
-     :else         [:-> [:spawn :mei :option 0 1]]]]
+    [:anubis/zarya-chat [:-> [:spawn :mei 1]]
+     :else              [:-> [:spawn :mei :option 0 1]]]]
 
    [:spawn :mei 1]
    [:miranda/dialogue
