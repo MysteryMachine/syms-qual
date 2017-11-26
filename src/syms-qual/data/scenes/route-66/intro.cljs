@@ -4,9 +4,8 @@
 (def data
   {[:diner :intro]
    [:miranda/narration
-    "Today is the day you must perform your first qualifying duties under the newly reinstated Overwatch program. Although, you can’t imagine what your employer, The Vishkar Corporation, is going to gain from your participation in such a highly illegal operation, it’s not your place to question their orders. From the intel they’ve gathered, it seems Overwatch agents largely fight amongst themselves, attempting, and mostly failing to escort payloads."
-    "Vishkar strategists have advised you to focus on maintaining direct contact with this payload in your qualifying endeavors, but beyond that they have concluded that the next best course of action will be to work closely with your assigned team captains to develop cohesive battle strategies over the next ten days of qualifying matches."
-    "While you personally feel like it is important to to maintian Vishkar's worldwide reputation by performing well in your matches, your superiors indicated that gaining intel on the project as a whole is an equally desirable goal. How you prioritize these goals has be left to your discretion."
+    "While the undulating canyons of the American landscape you viewed from the transport were quite beautiful, the dilapidated diner it ultimately deposited you in front of did not quite have the grandeur you had imagined the staging ground for a large international organization would possess."
+    "The dirty, dimly lit interior did little to assuage your doubts about the legitimacy of the program and you began to wonder just what you had gotten yourself into. As you survey the questionable menu options and strange assortment of posters adorning the walls, you are approached by a pair of you teammates. "
     :-> [:diner :dialogue 0]]
 
    [:diner :dialogue 0]

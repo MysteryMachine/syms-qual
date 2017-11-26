@@ -19,7 +19,7 @@
     ["Chat with Pharah" (comp not :anubis/pharah-chat)
      (toggle-transition [:-> [:spawn :pharah 0]] :anubis/pharah-chat)]
     ["Go with Pharah" :anubis/pharah-chat
-     [:-> [:spawn :pharah :yes]]]
+     [:-> [:spawn :pharah :date-start]]]
 
     ["Chat with Zarya and Reinhardt" (comp not :anubis/zarya-chat)
      (toggle-transition [:-> [:spawn :zarya 0]] :anubis/zarya-chat)]

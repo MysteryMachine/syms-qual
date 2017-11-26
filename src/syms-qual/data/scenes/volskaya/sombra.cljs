@@ -207,7 +207,7 @@
      ["Sombra" [[:sombra :_dismayed (scoot -3)] [:symmetra :_no (scoot 20)]]
       "What? No, come back!"]
      ["Symmetra" [[:sombra :_dismayed (scoot -3)] [:symmetra :_laugh (scoot 20 0 1.5)]]
-      "I’m joking; see, I can be fun."]
+      "I’m joking, see, I can be fun."]
      ["Symmetra" [[:sombra :_neutral (scoot -3)] [:symmetra :_explainWTF (scoot 0)]]
       "But your plan better work,  I do not intend to lose this match."]
      ["Sombra" [[:sombra :_salute (scoot -3)] [:symmetra :_frown (scoot 0)]]
@@ -223,11 +223,6 @@
     :-> [:spawn :choice]]
 
    [:point-a-notp :cutscene]
-   [:miranda/characters
-    [[]]
-    :-> [:point-a-notp :cutscene :text]]
-
-   [:point-a-notp :cutscene :text]
    [:miranda/narration
     "True to her word, Sombra managed to hack one of the Svyatogors. Its offense was absolute, and you captured both points as quickly as it took for you to walk to them. As you began to set up for the defensive round, you noticed that Sombra had parked the robot inside the second point hangar, rather than on the first point with the rest of your team."
     "After some deliberation, you decided that it did not really matter if you held on the first or second point, and were just about to resume placing your turrets when you felt a strange tapping on your shoulder. You looked back there was no one to be found."

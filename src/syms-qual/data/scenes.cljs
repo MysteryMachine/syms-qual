@@ -6,6 +6,7 @@
 
             [syms-qual.data.scenes.anubis.cutscenes :as anubis-cutscenes]
             [syms-qual.data.scenes.anubis.pharah :as anubis-pharah]
+            [syms-qual.data.scenes.anubis.date :as anubis-date]
             [syms-qual.data.scenes.anubis.genji :as anubis-genji]
             [syms-qual.data.scenes.anubis.zarya :as anubis-zarya]
 
@@ -14,6 +15,7 @@
             [syms-qual.data.scenes.volskaya.zenyatta :as volskaya-zenyatta]
             [syms-qual.data.scenes.volskaya.sombra :as volskaya-sombra]
             [syms-qual.data.scenes.volskaya.date :as volskaya-date]
+            [syms-qual.data.scenes.volskaya.date-2 :as volskaya-date-2]
 
             [syms-qual.data.scenes.kings-row.junkrat :as kings-row-junkrat]
             [syms-qual.data.scenes.kings-row.intro :as kings-row-intro]
@@ -41,12 +43,12 @@
 
 (def structure
   {:route-66 (merge intro/data intro-options/data intro-dates/data)
-   :anubis (merge anubis-cutscenes/data anubis-pharah/data anubis-genji/data anubis-zarya/data)
+   :anubis (merge anubis-cutscenes/data anubis-pharah/data anubis-genji/data anubis-zarya/data anubis-date/data)
    :eichenwalde (merge eichenwalde-pharah/data eichenwalde-hanzo/data eichenwalde-widowmaker/data eichenwalde-intro/data)
    :gibralter (merge)
    :dorado (merge)
    :hollywood (merge hollywood-efi/data hollywood-sombra/data hollywood-soldier/data hollywood-intro/data)
-   :volskaya (merge volskaya-sombra/data volskaya-date/data volskaya-zenyatta/data volskaya-mei/data volskaya-intro/data)
+   :volskaya (merge volskaya-sombra/data volskaya-date/data volskaya-date-2/data volskaya-zenyatta/data volskaya-mei/data volskaya-intro/data)
    :lijiang (merge lijang-dva/data lijang-intro/data lijang-winston/data lijang-tracer/data)
    :kings-row (merge kings-row-junkrat/data kings-row-torb/data kings-row-lucio/data kings-row-intro/data)
    :numbani (merge)

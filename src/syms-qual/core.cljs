@@ -161,10 +161,14 @@
 (defn load
   ([] (load @saved-state))
   ([a]
-   (case a
-     2 (reset! state-atom dump/day-2)
-     3 (reset! state-atom dump/day-3)
-     (reset! state-atom a))))
+   (reset!
+    state-atom
+    (case a
+      2 dump/day-2
+      3 dump/day-3
+      [3 :date] dump/day-3-date
+      4 dump/day-4
+      a))))
 
 (miranda/samba! "app" state-atom graph options)
 

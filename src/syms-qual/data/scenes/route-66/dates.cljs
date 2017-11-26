@@ -8,9 +8,9 @@
   {[:diner :junkrat]
    [:miranda/narration
     "Athena’s mechanized voice rings over the loud speakers: “Attack commences in thirty seconds” You make your way to one of the side exits hoping that an early flank will provide your team with a tactical advantage, when you hear a strange noise..."
-    :-> [:diner :dialogue 3]]
+    :-> [:door :dialogue 3]]
 
-   [:diner :dialogue 3]
+   [:door :dialogue 3]
    [:miranda/dialogue
     ["Symmetra" [[:symmetra :_confused (scoot -25)]]
      "What is this snickering I hear at the door? Is a foe setting up a trap?"]
@@ -29,10 +29,10 @@
     ["Junkrat" [[:junkrat :_triggerIntro (scoot -10)] [:symmetra :_neutral]]
      "So! Allow me to introduce myself! I’m the bombastic Junkrat!"]
     :transition :miranda/conditional
-    [:route-66/roadhog [:-> [:diner :dialogue 3 :a]]
-     :else             [:-> [:diner :dialogue 3 :b]]]]
+    [:route-66/roadhog [:-> [:door :dialogue 3 :a]]
+     :else             [:-> [:door :dialogue 3 :b]]]]
 
-   [:diner :dialogue 3 :a]
+   [:door :dialogue 3 :a]
    [:miranda/dialogue
     ["Symmetra" [[:junkrat :_triggerNeutral (scoot -10)] [:symmetra :_smile]]
      "I was talking to your friend just a moment ago. He told me you were a good boy."]
@@ -42,9 +42,9 @@
      "Oh nothing!"]
     ["Symmetra" [[:junkrat :_triggerNeutral (scoot -10)] [:symmetra :_skeptical]]
      "I talked to him about Lumerico. Just what ARE you two doing, pulling a stunt like that and then coming to Overwatch?"]
-    :-> [:diner :dialogue 4]]
+    :-> [:door :dialogue 4]]
 
-   [:diner :dialogue 3 :b]
+   [:door :dialogue 3 :b]
    [:miranda/dialogue
     ["Symmetra" [[:junkrat :_triggerNeutral (scoot -10)] [:symmetra :_bewildered]]
      "I remember now I saw you on the news."]
@@ -52,12 +52,14 @@
      "Oh yeah, the Lumerico thing! Me and my associate Roadhog, took the liberty of, ho, ho, liberating some funds! Created a nice distraction! And a nice boom! He he heeee!"]
     ["Symmetra" [[:junkrat :_triggerNeutral (scoot -10)] [:symmetra :_explainAngry]]
      "How can you justify all the lives you disrupted?"]
-    :-> [:diner :dialogue 4]]
+    :-> [:door :dialogue 4]]
 
-   [:diner :dialogue 4]
+   [:door :dialogue 4]
    [:miranda/dialogue
     ["Junkrat" [[:junkrat :_triggerExplain (scoot -10)] [:symmetra :_neutral]]
-     "The way I see it, I’m a tinkerer, darl. I built all my gear out of others junk. The wonderful thing about junk is that it gives you the opportunity to make something entirely new! And some things, got to be broke before they can be fixed. ‘Wos that phrase they have about omelets and eggs? Hee hee!"]
+     "The way I see it, I’m a tinkerer, darl. I built all my gear out of others junk. The wonderful thing about junk is that it gives you the opportunity to make something entirely new! And some things, got to be broke before they can be fixed."]
+    ["Junkrat" [[:junkrat :_triggerSmile (scoot -10)] [:symmetra :_neutral]]
+     "‘Wos that phrase they have about omelets and eggs? Hee hee!"]
     ["Symmetra" [[:junkrat :_triggerNeutral (scoot -10)] [:symmetra :_thinking]]
      "Destruction and reconstruction, huh? I suppose Overwatch gives you room for both things."]
     ["Junkrat" [[:junkrat :_triggerAdoringBlush (scoot -10)] [:symmetra :_thinking]]
@@ -65,17 +67,17 @@
     ["Junkrat" [[:junkrat :_triggerSmile (scoot -10)] [:symmetra :_neutral]]
      "Well! I suppose it’s time for me to take your, uh, statement of fact, darl. I didn’t catch your name, though."]
     ["Symmetra" [[:junkrat :_triggerNeutral (scoot -10)] [:symmetra :_smile]]
-     "Satya. I go by Symmetra in Overwatch."]
+     "Satya, but feel free to refer to me by my operative name, Symmetra."]
     ["Junkrat" [[:junkrat :_triggerWave (scoot -10)] [:symmetra :_helloWarm]]
      "I’d tell you to give ol’ hoggie my warmest wishes, but I’ll be delivering warmth directly to the payload! Heehee! Oh! And watch your step."]
-    :-> [:diner :sombra]]
+    :-> [:street :sombra]]
 
-   [:diner :sombra]
+   [:street :sombra]
    [:miranda/narration
     "Despite your previous comments, you are caught in Junkrat’s trap almost immediately upon starting the match. Kaboom! You have a hard fought round, but your team is stopped just short of the final point. As you are placing turrets outside the diner for your own round on defense, you notice Sombra just inside the door, seemingly preoccupied with the glowing screen in front of her. You attempt to get her attention with a quick tap on the glass."
-    :-> [:diner :dialogue 5]]
+    :-> [:door :dialogue 5]]
 
-   [:diner :dialogue 5]
+   [:door :dialogue 5]
    [:miranda/dialogue
     ["Symmetra" [[:sombra :_browseDickButt (scoot -10)] [:symmetra :_helloWarm]]
      "Hello!"]
@@ -106,10 +108,10 @@
     ["Sombra" [[:sombra :_laugh (scoot -10)] [:symmetra :_embarassed]]
      "I’m just saying! People deal with the stress of this fucked up military Sisyphean bullshit in different ways — they hack the system, you know."]
     :transition :miranda/conditional
-    [:route-66/reaper [:-> [:diner :sombra :extra]]
-     :else            [:-> [:diner :dialogue 6]]]]
+    [:route-66/reaper [:-> [:door :sombra :extra]]
+     :else            [:-> [:door :dialogue 6]]]]
 
-   [:diner :sombra :extra]
+   [:door :sombra :extra]
    [:miranda/dialogue
     ["Symmetra" [[:sombra :_neutral (scoot -10)] [:symmetra :_flirty]]
      "Like a vacation to France?"]
@@ -119,9 +121,9 @@
      "Reaper sounded quite fond of you when we spoke. I might dare say he even bordered on fatherly? In his own bizzare way."]
     ["Sombra" [[:sombra :_nostalgic (scoot -10)] [:symmetra :_smile]]
      "Pinche abuelo. Giving away my cute secrets. I suppose. We’re a family of sorts, like I hacked reality and now my dad is gay and goth in a really uncool way."]
-    :-> [:diner :dialogue 6]]
+    :-> [:door :dialogue 6]]
 
-   [:diner :dialogue 6]
+   [:door :dialogue 6]
    [:miranda/dialogue
     ["Sombra" [[:sombra :_explain (scoot -10)] [:symmetra :_neutral]]
      "Look, hackers get a bad rap as destructive, but hacking’s history is much richer than that.  When you’re completely out of options, what’s a little bending of the rules? If we have to do this while the world moves on around us, I say we make it our own."]
@@ -194,7 +196,7 @@
      "Mama! She’s going to hear us, and then it’ll be weird."]
     ["Ana" [[:pharah :_reversePeek (scoot 15)] [:ana :_explain (scoot -10)]]
      "You military types. You become disciplined and well trained, and it squeezes out all the real social skills. I spent years dealing with this same shyness before I just gave up and dated a civilian. ‘Ibna, if you don’t talk to others, you’ll never get to know them. Just say hello."]
-    :-> [:street :narration :a]]
+    :-> [:diner :narration :a]]
 
    [:diner :scene 7 :b]
    [:miranda/narration
@@ -223,7 +225,7 @@
     ["Pharah" [[:pharah :_helloAwkward (scoot -15)] [:symmetra :_helloWarm]]
      "Hello! Your tactics were formidable!"]
     ["Symmetra" [[:pharah :_helloAwkward (scoot -15)] [:symmetra :_smile]]
-     "Why, thank you! I’ve found there’s a great deal of power in being able to bring your allies back from death quickly! It’s almost as if my allies never died!"]
+     "Why, thank you! I’ve found there’s a great deal of power in being able to bring your allies back from death quickly! It’s almost as if the heroes on my team never died!"]
     ["Pharah" [[:pharah :_AnguishGay (scoot -15)] [:symmetra :_skeptical]]
      "What?"]
     ["Symmetra" [[:pharah :_anguishMild (scoot -15)] [:symmetra :_sass]]
@@ -257,5 +259,5 @@
 
    [:street :finale]
    [:miranda/narration
-    "The days event have done nothing to assuage your doubts about the Overwatch program but you can’t say they haven’t been interesting. As you board your homeward bound shuttle you cannot help but wonder what the coming days will bring."
+    "The days event have done nothing to assuage your doubts about the Overwatch program but you can’t say they haven’t been interesting. As you board your homeward bound shuttle you cannot help but wonder what the coming weeks will bring."
     :=> [:anubis [:spawn :intro] 0]]})

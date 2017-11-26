@@ -306,13 +306,15 @@
     "_confused"
     "_explain"
     "_fist"
+    "_gun"
     "_handChin"
     "_headHand"
     "_neutral"
     "_pointUp"
     "_rollsEyes"
     "_shush"
-    "_thumbsUp"]
+    "_thumbsUp"
+    "_TP"]
 
    "Orisa"
    ["_neutral"]
@@ -423,6 +425,7 @@
     "_browseConcerned"
     "_browseConcernedTalk"
     "_browseDickButt"
+    "_browseExplain"
     "_browseTranslation"
     "_browseTranslationSmile"
     "_camo"
@@ -433,6 +436,7 @@
     "_explainConcerned"
     "_explainCondescend"
     "_explainHand"
+    "_fistHand"
     "_flirty"
     "_frown"
     "_hack"
@@ -443,6 +447,8 @@
     "_nostalgic"
     "_nostalgicSad"
     "_point"
+    "_reverse"
+    "_reverseLaugh"
     "_salute"
     "_self"
     "_shhReaper"
