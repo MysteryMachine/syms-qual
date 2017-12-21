@@ -18,11 +18,13 @@
     (+ i (* (- f i) (* p p)))))
 
 (defn generic-tween
-  [{:keys [tween-type start finish time]} elapsed-time transition-fn]
+  [{:keys [tween-type start finish time delay]} elapsed-time transition-fn]
   (let [[xi yi] (:position start [0 0])
         [xf yf] (:position finish [0 0])
         oi (:opacity start 1)
-        of (:opacity finish 1)]
-    {:position [(transition-fn xi xf elapsed-time time)
-                (transition-fn yi yf elapsed-time time)]
-     :opacity  (transition-fn oi of elapsed-time time)}))
+        of (:opacity finish 1)
+        delay? (> (or delay 0) elapsed-time)]
+    (if delay? {:position [xi yi] :opacity oi}
+     {:position [(transition-fn xi xf elapsed-time time)
+                  (transition-fn yi yf elapsed-time time)]
+       :opacity  (transition-fn oi of elapsed-time time)})))

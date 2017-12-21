@@ -63,6 +63,11 @@
     :-> [:sombra-a :cutscene]]
 
    [:sombra-a :cutscene]
+   [:miranda/characters
+    [[]]
+    :-> [:sombra-a :cutscene :text]]
+
+   [:sombra-a :cutscene :text]
    [:miranda/narration
     "After setting up your teleporter near the river’s edge on the back of the first point you and Sombra take a seat to watch the ensuing pandemonium. Zenyatta comes through the teleporter and instantly sinks. Sombra cannot contain her laughter, but quickly attempts to regain her composure and shoots you a look of feigned horror mixed with an apologetic shrug."
     "Widowmaker comes next, but reacts instantly, grappling up a building and flipping you two off as she zips away from the battlefield. Sombra returns her one fingered salute as you watch her disappear into the distance. You awkwardly wait for a few more seconds before Zarya passes through the teleporter but manages to stop herself short of falling over the edge."
@@ -99,10 +104,10 @@
               [:symmetra :_awkward (scoot 10)]
               [:mei :_TP (scoot -48 -18 2)]]
      "It appears team discipline is in need of improvement. Come we have much work to do."]
-    ["Zarya" [[:zarya :_angryTalk (scoot -5)]
-              [:sombra :_reverse (scoot 0)]
-              [:symmetra :_awkward (scoot 10)]
-              [:mei :_gun (scoot -18)]]
+    ["Zarya" [[:zarya :_angryTalk (scoot -5 95 2 2)]
+              [:sombra :_reverse (scoot 0 100 2 2)]
+              [:symmetra :_awkward (scoot 10 110 2 2)]
+              [:mei :_gun (scoot -18 88 2 2)]]
      "You will now regret your lack of physical training, thin one."]
     :-> [:point-a :sombra :cutscene 3]]
 
@@ -113,7 +118,7 @@
 
    [:apartment :sombra 6]
    [:miranda/dialogue
-    ["Sombra" [[:sombra :_laugh (scoot -43 -3 1)] [:symmetra :_laugh (scoot 40 0 1)]]
+    ["Sombra" [[:sombra :_laugh (scoot -43 -3 1)] [:symmetra :_smile (scoot 40 0 1)]]
      "Haha, did you see their faces?"]
     ["Symmetra" [[:sombra :_laugh (scoot -3)] [:symmetra :_explainUncomfortable (scoot 0)]]
      "Did you see yours? I thought you must have wet yourself!"]
@@ -130,7 +135,7 @@
     ["Symmetra" [[:sombra :_neutral (scoot -3)] [:symmetra :_no (scoot 0)]]
      "I don’t think so."]
     ["Sombra" [[:sombra :_shrug (scoot -3)] [:symmetra :_neutral (scoot 0)]]
-     "Fair."]
+     "One day you'll understand the ecstasy of commiting crimes against capitalist pigs."]
     [nil [[:sombra :_browseConcerned (scoot -3)] [:symmetra :_neutral (scoot 0)]]
      "You hear some loud beeping come out of Sombra."]
     ["Sombra" [[:sombra :_browseConcernedTalk (scoot -3)] [:symmetra :_neutral (scoot 0)]]
@@ -142,11 +147,11 @@
     ["Symmetra" [[:sombra :_browseConcerned (scoot -3)] [:symmetra :_explain (scoot 0)]]
      "We should make haste back to the point."]
     ["Sombra" [[:sombra :_browseExplain (scoot -3)] [:symmetra :_angry (scoot 0)]]
-     "Do you have a deathwish? With that freaky protein powder, Zarya has been genetically modifying herself to be Dio Brando from JoJo’s Bizzare adventure. AFTER he became a vampire. I’ve seen her literally walk up stone pillars."]
+     "Do you have a death wish? With that freaky protein powder, Zarya has been genetically modifying herself to be Dio Brando from JoJo’s Bizzare adventure. AFTER he became a vampire. I’ve seen her literally walk up stone pillars."]
     ["Symmetra" [[:sombra :_frown (scoot -3)] [:symmetra :_explainWTF (scoot 0)]]
      "Your reference is lost on me."]
     ["Sombra" [[:sombra :_fistHand (scoot -3)] [:symmetra :_skeptical (scoot 0)]]
-     "He’s a dude you definitely do not want to mess with. Do you know what happened to people that crossed him? They lost everything. Even their own BODY."]
+     "He’s a dude you definitely do not want to mess with. Do you know what happened to people that crossed him? They lost everything."]
     ["Symmetra" [[:sombra :_smile (scoot -3)] [:symmetra :_confused (scoot 0)]]
      "What?"]
     ["Sombra" [[:sombra :_nostalgic (scoot -3)] [:symmetra :_confused (scoot 0)]]
@@ -154,7 +159,7 @@
     ["Symmetra" [[:sombra :_nostalgic (scoot -3)] [:symmetra :_no (scoot 0)]]
      "I do not have time to discuss old pop culture references with you Sombra. We need to return to the match. Although with our teammates outnumbered they have most likely already lost."]
     ["Sombra" [[:sombra :_wink (scoot -3)] [:symmetra :_frown (scoot 0)]]
-     "Good call! Let’s give up. I’m glad you’ve come to your senses! Wanna watch anime intros with me while we wait for this thing to blow over?"]
+     "Good call! Let’s give up. I’m glad you’ve come to your senses! Wanna watch Vine compliations with me while we wait for this thing to blow over?"]
     ["Symmetra" [[:sombra :_neutral (scoot -3)] [:symmetra :_frustrated (scoot 0)]]
      "We will be arrested if we get caught in this home."]
     ["Sombra" [[:sombra :_shrug (scoot -3)] [:symmetra :_WTF (scoot 0)]]
@@ -169,5 +174,5 @@
 
    [:apartment :sombra :cutscene 4]
    [:miranda/narration
-    "You spend maybe 30 minutes indulging Sombra in her dorky anime bullshit, until your anxiety about the match results becomes unbearable. You make up your mind to leave, but ultimately, decide returning to the hotel while Zarya was still angry could result in some unfortunate consequences. After several minutes of angry pacing you make your peace and sit back down."
+    "You spend maybe 30 minutes indulging Sombra in her dorky internet bullshit, until your anxiety about the match results becomes unbearable. You make up your mind to leave, but ultimately, decide returning to the hotel while Zarya was still angry could result in some unfortunate consequences. After several minutes of angry pacing you make your peace and sit back down."
     :-> [:apartment :sombra 7]]})

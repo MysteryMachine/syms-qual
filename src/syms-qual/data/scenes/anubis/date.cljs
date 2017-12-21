@@ -42,13 +42,13 @@
      "I’ll wait here!"]
     ["Symmetra" [[:symmetra :_thinking (scoot 0)]]
      "I really hope we return in time for the match."]
-    ["Pharah" [[:pharah :_karkadeHold (scoot -100 -10 1)] [:symmetra :_smile (scoot 0)]]
+    ["Pharah" [[:pharah :_karkadeTalk (scoot -100 -10 1)] [:symmetra :_smile (scoot 0)]]
      "I got us both karkade, I hope you like it!"]
-    ["Symmetra" [[:pharah :_karkadeHold (scoot -10)] [:symmetra :_karkadeHold (scoot 0)]]
+    ["Symmetra" [[:pharah :_karkadeHold (scoot -10)] [:symmetra :_karkadeTalk (scoot 0)]]
      "Oh?"]
-    ["Pharah" [[:pharah :_karkadeDown (scoot -10)] [:symmetra :_karkadeHold (scoot 0)]]
+    ["Pharah" [[:pharah :_karkadeTalk (scoot -10)] [:symmetra :_karkadeHold (scoot 0)]]
      "I figured this would be more refreshing and I wanted to make sure you would have something delicious, since you took a risk to come out here with me."]
-    ["Symmetra" [[:pharah :_karkadeDown (scoot -10)] [:symmetra :_karkadeSmile (scoot 0)]]
+    ["Symmetra" [[:pharah :_karkadeDown (scoot -10)] [:symmetra :_karkadeTalk (scoot 0)]]
      "Well, thank you, Miss Amari. It’s a lovely color."]
     ["Pharah" [[:pharah :_karkadeEmbarassed (scoot -10)] [:symmetra :_karkadeSmile (scoot 0)]]
      "Okay! People on dates take food selfies, right? Here, give me your phone."]
@@ -69,11 +69,11 @@
      "This is quite good!"]
     ["Pharah" [[:pharah :_karkadeDrink (scoot -10)] [:symmetra :_karkadeDown (scoot 0)]]
      "It’s one of my favorites. I always drank it in the summers when I was little."]
-    ["Symmetra" [[:pharah :_karkadeHold (scoot -10)] [:symmetra :_karkadeSmile (scoot 0)]]
+    ["Symmetra" [[:pharah :_karkadeHold (scoot -10)] [:symmetra :_karkadeTalk (scoot 0)]]
      "That’s right, this is your hometown isn’t it?"]
-    ["Pharah" [[:pharah :_karkadeDown (scoot -10)] [:symmetra :_karkadeSmile (scoot 0)]]
+    ["Pharah" [[:pharah :_karkadeTalk (scoot -10)] [:symmetra :_karkadeSmile (scoot 0)]]
      "Well yes and no. You never really stay in one place too long in a military family."]
-    ["Symmetra" [[:pharah :_karkadeDown (scoot -10)] [:symmetra :_karkadeBlush (scoot 0)]]
+    ["Symmetra" [[:pharah :_karkadeDrink (scoot -10)] [:symmetra :_karkadeBlush (scoot 0)]]
      "Ah, yes. You’ve been around Overwatch basically your whole life haven’t you? I’m sure you have many interesting stories."]
     ["Pharah" [[:pharah :_karkadeUncomfortable (scoot -10)] [:symmetra :_karkadeDown (scoot 0)]]
      "Eh. It was whatever. Military families are tough."]
@@ -117,7 +117,7 @@
 
    [:cafe 1]
    [:miranda/dialogue
-    ["Symmetra" [[:pharah :_karkadeHold (scoot -10)] [:symmetra :_karkade-Drink (scoot 0)]]
+    ["Symmetra" [[:pharah :_karkadeHold (scoot -10)] [:symmetra :_karkadeTalk (scoot 0)]]
      "You’re a cute one, Ms. Amari. "]
     ["Pharah" [[:pharah :_karkadeBold (scoot -10)] [:symmetra :_karkade-Drink (scoot 0)]]
      "Hehe, I’m trying my best. I’m glad you’ve joined our ranks. Overwatch has a long and storied history that I’m excited to finally officially be a part of. I think you’ll like it here too. "]
@@ -152,31 +152,31 @@
 
    [:cafe 1 1 :show]
    [:miranda/characters
-    [[[:photos :_placeHolder] [:phones :_pharahHand]]]
+    [[[:photos :_golf] [:phones :_pharahHand]]]
     :-> [:cafe 1 1]]
 
    [:cafe 1 1]
    [:miranda/dialogue
-    ["Pharah" [[:photos :_placeHolder] [:phones :_pharahHand]]
+    ["Pharah" [[:photos :_golf] [:phones :_pharahHand]]
      "You’d be surprised! Okay, another one. Um, here’s Jack teaching me to golf."]
-    ["Symmetra" [[:photos :_placeHolder] [:phones :_pharahHand]]
+    ["Symmetra" [[:photos :_golf] [:phones :_pharahHand]]
      "Hum. Heavily padded again."]
     :-> [:cafe 1 2 :show]]
 
    [:cafe 1 2 :show]
    [:miranda/characters
-    [[[:photos :_placeHolder] [:phones :_pharahHand]]]
+    [[[:photos :_mathletes] [:phones :_pharahHand]]]
     :-> [:cafe 1 2]]
 
    [:cafe 1 2]
    [:miranda/dialogue
-    ["Pharah" [[:photos :_placeHolder] [:phones :_pharahHand]]
+    ["Pharah" [[:photos :_mathletes] [:phones :_pharahHand]]
      "Ha ha ha. Um. Mother was concerned about stray golf balls hitting me. Um, um. Here! Torbjorn cheering me on in matheletes!"]
-    ["Symmetra" [[:photos :_placeHolder] [:phones :_pharahHand]]
+    ["Symmetra" [[:photos :_mathletes] [:phones :_pharahHand]]
      "I did not know you wore glasses!"]
-    ["Pharah" [[:photos :_placeHolder] [:phones :_pharahHand]]
+    ["Pharah" [[:photos :_mathletes] [:phones :_pharahHand]]
      "I did not. They are, um, Gunnars. You know. The ones meant to protect eyes from glare."]
-    ["Symmetra" [[:photos :_placeHolder] [:phones :_pharahHand]]
+    ["Symmetra" [[:photos :_mathletes] [:phones :_pharahHand]]
      "Ana protecting you from the glare of the computer monitor."]
     :-> [:cafe 1 3 :show]]
 
@@ -187,7 +187,7 @@
 
    [:cafe 1 3]
    [:miranda/dialogue
-    ["Pharah" [[:photos :_familyPhot] [:phones :_pharahHand]]
+    ["Pharah" [[:photos :_familyPhoto] [:phones :_pharahHand]]
      "Um. Yeah. Um, um, um. Here! This one has a good story too!"]
     ["Symmetra" [[:photos :_familyPhoto] [:phones :_pharahHand]]
      "Oh what a cute family photo. Wait, is Reinhardt crying? And is that Reaper, and is he bleeding? What is happening in this photo?"]
@@ -269,7 +269,7 @@
 
    [:cafe 3]
    [:miranda/dialogue
-    ["Symmetra" [[:pharah :_karkadeDrink (scoot -10)] [:symmetra :_karkadeSmile (scoot 0)]]
+    ["Symmetra" [[:pharah :_karkadeDrink (scoot -10)] [:symmetra :_karkadeTalk (scoot 0)]]
      "That is sweet."]
     ["Pharah" [[:pharah :_karkadeBold (scoot -10)] [:symmetra :_karkadeHold (scoot 0)]]
      "Granted, he was projecting himself onto me, but I’d like to think I followed his advice."]

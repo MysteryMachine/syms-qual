@@ -162,33 +162,41 @@
 
 (defn scoot
   ([n] {:finish {:position [n 0]}})
-  ([n m t]
+  ([n m t] (scoot n m t 0))
+  ([n m t d]
    {:start {:position [n 0]}
     :finish {:position [m 0]}
     :time (* 1000 t)
+    :delay (* 1000 d)
     :tween-type :miranda/cubic}))
 
 (defn move
   ([p] {:finish {:position p}})
-  ([i f t]
+  ([i f t] (move i f t 0))
+  ([i f t d]
    {:start {:position i}
     :finish {:position f}
     :time (* 1000 t)
+    :delay (* 1000 d)
     :tween-type :miranda/linear}))
 
 (defn qmove
-  [i f t]
-  {:start {:position i}
-   :finish {:position f}
-   :time (* 1000 t)
-   :tween-type :miranda/quadratic})
+  ([i f t] (qmove i f t 0))
+  ([i f t d]
+   {:start {:position i}
+    :finish {:position f}
+    :time (* 1000 t)
+    :delay (* 1000 d)
+    :tween-type :miranda/quadratic}))
 
 (defn cmove
-  [i f t]
-  {:start {:position i}
-   :finish {:position f}
-   :time (* 1000 t)
-   :tween-type :miranda/cubic})
+  ([i f t] (cmove i f t 0))
+  ([i f t d]
+   {:start {:position i}
+    :finish {:position f}
+    :time (* 1000 t)
+    :delay (* 1000 d)
+    :tween-type :miranda/cubic}))
 
 (defn fade-in [pos t]
   {:finish {:position pos
