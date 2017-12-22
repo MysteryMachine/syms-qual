@@ -24,7 +24,9 @@
         oi (:opacity start 1)
         of (:opacity finish 1)
         delay? (> (or delay 0) elapsed-time)]
-    (if delay? {:position [xi yi] :opacity oi}
-     {:position [(transition-fn xi xf elapsed-time time)
-                  (transition-fn yi yf elapsed-time time)]
-       :opacity  (transition-fn oi of elapsed-time time)})))
+    (if delay?
+      {:position [xi yi] :opacity oi}
+      (let [elapsed-time (- elapsed-time (or delay 0))]
+       {:position [(transition-fn xi xf elapsed-time time)
+                   (transition-fn yi yf elapsed-time time)]
+        :opacity  (transition-fn oi of elapsed-time time)}))))
