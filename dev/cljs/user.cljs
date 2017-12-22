@@ -1,5 +1,5 @@
 (ns cljs.user
-  (:require [syms-qual.core :refer [load save state-atom]]
+  (:require [syms-qual.core :refer [load save state-atom graph]]
             [carmen.util :as u]))
 
 (defn s [args]

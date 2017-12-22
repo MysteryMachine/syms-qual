@@ -54,7 +54,7 @@
   [:div.miranda.full-screen-button
    {:on-click
     (partial transition-fn
-             {:miranda/transition :miranda/full-screen})}])
+             {:transition/type :miranda/full-screen})}])
 
 (defn wrap-optional-buttons
   ([state transition-fn options data]
@@ -108,7 +108,7 @@
 
 (defmulti transition
   (fn [state graph options args]
-    (if-let [t-type (:miranda/transition args)]
+    (if-let [t-type (:transition/type args)]
       t-type
       (util/transition-type state graph))))
 
