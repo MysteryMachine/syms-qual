@@ -86,7 +86,7 @@
        (container "Return")]]]))
 
 (defn base-scene-style [window]
-  {:background-image "url(\"img/Backgrounds/title_screen_bg.png\")"
+  {:background-image (util/url "img/Backgrounds/title-screen-bg.png")
    :background-size "cover"
    :height (str (:y window) "px")
    :width (str (:x window) "px")})
@@ -153,7 +153,6 @@
 
 (defonce state-atom (reagent.core/atom base-state))
 
-;; TODO: think harder about this tooling
 (defonce saved-state (atom {}))
 
 (defn save [] (reset! saved-state @state-atom))

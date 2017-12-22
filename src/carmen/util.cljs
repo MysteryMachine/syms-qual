@@ -8,6 +8,7 @@
 
 (defn px [s] (str s "px"))
 (defn pct [s] (str s "%"))
+(defn url [s] (str "url(\"" s "\")"))
 
 ;; Style Helpers
 

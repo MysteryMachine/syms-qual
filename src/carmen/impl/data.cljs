@@ -4,8 +4,6 @@
 
 (def default-max-loading-time 30000)
 
-(defn url [s] (str "url(\"" s "\")"))
-
 (defn get-hint [path-hint] (str/split path-hint "*"))
 
 (def internal-state-key :miranda/internal)
@@ -121,11 +119,10 @@
 
 ;; --- Background Functions ---
 
-(defn bg-name->kw [name]
-  (keyword (str/replace name "_" "-")))
+(def bg-name->kw keyword)
 
 (defn bg-name->path [name path ext]
-  (url (str path name "." ext)))
+  (str path name "." ext))
 
 (defn reify-bgs-xf [{:keys [path ext]}]
   (map
@@ -285,8 +282,8 @@
                          (default-option-transition render-type level-name scene-name i))}))))
    options))
 
-(defn get-bg-img [bgs level-name subscene-name]
-  (let [k (keyword (str (name level-name) "-" (name subscene-name)))]
+(defn get-bg-img [bgs level-name delim subscene-name]
+  (let [k (keyword (str (name level-name) delim (name subscene-name)))]
     (get bgs k)))
 
 (def subscene-preload
@@ -294,30 +291,30 @@
    (fn [subscene]
      (map :img (:characters subscene)))))
 
-(defn reify-scene-xf [level-name character-graph bgs]
+(defn reify-scene-xf [level-name character-graph delim bgs]
   (map
    (fn [[scene-name subscene-data]]
      (if (map? subscene-data) [scene-name subscene-data]
          (let [[render-type & rem-data] subscene-data
                [subscenes transition] (split-transition render-type level-name rem-data)
                ;; TODO: Add better error handling around non-vec subscene names
-               bg-img (get-bg-img bgs level-name (first scene-name))
+               bg-img (get-bg-img bgs level-name delim (first scene-name))
                reified-subscenes (reify-subscenes level-name scene-name render-type character-graph subscenes)]
            [scene-name
             (merge transition
-                   {:style {:background-image bg-img
+                   {:style {:background-image (util/url bg-img)
                             :background-position "center center"}
               :render-type render-type
               :subscenes reified-subscenes
-              :miranda.internal/preload (into #{}
+              :miranda.internal/preload (into #{bg-img}
                                               (comp subscene-preload)
                                               reified-subscenes)})])))))
 
-(defn reify-scenes-xf [character-graph bgs]
+(defn reify-scenes-xf [character-graph delim bgs]
   (map
    (fn [[level-name level-data]]
      [level-name
-      (into {} (reify-scene-xf level-name character-graph bgs) level-data)])))
+      (into {} (reify-scene-xf level-name character-graph delim bgs) level-data)])))
 
 (def scene-preload
   (map
@@ -330,9 +327,12 @@
                (mapcat (comp :miranda.internal/preload second))
                scene-data)))])))
 
-(defn reify-scenes [character-graph bgs structure]
-  (into {}
-        (comp
-         (reify-scenes-xf character-graph bgs)
-         scene-preload)
-        structure))
+(defn reify-scenes
+  ([character-graph bgs structure]
+   (reify-scenes character-graph bgs "-" structure))
+  ([character-graph bgs delim structure]
+   (into {}
+         (comp
+          (reify-scenes-xf character-graph delim bgs)
+          scene-preload)
+         structure)))
