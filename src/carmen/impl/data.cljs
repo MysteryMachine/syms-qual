@@ -57,20 +57,21 @@
              (>= (:miranda/time state) (:miranda/max-load-time options default-max-loading-time))))))
 
 (defn basic-transition [state graph options]
-  (assoc state :scene (util/transition-args state graph)))
-
-(defn guard-transition [transition-fn state graph options args]
   (let [[_ _ n] (util/scene state)
         scene (util/scene-data state graph)
-        subscene-count (count (:subscenes scene))
-        delay (:miranda/click-delay options)
+        subscene-count (count (:subscenes scene))]
+    (if (>= n (dec subscene-count))
+      (assoc state :scene (util/transition-args state graph))
+      (update-in state [:scene 2] inc))))
+
+(defn guard-transition [transition-fn state graph options args]
+  (let [delay (:miranda/click-delay options)
         cant-transition (and delay (< (:miranda/time state) delay))]
     (handle-loading
      state
-     (cond
-        cant-transition state
-        (>= n (dec subscene-count)) (transition-fn state graph options args)
-        :else (update-in state [:scene 2] inc))
+     (if cant-transition
+       state
+       (transition-fn state graph options args))
      graph)))
 
 (defn alter-state [state graph]

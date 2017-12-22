@@ -52,7 +52,9 @@
 
 (defn full-screen-button [transition-fn]
   [:div.miranda.full-screen-button
-   {:on-click (partial transition-fn :miranda/full-screen)}])
+   {:on-click
+    (partial transition-fn
+             {:miranda/transition :miranda/full-screen})}])
 
 (defn wrap-optional-buttons
   ([state transition-fn options data]
@@ -106,13 +108,15 @@
 
 (defmulti transition
   (fn [state graph options args]
-    (cond
-      (and (:miranda/full-screen? options) (= :miranda/full-screen args)) :miranda/full-screen
-      :else (util/transition-type state graph))))
+    (if-let [t-type (:miranda/transition args)]
+      t-type
+      (util/transition-type state graph))))
 
 (defmethod transition :miranda/full-screen
   [state graph options args]
-  (full-screen! state))
+  (if (:miranda/full-screen? options)
+    (full-screen! state)
+    state))
 
 (defmethod transition :miranda/merge
   [state graph options args]
