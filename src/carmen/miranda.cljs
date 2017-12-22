@@ -2,47 +2,10 @@
   (:require [reagent.core :as reagent]
             [carmen.impl.render :as render]
             [carmen.impl.data :as data]
+            [carmen.impl.events :as events]
             [carmen.util :as util]))
 
 (def -state (atom {}))
-
-(defn resize-state [options]
-  (let [xscrn window.innerWidth
-        yscrn window.innerHeight
-        r (/ xscrn yscrn)]
-    (if (< r (or (:miranda/letterbox-ratio options) 0))
-      (let [y (/ xscrn (:miranda/letterbox-ratio options))]
-        {:x xscrn :y-adjust (/ (- yscrn y) 2) :y y})
-      {:x xscrn :y yscrn :y-adjust 0})))
-
-(defn resize-event [state-atom options]
-  (fn []
-    (swap!
-     state-atom
-     (fn [game]
-       (let [rs (resize-state options)
-             state (assoc game :window rs)
-             s (util/scale state options)]
-         (if-let [txts (:miranda/base-text-size options)]
-           (assoc state :miranda/text-scale (* s txts))
-           state))))))
-
-(defn fullscreen-down [state]
-  (assoc state :miranda/full-screen false))
-
-(defn keydown-event [state-atom options]
-  (fn [event]
-    (let [f (get-in [:miranda/key-events event.key] options identity)]
-      (swap! state-atom f))))
-
-(defn full-screen! [state]
-  (let [e (js/document.getElementById "app")]
-    (cond
-      e.requestFullscreen (.requestFullscreen e)
-      e.msRequestFullscreen (.msRequestFullscreen e)
-      e.mozRequestFullscreen (.mozRequestFullscreen e)
-      e.webkitRequestFullscreen (.webkitRequestFullscreen e))
-    state))
 
 (defn clear-listeners! []
   (doseq [[k v] @-state]
@@ -66,7 +29,9 @@
              [(when
                   (and (:miranda/full-screen? options)
                        (not
-                        (or document.webkitIsFullScreen
+                        (or ;; TODO: Add support for always visible
+                            ;; expand button.
+                            document.webkitIsFullScreen
                             document.fullscreen
                             document.mozFullScreen)))
                 (full-screen-button transition-fn))])
@@ -114,9 +79,7 @@
 
 (defmethod transition :miranda/full-screen
   [state graph options args]
-  (if (:miranda/full-screen? options)
-    (full-screen! state)
-    state))
+  (events/full-screen! state options))
 
 (defmethod transition :miranda/merge
   [state graph options args]
@@ -194,7 +157,7 @@
                (assoc-in data/max-reports* nil)))))
       ;; TODO: only do this if we have resizing set in
       ;; TODO: Maybe active all events? Zero time?
-      ((resize-event state-atom options)))))
+      ((events/resize! state-atom options)))))
 
 (defn reagent-component [state-atom graph options]
   (let [transition-fn (transition! state-atom graph options)
@@ -210,8 +173,8 @@
    (doseq [arg args]
      (case arg
        :animation (animation! state-atom 24)
-       "resize" (register-listener! state-atom "resize" (resize-event state-atom options) true)
-       "keydown" (register-listener! state-atom "keydown" (keydown-event state-atom options) false)))))
+       "resize" (register-listener! state-atom "resize" (events/resize! state-atom options) true)
+       "keydown" (register-listener! state-atom "keydown" (events/keydown! state-atom options) false)))))
 
 (defn samba! [root-id state-atom graph options]
   (let [app (reagent-component state-atom graph options)]
