@@ -27,12 +27,11 @@
     (let [f (get-in options [:miranda/key-events event.key] identity)]
       (swap! state-atom f))))
 
-(defn full-screen! [state options]
-  (when (:miranda/full-screen? options)
-    (let [e (js/document.getElementById "app")]
-     (cond
-       (.-requestFullscreen e) (.requestFullscreen e)
-       (.-msRequestFullscreen e) (.msRequestFullscreen e)
-       (.-mozRequestFullscreen e) (.mozRequestFullscreen e)
-       (.-webkitRequestFullscreen e) (.webkitRequestFullscreen e))))
+(defn full-screen! [state]
+  (let [e (js/document.getElementById "app")]
+    (cond
+      (.-requestFullscreen e) (.requestFullscreen e)
+      (.-msRequestFullscreen e) (.msRequestFullscreen e)
+      (.-mozRequestFullscreen e) (.mozRequestFullscreen e)
+      (.-webkitRequestFullscreen e) (.webkitRequestFullscreen e)))
   state)

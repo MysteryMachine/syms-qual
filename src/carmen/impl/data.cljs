@@ -85,15 +85,14 @@
       (assoc state :scene (util/transition-args state graph))
       (update-in state [:scene 2] inc))))
 
-(defn guard-transition [transition-fn state graph options args]
+(defn guard-transition [state transition-fn graph options args]
   (let [delay (:miranda/click-delay options)
-        cant-transition (and delay (< (:miranda/time state) delay))]
-    (handle-loading
-     state
-     (if cant-transition
-       state
-       (transition-fn state graph options args))
-     graph)))
+        cant-transition (and delay (< (:miranda/time state) delay))
+        new-state (if cant-transition
+                    state
+                    (transition-fn state graph options args))
+        final-state (handle-loading state new-state graph)]
+    (assoc final-state :miranda/time 0)))
 
 (defn alter-state [state graph]
   (let [transition-fn (util/transition-stateful-args state graph)]

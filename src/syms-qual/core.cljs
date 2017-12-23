@@ -1,6 +1,8 @@
 (ns syms-qual.core
-  (:require [carmen.miranda :as miranda]
+  (:require [reagent.core :as reagent]
+            [carmen.miranda :as miranda]
             [carmen.util :as util]
+            [carmen.extras :as extras]
             [syms-qual.data.scenes :as scenes]
             [syms-qual.data.state-dump :as dump]))
 
@@ -59,8 +61,7 @@
    :miranda/base-text-size 32
    :miranda/letterbox-ratio 1.78
    :miranda/full-screen? true
-   ;;TODO: Change me for production
-   :miranda/max-load-time 0
+   :miranda/max-load-time 30000
    :loading-screen loading-screen
    :miranda/key-events {}})
 
@@ -105,29 +106,23 @@
 
 (defmethod miranda/render :syms-qual/intro
   [{:keys [window] :as state} transition-fn graph options]
-  (miranda/wrap-optional-buttons
-   state transition-fn options
-   [:div.base-scene {:style (base-scene-style window)}
-     [:div.title-screen.menu-container {:style (title-screen-style window)}
-      (menu (:saved state) transition-fn)]]))
+  [:div.base-scene {:style (base-scene-style window)}
+   [:div.title-screen.menu-container {:style (title-screen-style window)}
+    (menu (:saved state) transition-fn)]])
 
 (defmethod miranda/render :syms-qual/new-game-guard
   [{:keys [window] :as state} transition-fn graph options]
-  (miranda/wrap-optional-buttons
-   state transition-fn options
-   [:div.base-scene
-    {:style (base-scene-style window)}
-    [:div.title-screen.menu-container {:style (title-screen-style window)}
-     (new-game-guard-menu transition-fn)]]))
+  [:div.base-scene
+   {:style (base-scene-style window)}
+   [:div.title-screen.menu-container {:style (title-screen-style window)}
+    (new-game-guard-menu transition-fn)]])
 
 (defmethod miranda/render :syms-qual/options
   [{:keys [window] :as state} transition-fn graph options]
-  (miranda/wrap-optional-buttons
-   state transition-fn options
-   [:div.base-scene
-    {:style (base-scene-style window)}
-    [:div.title-screen.menu-container {:style (title-screen-style window)}
-     (menu (:saved state))]]))
+  [:div.base-scene
+   {:style (base-scene-style window)}
+   [:div.title-screen.menu-container {:style (title-screen-style window)}
+    (menu (:saved state))]])
 
 (defn continue [state]
   (util/save! :saved true)
@@ -178,6 +173,17 @@
       4 dump/day-4
       a))))
 
-(miranda/samba! "app" state-atom graph options)
+(def game (miranda/reagent-component state-atom graph options))
+
+(defn app []
+  (let [state @state-atom]
+    [:div.syms-qual
+     [:div.miranda.option-button-holder
+      (when-not (extras/fullscreen?)
+        (extras/full-screen-button state-atom))]
+     [game state]]))
+
+(miranda/listen! state-atom options)
+(reagent/render [app] (. js/document (getElementById "app")))
 
 

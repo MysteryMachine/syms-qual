@@ -1,6 +1,5 @@
 (ns carmen.miranda
-  (:require [reagent.core :as reagent]
-            [carmen.impl.render :as render]
+  (:require [carmen.impl.render :as render]
             [carmen.impl.data :as data]
             [carmen.impl.events :as events]
             [carmen.util :as util]))
@@ -13,73 +12,35 @@
       (= k :miranda/animation) (js/window.clearInterval v)
       :default (js/window.removeEventListener k v))))
 
-(defn full-screen-button [transition-fn]
-  [:div.miranda.full-screen-button
-   {:on-click
-    (partial transition-fn
-             {:transition/type :miranda/full-screen})}])
-
-(defn wrap-optional-buttons
-  ([state transition-fn options data]
-   (wrap-optional-buttons state transition-fn options [] data))
-  ([state transition-fn options extra-buttons data]
-   (-> [:div.miranda.option-button-holder]
-       (into (filter some?) extra-buttons)
-       (into (filter some?)
-             [(when
-                  (and (:miranda/full-screen? options)
-                       (not
-                        (or ;; TODO: Add support for always visible
-                            ;; expand button.
-                            document.webkitIsFullScreen
-                            document.fullscreen
-                            document.mozFullScreen)))
-                (full-screen-button transition-fn))])
-       (into [data]))))
-
 (defmulti render
   (fn [state _ graph options]
     (util/render-type state graph)))
 
 (defmethod render :miranda/narration
   [state transition-fn graph options]
-  (wrap-optional-buttons
-   state transition-fn options
-   (render/render-narration state transition-fn graph options)))
+  (render/render-narration state transition-fn graph options))
 
 (defmethod render :miranda/characters
   [state transition-fn graph options]
-  (wrap-optional-buttons
-   state transition-fn options
-   (render/render-just-characters state transition-fn graph options)))
+  (render/render-just-characters state transition-fn graph options))
 
 (defmethod render :miranda/dialogue
   [state transition-fn graph options]
-  (wrap-optional-buttons
-   state transition-fn options
-   (render/render-dialogue state transition-fn graph options)))
+  (render/render-dialogue state transition-fn graph options))
 
 (defmethod render :miranda/option
   [state transition-fn graph options]
-  (wrap-optional-buttons
-   state transition-fn options
-   (render/render-options state transition-fn graph options)))
+  (render/render-options state transition-fn graph options))
 
 (defmethod render :miranda/text-option
   [state transition-fn graph options]
-  (wrap-optional-buttons
-   state transition-fn options
-   (render/render-text-options state transition-fn graph options)))
+  (render/render-text-options state transition-fn graph options))
 
 (defmulti transition
   (fn [state graph options args]
     (if-let [t-type (:transition/type args)]
       t-type
       (util/transition-type state graph))))
-
-(defmethod transition :miranda/full-screen
-  [state graph options args]
-  (events/full-screen! state options))
 
 (defmethod transition :miranda/merge
   [state graph options args]
@@ -107,35 +68,28 @@
 (defn transition!
   [state-atom graph options]
   (fn [args]
-    (let [state
-          (swap!
-           state-atom
-           (fn [state]
-             ;; TODO: clean up
-             (assoc
-              (data/guard-transition transition state graph options args)
-              :miranda/time 0)))]
-      (when (:miranda/auto-sa-ve state)
+    (let [state (swap! state-atom data/guard-transition
+                       transition graph options args)]
+      (when (:miranda/auto-save state)
         (util/save! (:save-name state :save) state))
       state)))
 
 (def done-loading? data/done-loading?)
 
 (defn render-game-inner
-  [state-atom transition-fn report-loading-fn graph options]
-  (let [state @state-atom]
-    [:div
-     [:style
-      ;; TODO: Add style reifier
-      (str "body{"
-           "font-size:" (util/px (:miranda/text-scale state)) ";"
-           "margin-top:" (util/px (-> state :window :y-adjust))  ";"
-           "}")]
-     [render/preload state graph report-loading-fn]
-     (if-not (data/in-loading-screen? state options)
-       [render state transition-fn graph options]
-       [(:loading-screen options render/default-loading-screen)
-        state graph options report-loading-fn])]))
+  [state transition-fn report-loading-fn graph options]
+  [:div
+   [:style
+    ;; TODO: Add style reifier
+    (str "body{"
+         "font-size:" (util/px (:miranda/text-scale state)) ";"
+         "margin-top:" (util/px (-> state :window :y-adjust))  ";"
+         "}")]
+   [render/preload state graph report-loading-fn]
+   (if-not (data/in-loading-screen? state options)
+     [render state transition-fn graph options]
+     [(:loading-screen options render/default-loading-screen)
+      state graph options report-loading-fn])])
 
 (defn register-listener! [state-atom event-name event & [activate?]]
   (when activate? (event))
@@ -161,8 +115,8 @@
 (defn reagent-component [state-atom graph options]
   (let [transition-fn (transition! state-atom graph options)
         reporting-fn (loaded! state-atom options)]
-   (fn render-game []
-      [render-game-inner state-atom transition-fn reporting-fn graph options])))
+   (fn render-game [state]
+      [render-game-inner state transition-fn reporting-fn graph options])))
 
 (defn listen!
   ([state-atom options]
@@ -174,8 +128,3 @@
        :animation (animation! state-atom 24)
        "resize" (register-listener! state-atom "resize" (events/resize! state-atom options) true)
        "keydown" (register-listener! state-atom "keydown" (events/keydown! state-atom options) false)))))
-
-(defn samba! [root-id state-atom graph options]
-  (let [app (reagent-component state-atom graph options)]
-    (listen! state-atom options)
-    (reagent/render [app] (. js/document (getElementById root-id)))))
