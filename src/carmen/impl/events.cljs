@@ -29,10 +29,10 @@
 
 (defn full-screen! [state options]
   (when (:miranda/full-screen? options)
-   (let [e (js/document.getElementById "app")]
-      (cond
-        e.requestFullscreen (.requestFullscreen e)
-        e.msRequestFullscreen (.msRequestFullscreen e)
-        e.mozRequestFullscreen (.mozRequestFullscreen e)
-        e.webkitRequestFullscreen (.webkitRequestFullscreen e))))
+    (let [e (js/document.getElementById "app")]
+     (cond
+       (.-requestFullscreen e) (.requestFullscreen e)
+       (.-msRequestFullscreen e) (.msRequestFullscreen e)
+       (.-mozRequestFullscreen e) (.mozRequestFullscreen e)
+       (.-webkitRequestFullscreen e) (.webkitRequestFullscreen e))))
   state)

@@ -3,6 +3,7 @@
             [carmen.util :as util]))
 
 (def default-max-loading-time 30000)
+(def default-min-loading-time 1000)
 
 (defn get-hint [path-hint] (str/split path-hint "*"))
 
@@ -39,6 +40,7 @@
 
 (def reports* [:miranda/internal :reports])
 (def max-reports* [:miranda/internal :max-reports])
+(def loading?* [:miranda/internal :loading?])
 
 (defn handle-loading [old-state new-state graph]
   (let [om (util/major-scene old-state graph)
@@ -46,13 +48,34 @@
     (if (= om nm) new-state
         (-> new-state
             (assoc-in reports* #{})
+            (assoc-in loading?* true)
             (assoc-in max-reports* (count (:miranda.internal/preload nm)))))))
+
+(defn finish-loading [state]
+  (-> state
+      (assoc-in reports* nil)
+      (assoc-in max-reports* nil)
+      (assoc-in loading?* false)
+      (assoc :miranda/time 0)))
+
+(defn report-loaded [state arg]
+  (update-in state reports* conj arg))
+
+(defn in-loading-screen? [state options]
+  (get-in state loading?*))
 
 (defn done-loading? [state options]
   (let [max-reports (get-in state max-reports*)]
-    (and (not (:miranda.debug/fail-load options))
-         (or (not max-reports)
-             (>= (:miranda/time state) (:miranda/max-load-time options default-max-loading-time))))))
+    (and
+     (not (:miranda.debug/fail-load options))
+     (>= (:miranda/time state)
+         (:miranda/min-load-time
+          options default-min-loading-time))
+     (or (= (count (get-in state reports*))
+            (get-in state max-reports*))
+         (>= (:miranda/time state)
+             (:miranda/max-load-time
+              options default-max-loading-time))))))
 
 (defn basic-transition [state graph options]
   (let [[_ _ n] (util/scene state)

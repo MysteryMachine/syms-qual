@@ -254,3 +254,7 @@ span.symmetra{
 .loading-screen img{
     padding-right: 1em;
 }
+
+.loading-inner, .loading-outer{
+    background-color: #111;
+}

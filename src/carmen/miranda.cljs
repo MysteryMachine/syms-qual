@@ -115,11 +115,14 @@
              (assoc
               (data/guard-transition transition state graph options args)
               :miranda/time 0)))]
-      (when (:miranda/auto-save state)
+      (when (:miranda/auto-sa-ve state)
         (util/save! (:save-name state :save) state))
       state)))
 
-(defn render-game-inner [state-atom transition-fn loading-fn graph options]
+(def done-loading? data/done-loading?)
+
+(defn render-game-inner
+  [state-atom transition-fn report-loading-fn graph options]
   (let [state @state-atom]
     [:div
      [:style
@@ -128,10 +131,11 @@
            "font-size:" (util/px (:miranda/text-scale state)) ";"
            "margin-top:" (util/px (-> state :window :y-adjust))  ";"
            "}")]
-     [render/preload state graph loading-fn]
-     (if (data/done-loading? state options)
+     [render/preload state graph report-loading-fn]
+     (if-not (data/in-loading-screen? state options)
        [render state transition-fn graph options]
-       [(:loading-screen options render/default-loading-screen) state graph options])]))
+       [(:loading-screen options render/default-loading-screen)
+        state graph options report-loading-fn])]))
 
 (defn register-listener! [state-atom event-name event & [activate?]]
   (when activate? (event))
@@ -144,26 +148,21 @@
         event (data/create-animation-event! state-atom period)]
     (swap! -state #(assoc % :miranda/animation event))))
 
-(defn loading! [state-atom options]
-  (fn [i]
+(defn loaded! [state-atom options]
+  (fn [arg]
     (fn []
-     (swap!
+      (swap!
        state-atom
        (fn [state]
-         (if (= (count (get-in state data/reports*)) (get-in state data/max-reports*))
-           (update-in state [:miranda/internal :reports] conj i)
-           (-> state
-               (assoc-in data/reports* nil)
-               (assoc-in data/max-reports* nil)))))
-      ;; TODO: only do this if we have resizing set in
-      ;; TODO: Maybe active all events? Zero time?
-      ((events/resize! state-atom options)))))
+         (if (= arg :loading/done)
+           (data/finish-loading state)
+           (data/report-loaded state arg)))))))
 
 (defn reagent-component [state-atom graph options]
   (let [transition-fn (transition! state-atom graph options)
-        loading-fn (loading! state-atom options)]
+        reporting-fn (loaded! state-atom options)]
    (fn render-game []
-      [render-game-inner state-atom transition-fn loading-fn graph options])))
+      [render-game-inner state-atom transition-fn reporting-fn graph options])))
 
 (defn listen!
   ([state-atom options]

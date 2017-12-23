@@ -27,22 +27,31 @@
        [(if (> x i) :span :span.dark) "."])
      (range 3))))
 
-(defn loading-screen [{:keys [window] :as state} graph options]
+(defn loading-screen
+  [{:keys [window] :as state} graph options transition]
   (let [rat (util/scale state options)
-        [x y] logo-size]
+        [x y] logo-size
+        loaded? (miranda/done-loading? state options)
+        base-scene-style
+        {:style (cond-> {:height (util/px (:y window))
+                         :width (util/px (:x window))}
+                  loaded? (assoc :cursor "pointer"))}]
     [:div.base-scene
-     {:style {:height (util/px (:y window))
-              :width (util/px (:x window))}}
+     (cond-> base-scene-style
+       loaded? (assoc :on-click (transition :loading/done)))
      [:div.loading-outer
       [:div.loading-inner
        [:div.loading-screen
         [:img {:src "img/overwatchLogo.svg"
                :style {:height (util/px (* rat y))
                        :width  (util/px (* rat x))}}]
-        (into
-         [:div.loading-screen-text
-          [:span "Loading"]]
-         (dots state))]]]]))
+        (if loaded?
+          [:div.loading-screen-text
+           "Ready!"]
+          (into
+           [:div.loading-screen-text
+            [:span "Loading"]]
+           (dots state)))]]]]))
 
 (def options
   {:miranda/click-delay 100
