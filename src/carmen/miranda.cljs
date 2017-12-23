@@ -38,9 +38,8 @@
 
 (defmulti transition
   (fn [state graph options args]
-    (if-let [t-type (:transition/type args)]
-      t-type
-      (util/transition-type state graph))))
+    (or (and (:transition/override args) (:transition/type args))
+        (util/transition-type state graph))))
 
 (defmethod transition :miranda/merge
   [state graph options args]
