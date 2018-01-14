@@ -41,7 +41,7 @@
    :route-66/first-chat :reaper,
    :points/junkrat 1,
    :scene [:volskaya [:spawn :intro] 0],
-   :new-game? false, 
+   :new-game? false,
    :route-66/reaper true})
 
 (def day-3-date
@@ -73,21 +73,52 @@
    :route-66/roadhog true,
    :miranda/auto-save true,
    :route-66/ana true,
-   :miranda/text-scale 21.140241364960467,
-   :miranda/time 16083.333333333243,
-   :window {:x 1270, :y-adjust 290.7584269662921, :y 713.4831460674158},
+   :miranda/text-scale 21.866666666666667,
+   :miranda/time 175624.99999999572,
+   :window {:x 1500, :y 738, :y-adjust 0},
    :miranda/internal
    {:max-reports nil,
     :miranda/transition
-    {:miranda/animation-name [:volskaya [:apartment :sombra 8] 16]},
-    :reports nil},
+    {:miranda/animation-name [:kings-row [:street :intro] 0]},
+    :reports []
+    :loading? false},
    :anubis/pharah-chat true,
    :saved nil,
    :anubis/zarya-chat true,
    :volskaya/sombra-chat true,
    :points/pharah 2,
    :route-66/first-chat :reaper,
+   :volskaya/sombra 1
    :points/junkrat 1,
-   :scene [:volskaya [:apartment :sombra 8] 16],
+   :scene [:kings-row [:street :intro] 0],
+   :new-game? false,
+   :route-66/reaper true})
+
+(def day-5
+  {:points/payload 2,
+   :volskaya/sombra 1,
+   :points/sombra 2,
+   :route-66/roadhog true,
+   :kings-row/junkrat-chat true,
+   :miranda/auto-save true,
+   :route-66/ana true,
+   :miranda/text-scale 21.866666666666667,
+   :miranda/time 6708.333333333347,
+   :kings-row/lucio-chat true,
+   :window {:x 1500, :y 738, :y-adjust 0},
+   :miranda/internal
+   {:max-reports nil,
+    :miranda/transition
+    {:miranda/animation-name [:hollywood [:spawn :intro] 0]},
+    :reports nil,
+    :loading? false},
+   :anubis/pharah-chat true,
+   :saved nil,
+   :anubis/zarya-chat true,
+   :volskaya/sombra-chat true,
+   :points/pharah 2,
+   :route-66/first-chat :reaper,
+   :points/junkrat 3,
+   :scene [:hollywood [:spawn :intro] 0],
    :new-game? false, 
    :route-66/reaper true})

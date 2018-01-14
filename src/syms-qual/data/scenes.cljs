@@ -22,6 +22,8 @@
    [syms-qual.data.scenes.kings-row.intro :as kings-row-intro]
    [syms-qual.data.scenes.kings-row.torb :as kings-row-torb]
    [syms-qual.data.scenes.kings-row.lucio :as kings-row-lucio]
+   [syms-qual.data.scenes.kings-row.date :as kings-row-date]
+   [syms-qual.data.scenes.kings-row.date-2 :as kings-row-date-2]
 
    [syms-qual.data.scenes.hollywood.soldier :as hollywood-soldier]
    [syms-qual.data.scenes.hollywood.intro :as hollywood-intro]
@@ -51,7 +53,7 @@
    :hollywood (merge hollywood-efi/data hollywood-sombra/data hollywood-soldier/data hollywood-intro/data)
    :volskaya (merge volskaya-sombra/data volskaya-date/data volskaya-date-2/data volskaya-zenyatta/data volskaya-mei/data volskaya-intro/data)
    :lijiang (merge lijang-dva/data lijang-intro/data lijang-winston/data lijang-tracer/data)
-   :kings-row (merge kings-row-junkrat/data kings-row-torb/data kings-row-lucio/data kings-row-intro/data)
+   :kings-row (merge kings-row-junkrat/data kings-row-torb/data kings-row-lucio/data kings-row-intro/data kings-row-date/data kings-row-date-2/data)
    :numbani (merge)
    :title-screen (merge title-screen/data)
    :epilogue (merge)})

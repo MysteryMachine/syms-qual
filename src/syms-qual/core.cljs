@@ -170,6 +170,7 @@
       3 dump/day-3
       [3 :date] dump/day-3-date
       4 dump/day-4
+      5 dump/day-5
       a))))
 
 (def game (miranda/reagent-component state-atom graph options))

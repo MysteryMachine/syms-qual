@@ -73,12 +73,13 @@
 
 
    [:spawn :zenyatta :yes]
-   [:miranda/dialogue
-    ["Zenyatta" [[:zenyatta :_excited (scoot -5)] [:symmetra :_smile (scoot 3)]]
-     "Excellent! First we shall go over some breathing exercises."]
-    ["Symmetra" [[:zenyatta :_excited (scoot -5)] [:symmetra :_confused (scoot 3)]]
-     "But you don’t even--  You know what, nevermind. Enlighten me."]
-    :-> [:zenyatta :cutscene]]
+   (concat
+    [:miranda/dialogue
+      ["Zenyatta" [[:zenyatta :_excited (scoot -5)] [:symmetra :_smile (scoot 3)]]
+       "Excellent! First we shall go over some breathing exercises."]
+      ["Symmetra" [[:zenyatta :_excited (scoot -5)] [:symmetra :_confused (scoot 3)]]
+       "But you don’t even--  You know what, nevermind. Enlighten me."]]
+    (inc-transition [:-> [:zenyatta :cutscene]] :volskaya/zenyatta))
 
    [:spawn :zenyatta :no]
    [:miranda/dialogue

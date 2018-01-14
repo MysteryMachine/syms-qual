@@ -214,7 +214,7 @@
       "Aye aye, ma’am!"]
      ["Sombra" [[:sombra :_self (scoot -3)] [:symmetra :_eyeRoll (scoot 0)]]
       "Gosh, I love bossy girls."]]
-    (inc-transition [:-> [:point-a-notp :cutscene]] :points/sombra))
+    (inc-transition [:-> [:point-a-notp :cutscene]] :points/sombra :volskaya/sombra))
 
    [:spawn :sombra :no]
    [:miranda/dialogue

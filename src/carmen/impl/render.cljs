@@ -10,14 +10,16 @@
            [ax ay] (:anchor sizing [0 0])
            {[i j] :position opacity :opacity} (util/tween animation-map elapsed-time)
            yr (/ y nry)
-           dpad (px (/ (- x (* yr ix)) 2))]
+           dpad (px (/ (- x (* yr (+ ix ax))) 2))
+           top-pad (px (/ (- y (* yr (+ iy ay))) 2))]
        [:div.character
         {:style
          {:height (px (* yr iy))
           :width (px x)
           :position "absolute"
           :margin-left dpad
-          :margin-right dpad}}
+          :margin-right dpad
+          :margin-top top-pad }}
         [:img.character
          {:style {:opacity (str opacity)
                   :position "absolute"

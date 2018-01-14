@@ -180,12 +180,13 @@
     "_ballExplain"
     "_ballExplainConcerned"
     "_ballExplainConcernedNoFire"
-    "_ballExplainNofire"
+    "_ballExplainNoFire"
     "_ballFrown"
     "_ballFrownNoFire"
     "_ballIntro"
     "_ballIntroNoFire"
     "_ballNeutral"
+    "_ballNeutralNoFire"
     "_ballPoint"
     "_ballPointNoFire"
     "_ballPointUp"
@@ -203,7 +204,7 @@
     "_fibbinBlush"
     "_fibbinBlushNoFire"
     "_fibbinNoFire"
-    "_handDown"
+    "_handsDown"
     "_handsHips"
     "_handsHipsRight"
     "_handsHipsRightNoFire"
@@ -372,7 +373,7 @@
     "_indiana"
     "_junkratDate0"
     "_junkratDate1"
-    "_junkratDate1Junkrat"
+    "_junkratDate1Junk"
     "_mathletes"
     "_pharahDate0"
     "_pharahDate1"
@@ -401,17 +402,17 @@
     "_whisper"]
 
    "Roadhog"
-   ["_drink"
-    "_explain"
-    "hook"
-    "_neutral"
-    "_neutral2" #_{:sizing {:anchor [-352 -120] :size [2400 1200]}}
-    "_pointUp"
-    "_shrug"
-    "_thumbPoint"
-    "_toast"
-    "_toastBite"
-    "_toastWipe"]
+   ["_drink" {:sizing {:anchor [352 120] :size [2400 1200]}}
+    "_explain" {:sizing {:anchor [352 120] :size [2400 1200]}}
+    "_hook" {:sizing {:anchor [352 120] :size [2400 1200]}}
+    "_neutral" {:sizing {:anchor [352 120] :size [2400 1200]}}
+    "_neutral2" {:sizing {:anchor [352 120] :size [2400 1200]}}
+    "_pointUp" {:sizing {:anchor [352 120] :size [2400 1200]}}
+    "_shrug" {:sizing {:anchor [352 120] :size [2400 1200]}}
+    "_thumbPoint" {:sizing {:anchor [352 120] :size [2400 1200]}}
+    "_toast" {:sizing {:anchor [352 120] :size [2400 1200]}}
+    "_toastBite" {:sizing {:anchor [352 120] :size [2400 1200]}}
+    "_toastWipe" {:sizing {:anchor [352 120] :size [2400 1200]}}]
 
    "Soldier76"
    ["_armsCrossed"
@@ -491,6 +492,7 @@
     "_frustrated"
     "_frustratedConfused"
     "_hairFire"
+    "_hairFire2"
     "_hairFireBlush"
     "_handWipe"
     "_helloNeutral"
@@ -504,6 +506,7 @@
     "_karkadeSmile"
     "_karkadeTalk"
     "_laugh"
+    "_laughEvil"
     "_neutral"
     "_no"
     "_noUncomfortable"

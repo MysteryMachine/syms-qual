@@ -25,6 +25,7 @@
    "kings-row-lucio"
    "kings-row-street"
    "kings-row-torb"
+   "kings-row-junkrat"
 
    "lijang-junkrat-a"
    "lijang-orca"

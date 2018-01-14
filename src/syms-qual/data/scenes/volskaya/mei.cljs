@@ -95,7 +95,7 @@
       "But let me emphasize I am doing this in a strictly professional sense."]
      ["Zarya" [[:zarya_mei :_zaryaEvilSmile (scoot -20)] [:symmetra :_frustratedConfused (scoot 3)]]
       "Good. We will show them a new form of fear."]]
-    (inc-transition [:-> [:zarya :cutscene]] :points/payload))
+    (inc-transition [:-> [:zarya :cutscene]] :points/payload :volskaya/mei))
 
    [:spawn :mei :no]
    [:miranda/dialogue
