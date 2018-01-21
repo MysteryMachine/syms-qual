@@ -28,6 +28,7 @@
    [syms-qual.data.scenes.hollywood.soldier :as hollywood-soldier]
    [syms-qual.data.scenes.hollywood.intro :as hollywood-intro]
    [syms-qual.data.scenes.hollywood.sombra :as hollywood-sombra]
+   [syms-qual.data.scenes.hollywood.date :as hollywood-date]
    [syms-qual.data.scenes.hollywood.efi :as hollywood-efi]
 
    [syms-qual.data.scenes.lijang.dva :as lijang-dva]
@@ -46,14 +47,19 @@
 
 (def structure
   {:route-66 (merge intro/data intro-options/data intro-dates/data)
-   :anubis (merge anubis-cutscenes/data anubis-pharah/data anubis-genji/data anubis-zarya/data anubis-date/data)
-   :eichenwalde (merge eichenwalde-pharah/data eichenwalde-hanzo/data eichenwalde-widowmaker/data eichenwalde-intro/data)
+   :anubis (merge anubis-cutscenes/data anubis-pharah/data anubis-genji/data
+                  anubis-zarya/data anubis-date/data)
+   :eichenwalde (merge eichenwalde-pharah/data eichenwalde-hanzo/data
+                       eichenwalde-widowmaker/data eichenwalde-intro/data)
    :gibralter (merge)
    :dorado (merge)
-   :hollywood (merge hollywood-efi/data hollywood-sombra/data hollywood-soldier/data hollywood-intro/data)
-   :volskaya (merge volskaya-sombra/data volskaya-date/data volskaya-date-2/data volskaya-zenyatta/data volskaya-mei/data volskaya-intro/data)
+   :hollywood (merge hollywood-efi/data hollywood-sombra/data
+                     hollywood-date/data hollywood-soldier/data hollywood-intro/data)
+   :volskaya (merge volskaya-sombra/data volskaya-date/data volskaya-date-2/data
+                    volskaya-zenyatta/data volskaya-mei/data volskaya-intro/data)
    :lijiang (merge lijang-dva/data lijang-intro/data lijang-winston/data lijang-tracer/data)
-   :kings-row (merge kings-row-junkrat/data kings-row-torb/data kings-row-lucio/data kings-row-intro/data kings-row-date/data kings-row-date-2/data)
+   :kings-row (merge kings-row-junkrat/data kings-row-torb/data kings-row-lucio/data
+                     kings-row-intro/data kings-row-date/data kings-row-date-2/data)
    :numbani (merge)
    :title-screen (merge title-screen/data)
    :epilogue (merge)})

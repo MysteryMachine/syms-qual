@@ -112,12 +112,19 @@
     "_understanding"]
 
    "Efi"
-   ["_armsUpExcited"
+   ["_armsUpBall"
+    "_armsUpExcited"
+    "_armsUpEyesClosed"
     "_armsUpStressed"
     "_explain"
-    "_netural"
+    "_eyeRoll"
+    "_lookBack"
+    "_neutral"
     "_pointUp"
+    "_pointUpEyesClosed"
+    "_smile"
     "_smug"
+    "_two"
     "_wave"]
 
    "Genji"
@@ -318,7 +325,11 @@
     "_TP"]
 
    "Orisa"
-   ["_neutral"]
+   ["_handShoulder"
+    "_neutral"
+    "_neutralHappy"
+    "_pointUp"
+    "_wave"]
 
    "Pharah"
    ["_AnguishGay"
@@ -419,9 +430,10 @@
     "_armsCrossedReverse"
     "_fistPalm"
     "_handsHips"
-    "_handUpReverse"
+    "_handUpReversed"
     "_point"
-    "_pointUp"]
+    "_pointUp"
+    "_pointUpReversed"]
 
    "Sombra"
    ["_awkward"
@@ -472,6 +484,7 @@
    ["_1000Mile"
     "_angry"
     "_awkward"
+    "_awkwardTalk"
     "_bewildered"
     "_bored"
     "_confused"
@@ -510,6 +523,8 @@
     "_neutral"
     "_no"
     "_noUncomfortable"
+    "_phoneCheck"
+    "_phoneCheckTerrified"
     "_pointBack"
     "_pointUp"
     "_sad"

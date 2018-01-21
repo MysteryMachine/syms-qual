@@ -17,7 +17,7 @@
    "hollywood-objective"
    "hollywood-set"
    "hollywood-soldier"
-   "hollywood-theatre"
+   "hollywood-spawn"
 
    "junkertown-junkrat-a-1"
    "junkertown-junkrat-a-2"
