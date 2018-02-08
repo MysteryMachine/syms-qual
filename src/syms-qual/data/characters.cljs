@@ -3,12 +3,20 @@
 
 (def structure
   {"Ana"
-   ["_cranky"
+   ["_breathalyzerExplain"
+    "_breathalyzerExplainEyesClosed"
+    "_breathalyzerNeutral"
+    "_cranky"
     "_drink"
     "_explain"
+    "_explainCranky"
+    "_explainEyesClosed"
+    "_laugh"
+    "_neutral"
     "_phone"
     "_roll-eyes"
-    "_sass" ]
+    "_sass"
+    "_wave"]
 
    "Bastion"
    ["_explainRight"
