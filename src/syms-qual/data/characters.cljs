@@ -186,7 +186,8 @@
     "_where"]
 
    "Junkrat"
-   ["_ballBack"
+   ["_armsUp"
+    "_ballBack"
     "_ballBackThumb"
     "_ballConfused"
     "_ballConfusedNoFire"
@@ -201,6 +202,7 @@
     "_ballIntro"
     "_ballIntroNoFire"
     "_ballNeutral"
+    "_ballNeutralExtraFire"
     "_ballNeutralNoFire"
     "_ballPoint"
     "_ballPointNoFire"
@@ -225,6 +227,7 @@
     "_handsHipsRightNoFire"
     "_hogimpression"
     "_launcher"
+    "_launcherNoFire"
     "_neckHand"
     "_phoneShow"
     "_phoneShowNoFire"
@@ -263,8 +266,8 @@
     "_teaToast"
     "_teaWink"
     "_teethPoint"
-    "_terrifiedBlushing"
-    "_terrifiedBlushingNoFire"
+    "_terrifiedBlush"
+    "_terrifiedBlushNoFire"
     "_toastEat"
     "_toastOffer"
     "_toastPoint"
@@ -275,8 +278,10 @@
     "_triggerSmile"
     "_triggerWave"
     "_triggerWink"
+    "_twoTea"
     "_wetWipe"
-    "_wrist"]
+    "_wrist"
+    "_wristNoFire"]
 
    "Lucio"
    ["_explainDown"
@@ -287,6 +292,7 @@
     "_micCool"
     "_micExplain"
     "_micFist"
+    "_micNeutral"
     "_micPoint"
     "_neutral"
     "_ominous"
@@ -295,6 +301,7 @@
     "_ponder"
     "_prayExplain"
     "_prayExplainHappy"
+    "_prayExplainNeutral"
     "_self"
     "_smile"
     "_smug"
@@ -306,14 +313,36 @@
     "_coffeeHold"
     "_coffeePoint"
     "_coffeeSteal"
+    "_cornbreadEat"
+    "_cornbreadEat2"
+    "_drink"
+    "_drinkConfused"
+    "_drinkHold"
+    "_drinkLaugh"
+    "_drinkLeanBack"
+    "_drinkOof"
+    "_drinkPoint"
+    "_drinkWave"
+    "_exclaim"
+    "_explain"
     "_fingerGuns"
+    "_hotdog"
     "_laugh"
+    "_leanBack"
+    "_leanIn"
     "_neutral"
     "_phoneShow"
     "_phoneSteal"
     "_phoneSteal2"
     "_phoneTexting"
-    "_selfie"]
+    "_point"
+    "_pointAngry"
+    "_pointDown"
+    "_pointUp"
+    "_salty"
+    "_selfie"
+    "_skates"
+    "_wave"]
 
    "Mei"
    ["_angry"
@@ -327,7 +356,7 @@
     "_headHand"
     "_neutral"
     "_pointUp"
-    "_rollsEyes"
+    "_rollEyes"
     "_shush"
     "_thumbsUp"
     "_TP"]
@@ -393,12 +422,20 @@
     "_junkratDate0"
     "_junkratDate1"
     "_junkratDate1Junk"
+    "_junkratDate2"
+    "_junkratDate2Junk"
+    "_junkratDate3"
+    "_junkratDate3Junk"
     "_mathletes"
     "_pharahDate0"
     "_pharahDate1"
+    "_pharahDate2"
+    "_pharahDate3"
     "_rollerSkate"
     "_sombraDate0"
     "_sombraDate1"
+    "_sombraDate2"
+    "_sombraDate3"
     "_wanted"]
 
    "Reaper"
@@ -427,21 +464,28 @@
     "_whisper"]
 
    "Roadhog"
-   ["_drink" {:sizing {:anchor [352 120] :size [2400 1200]}}
+   [ "_basket" {:sizing {:anchor [352 120] :size [2400 1200]}}
+     "_basket2" {:sizing {:anchor [352 120] :size [2400 1200]}}
+     "_basketExplain" {:sizing {:anchor [352 120] :size [2400 1200]}}
+     "_drink" {:sizing {:anchor [352 120] :size [2400 1200]}}
     "_explain" {:sizing {:anchor [352 120] :size [2400 1200]}}
     "_hook" {:sizing {:anchor [352 120] :size [2400 1200]}}
     "_neutral" {:sizing {:anchor [352 120] :size [2400 1200]}}
     "_neutral2" {:sizing {:anchor [352 120] :size [2400 1200]}}
     "_pointUp" {:sizing {:anchor [352 120] :size [2400 1200]}}
+    "_quicheOffer" {:sizing {:anchor [352 120] :size [2400 1200]}}
     "_shrug" {:sizing {:anchor [352 120] :size [2400 1200]}}
+    "_smooch" {:sizing {:anchor [352 120] :size [2400 1200]}}
     "_thumbPoint" {:sizing {:anchor [352 120] :size [2400 1200]}}
     "_toast" {:sizing {:anchor [352 120] :size [2400 1200]}}
     "_toastBite" {:sizing {:anchor [352 120] :size [2400 1200]}}
-    "_toastWipe" {:sizing {:anchor [352 120] :size [2400 1200]}}]
+    "_toastWipe" {:sizing {:anchor [352 120] :size [2400 1200]}}
+    "_wave" {:sizing {:anchor [352 120] :size [2400 1200]}}]
 
    "Soldier76"
    ["_armsCrossed"
     "_armsCrossedReverse"
+    "_facePalmReverse"
     "_fistPalm"
     "_handsHips"
     "_handUpReversed"
@@ -612,19 +656,36 @@
    "Torbjorn"
    ["_cranky"
     "_handHip"
+    "_handHipAngry"
+    "_holdCheek"
+    "_lookAway"
     "_neutral"
     "_pat"
-    "_point"]
+    "_point"
+    "_pointUp"
+    "_slapped"]
 
    "Widowmaker"
    ["_bird"
     "_despise"
     "_explain"
     "_explainBack"
+    "_explainSmile"
+    "_eyeRoll"
+    "_laugh"
     "_leave"
     "_neutral"
+    "_neutralRight"
     "_point"
     "_tch"]
+   
+   "Winston"
+   ["_airQuotes"
+    "_explain"
+    "_nervous"
+    "_neutral"
+    "_pointUp"
+    "_self"]
 
    "Zarya"
    ["_angryTalk"
@@ -672,6 +733,7 @@
    ["_confused"
     "_excited"
     "_explain"
+    "_fingerGuns"
     "_focus"
     "_neutral"
     "_pointUp"
