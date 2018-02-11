@@ -124,10 +124,7 @@
      "Shit."]
     :-> [:sombra-b :cutscene 5]]
 
-   [:sombra-b :cutscene 5]
-   [:miranda/characters
-    [[]]
-    :-> [:sombra-b :cutscene 5 :text]]
+   
 
    [:sombra-b :cutscene 5 :text]
    [:miranda/narration

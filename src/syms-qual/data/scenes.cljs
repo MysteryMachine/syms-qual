@@ -29,6 +29,7 @@
    [syms-qual.data.scenes.hollywood.intro :as hollywood-intro]
    [syms-qual.data.scenes.hollywood.sombra :as hollywood-sombra]
    [syms-qual.data.scenes.hollywood.date :as hollywood-date]
+   [syms-qual.data.scenes.hollywood.date-2 :as hollywood-date-2]
    [syms-qual.data.scenes.hollywood.efi :as hollywood-efi]
 
    [syms-qual.data.scenes.lijang.dva :as lijang-dva]
@@ -53,7 +54,7 @@
                        eichenwalde-widowmaker/data eichenwalde-intro/data)
    :gibralter (merge)
    :dorado (merge)
-   :hollywood (merge hollywood-efi/data hollywood-sombra/data
+   :hollywood (merge hollywood-efi/data hollywood-sombra/data hollywood-date-2/data
                      hollywood-date/data hollywood-soldier/data hollywood-intro/data)
    :volskaya (merge volskaya-sombra/data volskaya-date/data volskaya-date-2/data
                     volskaya-zenyatta/data volskaya-mei/data volskaya-intro/data)

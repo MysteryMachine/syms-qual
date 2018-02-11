@@ -13,10 +13,12 @@
    "dorado-sombra-b"
    "dorado-spawn"
 
+   "hollywood-hotel"
    "hollywood-lucio"
    "hollywood-objective"
    "hollywood-set"
    "hollywood-soldier"
+   "hollywood-sombra"
    "hollywood-spawn"
 
    "junkertown-junkrat-a-1"
