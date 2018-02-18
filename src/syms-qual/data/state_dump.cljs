@@ -122,3 +122,33 @@
    :scene [:hollywood [:spawn :intro] 0],
    :new-game? false, 
    :route-66/reaper true})
+
+(def day-6
+  {:hollywood/sombra-chat true,
+   :points/payload 5,
+   :volskaya/sombra 1,
+   :points/sombra 5,
+   :route-66/roadhog true,
+   :kings-row/junkrat-chat true,
+   :miranda/auto-save true,
+   :route-66/ana true,
+   :miranda/text-scale 21.866666666666667,
+   :miranda/time 5833.33333333334,
+   :kings-row/lucio-chat true,
+   :window {:x 1500, :y 738, :y-adjust 0},
+   :miranda/internal
+   {:max-reports nil,
+    :miranda/transition
+    {:miranda/animation-name [:lijiang [:spawn :intro] 0]},
+    :reports nil,
+    :loading? false},
+   :anubis/pharah-chat true,
+   :saved nil,
+   :anubis/zarya-chat true,
+   :volskaya/sombra-chat true,
+   :points/pharah 2,
+   :route-66/first-chat :reaper,
+   :points/junkrat 3,
+   :scene [:lijiang [:spawn :intro] 0],
+   :new-game? false, 
+   :route-66/reaper true})

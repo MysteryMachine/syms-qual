@@ -171,7 +171,9 @@
       [3 :date] dump/day-3-date
       4 dump/day-4
       5 dump/day-5
-      a))))
+      6 dump/day-6
+      a))
+   ((carmen.impl.events/resize! state-atom options))))
 
 (def game (miranda/reagent-component state-atom graph options))
 

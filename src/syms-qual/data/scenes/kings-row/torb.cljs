@@ -40,10 +40,11 @@
      [:-> [:street :torb :no]]]]
 
    [:street :torb :yes]
-   [:miranda/dialogue
-    ["Symmetra" [[:symmetra :_laughEvil (scoot 0)] [:torbjorn :_cranky (scoot -2)]]
-     "I will destroy you."]
-    :-> [:torb]]
+   (concat
+    [:miranda/dialogue
+     ["Symmetra" [[:symmetra :_laughEvil (scoot 0)] [:torbjorn :_cranky (scoot -2)]]
+      "I will destroy you."]]
+    (inc-transition [:-> [:torb]] :points/payload))
 
    [:street :torb :no]
    [:miranda/dialogue

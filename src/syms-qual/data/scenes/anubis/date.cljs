@@ -5,7 +5,7 @@
 (def data
   {[:spawn :pharah :date-start]
    [:miranda/dialogue
-    ["Pharah" [ [:symmetra :_smile (scoot 0)] [:pharah :_determined (scoot -10)]]
+    ["Pharah" [[:symmetra :_smile (scoot 0)] [:pharah :_determined (scoot -10)]]
      "Oh? Oh my god, yes! I mean."]
     ["Pharah" [[:pharah :_embarassed (scoot -10)] [:symmetra :_smile (scoot 0)]]
      "I mean, sure!"]

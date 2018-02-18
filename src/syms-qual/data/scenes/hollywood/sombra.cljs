@@ -77,14 +77,15 @@
      [:-> [:spawn :sombra :no]]]]
 
    [:spawn :sombra :yes]
-   [:miranda/dialogue
-    ["Symmetra" [[:reaper :_neutral (scoot -6)] [:sombra :_smile (scoot -14)] [:symmetra :_explain (scoot 4)]]
-     "Alright. Let us do this."]
-    ["Symmetra" [[:reaper :_neutral (scoot -6)] [:sombra :_smile (scoot -14)] [:symmetra :_confused (scoot 4)]]
-     "What is that noise I hear?"]
-    ["Sombra" [[:reaper :_neutral (scoot -6)] [:sombra :_nostalgic (scoot -14)] [:symmetra :_awkward (scoot 4)]]
-     "It’s the sound of a high speed intake of hamburger, mi amor. Don’t distract Guy Fieri, he is doing the lord’s work."]
-    :-> [:objective :sombra :cutscene]]
+   (concat
+    [:miranda/dialogue
+     ["Symmetra" [[:reaper :_neutral (scoot -6)] [:sombra :_smile (scoot -14)] [:symmetra :_explain (scoot 4)]]
+      "Alright. Let us do this."]
+     ["Symmetra" [[:reaper :_neutral (scoot -6)] [:sombra :_smile (scoot -14)] [:symmetra :_confused (scoot 4)]]
+      "What is that noise I hear?"]
+     ["Sombra" [[:reaper :_neutral (scoot -6)] [:sombra :_nostalgic (scoot -14)] [:symmetra :_awkward (scoot 4)]]
+      "It’s the sound of a high speed intake of hamburger, mi amor. Don’t distract Guy Fieri, he is doing the lord’s work."]]
+    (inc-transition [:-> [:objective :sombra :cutscene]] :points/payload :points/sombra))
 
    [:spawn :sombra :no]
    [:miranda/dialogue
