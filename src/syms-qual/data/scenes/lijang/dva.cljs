@@ -5,7 +5,7 @@
 (def data
   {[:spawn :dva 0]
    [:miranda/dialogue
-    ["Symmetra" [[:lucio :_neutral (scoot -40 -4 1)] [:dva :_switchNeutral (scoot -44 -4 1)] [:symmetra :_explain (scoot 84 4 1)]]
+    ["Symmetra" [[:lucio :_neutral (scoot -80 -4 1)] [:dva :_switchNeutral (scoot -84 -4 1)] [:symmetra :_explain (scoot 84 4 1)]]
      "Shouldn’t you be preparing for the attack?"]
     ["D.Va" [[:lucio :_neutral (scoot -4)] [:dva :_switchGum (scoot -4)] [:symmetra :_neutral (scoot 4)]]
      "Naw, I’m good. Dooooomfist already gave me the rundown. Besides,  I promised my viewers I would do this match unspoiled. The livestream is a lot less fun if I have a plan."]

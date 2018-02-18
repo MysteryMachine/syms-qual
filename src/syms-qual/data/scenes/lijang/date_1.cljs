@@ -5,51 +5,54 @@
 (def data
   {[:spawn :dva 2]
    [:miranda/dialogue
-    ["D.Va" []
+    ["D.Va" [[:lucio :_neutral (scoot -80 -4 1)] [:symmetra :_neutral (scoot 84 4 1)] [:dva :_fingerGuns (scoot -84 -4 1)]]
      "Stream time! We got the shop, I hope you’re ready for literally infinite quantities of boba."]
-    ["Lucio" []
+    ["Lucio" [[:lucio :_prayExplain (scoot -4)] [:dva :_neutral (scoot -4)] [:symmetra :_neutral (scoot 4)]]
      "Do not look into the boba abyss. It will consume you. Also it will brutally spike your blood sugar, which is bad. Stay healthy, y’all."]
-    ["D.Va" []
+    ["D.Va" [[:lucio :_neutral (scoot -4)] [:symmetra :_neutral (scoot 4)] [:dva :_understanding (scoot -4)]]
      "Are you okay to go?"]
     :-> [:spawn :dva :option 1]]
 
    [:spawn :dva :option 1]
    [:miranda/option
-    "Symmetra" []
+    "Symmetra" [[:lucio :_neutral (scoot -4)] [:dva :_neutral (scoot -4)] [:symmetra :_neutral (scoot 4)]]
     "I think so. The time I spent meditating has mentally prepared me."
     "I’m still rather stressed out. It’s just been a tough week."]
 
    [:spawn :dva :option 1 0]
    [:miranda/dialogue
-    ["Symmetra" []
+    ["Symmetra" [[:lucio :_neutral (scoot -4)] [:dva :_neutral (scoot -4)] [:symmetra :_explainUncomfortable (scoot 4)]]
      "I trust we managed to be victorious in our match?"]
     :-> [:spawn :dva 3]]
 
    [:spawn :dva :option 1 1]
    [:miranda/dialogue
-    ["D.Va" []
+    ["D.Va" [[:lucio :_neutral (scoot -4)] [:symmetra :_neutral (scoot 4)] [:dva :_understanding (scoot -4)]]
      "Hey, no pressure if you’re not feeling well."]
-    ["Lucio" []
+    ["Lucio" [[:lucio :_smile (scoot -4)] [:dva :_neutral (scoot -4)] [:symmetra :_neutral (scoot 4)]]
      "I will say, boba has literally proven to be good for your soul. I know I’m giving conflicting boba facts, but a lot of boba is a good thing if you’re feeling down! You can handle an insulin spike or two every now and then. Practice regular self care, y’all."]
-    ["Symmetra" []
+    ["Symmetra" [[:lucio :_neutral (scoot -4)] [:dva :_neutral (scoot -4)] [:symmetra :_sadSmile (scoot 4)]]
      "I thank you, but I am mostly uncertain as to the result of the match. Did my absence affect things?"]
     :-> [:spawn :dva 3]]
 
    [:spawn :dva 3]
    [:miranda/dialogue
-    ["D.Va" []
+    ["D.Va" [[:lucio :_neutral (scoot -4)] [:dva :_headHand (scoot -4)] [:symmetra :_neutral (scoot 4)]]
      "Oh. Um. We sorta blew it. Sorry! I don’t know what happened, winning five versus six was more difficult than we thought it’d be even with Jamie throwing as hard as he could."]
-    ["Lucio" []
+    ["Lucio" [[:lucio :_prayExplain (scoot -4)] [:dva :_neutral (scoot -4)] [:symmetra :_neutral (scoot 4)]]
      "He’s a thin boy, Satya, he can only throw so far."]
-    ["Symmetra" []
+    ["Symmetra" [[:lucio :_neutral (scoot -4)] [:dva :_neutral (scoot -4)] [:symmetra :_skeptical (scoot 4)]]
      "What a shame. It may be a mistake, but I suppose I should go, considering I threw the match too."]
-    ["D.Va" []
+    ["D.Va" [[:lucio :_jammin (scoot -4)] [:symmetra :_sadSmile (scoot 4)] [:dva :_fingerGuns (scoot -4)]]
      "Ptchoooow, alright! Let’s do it!"]
-    :-> []] ;; TODO: Conditional transition
+    :transition :miranda/conditional
+    [#(> (:points/junkrat %) 0) [:-> [:arcade :junkrat :cutscene 0]]
+     :else                      [:-> [:arcade :junkrat :no-date 0]]]]
 
    [:arcade :junkrat :cutscene 0]
    [:miranda/narration
-    "The stream party begins, and D.Va and Lucio seat themselves in front of a few arcade machines, broadcasting using a camera mounted on the Meka, which they managed to squeeze into the arcade’s sizable freight elevator. Junkrat has not yet arrived, and thankfully, D.Va and Lucio do not ask you to perform just yet. You sit in a corner, observing their streaming hijinks, until Roadhog and Junkrat show up. They nod a quick hello to you before before ordering a massive tray filled with bubble teas and taking a seat in the opposite corner. Junkrat contemplatively chews his boba, nervously fidgeting with the strange red ball he seems to always be carrying, and periodically glancing your way, looking quite nervous. Eventually after  some persistent nudging from Roadhog, he grabs two drinks from the tray and heads in your direction,  but not before blowing an overdramatic kiss to his porcine friend."
+    "The stream party begins, and D.Va and Lucio seat themselves in front of a few arcade machines, broadcasting using a camera mounted on the Meka, which they managed to squeeze into the arcade’s sizable freight elevator. Junkrat has not yet arrived, and thankfully, D.Va and Lucio do not ask you to perform just yet. You sit in a corner, observing their streaming hijinks, until Roadhog and Junkrat show up."
+    "They nod a quick hello to you before before ordering a massive tray filled with bubble teas and taking a seat in the opposite corner. Junkrat contemplatively chews his boba, nervously fidgeting with the strange red ball he seems to always be carrying, and periodically glancing your way, looking quite nervous. Eventually after  some persistent nudging from Roadhog, he grabs two drinks from the tray and heads in your direction,  but not before blowing an overdramatic kiss to his porcine friend."
     :-> [:arcade :junkrat 0]]
 
    [:arcade :junkrat 0]

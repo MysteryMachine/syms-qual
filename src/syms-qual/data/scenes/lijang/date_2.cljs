@@ -81,9 +81,13 @@
    [:arcade :dva :quiz 1]
    [:miranda/option
     "Symmetra" []
-    "Soft, warm fur."
-    "Good pecs."
-    "The ability to organize political rallies in which to engage the proletariat in the revolution."]
+    ["Soft, warm fur." (constantly true)
+     (inc-transition [:-> [:arcade :dva 6]] :points/puppy)]
+    ["Good pecs." (constantly true)
+     (inc-transition [:-> [:arcade :dva 6]] :points/partner)]
+    ["The ability to organize political rallies in which to engage the proletariat in the revolution."
+     (constantly true)
+     (inc-transition [:-> [:arcade :dva 6]] :points/commie)]]
 
    [:arcade :dva 6]
    [:miranda/dialogue
@@ -94,9 +98,12 @@
    [:arcade :dva :quiz 2]
    [:miranda/option
     "Symmetra" []
-    "At the foot of the bed."
-    "Right beside you, gazing into your eyes."
-    "Next to the seized means of production."]
+    ["At the foot of the bed." (constantly true)
+     (inc-transition [:-> [:arcade :dva 7]] :points/puppy)]
+    ["Right beside you, gazing into your eyes." (constantly true)
+     (inc-transition [:-> [:arcade :dva 7]] :points/partner)]
+    ["Next to the seized means of production." (constantly true)
+     (inc-transition [:-> [:arcade :dva 7]] :points/commie)]]
 
    [:arcade :dva 7]
    [:miranda/dialogue
@@ -107,9 +114,13 @@
    [:arcade :dva :quiz 3]
    [:miranda/option
     "Symmetra" []
-    "A thoughtful item reflecting their careful attention to your wants and interests."
-    "A gently used tennis ball."
-    "A hammer and sickle."]
+    ["A thoughtful item reflecting their careful attention to your wants and interests."
+     (constantly true)
+     (inc-transition [:-> [:arcade :dva 8]] :points/puppy)]
+    ["A gently used tennis ball." (constantly true)
+     (inc-transition [:-> [:arcade :dva 8]] :points/partner)]
+    ["A hammer and sickle." (constantly true)
+     (inc-transition [:-> [:arcade :dva 8]] :points/commie)]]
 
    [:arcade :dva 8]
    [:miranda/dialogue
@@ -125,7 +136,11 @@
      "Lucio, it’s still too early to joke about that."]
     ["Lucio" []
      "I hear ya."]
-    :-> []]
+    :transition :miranda/conditional
+    [#(> (:points/partner %) 1) [:-> [:arcade :dva :quiz :boyfriend]]
+     #(> (:points/puppy %) 1)   [:-> [:arcade :dva :quiz :puppy]]
+     #(> (:points/commie %) 1)  [:-> [:arcade :dva :quiz :commie]]
+     :else                      [:-> [:arcade :dva :quiz :nina]]]]
 
    [:arcade :dva :quiz :boyfriend]
    [:miranda/dialogue
