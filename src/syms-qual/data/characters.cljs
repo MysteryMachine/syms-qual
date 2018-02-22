@@ -167,6 +167,22 @@
     "_stop"
     "_strained"
     "_what"]
+   
+   "Hanzo"
+   ["_explain"
+    "_explainEyesClosed"
+    "_explainUncomfortable"
+    "_lookAway"
+    "_neutral"
+    "_no"
+    "_phoneTalk"
+    "_phoneTexting"
+    "_phoneTextingLookUp"
+    "_pointUp"
+    "_sakeGesture"
+    "_sakeHold"
+    "_sakeHoldTalk"
+    "_sakeLook"]
 
    "Jack"
    ["_babyGay"
