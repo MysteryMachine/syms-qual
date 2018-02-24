@@ -526,6 +526,18 @@
     "_spit"
     "_whisper"]
 
+   "Reinhardt"
+   ["_explainConcerned"
+    "_explainConcernedBack"
+    "_explainSmile"
+    "_explainSmileBack"
+    "_laugh"
+    "_lookAway"
+    "_neutral"
+    "_nostalgic"
+    "_pointUp"
+    "_wince"]
+   
    "Roadhog"
    [ "_basket" {:sizing {:anchor [352 120] :size [2400 1200]}}
      "_basket2" {:sizing {:anchor [352 120] :size [2400 1200]}}
