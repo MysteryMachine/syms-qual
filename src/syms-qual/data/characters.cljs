@@ -167,6 +167,22 @@
     "_stop"
     "_strained"
     "_what"]
+   
+   "Hanzo"
+   ["_explain"
+    "_explainEyesClosed"
+    "_explainUncomfortable"
+    "_lookAway"
+    "_neutral"
+    "_no"
+    "_phoneTalk"
+    "_phoneTexting"
+    "_phoneTextingLookUp"
+    "_pointUp"
+    "_sakeGesture"
+    "_sakeHold"
+    "_sakeHoldTalk"
+    "_sakeLook"]
 
    "Jack"
    ["_babyGay"
@@ -510,6 +526,18 @@
     "_spit"
     "_whisper"]
 
+   "Reinhardt"
+   ["_explainConcerned"
+    "_explainConcernedBack"
+    "_explainSmile"
+    "_explainSmileBack"
+    "_laugh"
+    "_lookAway"
+    "_neutral"
+    "_nostalgic"
+    "_pointUp"
+    "_wince"]
+   
    "Roadhog"
    [ "_basket" {:sizing {:anchor [352 120] :size [2400 1200]}}
      "_basket2" {:sizing {:anchor [352 120] :size [2400 1200]}}
