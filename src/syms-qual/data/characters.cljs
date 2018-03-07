@@ -570,6 +570,8 @@
     "_reverseNeutral"
     "_reversePoint"
     "_reversePointUp"
+    "_reverseRosaryExplain"
+    "_reverseRosaryNeutral"
     "_rosaryExplain"
     "_rosaryNeutral"
     "_rosaryOffer"
