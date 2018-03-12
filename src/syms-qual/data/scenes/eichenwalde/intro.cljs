@@ -1,14 +1,26 @@
-(ns syms-qual.data.scenes.eichenwalde.intro)
+(ns syms-qual.data.scenes.eichenwalde.intro
+  (:require [syms-qual.util :as util :refer [toggle-transition]]))
 
 (def data
-  {[:eichenwalde :intro]
+  {[:spawn :intro]
    [:miranda/narration
-    "Although by now you’ve grown accustomed to the familiar feeling of mounting tension before a match begins, your team seems to be in especially bleak spirits today. An apprehensive silence sits uneasily over the derelict beer hall serving as your spawn point. For a while you watch the dust drifting softly in the beams of light streaming from the broken ceiling before turning your attention to your teammates who all seem equally lost in their own thoughts. It’s so quiet you think you can hear the mice and roaches scurrying in the walls. Eager to break the silence, you try and strike up a conversation."
-    :-> [:eichenwalde :choice]]
+    "Although by now you’ve grown accustomed to the familiar feeling of mounting tension before a match begins, your team seems to be in especially bleak spirits today. An apprehensive silence sits uneasily over the derelict beer hall serving as your spawn point."
+    "For a while you watch the dust drifting softly in the beams of light streaming from the broken ceiling before turning your attention to your teammates, who all seem equally lost in their own thoughts. It’s so quiet you think you can hear the mice and roaches scurrying in the walls. Eager to break the silence, you try and strike up a conversation."
+    :-> [:spawn :choice]]
 
-   [:eichenwalde :choice]
+   [:spawn :choice]
    [:miranda/text-option
     "What will you do?"
-    ["Talk to Widowmaker" (constantly true) [:eichenwalde :efi 0]]
-    ["Talk to Hanzo" (constantly true) [:eichenwalde :sombra 0]]
-    ["Talk to Ana and Reinhardt" (constantly true) [:eichenwalde :soldier 0]]]})
+    ["Talk to Widowmaker" (comp not :eichenwalde/widow-chat)
+     (toggle-transition [:-> [:spawn :widowmaker 0]] :eichenwalde/widow-chat)]
+    ["Talk to Hanzo" (comp not :eichenwalde/hanzo-chat)
+     (toggle-transition [:-> [:spawn :hanzo 0]] :eichenwalde/hanzo-chat)]
+    ["Talk to Ana and Reinhardt" (comp not :eichenwalde/pharah-chat)
+     (toggle-transition [:-> [:spawn :pharah 0]] :eichenwalde/pharah-chat)]
+
+    ["Go with Widowmaker" :eichenwalde/widow-chat
+     [:-> [:spawn :widowmaker :yes]]]
+    ["Go with Hanzo" :eichenwalde/hanzo-chat
+     [:-> [:spawn :hanzo :yes]]]
+    ["Go with Pharah, Ana and Reinhardt" :eichenwalde/pharah-chat
+     [:-> [:spawn :pharah :yes]]]]})

@@ -196,7 +196,7 @@
      "Mama! She’s going to hear us, and then it’ll be weird."]
     ["Ana" [[:pharah :_reversePeek (scoot 15)] [:ana :_explain (scoot -10)]]
      "You military types. You become disciplined and well trained, and it squeezes out all the real social skills. I spent years dealing with this same shyness before I just gave up and dated a civilian. ‘Ibna, if you don’t talk to others, you’ll never get to know them. Just say hello."]
-    :-> [:diner :narration :a]]
+    :-> [:street :narration :a]]
 
    [:diner :scene 7 :b]
    [:miranda/narration

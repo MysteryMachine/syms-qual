@@ -239,3 +239,17 @@
 
 (defn scale [{:keys [window] :as state} options]
   (/ (:y window) (second (:miranda/native-resolution options))))
+
+;; Misc
+
+(defn speaker->class [s]
+  (-> s
+      (clojure.string/replace #" " "-")
+      (clojure.string/replace #"(\.|,|:)" "")
+      (clojure.string/lower-case)))
+
+(defn merge-class [k s]
+  (-> k
+      (name)
+      (str "." s)
+      (keyword)))

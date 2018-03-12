@@ -64,7 +64,7 @@
    :loading-screen loading-screen
    :miranda/key-events {}})
 
-(def ng-scene [:route-66 [:diner :intro] 0])
+(def ng-scene [:intro [:a] 0])
 
 (defn menu-container [transition-fn]
   (fn [name]

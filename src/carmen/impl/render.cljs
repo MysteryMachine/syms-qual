@@ -47,14 +47,15 @@
         height (* y ratio)
         top (+ y-adjust (* (- 1 ratio) (:y window)))
         textbox-height (- height (* 2 (+ border-width padding margin)))
-        speaker-text (util/speaker state graph)]
-    [:div.miranda.dialogue.textbox
+        speaker-text (util/speaker state graph)
+        speaker-class (util/speaker->class speaker-text)]
+    [(util/merge-class :div.miranda.dialogue.textbox speaker-class)
      {:style {:height (px height)
               :position "absolute"
               :width (px x)
               :top (px top)}
       :on-click transition-fn}
-     [:div.miranda.dialogue.textbox-inner
+     [(util/merge-class :div.miranda.dialogue.textbox-inner  speaker-class)
       {:style
        {:border-width (px border-width)
         :padding-top (px padding)
@@ -153,13 +154,15 @@
         y-adjust (:y-adjust window)
         height (* y ratio)
         top (+ y-adjust (* (- 1 ratio) (:y window)))
-        textbox-height (- height (* 2 (+ border-width padding margin)))]
-    [:div.miranda.option.textbox
+        textbox-height (- height (* 2 (+ border-width padding margin)))
+        speaker-text (util/speaker state graph)
+        speaker-class (util/speaker->class speaker-text)]
+    [(util/merge-class :div.miranda.option.textbox speaker-class)
      {:style {:height (px height)
               :position "absolute"
               :width (px x)
               :top (px top)}}
-     [:div.miranda.option.textbox-inner
+     [(util/merge-class :div.miranda.option.textbox-inner speaker-class)
       {:style
        {:border-width (px border-width)
         :padding-top (px padding)
@@ -167,7 +170,7 @@
         :margin (px margin)
         :height (px textbox-height)}}
       [:div.miranda.option.textbox-speaker
-       (util/speaker state graph)]
+       speaker-text]
       (into
        [:div.miranda.option-render.options]
        (comp

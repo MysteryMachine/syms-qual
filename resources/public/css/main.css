@@ -260,3 +260,85 @@ span.symmetra{
 .loading-inner, .loading-outer{
     background-color: #111;
 }
+
+.ana{
+    border-color:  #95a7b7;
+}
+.bastion{
+    border-color:  #638649;
+}
+.doomfist{
+    border-color:  #89423c;
+}
+.dva{
+    border-color:  #e63d9c;
+}
+.efi{
+    border-color:  #c8a71f;
+}
+.genji{
+    border-color:  #3ce62f;
+}
+.hanzo{
+    border-color:  #3f5d8a;
+}
+.junkrat{
+    border-color:  #f18c38;
+}
+.lucio{
+    border-color:  #a6e921;
+}
+.mccree{
+    border-color:  #b3443f;
+}
+.mei{
+    border-color:  #065bfc;
+}
+.mercy{
+    border-color:  #e9ce4f;
+}
+.moira{
+    border-color:  #4d1a1f;
+}
+.orisa{
+    border-color:  #b4b94f;
+}
+.pharah{
+    border-color:  #2961b5;
+}
+.reaper{
+    border-color:  #150a21;
+}
+.reinhardt{
+    border-color:  #7b8384;
+}
+.roadhog{
+    border-color:  #ddd76d;
+}
+.soldier-76{
+    border-color: #4660a7;
+}
+.sombra{
+    border-color:  #a653f9;
+}
+.symmetra{
+    border-color:  #3bb9fd;
+}
+.torbjorn{
+    border-color:  #ac3e2c;
+}
+.tracer{
+    border-color:  #fead17;
+}
+.widowmaker{
+    border-color:  #99a7d4;
+}
+.winston{
+    border-color:  #e2dfd4;
+}
+.zarya{
+    border-color:  #ff73c1;
+}
+.zenyatta{
+    border-color:  #ceac53;
+}

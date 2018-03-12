@@ -42,8 +42,11 @@
    [syms-qual.data.scenes.eichenwalde.hanzo :as eichenwalde-hanzo]
    [syms-qual.data.scenes.eichenwalde.intro :as eichenwalde-intro]
    [syms-qual.data.scenes.eichenwalde.pharah :as eichenwalde-pharah]
+   [syms-qual.data.scenes.eichenwalde.date :as eichenwalde-date]
+   [syms-qual.data.scenes.eichenwalde.date-2 :as eichenwalde-date-2]
    [syms-qual.data.scenes.eichenwalde.widowmaker :as eichenwalde-widowmaker]
 
+   [syms-qual.data.scenes.intro :as intro-cutscenes]
    [syms-qual.data.characters :as char]
    [syms-qual.data.bg :as bg]
    [carmen.data :as data]))
@@ -53,7 +56,8 @@
    :anubis (merge anubis-cutscenes/data anubis-pharah/data anubis-genji/data
                   anubis-zarya/data anubis-date/data)
    :eichenwalde (merge eichenwalde-pharah/data eichenwalde-hanzo/data
-                       eichenwalde-widowmaker/data eichenwalde-intro/data)
+                       eichenwalde-widowmaker/data eichenwalde-intro/data
+                       eichenwalde-date/data eichenwalde-date-2/data)
    :gibralter (merge)
    :dorado (merge)
    :hollywood (merge hollywood-efi/data hollywood-sombra/data hollywood-date-2/data
@@ -64,6 +68,7 @@
                    lijang-date-1/data lijang-date-2/data)
    :kings-row (merge kings-row-junkrat/data kings-row-torb/data kings-row-lucio/data
                      kings-row-intro/data kings-row-date/data kings-row-date-2/data)
+   :intro intro-cutscenes/data
    :numbani (merge)
    :title-screen (merge title-screen/data)
    :epilogue (merge)})

@@ -51,10 +51,10 @@
    "hollywood-sombra"
    "hollywood-spawn"
    
-   "intro01"
-   "intro02"
-   "intro03"
-   "intro04"
+   "intro-a"
+   "intro-b"
+   "intro-c"
+   "intro-d"
 
    "junkertown-efi"
    "junkertown-field"
