@@ -128,6 +128,6 @@
 
    [:widowmaker :text]
    [:miranda/narration
-    "Apparently, when Reaper and friends were arrested for blowing up the coffee shop, he named Amelie LaCroix as the person who could be held responsible for the damages. They recognized Widowmaker from her blue tint, and immediately arrested her for failing to pay for the damages to the shop that Halloween."
+    "Apparently, when Reaper and friends were arrested for blowing up the coffee shop, he named Amelie LaCroix as the person who could be held responsible for the damages. They recognized Widowmaker from her blue tint, and immediately arrested her for failing to pay for the damages to the shop from last Halloween."
     "They arrested you both, detaining you together for the hour it took her to call up Doomfist and have him free up the funds so you two could make bail. The match was lost badly. Widowmaker looked angry at you, but you could quite easily ascertain she was too embarrassed to say anything about the events that transpired."
     :=> [:junkertown [:spawn :intro] 0]]})
