@@ -710,6 +710,8 @@
    "Symmetra"
    ["_1000Mile"
     "_angry"
+    "_asleep"
+    "_asleepBear"
     "_awkward"
     "_awkwardTalk"
     "_beerCheers"
@@ -818,7 +820,9 @@
     "_toastChew"
     "_toastHand"
     "_toastPoint"
-    "_WTF"]
+    "_WTF"
+    "_yawn"
+    "_yawnBear"]
 
    "Torbjorn"
    ["_cranky"
