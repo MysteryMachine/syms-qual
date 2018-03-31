@@ -18,12 +18,21 @@
     "_sass"
     "_wave"]
 
-   "Bastion"
+    "Bastion"
    ["_explainRight"
     "_neutral"
     "_neutralLeft"
     "_pointUpLeft"
     "_pointUpRight"]
+   
+   "Clouds"
+   ["_bear"
+    "_centaur"
+    "_cone"
+    "_dance"
+    "_lizard"
+    "_snore"
+    "_whale"]
 
    "Doomfist"
    ["_armsCross"
@@ -167,6 +176,12 @@
     "_stop"
     "_strained"
     "_what"]
+   
+   "Hands"
+   ["_junkExplain"
+    "_junkPoint"
+    "_symExplain"
+    "_symPoint"]
    
    "Hanzo"
    ["_explain"
