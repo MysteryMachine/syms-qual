@@ -243,10 +243,12 @@
 ;; Misc
 
 (defn speaker->class [s]
-  (-> s
-      (clojure.string/replace #" " "-")
-      (clojure.string/replace #"(\.|,|:)" "")
-      (clojure.string/lower-case)))
+  (if s
+   (-> s
+        (clojure.string/replace #" " "-")
+        (clojure.string/replace #"(\.|,|:)" "")
+        (clojure.string/lower-case))
+   ""))
 
 (defn merge-class [k s]
   (-> k

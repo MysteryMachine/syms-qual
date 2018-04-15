@@ -90,9 +90,9 @@
    [:spawn :pharah :yes]
    (concat
     [:miranda/dialogue
-     ["Ana" [[:reinhardt :_neutral (scoot -15)] [:ana :_sass (scoot -17)]
+     ["Ana" [[:reinhardt :_neutral (scoot -15)] [:ana :_sassTalk (scoot -17)]
              [:pharah :_reverseNeutral (scoot 10)] [:symmetra :_neutral (scoot 10)]]
-      "Good to go? Alright. Let’s roll out."]]
+      "Satya, darling. I’m glad to see that I will not need to administer discipline."]]
     (inc-transition [:-> [:spawn :pharah 1]] :points/payload :points/pharah))
 
    [:spawn :pharah :no]
@@ -104,63 +104,59 @@
 
    [:spawn :pharah 1]
    [:miranda/dialogue
-    ["Ana" [[:reinhardt :_neutral (scoot -1)] [:ana :_neutral (scoot -2)]
-            [:pharah :_reverseNeutral (scoot 0)] [:symmetra :_neutral (scoot 0)]]
-     "Ah. Hello, Satya. I’m glad to see that I will not need to administer discipline."]
-    ["Symmetra" [[:reinhardt :_neutral (scoot -1)] [:ana :_neutral (scoot -2)]
-                 [:pharah :_reverseNeutral (scoot 0)] [:symmetra :_neutral (scoot 0)]]
+    ["Symmetra" [[:reinhardt :_neutral (scoot -15)] [:ana :_drink (scoot -17)]
+                 [:pharah :_reverseNeutral (scoot 10)] [:symmetra :_awkwardTalk (scoot 10)]]
      "Oh. Um, yes."]
-    ["Reinhardt" [[:reinhardt :_neutral (scoot -1)] [:ana :_neutral (scoot -2)]
-                  [:pharah :_reverseNeutral (scoot 0)] [:symmetra :_neutral (scoot 0)]]
+    ["Reinhardt" [[:reinhardt :_laugh (scoot -15)] [:ana :_neutral (scoot -17)]
+                  [:pharah :_reverseNeutral (scoot 10)] [:symmetra :_awkward (scoot 10)]]
      "Oh, do not mind her. Ana runs a tight ship is all."]
-    :-> []]
+    :transition :miranda/conditional
+    [#(> (:points/pharah %) 0) [:-> [:spawn :pharah 2 :a]]
+     :else                     [:-> [:spawn :pharah 2 :b]]]]
 
    [:spawn :pharah 2 :a]
    [:miranda/dialogue
-    ["Ana" [[:reinhardt :_neutral (scoot -1)] [:ana :_neutral (scoot -2)]
-            [:pharah :_reverseNeutral (scoot 0)] [:symmetra :_neutral (scoot 0)]]
+    ["Ana" [[:reinhardt :_neutral (scoot -15)]
+            [:pharah :_reverseNeutral (scoot 10)]
+            [:ana :_explain (scoot -17)]
+            [:symmetra :_neutral (scoot 10)]]
      "Am I wrong though? Satya’s avoided the payload in most of her matches. I’m glad to see her turning things around."]
-    ["Symmetra" [[:reinhardt :_neutral (scoot -1)] [:ana :_neutral (scoot -2)]
-                 [:pharah :_reverseNeutral (scoot 0)] [:symmetra :_neutral (scoot 0)]]
-     " I have found that bonding with my teammates first is an important part of creating a cohesive unit."]
-    ["Pharah" [[:reinhardt :_neutral (scoot -1)] [:ana :_neutral (scoot -2)]
-               [:pharah :_reverseNeutral (scoot 0)] [:symmetra :_neutral (scoot 0)]]
+    ["Symmetra" [[:reinhardt :_neutral (scoot -15)] [:ana :_neutral (scoot -17)]
+                 [:pharah :_reverseNeutral (scoot 10)] [:symmetra :_explainUncomfortable (scoot 10)]]
+     "I have found that bonding with my teammates first is an important part of creating a cohesive unit."]
+    ["Pharah" [[:reinhardt :_neutral (scoot -15)] [:ana :_neutral (scoot -17)]
+               [:pharah :_reverseExplain (scoot 10)] [:symmetra :_neutral (scoot 10)]]
      "Yes, mother. Let her build a sense of camaraderie for asking her to lay down her life in combat."]
-    ["Ana" [[:reinhardt :_neutral (scoot -1)] [:ana :_neutral (scoot -2)]
-            [:pharah :_reverseNeutral (scoot 0)] [:symmetra :_neutral (scoot 0)]]
+    ["Ana" [[:reinhardt :_eek (scoot -15)] [:ana :_drink (scoot -17)]
+            [:pharah :_reversePeek (scoot 10)] [:symmetra :_1000Mile (scoot 10)]]
      "‘Ibna, do not think I didn’t notice you avoiding your duties to go on a date. If you wanted to do that, you might as well have remained a civilian like mama wanted, darling."]
     :-> [:spawn :pharah 3]]
 
    [:spawn :pharah 2 :b]
    [:miranda/dialogue
-    ["Ana" [[:reinhardt :_neutral (scoot -1)] [:ana :_neutral (scoot -2)]
-            [:pharah :_reverseNeutral (scoot 0)] [:symmetra :_neutral (scoot 0)]]
+    ["Ana" [[:reinhardt :_neutral (scoot -15)] [:ana :_crankyTalk (scoot -17)]
+            [:pharah :_reverseNeutral (scoot 10)] [:symmetra :_neutral (scoot 10)]]
      "I’m a little tired of seeing people treat this program so lightly, Reinhardt. If I wanted to have my time wasted I wouldn’t have bothered to come out of retirement. This is a combat simulator not a dating service. "]
-    ["Pharah" [[:reinhardt :_neutral (scoot -1)] [:ana :_neutral (scoot -2)]
-               [:pharah :_reverseNeutral (scoot 0)] [:symmetra :_neutral (scoot 0)]]
+    ["Pharah" [[:reinhardt :_neutral (scoot -15)] [:ana :_cranky (scoot -17)]
+               [:pharah :_reverseExplain (scoot 10)] [:symmetra :_neutral (scoot 10)]]
      "Mama, I don’t think that’s fair to--"]
-    ["Ana" [[:reinhardt :_neutral (scoot -1)] [:ana :_neutral (scoot -2)]
-            [:pharah :_reverseNeutral (scoot 0)] [:symmetra :_neutral (scoot 0)]]
+    ["Ana" [[:reinhardt :_eek (scoot -15)] [:ana :_drink (scoot -17)]
+            [:pharah :_reverseDowncast (scoot 10)] [:symmetra :_awkward (scoot 10)]]
      "Don’t interrupt me, soldier. I did not ask for your opinion."]
     :-> [:spawn :pharah 3]]
 
    [:spawn :pharah 3]
    [:miranda/dialogue
-    ["Pharah" [[:reinhardt :_neutral (scoot -1)] [:ana :_neutral (scoot -2)]
-               [:pharah :_reverseNeutral (scoot 0)] [:symmetra :_neutral (scoot 0)]]
-     " ..."]
-    ["Ana" [[:reinhardt :_neutral (scoot -1)] [:ana :_neutral (scoot -2)]
-            [:pharah :_reverseNeutral (scoot 0)] [:symmetra :_neutral (scoot 0)]]
-     " Get to your post and provide us with some aerial support"]
-    :-> [:pharah-1]]
+    ["Pharah" [[:reinhardt :_eek (scoot -15)] [:ana :_cranky (scoot -17)]
+               [:pharah :_reverseDowncast (scoot 10)] [:symmetra :_awkward (scoot 10)]]
+     "..."]
+    ["Ana" [[:reinhardt :_eek (scoot -15)] [:ana :_crankyTalk (scoot -17)]
+            [:pharah :_reverseDowncast (scoot 10)] [:symmetra :_awkward (scoot 10)]]
+     "Get to your post and provide us with some aerial support"]
+    :-> [:objective :cutscene 12]]
 
-   [:pharah-1]
-   [:miranda/characters
-    [[]]
-    :-> [:pharah-1 :text]]
-
-   [:pharah-1 :text]
+   [:objective :cutscene 12]
    [:miranda/narration
     "Despite your numbers disadvantage, your attack round goes surprisingly well. There seems to be no one on the enemy team capable of dealing with Pharah’s aerial offense and her cover fire allows you, Ana, and Reinhardt to easily move through the choke point. Once you are through, Ana splits off to take the high ground, allowing her to safely provide long distance healing as the rest of you fight to capture control of the payload. Once the battering ram is in your possession, you manage to quickly traverse the rest of the map, taking  the second and the third points with ease."
     "Flush with the victory of your previous round, you begin to prepare for you turn on defense, setting up your turrets on the arc of the bridge with anticipatory glee. Once the round starts however, it becomes evident that most of the enemy team has decided to abandon the match. As you wait for the time limit on the round to expire, you sit with Pharah and Reinhardt in front of the payload while Ana lurks some distance off, crouched on the sniper’s perch on the far side of the point."
-    :-> [:spawn :pharah 4]]})
+    :-> [:objective :pharah 4]]})
