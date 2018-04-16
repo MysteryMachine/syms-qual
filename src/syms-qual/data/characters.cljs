@@ -611,13 +611,13 @@
     "_whisper"]
 
    "Reinhardt_Table"
-   ["_beerCheers" {:sizing {:anchor [352 120] :size [3184 1080]}}
-    "_beerDrink" {:sizing {:anchor [352 120] :size [3184 1080]}}
-    "_beerLaugh" {:sizing {:anchor [352 120] :size [3184 1080]}}
-    "_beerLookUp" {:sizing {:anchor [352 120] :size [3184 1080]}}
-    "_beerNeutral" {:sizing {:anchor [352 120] :size [3184 1080]}}
-    "_beerTwo" {:sizing {:anchor [352 120] :size [3184 1080]}}]
-   
+   ["_beerCheers" {:sizing {:anchor [0 0] :size [3184 1080]}}
+    "_beerDrink" {:sizing {:anchor [0 0] :size [3184 1080]}}
+    "_beerLaugh" {:sizing {:anchor [0 0] :size [3184 1080]}}
+    "_beerLookUp" {:sizing {:anchor [0 0] :size [3184 1080]}}
+    "_beerNeutral" {:sizing {:anchor [0 0] :size [3184 1080]}}
+    "_beerTwo" {:sizing {:anchor [0 0] :size [3184 1080]}}]
+
    "Reinhardt"
    ["_explainConcerned"
     "_explainConcernedBack"
