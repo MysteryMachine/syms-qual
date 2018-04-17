@@ -7,6 +7,7 @@
     "_breathalyzerExplainEyesClosed"
     "_breathalyzerNeutral"
     "_cranky"
+    "_crankyTalk"
     "_drink"
     "_explain"
     "_explainCranky"
@@ -16,6 +17,7 @@
     "_phone"
     "_roll-eyes"
     "_sass"
+    "_sassTalk"
     "_wave"]
 
     "Bastion"
