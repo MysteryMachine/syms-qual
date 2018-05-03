@@ -911,6 +911,15 @@
     "_point"
     "_pointUp"
     "_slapped"]
+   
+     "Tracer"
+   ["_bewildered"
+    "_explain"
+    "_flyers"
+    "_neutral"
+    "_smile"
+    "_sonic"
+    "_wave"]
 
    "Widowmaker"
    ["_bird"
