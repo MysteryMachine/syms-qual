@@ -449,6 +449,25 @@
     "_shush"
     "_thumbsUp"
     "_TP"]
+   
+   "Mercy"
+   ["_angry"
+    "_drinkGesture"
+    "_explain"
+    "_explainOffended"
+    "_fly"
+    "_gollyFist"
+    "_lookAwayExplain"
+    "_lookBack"
+    "_neutral"
+    "_pointUp"
+    "_reverseFly"
+    "_smile"
+    "_smileExplain"
+    "_surprised"
+    "_thinkingExplain"
+    "_wave"
+    "_wrist"]
 
    "Orisa"
    ["_handShoulder"
