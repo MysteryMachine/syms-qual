@@ -144,7 +144,8 @@
     "_smile"
     "_smug"
     "_two"
-    "_wave"]
+    "_wave"
+    "_whisper"]
 
    "Genji"
    ["_bow"
