@@ -144,7 +144,8 @@
     "_smile"
     "_smug"
     "_two"
-    "_wave"]
+    "_wave"
+    "_whisper"]
 
    "Genji"
    ["_bow"
@@ -470,6 +471,21 @@
     "_wave"
     "_wrist"]
 
+   "Moira"
+   ["_bloodyExplain"
+    "_burger"
+    "_explain"
+    "_explainLaugh"
+    "_faceWipe"
+    "_ghost"
+    "_ghostLeave"
+    "_lookBack"
+    "_neutral"
+    "_pickles"
+    "_pour1"
+    "_pour2"
+    "_shrimp"]
+   
    "Orisa"
    ["_handShoulder"
     "_neutral"
