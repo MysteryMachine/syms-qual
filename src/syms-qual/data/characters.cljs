@@ -790,6 +790,7 @@
     "_nostalgic"
     "_nostalgicSad"
     "_point"
+    "_puppet"
     "_reverse"
     "_reverseAwkward"
     "_reverseExplain"
