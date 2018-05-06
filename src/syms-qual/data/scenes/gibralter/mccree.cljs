@@ -1,4 +1,4 @@
-(ns syms-qual.data.scenes.gibralter.dva
+(ns syms-qual.data.scenes.gibralter.mccree
   (:require [carmen.util :as anim :refer [scoot]]
             [syms-qual.util :as util :refer [inc-transition]]))
 

@@ -3,15 +3,16 @@
             [syms-qual.util :as util :refer [inc-transition]]))
 
 (def data
-  {
-   []
+  {[:spawn :junkrat 0]
    [:miranda/dialogue
     ["Symmetra" [] "Hello."]
     ["Junkrat" [] "Hey."]
     ["Symmetra" [] "Are you alright? You seem concerned."]
-    :-> []]
+    :transition :miranda/conditional
+    [#(= (:points/junkrat %) 2) [:-> [:spawn :junkrat :date]]
+     :else                      [:-> [:spawn :junkrat :no-date]]]]
 
-   [:street :junkrat :no-date]
+   [:spawn :junkrat :no-date]
    [:miranda/dialogue
     ["Junkrat" [] "Just a bit preoccupied. Err, apologies in advance, love, but me n’ Roadie are headin’ out on a date for this second half of the match."]
     ["Symmetra" [] "You’re abandoning you’re duty?"]
@@ -19,9 +20,9 @@
     ["Symmetra" [] "I see. Enjoy yourselves. We will try and make it work without you."]
     ["Junkrat" [] "Thanks! Efi told me she could rig up some sort of replacement ‘bot for me, so that should work out fine for you all."]
     ["Symmetra" [] "I see."]
-    :-> [:street :choice]]
+    :-> [:spawn :choice]]
 
-   [:street :junkrat :date]
+   [:spawn :junkrat :date]
    [:miranda/dialogue
     ["Junkrat" [] "I--"]
     ["Junkrat" [] "I can’t do this. I’ve got to get out of here now. Me n’ Roadie were planning to take off after the match and I was hoping you’d wanna join us but I think we’re gonna have to cut out early."]
@@ -44,24 +45,24 @@
     ["Junkrat" [] "Trust me I’ve searched high and low for this thing but there’s a powerful lack of brake pads in a world that’s mostly moved on from wheels. This is, scout’s honor, not some harebrained scheme to spend time with my favorite gal."]
     ["Symmetra" [] "I see. Well, that sounds like a reasonable explanation."]
     ["Junkrat" [] "So you’ll help?"]
-    :-> [:street :junkrat :choice]]
+    :-> [:spawn :junkrat :choice]]
 
-   [:street :junkrat :choice]
+   [:spawn :junkrat :choice]
    [:miranda/text-option
     "What will you do?"
     ["Fix the hog and miss the slog" (constantly true)
-     [:-> [:street :- :yes]]]
+     [:-> [:spawn :junkrat :yes]]]
     ["Converse with your other teammates" (constantly true)
-     [:-> [:street :- :no]]]]
+     [:-> [:spawn :junkrat :no]]]]
 
-   [:street :junkrat :yes]
+   [:spawn :junkrat :yes]
    [:miranda/dialogue
     ["Symmetra" [] "Sure. Let’s talk to Efi."]
     ["Junkrat" [] "Aw yeah! Let’s go, darl."]
     :-> [:stret :junkrat 1]]
 
-   [:street :junkrat :no]
+   [:spawn :junkrat :no]
    [:miranda/dialogue
     ["Symmetra" [] "Let me consider my options."]
     ["Junkrat" [] "Alrighty."]
-    :-> [:street :choice]]})
+    :-> [:spawn :choice]]})

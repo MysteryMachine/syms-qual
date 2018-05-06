@@ -18,7 +18,7 @@
     ["Talk to Genji" (comp not :dorado/genji-chat)
      (toggle-transition [:-> [:street :genji 0]] :dorado/genji-chat)]
 
-    ["Go with Mei" :dorado/-chat
+    ["Go with Mei" :dorado/mei-chat
      [:-> [:street :mei :yes]]]
     ["Go to the bar" :dorado/sombra-chat
      [:-> [:street :sombra :yes]]]

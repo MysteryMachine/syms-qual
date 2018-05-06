@@ -24,7 +24,7 @@
     ["Symmetra" [] "…"]
     ["Junkrat" [] "..."]
     ["Roadhog"  [] "Tea’s ready. I’ll let you two have some space."]
-    ["Junkrat" [] "_smooch: Thanks Roadie."]
+    ["Junkrat" [] "Thanks Roadie."]
     [nil [] "For a while you sit in silence watching the clouds pass."]
     ["Symmetra" [] "Jaime?"]
     ["Junkrat" [] "Yes?"]
@@ -64,8 +64,8 @@
     :-> [:field :option 1]]
 
    [:field :option 1]
-   [:miranda/text-option
-    "Symmetra"
+   [:miranda/option
+    "Symmetra" []
     "Angry Rabbit"
     "Galloping Hippo"
     "Six Legged Bear"]

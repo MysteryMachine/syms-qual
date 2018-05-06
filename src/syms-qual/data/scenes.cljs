@@ -46,6 +46,30 @@
    [syms-qual.data.scenes.eichenwalde.date-2 :as eichenwalde-date-2]
    [syms-qual.data.scenes.eichenwalde.widowmaker :as eichenwalde-widowmaker]
 
+   [syms-qual.data.scenes.junkertown.intro :as junkertown-intro]
+   [syms-qual.data.scenes.junkertown.torb :as junkertown-torb]
+   [syms-qual.data.scenes.junkertown.efi :as junkertown-efi]
+   [syms-qual.data.scenes.junkertown.junkrat :as junkertown-junkrat]
+   [syms-qual.data.scenes.junkertown.date-3 :as junkertown-date-1]
+   [syms-qual.data.scenes.junkertown.date-2 :as junkertown-date-2]
+   [syms-qual.data.scenes.junkertown.date-1 :as junkertown-date-3]
+
+   #_([syms-qual.data.scenes.gibralter.date-1 :as gib-date-1]
+      [syms-qual.data.scenes.gibralter.date-2 :as gib-date-2]
+      [syms-qual.data.scenes.gibralter.date-2 :as gib-date-3]
+      [syms-qual.data.scenes.gibralter.dva :as gib-dva]
+      [syms-qual.data.scenes.gibralter.intro :as gib-intro]
+      [syms-qual.data.scenes.gibralter.mccree :as gib-mccree]
+      [syms-qual.data.scenes.gibralter.mercy :as gib-mercy]
+   
+      [syms-qual.data.scenes.dorado.date-1 :as dor-date-1]
+      [syms-qual.data.scenes.dorado.date-2 :as dor-date-2]
+      [syms-qual.data.scenes.dorado.date-2 :as dor-date-3]
+      [syms-qual.data.scenes.dorado.genji :as dor-genji]
+      [syms-qual.data.scenes.dorado.intro :as dor-intro]
+      [syms-qual.data.scenes.dorado.sombra :as dor-sombra]
+      [syms-qual.data.scenes.dorado.mei :as dor-mei])
+
    [syms-qual.data.scenes.intro :as intro-cutscenes]
    [syms-qual.data.characters :as char]
    [syms-qual.data.bg :as bg]
@@ -58,8 +82,10 @@
    :eichenwalde (merge eichenwalde-pharah/data eichenwalde-hanzo/data
                        eichenwalde-widowmaker/data eichenwalde-intro/data
                        eichenwalde-date/data eichenwalde-date-2/data)
-   :gibralter (merge)
-   :dorado (merge)
+   :gibralter {} #_(merge gib-date-2/data gib-date-1/data gib-dva/data gib-mercy/data
+                     gib-mccree/data gib-intro/data)
+   :dorado {}#_(merge dor-mei/data dor-sombra/data dor-intro/data dor-genji/data dor-date-3/data
+                  dor-date-2/data dor-date-1/data)
    :hollywood (merge hollywood-efi/data hollywood-sombra/data hollywood-date-2/data
                      hollywood-date/data hollywood-soldier/data hollywood-intro/data)
    :volskaya (merge volskaya-sombra/data volskaya-date/data volskaya-date-2/data
@@ -69,7 +95,9 @@
    :kings-row (merge kings-row-junkrat/data kings-row-torb/data kings-row-lucio/data
                      kings-row-intro/data kings-row-date/data kings-row-date-2/data)
    :intro intro-cutscenes/data
-   :numbani (merge)
+   :junkertown (merge junkertown-intro/data junkertown-torb/data junkertown-efi/data
+                      junkertown-junkrat/data junkertown-date-1/data
+                      junkertown-date-2/data junkertown-date-3/data)
    :title-screen (merge title-screen/data)
    :epilogue (merge)})
 

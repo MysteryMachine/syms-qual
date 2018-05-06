@@ -3,7 +3,7 @@
             [syms-qual.util :as util :refer [inc-transition]]))
 
 (def data
-  {[:street :torb 0]
+  {[:spawn :torb 0]
    [:miranda/dialogue
     ["Symmetra" [] "Torbjorn, you seem on edge."]
     ["Torbjorn" [] "And you are not? How can you be calm around these blasted omnics?"]
@@ -36,65 +36,69 @@
     ["Torbjorn" [] "Ok."]
     ["Symmetra" [] "That’s “yes, ma’am” to you."]
     ["Torbjorn" [] "Aye, ma’am."]
-    ["Symmetra" [] "Build your turret on the front of payload. I will adorn it with my own turrets on the sides. Bastion will sit in the back. Orisa will shield us and Zenyatta will call out priority targets and make sure we stay healed. Junkrat will scout ahead and place traps in the various flanking routes while the rest of us sit on the payload and ride it efficiently to victory."]
-    :-> []] ;; Conditional transition
+    ["Symmetra" [] "Build your turret on the front of payload. I will adorn it with my own turrets on the sides. Bastion will sit in the back. Orisa will shield us and Zenyatta will call out priority targets and make sure we stay healed."]
+    ["Symmetra" [] "Junkrat will scout ahead and place traps in the various flanking routes while the rest of us sit on the payload and ride it efficiently to victory."]
+    :transition :miranda/conditional
+    [#(= (:points/payload %) 6) [:-> [:spawn :torb :a]]
+     :else                      [:-> [:spawn :torb :b]]]]
 
-   [:street :torb :a]
+   [:spawn :torb :a]
    [:miranda/dialogue
     ["Torbjorn" [] "Fine. I can’t argue with your track record. Also, I don’t want to get slapped again."]
     ["Symmetra" [] "That’s right."]
     ["Symmetra" [] "Mmm--"]
     ["Symmetra" [] "hmm."]
     ["Torbjorn" [] "So are we doing this? I’ll only work the the bots if I’ve got you as a buffer."]
-    :-> [:street :torb :a :option]]
+    :-> [:spawn :torb :a :option]]
 
-   [:street :torb :a :option]
+   [:spawn :torb :a :option]
    [:miranda/text-option
     "What will you do?"
     ["Slap your way to victory" (constantly true)
-     [:-> [:street :torb :a :option :yes]]]
+     [:-> [:spawn :torb :a :option :yes]]]
     ["Maybe goof off with your other teammates." (constantly true)
-     [:-> [:street :torb :a :option :no]]]]
+     [:-> [:spawn :torb :a :option :no]]]]
 
-   [:street :torb :a :option :yes]
-   [:miranda/dialogue
-    ["Symmetra" [] "Yes. I’ve decided. Let’s go."]
+   [:spawn :torb :a :option :yes]
+   (concat
+    [:miranda/dialogue
+     ["Symmetra" [] "Yes. I’ve decided. Let’s go."]]
     (inc-transition
      [:-> [:torbjorn]]
-     :points/payload)]
+     :points/payload))
 
-   [:street :torb :a :option :no]
+   [:spawn :torb :a :option :no]
    [:miranda/dialogue
     ["Symmetra" [] "We’ll see. I’ll let you know."]
     ["Torbjorn" [] "What? You took a good shot at me and you might not even help us win?"]
     ["Symmetra" [] "That’s right. Deal with it."]
-    :-> [:street :choice]]
+    :-> [:spawn :choice]]
 
-   [:street :torb :b]
+   [:spawn :torb :b]
    [:miranda/dialogue
     ["Torbjorn" [] "Feck off. You haven’t taken any of this seriously so far. I’ve seen you goofing off."]
     ["Symmetra" [] "Threats will not work, huh?"]
     ["Tobjorn" [] "They will not. I am less afraid of you than the bots. I can take some slaps."]
-    :-> [:street :torb :b :option]]
+    :-> [:spawn :torb :b :option]]
 
-   [:street :torb :b :option]
+   [:spawn :torb :b :option]
    [:miranda/text-option
     "What will you do?"
     ["Attempt to achieve victory through sheer force of will" (constantly true)
-     [:-> [:street :torb :b :option :yes]]]
+     [:-> [:spawn :torb :b :option :yes]]]
     ["Abandon the payload to goof off with your other teammates" (constantly true)
-     [:-> [:street :torb :b:option :no]]]]
+     [:-> [:spawn :torb :b :option :no]]]]
 
-   [:street :torb :b :option :yes]
+   [:spawn :torb :b :option :yes]
    [:miranda/dialogue
-    ["Symmetra" [] "Fine then I do not need your aid. I will find a way to win on my own."]
-    :-> [:street :torb-b]]
+    ["Symmetra" [] "I will find a way to win on my own."]
+    :-> [:spawn :torb-b]]
 
-   [:street :torb :b :option :no]
+   [:spawn :torb :b :option :no]
    [:miranda/dialogue
     ["Symmetra" [] "If you are unwilling to listen to reason I see no point in trying to convince you."]
     ["Torbjorn" [] "That’s the sort of attitude that got us into this mess in the first place. You’re officially off my list of potential bunker buddies when the robot apocalypse hits. Again."]
-    :-> [:street :choice]]
+    :-> [:spawn :choice]]
 
    [:torbjorn]
    [:miranda/characters
@@ -106,7 +110,7 @@
     "Despite your team’s overly static composition, you manage to pull off a quick and decisive first attacking, taking control of the payload and transforming it into a mobile death ball. Covered in the shields a turrets of all kinds you steamroll your opponents easily making your way to the yellow box of victory. "
     :=> [:gibralter [:spawn :intro] 0]]
 
-   [:street :torb-b]
+   [:spawn :torb-b]
    [:miranda/narration
     "Unable to convince your teammates of the efficacy of your strategy, your offensive round was doomed to failure. With your fractured and scattershot approach your team was unable to advance the payload even slightly and your hopes for victory were quickly dashed."
     :=> [:gibralter [:spawn :intro] 0]]})

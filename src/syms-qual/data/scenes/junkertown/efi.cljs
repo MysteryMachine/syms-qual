@@ -3,7 +3,7 @@
             [syms-qual.util :as util :refer [inc-transition]]))
 
 (def data
-  {[:street :efi 0]
+  {[:spawn :efi 0]
    [:miranda/dialogue
     ["Symmetra" [] "Hello, you two."]
     ["Orisa" [] "Greetings!"]
@@ -38,26 +38,26 @@
     ["Efi" [] "Not if they’re silly rules. I’m a child genius, I can say what is and is not proper usage of technology."]
     ["Symmetra" [] "You have a point, but I am still unsure. I will need some time to ruminate on this."]
     ["Efi" [] "Alright! Let me know."]
-    :-> [:street :efi :choice]]
+    :-> [:spawn :efi :choice]]
 
-   [:street :efi :choice]
+   [:spawn :efi :choice]
    [:miranda/text-option
     "What will you do?"
     ["Enjoy a sports" (constantly true)
-     [:-> [:street :efi :yes]]]
+     [:-> [:spawn :efi :yes]]]
     ["Let down your smol friend" (constantly true)
-     [:-> [:street :efi :no]]]]
+     [:-> [:spawn :efi :no]]]]
 
-   [:street :efi :yes]
+   [:spawn :efi :yes]
    [:miranda/dialogue
     ["Symmetra" [] "I think I’ve decided. I will join you."]
     ["Efi" [] "Yeeaaaaah! I’m ready."]
     :-> [:efi]]
 
-   [:street :efi :no]
+   [:spawn :efi :no]
    [:miranda/dialogue
     ["Efi" [] "Yeah. I understand. Let me know if you change your mind."]
-    :-> [:street :choice]]
+    :-> [:spawn :choice]]
 
    [:efi]
    [:miranda/characters

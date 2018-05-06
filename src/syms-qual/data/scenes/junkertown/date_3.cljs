@@ -16,7 +16,7 @@
 
    [:field :date-3 :option 0]
    [:miranda/option
-    "Symmetra"
+    "Symmetra" []
     "It is quite easy to make you blush, Jamie."
     "That was not a euphemism, Jamie."]
 
@@ -42,11 +42,11 @@
     ["Junkrat" [] "Here, have some proper billy tea."]
     [nil [] "Junkrat hands you a cup of tea."]
     ["Junkrat"  [] "How is it?"]
-    :-> []]
+    :-> [:field :date-3 :option 1]]
 
    [:field :date-3 :option 1]
    [:miranda/option
-    "Symmetra"
+    "Symmetra" []
     "Go for the kiss."
     "Flirt."]
 

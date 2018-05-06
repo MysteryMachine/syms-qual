@@ -10,7 +10,7 @@
    ["Junkrat" [] "Can’t respect what isn’t there! Yahoo!"]])
 
 (def data
-  {[:street :junkrat 1]
+  {[:spawn :junkrat 1]
    [:miranda/dialogue
     ["Junkrat" [] "Efi! I got her to agree to make the part."]
     ["Efi" [] "Oh yeah? I see. I suppose my ship wins out over my Lucio fandom."]
@@ -41,15 +41,15 @@
     ["Junkrat" [] "And... This place we’re going, it’s a safe space for me… and I wanted to you to join us because you also make me feel safe and..."]
     ["Junkrat" [] "So if you come, you gotta understand that this is...uh…"]
     ["Efi" [] "It’s a date, Satya! There may be kissing! Maybe there won’t be if you don’t like kissing! But there very well could be smooches!"]
-    :-> [:street :junkrat :choice]]
+    :-> [:spawn :junkrat :choice]]
 
-   [:street :junkrat :choice]
+   [:spawn :junkrat :choice]
    [:miranda/option
     "Symmetra" []
     "I’m sorry, Jamie. I value your friendship but I don’t share your romantic intentions."
     "I will join you, Jamie. I’d like to see where things go."]
 
-   [:street :junkrat :choice 0]
+   [:spawn :junkrat :choice 0]
    (concat
     [:miranda/dialogue
      ["Junkrat" [] "I see. Well! That’s fine!"]
@@ -61,11 +61,11 @@
      ["Symmetra" [] "Thank you, Jamie."]
      ["Junkrat" [] "Well! Let’s finish installing this part. Roadie will be here soon."]]
     (inc-transition
-     [:-> [:street :junkrat 2]]
+     [:-> [:spawn :junkrat 2]]
      :junkrat/no-date))
 
+   [:spawn :junkrat :choice 1]
    (concat
-    [:street :junkrat :choice 1]
     [:miranda/dialogue
      ["Junkrat" [] "Perfect! Roadhog is bringing billy tea."]
      ["Efi" [] "Yes! I knew there was some chemistry. I’m so excited to see cute vacation photos of you when you go steady!"]
@@ -73,20 +73,26 @@
      ["Efi" [] "Agreed!"]
      ["Junkrat" [] "We gotta focus, though, loves. We shouldn’t delay! Date time approaches!"]]
     (inc-transition
-     [:-> [:street :junkrat 2]]
+     [:-> [:spawn :junkrat 2]]
      :points/junkrat))
 
-   [:street :junkrat 2]
-   [:miranda/narration
-    "You get to work on the the bike, fixing it just as Roadhog walks up with a basket full of food."
-    :-> [:street :junkrat 3]]
+   [:spawn :junkrat 2]
+   (concat
+    [:miranda/narration
+     "You get to work on the the bike, fixing it just as Roadhog walks up with a basket full of food."]
+    (inc-transition
+     [:-> [:spawn :junkrat 3]]
+     :points/junkrat))
 
-   [:street :junkrat 3]
+
+   [:spawn :junkrat 3]
    [:miranda/dialogue
     ["Roadhog" [] "Hi."]
-    :-> []]  ;; conditional transition
+    :transition :miranda/conditional
+    [#(= (:points/junkrat %) 3) [:-> [:spawn :no-date :talk]]
+     :else                      [:-> [:spawn :junkrat 4]]]]
 
-   [:street :no-date :talk]
+   [:spawn :no-date :talk]
    [:miranda/dialogue
     ["Junkrat" [] "Hey. Satya. Thanks for helping out with the bike and for being so understanding in general."]
     ["Symmetra" [] "Think nothing of it!"]
@@ -97,54 +103,54 @@
     ["Junkrat" [] "No, no, it’s not-- it’s… a rhyming thing. Meat pie and tomato sauce. And they’ve got veggie types too if you’d rather."]
     ["Symmetra" [] "That sounds much more appetising. I would love to. Enjoy your date."]
     ["Junkrat" [] "I’ll do me best! Have a good’un!"]
-    :-> [:street :no-date :final]]
+    :-> [:spawn :no-date :final]]
 
-   [:street :no-date :final]
+   [:spawn :no-date :final]
    [:miranda/narration
     "You go back to the match in time to help out with the very last seconds, but are not allowed to participate. The replacements Efi managed to rig up do okay, but you still do not manage to win. You decide to go have some quiet time before your flight back tomorrow.
 "
     :=> [:gibralter [:spawn :intro] 0]]
 
-   [:street :junkrat 4]
+   [:spawn :junkrat 4]
    [:miranda/dialogue
     ["Junkrat" [] "Roadie! She said yes!"]
     ["Roadhog" [] "Cool."]
     ["Junkrat" [] "Right?  Ehehee!"]
     ["Junkrat" [] "So. I’ve got you a helmet. Figured you’d want safety first. We have a two seat bike. Do you want your own seat, Satya?"]
-    :-> [:street :junkrat :option 0]]
+    :-> [:spawn :junkrat :option 0]]
 
-   [:street :junkrat :option 0]
+   [:spawn :junkrat :option 0]
    [:miranda/option
     "Symmetra" []
     "Yes! Sorry, I need my personal space."
     "It is too dangerous for you to not be in the sidecar. You can sit on my lap."]
 
-   [:street :junkrat :option 0 0]
+   [:spawn :junkrat :option 0 0]
    [:miranda/dialogue
     ["Junkrat" [] "No problem! It’s uh, a little more of a dangerous ride from me, but it’s nothing that can’t be cured with some of Roadhog’s aromatherapy."]
     ["Roadhog" [] "Breathing deeply into nice smells is good self care."]
     ["Junkrat" [] "That literally heals broken bones!"]
     ["Roadhog" [] "..."]
-    :-> [:street :junkrat 5 :a]]
+    :-> [:spawn :junkrat 5 :a]]
 
-   [:street :junkrat :option 0]
+   [:spawn :junkrat :option 0 1]
    [:miranda/dialogue
     ["Junkrat" [] "I. Um. Yes."]
     ["Junkrat" [] "I will do that."]
     ["Symmetra" [] "Hah. You’re so red."]
     ["Junkrat" [] "H-hush!"]
-    :-> [:street :junkrat 5 :b]]
+    :-> [:spawn :junkrat 5 :b]]
 
-   [:street :junkrat 5 :a]
+   [:spawn :junkrat 5 :a]
    (concat strap-in [:-> [:junkrat-a-2]])
 
-   [:street :junkrat 5 :v]
+   [:spawn :junkrat 5 :b]
    (concat strap-in [:-> [:junkrat-a-1]])
 
    [:junkrat-a-1]
    [:miranda/characters
     [[]]
-    :-> [::junkrat-a-1 :text]]
+    :-> [:junkrat-a-1 :text]]
 
    [:junkrat-a-1 :text]
    [:miranda/narration
@@ -159,7 +165,7 @@
     [[]]
     :-> [:junkrat-a-2 :text]]
 
-   [:junkrat-a-2]
+   [:junkrat-a-2 :text]
    [:miranda/narration
     "Although the high speeds with which Roadhog navigated the winding roads of the town were quite nerve wracking, but the complete lack of traffic allayed some of your fears."
     "Soon the ragtag structures and rusted out undercarriages of Junkertown gave way to rolling plains, and you found a nice spot in which to lay down your blanket. After you had settled in, Roadhog prepared the spread, beginning to heat up food with a small camping stove."

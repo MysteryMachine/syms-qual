@@ -184,3 +184,36 @@
    :scene [:eichenwalde [:spawn :intro] 0],
    :new-game? false, 
    :route-66/reaper true})
+
+(def day-8
+  {:hollywood/sombra-chat true,
+   :points/payload 6,
+   :volskaya/sombra 1,
+   :eichenwalde/hanzo-chat true,
+   :points/sombra 5,
+   :points/puppy 6,
+   :route-66/roadhog true,
+   :kings-row/junkrat-chat true,
+   :miranda/auto-save true,
+   :route-66/ana true,
+   :miranda/text-scale 17.062005826050772,
+   :miranda/time 4124.9999999999945,
+   :kings-row/lucio-chat true,
+   :window {:x 1025, :y-adjust 7.078651685393254, :y 575.8426966292135},
+   :miranda/internal
+   {:max-reports nil,
+    :miranda/transition
+    {:miranda/animation-name [:junkertown [:spawn :intro] 0]},
+    :reports nil,
+    :loading? false},
+   :lijiang/dva-chat true,
+   :anubis/pharah-chat true,
+   :saved nil,
+   :anubis/zarya-chat true,
+   :volskaya/sombra-chat true,
+   :points/pharah 2,
+   :route-66/first-chat :reaper,
+   :points/junkrat 2,
+   :scene [:junkertown [:spawn :intro] 0],
+   :new-game? false, 
+   :route-66/reaper true})
