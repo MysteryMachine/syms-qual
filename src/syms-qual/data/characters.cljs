@@ -57,6 +57,8 @@
     "_eyeRoll"
     "_laugh"
     "_neutral"
+    "_phoneHold"
+    "_phoneTalk"
     "_point"
     "_pointUp"
     "_pointUpSmile"
