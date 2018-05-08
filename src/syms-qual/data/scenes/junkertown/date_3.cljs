@@ -5,76 +5,77 @@
 (def data
   {[:field :date-3 0]
    [:miranda/dialogue
-    ["Junkrat" [] "Oy, sorry, love. Didn’t mean to wake you. Just trying to make myself a pick me up."]
-    ["Symmetra" [] "May I have some?"]
-    ["Junkrat" [] "It’s got a minute or two until it’s ready."]
-    ["Symmetra" [] "I can wait."]
-    ["Junkrat" [] "It’ is gorgeous here, innit? I close my eyes just for a second and when I open ‘em again I’m dazzled all over."]
-    ["Symmetra" [] "The view is definitely quite fine."]
-    ["Junkrat" [] "Hang on a tick…you talkin’ about me, aren’t you, you cheeky rascal."]
+    ["Junkrat" [[:junkrat :_ballSmileNod (scoot -9)] [:symmetra :_smile (scoot 0)]] "Oy, sorry, love. Didn’t mean to wake you. Just trying to make myself a pick me up."]
+    ["Symmetra" [[:junkrat :_ballSmileNod (scoot -9)] [:symmetra :_bigSmile (scoot 0)]] "May I have some?"]
+    ["Junkrat" [[:junkrat :_ballConfusedEyesClosed (scoot -9)] [:symmetra :_smile (scoot 0)]] "Certainly! But it’s got a minute or two until it’s ready."]
+    ["Symmetra" [[:junkrat :_ballSmile (scoot -9)] [:symmetra :_coy (scoot 0)]] "I can wait."]
+    ["Junkrat" [[:junkrat :_ballThinkingSmile (scoot -9)] [:symmetra :_coy (scoot 0)]] "It’ is gorgeous here, innit? I close my eyes just for a second and when I open ‘em again I’m dazzled all over."]
+    ["Symmetra" [[:junkrat :_ballThinkingSmile (scoot -9)] [:symmetra :_flirty (scoot 0)]] "The view is definitely quite fine."]
+    ["Junkrat" [[:junkrat :_scandalized2 (scoot -9)] [:symmetra :_flirty (scoot 0)]] "Hang on a tick…you talkin’ about me, aren’t you, you cheeky rascal."]
     :-> [:field :date-3 :option 0]]
 
    [:field :date-3 :option 0]
    [:miranda/option
-    "Symmetra" []
+    "Symmetra" [[:junkrat :_scandalized2 (scoot -9)] [:symmetra :_flirty (scoot 0)]]
     "It is quite easy to make you blush, Jamie."
     "That was not a euphemism, Jamie."]
 
    [:field :date-3 :option 0 0]
    [:miranda/dialogue
-    ["Junkrat" [] "That’s unfair! I wasn’t prepared!"]
-    ["Symmetra" [] "You should always be prepared for love and support."]
-    ["Junkrat" [] "For real?"]
-    ["Symmetra" [] "No. I’m not a true support. You should prepare for a powerfully structured defense that is off meta on most maps."]
-    ["Junkrat" [] "Is this another joke? Or is that a euphemism? I don’t have a dang clue."]
-    ["Symmetra" [] "I leave it up to your interpretation."]
+    ["Junkrat" [[:junkrat :_terrifiedBlushLeftExtra (scoot -9)] [:symmetra :_sass (scoot 0)]] "That’s unfair! I wasn’t prepared!"]
+    ["Symmetra" [[:junkrat :_ballSmileNod (scoot -9)] [:symmetra :_pointUp (scoot 0)]] "You should always be prepared for love and support."]
+    ["Junkrat" [[:junkrat :_armsUpSmile (scoot -9)] [:symmetra :_sass (scoot 0)]] "For real?"]
+    ["Symmetra" [[:junkrat :_ballSmile (scoot -9)] [:symmetra :_pointUp (scoot 0)]] "No. I’m not a true support. You should prepare for a powerfully structured defense that is off meta on most maps."]
+    ["Junkrat" [[:junkrat :_wrist (scoot -9)] [:symmetra :_sass (scoot 0)]] "Is this another joke? Or is that a euphemism? I don’t have a dang clue."]
+    ["Symmetra" [[:junkrat :_ballSmile (scoot -9)] [:symmetra :_flirty (scoot 0)]] "I leave it up to your interpretation."]
     :-> [:field :date-3 1]]
 
    [:field :date-3 :option 0 1]
    [:miranda/dialogue
-    ["Junkrat" [] "Oh. Uh! So sorry."]
-    ["Symmetra" [] "Don’t be. Of course I like you too."]
-    ["Junkrat" [] "Ehehehehe."]
+    ["Junkrat" [[:junkrat :_ballEmbarassedBlush (scoot -9)] [:symmetra :_strainedSmile (scoot 0)]] "Oh. Uh! So sorry."]
+    ["Symmetra" [[:junkrat :_ballSmileNod (scoot -9)] [:symmetra :_embarassed (scoot 0)]] "Don’t be. Of course I like you too."]
+    ["Junkrat" [[:junkrat :_shyblush (scoot -9)] [:symmetra :_strainedSmile (scoot 0)]] "Ehehehehe."]
     :-> [:field :date-3 1]]
 
    [:field :date-3 1]
    [:miranda/dialogue
-    ["Junkrat" [] "Here, have some proper billy tea."]
-    [nil [] "Junkrat hands you a cup of tea."]
-    ["Junkrat"  [] "How is it?"]
+    ["Junkrat" [[:junkrat :_teacupOffer (scoot -9)] [:symmetra :_smile (scoot 0)]] "Here, have some proper billy tea."]
+    ["Junkrat"  [[:junkrat :_teacupExplain (scoot -9)] [:symmetra :_teacupDrink (scoot 0)]] "How is it?"]
     :-> [:field :date-3 :option 1]]
 
    [:field :date-3 :option 1]
    [:miranda/option
-    "Symmetra" []
+    "Symmetra" [[:junkrat :_teacupHold (scoot -9)] [:symmetra :_teacupHold (scoot 0)]]
     "Go for the kiss."
     "Flirt."]
 
    [:field :date-3 :option 1 0]
    [:miranda/dialogue
-    ["Symmetra" [] "Hm..."]
-    ["Junkrat" [] "Oy, you said no sugar, right?"]
-    ["Symmetra" [] "No sugar for the tea but I would like something sweet"]
-    ["Junkrat" [] "I knew we should have packed some honey. Or agave…"]
-    ["Junkrat" [] "Wait, what’s this staring?"]
+    ["Symmetra" [[:junkrat :_teacupOh (scoot -9)] [:symmetra :_teacupThinking (scoot 0)]] "Hm..."]
+    ["Junkrat" [[:junkrat :_teacupNervous (scoot -9)] [:symmetra :_teacupSmile (scoot 0 -8 2)]] "Oy, you said no sugar, right?"]
+    ["Symmetra" [[:junkrat :_teacupOh (scoot -9)] [:symmetra :_teacupSass (scoot -8 -16 2)]] "No sugar for the tea but I would like something sweet"]
+    ["Junkrat" [[:junkrat :_teacupFibbinSad (scoot -9)] [:symmetra :_teacupSass (scoot -16 -24 2)]] "I knew we should have packed some honey. Or agave…"]
+    ["Junkrat" [[:junkrat :_teacupScandalized (scoot -9)] [:symmetra :_teacupSass (scoot -24 -32 2)]] "Wait, what’s this staring?"]
     :-> [:field :kiss]]
 
    [:field :kiss]
    [:miranda/characters
-    [[]]
+    [[[:junkrat :_smooch (scoot -9)]]]
+    [[[:junkrat :_teacupAdoringBlush (scoot -9)] [:symmetra :_teacupSass (scoot -32 0 3)]]]
+
     :-> [:field :date-3 2]]
 
    [:field :date-3 :option 1 1]
    [:miranda/dialogue
-    ["Symmetra" [] "Perfect. What a sweet boy. Mako’s right about you, you know."]
-    ["Junkrat" [] "Hehe, I try."]
-    ["Symmetra" [] "Keep this up and you might get those head scratches after all."]
-    ["Junkrat" [] "Yes’m! I’ll keep working hard at being a good boy."]
+    ["Symmetra" [[:junkrat :_teacupHold (scoot -9)] [:symmetra :_teacupSass (scoot 0)]] "Perfect. What a sweet boy. Mako’s right about you, you know."]
+    ["Junkrat" [[:junkrat :_teacupShyBlush (scoot -9)] [:symmetra :_teacupSass (scoot 0)]] "Hehe, I try."]
+    ["Symmetra" [[:junkrat :_teacupOh (scoot -9)] [:symmetra :_teacupDrink (scoot 0)]] "Keep this up and you might get those head scratches after all."]
+    ["Junkrat" [[:junkrat :_teacupAdoringBlush (scoot -9)] [:symmetra :_teacupSmile (scoot 0)]] "Yes’m! I’ll keep working hard at being a good boy."]
     :-> [:field :date-3 2]]
 
    [:field :date-3 2]
    [:miranda/dialogue
-    ["Junkrat" [] "I’m glad you came out here with us. I know a place can’t really be a gift, but if I was gonna give you something it would be time here, as a thank you for putting up with all of my nonsense."]
+    ["Junkrat" [[:junkrat :_teacupShyBlush (scoot -9)] [:symmetra :_teacupSmile (scoot 0)]] "I’m glad you came out here with us. I know a place can’t really be a gift, but if I was gonna give you something it would be time here, as a thank you for putting up with all of my nonsense."]
     ["Symmetra" [] "What do you mean?"]
     ["Junkrat" [] "Well, you helped me out in King’s Row. It was one silly little problem but I was damn near having a mini panic attack over needing that shim."]
     ["Symmetra" [] "I didn’t realize. I’m so sorry..."]

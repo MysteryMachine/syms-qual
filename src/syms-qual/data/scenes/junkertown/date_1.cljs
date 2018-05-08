@@ -4,10 +4,10 @@
 
 (def strap-in
   [:miranda/dialogue
-   ["Roadhog" [] "Time to go, friends."]
-   ["Junkrat" [] "Aye aye! Strap yourself in, Satya, we don’t respect stop signs!"]
-   ["Symmetra" [] "Excuse me?"]
-   ["Junkrat" [] "Can’t respect what isn’t there! Yahoo!"]])
+   ["Roadhog" [[:junkrat :_ballSmileNod (scoot 5)] [:roadhog :_basket (scoot -22)] [:symmetra :_helmetNeutral (scoot 8)]] "Time to go, friends."]
+   ["Junkrat" [[:junkrat :_ballPointUp (scoot 5)] [:roadhog :_basket (scoot -22)] [:symmetra :_helmetNeutral (scoot 8)]] "Aye aye! Strap yourself in, Satya, we don’t respect stop signs!"]
+   ["Symmetra" [[:junkrat :_ballSmile (scoot 5)] [:roadhog :_basket (scoot -22)] [:symmetra :_helmetBewildered (scoot 8)]] "Excuse me?"]
+   ["Junkrat" [[:junkrat :_ballWink (scoot 5)] [:roadhog :_basket (scoot -22)] [:symmetra :_helmetBewildered (scoot 8)]] "Can’t respect what isn’t there! Yahoo!"]])
 
 (def data
   {[:spawn :junkrat 1]
@@ -43,35 +43,35 @@
     ["Efi" [] "It’s a date, Satya! There may be kissing! Maybe there won’t be if you don’t like kissing! But there very well could be smooches!"]
     :-> [:spawn :junkrat :choice]]
 
-   [:spawn :junkrat :choice]
+   [:spawn :junkrat :choice 2]
    [:miranda/option
     "Symmetra" []
     "I’m sorry, Jamie. I value your friendship but I don’t share your romantic intentions."
     "I will join you, Jamie. I’d like to see where things go."]
 
-   [:spawn :junkrat :choice 0]
+   [:spawn :junkrat :choice 2 0]
    (concat
     [:miranda/dialogue
-     ["Junkrat" [] "I see. Well! That’s fine!"]
-     ["Efi" [] "Oh boo! I have to cross the ship out from my shipping matrix."]
-     ["Junkrat" [] "Efi...I still feel like having a shipping chart is maybe not a thing you should do?"]
-     ["Efi" [] "It’s a matrix, Junky. Don’t devalue the mathematical value of my shipping matrix."]
-     ["Junkrat" [] "Look, Efi. Relationships, to some people, aren’t just a casual thing you get in and out of. It’s good to respect people’s feelings."]
-     ["Junkrat" [] "Satya shouldn’t need to feel awkward about saying no."]
-     ["Symmetra" [] "Thank you, Jamie."]
-     ["Junkrat" [] "Well! Let’s finish installing this part. Roadie will be here soon."]]
+     ["Junkrat" [[:junkrat :_ballConfused (scoot -3)] [:efi :_neutral (scoot -18)] [:symmetra :_neutral (scoot 3)]] "I see. Well! That’s fine!"]
+     ["Efi" [[:junkrat :_ballSmileNod (scoot -3)] [:efi :_smug (scoot -18)] [:symmetra :_neutral (scoot 3)]] "Oh boo! I have to cross the ship out from my shipping matrix."]
+     ["Junkrat" [[:junkrat :_fibbinSad (scoot -3)] [:efi :_smug (scoot -18)] [:symmetra :_neutral (scoot 3)]] "Efi...I still feel like having a shipping chart is maybe not a thing you should do?"]
+     ["Efi" [[:junkrat :_ballSmileNod (scoot -3)] [:efi :_pointUpEyesClosed (scoot -18)] [:symmetra :_neutral (scoot 3)]] "It’s a matrix, Junky. Don’t devalue the mathematical value of my shipping matrix."]
+     ["Junkrat" [[:junkrat :_ballExplainConcerned (scoot -3)] [:efi :_smug (scoot -18)] [:symmetra :_neutral (scoot 3)]] "Look, Efi. Relationships, to some people, aren’t just a casual thing you get in and out of. It’s good to respect people’s feelings."]
+     ["Junkrat" [[:junkrat :_ballPointUpSerious (scoot -3)] [:efi :_smug (scoot -18)] [:symmetra :_neutral (scoot 3)]] "Satya shouldn’t need to feel awkward about saying no."]
+     ["Symmetra" [[:junkrat :_ballSmileNod (scoot -3)] [:efi :_neutral (scoot -18)] [:symmetra :_explainUncomfortable (scoot 3)]] "Thank you, Jamie."]
+     ["Junkrat" [[:junkrat :_ballBack (scoot -3)] [:efi :_neutral (scoot -18)] [:symmetra :_neutral (scoot 3)]] "Well! Let’s finish installing this part. Roadie will be here soon."]]
     (inc-transition
      [:-> [:spawn :junkrat 2]]
      :junkrat/no-date))
 
-   [:spawn :junkrat :choice 1]
+   [:spawn :junkrat :choice 2 1]
    (concat
     [:miranda/dialogue
-     ["Junkrat" [] "Perfect! Roadhog is bringing billy tea."]
-     ["Efi" [] "Yes! I knew there was some chemistry. I’m so excited to see cute vacation photos of you when you go steady!"]
-     ["Junkrat" [] "Let’s be honest, the only point to have a relationship in the first place is to have cute vacation photos."]
-     ["Efi" [] "Agreed!"]
-     ["Junkrat" [] "We gotta focus, though, loves. We shouldn’t delay! Date time approaches!"]]
+     ["Junkrat" [[:junkrat :_shyblush (scoot -3)] [:efi :_smile (scoot -18)] [:symmetra :_smile (scoot 3)]] "Perfect! Roadhog is bringing billy tea."]
+     ["Efi" [[:junkrat :_shyblush (scoot -3)] [:efi :_pointUp (scoot -18)] [:symmetra :_smile (scoot 3)]] "Yes! I knew there was some chemistry. I’m so excited to see cute vacation photos of you when you go steady!"]
+     ["Junkrat" [[:junkrat :_wrist (scoot -3)] [:efi :_neutral (scoot -18)] [:symmetra :_smile (scoot 3)]] "Let’s be honest, the only point to have a relationship in the first place is to have cute vacation photos."]
+     ["Efi" [[:junkrat :_ballSmileNod (scoot -3)] [:efi :_smile (scoot -18)] [:symmetra :_smile (scoot 3)]] "Agreed!"]
+     ["Junkrat" [[:junkrat :_ballPointUp (scoot -3)] [:efi :_neutral (scoot -18)] [:symmetra :_smile (scoot 3)]] "We gotta focus, though, loves. We shouldn’t delay! Date time approaches!"]]
     (inc-transition
      [:-> [:spawn :junkrat 2]]
      :points/junkrat))
@@ -87,58 +87,59 @@
 
    [:spawn :junkrat 3]
    [:miranda/dialogue
-    ["Roadhog" [] "Hi."]
+    ["Roadhog" [[:junkrat :_ballSmile (scoot 5)] [:roadhog :_basket (scoot -22)] [:symmetra :_smile (scoot 8)]] "Hi."]
     :transition :miranda/conditional
     [#(= (:points/junkrat %) 3) [:-> [:spawn :no-date :talk]]
      :else                      [:-> [:spawn :junkrat 4]]]]
 
    [:spawn :no-date :talk]
    [:miranda/dialogue
-    ["Junkrat" [] "Hey. Satya. Thanks for helping out with the bike and for being so understanding in general."]
-    ["Symmetra" [] "Think nothing of it!"]
-    ["Roadhog" [] "We owe you dinner."]
-    ["Junkrat" [] "Yeah, next time you’re in town! We’ll eat real good."]
-    ["Roadhog"  [] "Dog’s eye and dead horse."]
-    ["Symmetra" [] "I am not sure this is a delicacy for which I have the stomach."]
-    ["Junkrat" [] "No, no, it’s not-- it’s… a rhyming thing. Meat pie and tomato sauce. And they’ve got veggie types too if you’d rather."]
-    ["Symmetra" [] "That sounds much more appetising. I would love to. Enjoy your date."]
-    ["Junkrat" [] "I’ll do me best! Have a good’un!"]
+    ["Junkrat" [[:junkrat :_ballConfused (scoot 5)] [:roadhog :_basket (scoot -22)] [:symmetra :_smile (scoot 8)]] "Hey. Satya. Thanks for helping out with the bike and for being so understanding in general."]
+    ["Symmetra" [[:junkrat :_ballSmile (scoot 5)] [:roadhog :_basket (scoot -22)] [:symmetra :_sass (scoot 8)]] "Think nothing of it!"]
+    ["Roadhog" [[:junkrat :_ballSmile (scoot 5)] [:roadhog :_basketExplain (scoot -22)] [:symmetra :_smile (scoot 8)]] "We owe you dinner."]
+    ["Junkrat" [[:junkrat :_ballPointUp (scoot 5)] [:roadhog :_basket2 (scoot -22)] [:symmetra :_smile (scoot 8)]] "Yeah, next time you’re in town! We’ll eat real good."]
+    ["Roadhog"  [[:junkrat :_ballSmileNod (scoot 5)] [:roadhog :_basket (scoot -22)] [:symmetra :_bewildered (scoot 8)]] "Dog’s eye and dead horse."]
+    ["Symmetra" [[:junkrat :_ballSmileNod (scoot 5)] [:roadhog :_basket (scoot -22)] [:symmetra :_skeptical (scoot 8)]] "I am not sure this is a delicacy for which I have the stomach."]
+    ["Junkrat" [[:junkrat :_ballExplain (scoot 5)] [:roadhog :_basket (scoot -22)] [:symmetra :_neutral (scoot 8)]] "No, no, it’s not-- it’s… a rhyming thing. Meat pie and tomato sauce. And they’ve got veggie types too if you’d rather."]
+    ["Symmetra" [[:junkrat :_ballSmile (scoot 5)] [:roadhog :_basket (scoot -22)] [:symmetra :_explainUncomfortable (scoot 8)]] "That sounds much more appetising. I would love to. Enjoy your date."]
+    ["Junkrat" [[:junkrat :_ballWink (scoot 5)] [:roadhog :_basket (scoot -22)] [:symmetra :_smile (scoot 8)]] "I’ll do me best! Have a good’un!"]
     :-> [:spawn :no-date :final]]
 
    [:spawn :no-date :final]
    [:miranda/narration
-    "You go back to the match in time to help out with the very last seconds, but are not allowed to participate. The replacements Efi managed to rig up do okay, but you still do not manage to win. You decide to go have some quiet time before your flight back tomorrow.
+    "You go back to the match in time to help out with the very last seconds, but are not allowed to participate. The replacements Efi managed to
+ rig up do okay, but you still do not manage to win. You decide to go have some quiet time before your flight back tomorrow.
 "
     :=> [:gibralter [:spawn :intro] 0]]
 
    [:spawn :junkrat 4]
    [:miranda/dialogue
-    ["Junkrat" [] "Roadie! She said yes!"]
-    ["Roadhog" [] "Cool."]
-    ["Junkrat" [] "Right?  Ehehee!"]
-    ["Junkrat" [] "So. I’ve got you a helmet. Figured you’d want safety first. We have a two seat bike. Do you want your own seat, Satya?"]
+    ["Junkrat" [[:junkrat :_shyblush (scoot 5)] [:roadhog :_basket (scoot -22)] [:symmetra :_smile (scoot 8)]] "Roadie! She said yes!"]
+    ["Roadhog" [[:junkrat :_shyblush (scoot 5)] [:roadhog :_basket2 (scoot -22)] [:symmetra :_smile (scoot 8)]] "Cool."]
+    ["Junkrat" [[:junkrat :_ballAdoringBlushDown (scoot 5)] [:roadhog :_basket (scoot -22)] [:symmetra :_strainedSmile (scoot 8)]] "Right?  Ehehee!"]
+    ["Junkrat" [[:junkrat :_helmet (scoot 5)] [:roadhog :_basket (scoot -22)] [:symmetra :_smile (scoot 8)]] "So. I’ve got you a helmet. Figured you’d want safety first. We have a two seat bike. Do you want your own seat, Satya?"]
     :-> [:spawn :junkrat :option 0]]
 
    [:spawn :junkrat :option 0]
    [:miranda/option
-    "Symmetra" []
+    "Symmetra" [[:junkrat :_helmet (scoot 5)] [:roadhog :_basket (scoot -22)] [:symmetra :_smile (scoot 8)]]
     "Yes! Sorry, I need my personal space."
     "It is too dangerous for you to not be in the sidecar. You can sit on my lap."]
 
    [:spawn :junkrat :option 0 0]
    [:miranda/dialogue
-    ["Junkrat" [] "No problem! It’s uh, a little more of a dangerous ride from me, but it’s nothing that can’t be cured with some of Roadhog’s aromatherapy."]
-    ["Roadhog" [] "Breathing deeply into nice smells is good self care."]
-    ["Junkrat" [] "That literally heals broken bones!"]
-    ["Roadhog" [] "..."]
+    ["Junkrat" [[:junkrat :_ballPointUp (scoot 5)] [:roadhog :_basket (scoot -22)] [:symmetra :_helmetNeutral (scoot 8)]] "No problem! It’s uh, a little more of a dangerous ride from me, but it’s nothing that can’t be cured with some of Roadhog’s aromatherapy."]
+    ["Roadhog" [[:junkrat :_ballSmileNod (scoot 5)] [:roadhog :_basket2 (scoot -22)] [:symmetra :_helmetNeutral (scoot 8)]] "Breathing deeply into nice smells is good self care."]
+    ["Junkrat" [[:junkrat :_ballPointUp (scoot 5)] [:roadhog :_basket (scoot -22)] [:symmetra :_helmetBewildered (scoot 8)]] "That literally heals broken bones!"]
+    ["Roadhog" [[:junkrat :_ballPointUp (scoot 5)] [:roadhog :_basket2 (scoot -22)] [:symmetra :_helmetBewildered (scoot 8)]] "..."]
     :-> [:spawn :junkrat 5 :a]]
 
    [:spawn :junkrat :option 0 1]
    [:miranda/dialogue
-    ["Junkrat" [] "I. Um. Yes."]
-    ["Junkrat" [] "I will do that."]
-    ["Symmetra" [] "Hah. You’re so red."]
-    ["Junkrat" [] "H-hush!"]
+    ["Junkrat" [[:junkrat :_scandalized2 (scoot 5)] [:roadhog :_basket (scoot -22)] [:symmetra :_helmetNeutral (scoot 8)]] "I. Um. Yes."]
+    ["Junkrat" [[:junkrat :_scandalizedTalk (scoot 5)] [:roadhog :_basket (scoot -22)] [:symmetra :_helmetNeutral (scoot 8)]] "I will do that."]
+    ["Symmetra" [[:junkrat :_scandalized2 (scoot 5)] [:roadhog :_basket (scoot -22)] [:symmetra :_helmetLaugh (scoot 8)]] "Hah. You’re so red."]
+    ["Junkrat" [[:junkrat :_terrifiedBlushLeftExtra (scoot 5)] [:roadhog :_basket (scoot -22)] [:symmetra :_helmetLaugh (scoot 8)]] "H-hush!"]
     :-> [:spawn :junkrat 5 :b]]
 
    [:spawn :junkrat 5 :a]
