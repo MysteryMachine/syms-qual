@@ -146,7 +146,7 @@
      "And those urban legends always start with a grain of truth, Satya! I’m sure they actually turned into the devil."]
     ["Pharah" [[:reinhardt :_neutral (scoot -26)] [:pharah :_reverseExplain (scoot 10)]
                [:symmetra :_confused (scoot 10)]]
-     "Yeah, Reaper got turned into and evil cloud, why can’t some queer girls become the devil?"]
+     "Yeah, Reaper got turned into an evil cloud, why can’t some queer girls become the devil?"]
     ["Symmetra" [[:reinhardt :_neutral (scoot -26)] [:pharah :_reverseNeutral (scoot 10)]
                  [:symmetra :_explain (scoot 10)]]
      "Because they didn’t have access to modern medical technology?"]

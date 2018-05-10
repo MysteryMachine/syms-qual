@@ -58,12 +58,13 @@
 
    [:spawn :junkrat :yes]
    [:miranda/dialogue
-    ["Symmetra" [] "Sure. Let’s talk to Efi."]
-    ["Junkrat" [] "Aw yeah! Let’s go, darl."]
+    ["Symmetra" [[:junkrat :_ballSmile (scoot -9)]  [:symmetra :_explain]] "Sure. Let’s talk to Efi."]
+    ["Junkrat" [[:junkrat :_ballPointUp (scoot -9)]  [:symmetra :_smile]] "Aw yeah! Let’s go, darl."]
+    ["Junkrat" [[:junkrat :_ballBack (scoot -9 -80 2)]  [:symmetra :_smile]] "Gimme a tick, I'll get 'er."]
     :-> [:spawn :junkrat 1]]
 
    [:spawn :junkrat :no]
    [:miranda/dialogue
-    ["Symmetra" [] "Let me consider my options."]
-    ["Junkrat" [] "Alrighty."]
+    ["Symmetra" [[:junkrat :_ballSmile (scoot -9)]  [:symmetra :_explainUncomfortable]] "Let me consider my options."]
+    ["Junkrat" [[:junkrat :_ballConfused (scoot -9)]  [:symmetra :_neutral]] "Alrighty."]
     :-> [:spawn :choice]]})

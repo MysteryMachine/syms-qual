@@ -5,7 +5,7 @@
 (def data
   {[:spawn :efi 0]
    [:miranda/dialogue
-    ["Symmetra" [[:orisa :_neutral (scoot -3)] [:efi :_neutral (scoot -13)]  [:symmetra :_helloWarm (scoot 5)]] "Hello, you two."]
+    ["Symmetra" [[:orisa :_neutral (scoot -80 -3 1.5)] [:efi :_neutral (scoot -80 -13 1.5)]  [:symmetra :_helloWarm (scoot 80 5 1.5)]] "Hello, you two."]
     ["Orisa" [[:orisa :_wave (scoot -3)] [:efi :_smile (scoot -13)]  [:symmetra :_smile (scoot 5)]] "Greetings!"]
     ["Efi" [[:orisa :_neutralHappy (scoot -3)] [:efi :_wave (scoot -13)]  [:symmetra :_smile (scoot 5)]] "Symmetra! Just the gal I was looking for!"]
     ["Symmetra" [[:orisa :_neutralHappy (scoot -3)] [:efi :_neutral (scoot -13)]  [:symmetra :_explainUncomfortable (scoot 5)]] "What can I help you with, Efi?"]

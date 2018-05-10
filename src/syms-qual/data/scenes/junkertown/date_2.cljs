@@ -5,7 +5,7 @@
 (def data
   {[:field 0]
    [:miranda/dialogue
-    ["Roadhog" [[:junkrat :_ballSmile (scoot 6)] [:roadhog :_quicheOffer (scoot -22)] [:symmetra :_smile (scoot 8)]] "Quiche?"]
+    ["Roadhog" [[:junkrat :_ballSmile (scoot -75 6 1.5)] [:roadhog :_quicheOffer (scoot -80 -22 1.5)] [:symmetra :_smile (scoot 80 8 1.5)]] "Quiche?"]
     ["Symmetra" [[:junkrat :_ballSmile (scoot 6)] [:roadhog :_neutral (scoot -22)] [:symmetra :_quiche (scoot 8)]] "Why, thank you."]
     ["Symmetra" [[:junkrat :_ballSmile (scoot 6)] [:roadhog :_drink (scoot -22)] [:symmetra :_quicheChew (scoot 8)]] "..."]
     ["Symmetra" [[:junkrat :_ballSmileNod (scoot 6)] [:roadhog :_neutral (scoot -22)] [:symmetra :_quicheHand (scoot 8)]] "Roadhog, this is delicious."]

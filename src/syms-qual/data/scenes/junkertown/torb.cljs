@@ -5,7 +5,7 @@
 (def data
   {[:spawn :torb 0]
    [:miranda/dialogue
-    ["Symmetra" [[:torbjorn :_cranky]  [:symmetra :_explain]] "Torbjorn, you seem on edge."]
+    ["Symmetra" [[:torbjorn :_cranky (scoot -80 0 1.5)]  [:symmetra :_explain (scoot 80 0 1.5)]] "Torbjorn, you seem on edge."]
     ["Torbjorn" [[:torbjorn :_handHipAngry]  [:symmetra :_neutral]] "And you are not? How can you be calm around these blasted omnics?"]
     ["Symmetra" [[:torbjorn :_cranky]  [:symmetra :_explainUncomfortable]] "I think some of them are quite nice. Bastion cooked me a mushroom risotto dinner after our match in Eichenwald. They picked them fresh from the their forest."]
     ["Torbjorn" [[:torbjorn :_point]  [:symmetra :_WTF]] "See! Aha! Mushrooms! They’re trying to poison you!. You can’t trust these damn tin cans."]
