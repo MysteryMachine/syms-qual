@@ -54,15 +54,15 @@
    [syms-qual.data.scenes.junkertown.date-2 :as junkertown-date-2]
    [syms-qual.data.scenes.junkertown.date-1 :as junkertown-date-3]
 
-   #_([syms-qual.data.scenes.gibralter.date-1 :as gib-date-1]
+   [syms-qual.data.scenes.gibralter.date-1 :as gib-date-1]
       [syms-qual.data.scenes.gibralter.date-2 :as gib-date-2]
       [syms-qual.data.scenes.gibralter.date-2 :as gib-date-3]
       [syms-qual.data.scenes.gibralter.dva :as gib-dva]
       [syms-qual.data.scenes.gibralter.intro :as gib-intro]
       [syms-qual.data.scenes.gibralter.mccree :as gib-mccree]
       [syms-qual.data.scenes.gibralter.mercy :as gib-mercy]
-   
-      [syms-qual.data.scenes.dorado.date-1 :as dor-date-1]
+
+      #_([syms-qual.data.scenes.dorado.date-1 :as dor-date-1]
       [syms-qual.data.scenes.dorado.date-2 :as dor-date-2]
       [syms-qual.data.scenes.dorado.date-2 :as dor-date-3]
       [syms-qual.data.scenes.dorado.genji :as dor-genji]
@@ -82,7 +82,7 @@
    :eichenwalde (merge eichenwalde-pharah/data eichenwalde-hanzo/data
                        eichenwalde-widowmaker/data eichenwalde-intro/data
                        eichenwalde-date/data eichenwalde-date-2/data)
-   :gibralter {} #_(merge gib-date-2/data gib-date-1/data gib-dva/data gib-mercy/data
+   :gibralter (merge gib-date-2/data gib-date-1/data gib-dva/data gib-mercy/data
                      gib-mccree/data gib-intro/data)
    :dorado {}#_(merge dor-mei/data dor-sombra/data dor-intro/data dor-genji/data dor-date-3/data
                   dor-date-2/data dor-date-1/data)

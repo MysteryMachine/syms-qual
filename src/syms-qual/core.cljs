@@ -174,6 +174,7 @@
       6 dump/day-6
       7 dump/day-7
       8 dump/day-8
+      9 dump/day-9
       a))
    ((carmen.impl.events/resize! state-atom options))))
 
@@ -189,5 +190,3 @@
 
 (miranda/listen! state-atom options)
 (reagent/render [app] (. js/document (getElementById "app")))
-
-

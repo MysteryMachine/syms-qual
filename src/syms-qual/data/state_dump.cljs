@@ -18,7 +18,7 @@
    :route-66/first-chat :reaper,
    :points/junkrat 1,
    :scene [:anubis [:spawn :intro] 0],
-   :new-game? false, 
+   :new-game? false,
    :route-66/reaper true})
 
 (def day-3
@@ -65,7 +65,7 @@
    :route-66/first-chat :reaper,
    :points/junkrat 1,
    :scene [:volskaya [:spawn :sombra :yes] 8],
-   :new-game? false, 
+   :new-game? false,
    :route-66/reaper true})
 
 (def day-4
@@ -120,7 +120,7 @@
    :route-66/first-chat :reaper,
    :points/junkrat 3,
    :scene [:hollywood [:spawn :intro] 0],
-   :new-game? false, 
+   :new-game? false,
    :route-66/reaper true})
 
 (def day-6
@@ -150,7 +150,7 @@
    :route-66/first-chat :reaper,
    :points/junkrat 3,
    :scene [:lijiang [:spawn :intro] 0],
-   :new-game? false, 
+   :new-game? false,
    :route-66/reaper true})
 
 (def day-7
@@ -182,7 +182,7 @@
    :route-66/first-chat :reaper,
    :points/junkrat 6,
    :scene [:eichenwalde [:spawn :intro] 0],
-   :new-game? false, 
+   :new-game? false,
    :route-66/reaper true})
 
 (def day-8
@@ -215,5 +215,39 @@
    :route-66/first-chat :reaper,
    :points/junkrat 2,
    :scene [:junkertown [:spawn :intro] 0],
-   :new-game? false, 
+   :new-game? false,
    :route-66/reaper true})
+
+   (def day-9
+     {:hollywood/sombra-chat true,
+      :points/payload 6,
+      :volskaya/sombra 1,
+       :eichenwalde/hanzo-chat true,
+       :points/sombra 5,
+       :points/puppy 6,
+       :route-66/roadhog true,
+       :kings-row/junkrat-chat true,
+       :miranda/auto-save true,
+       :route-66/ana true,
+       :miranda/text-scale 23.79259259259259,
+       :miranda/time 19791.66666666667,
+       :kings-row/lucio-chat true,
+       :window {:x 1440, :y 803, :y-adjust 0},
+       :miranda/internal
+       {:max-reports nil,
+        :miranda/transition
+        {:miranda/animation-name [:gibralter [:spawn :intro] 0]},
+        :reports [0],
+        :loading? false},
+       :lijiang/dva-chat true,
+       :anubis/pharah-chat true,
+       :saved nil,
+       :junkertown/efi-chat true,
+       :anubis/zarya-chat true,
+       :volskaya/sombra-chat true,
+       :points/pharah 2,
+       :route-66/first-chat :reaper,
+       :points/junkrat 2,
+       :scene [:gibralter [:spawn :intro] 0],
+       :new-game? false,
+       :route-66/reaper true})

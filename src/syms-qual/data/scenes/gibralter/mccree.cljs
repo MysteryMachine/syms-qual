@@ -3,30 +3,35 @@
             [syms-qual.util :as util :refer [inc-transition]]))
 
 (def data
-  {[:street :- :choice]
+  {[:spawn :mccree 0]
+    [:miranda/dialogue
+    ["Symmetra" [[:symmetra :_helloNeutral (scoot 92 7 1)]]
+     "Hello!"]]
+
+    [:street :mccree :choice]
    [:miranda/text-option
     "What will you do?"
     ["" (constantly true)
-     [:-> [:street :- :yes]]]
+     [:-> [:street :mccree :yes]]]
     ["Converse with your other teammates" (constantly true)
-     [:-> [:street :- :no]]]]
+     [:-> [:street :mccree :no]]]]
 
-   [:street :- :yes]
+   [:street :mccree :yes]
    [:miranda/dialogue
 
-    :-> [:lucio]]
+    :-> [:mccree]]
 
-   [:street :- :no]
+   [:street :mccree :no]
    [:miranda/dialogue
 
     :-> [:street :choice]]
 
-   [:-]
+   [:mccree]
    [:miranda/characters
     [[]]
-    :-> [:- :text]]
+    :-> [:mccree :text]]
 
-   [:- :text]
+   [:mccree :text]
    [:miranda/narration
-    ""
-    :=> [:- [:spawn :intro] 0]]})
+    "butts"
+    :=> [:dorado [:spawn :intro] 0]]})
