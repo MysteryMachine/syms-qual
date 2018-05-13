@@ -30,8 +30,7 @@
 
    [:pharah-a :cutscene :text]
    [:miranda/narration
-    "After some adorably awkward hemming and hawing, Pharah gathers you into her arms, and jump jets up into the sky. The aerial view of the the city is quite breathtaking, though you are not entirely sure whether it is the scenery or your proximity to Fareeha that has left you short of breath. After a short flight, the two of you descend back to earth a few blocks away, just outside a small cafe. 
-"
+    "After some adorably awkward hemming and hawing, Pharah gathers you into her arms, and jump jets up into the sky. It is a bit alarming being so high in the sky without so much as a safety harness, but you grip your arms tightly around her neck and try your best to divert your focus towards literally anything other than the height which you are from the ground. After a short flight, the two of you descend back to earth a few blocks away, just outside a small cafe."
     :-> [:cafe 0]]
 
    [:cafe 0]

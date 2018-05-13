@@ -10,7 +10,7 @@
    "anubis-pharah-b"
    "anubis-spawn"
    "anubis-zarya"
-   
+
    "blizzard-world-bronze"
    "blizzard-world-gate"
    "blizzard-world-grandmaster"
@@ -23,7 +23,7 @@
    "dorado-sombra-c"
    "dorado-spawn"
    "dorado-zenyatta"
-   
+
    "eichenwalde-beer-hall"
    "eichenwalde-flashback"
    "eichenwalde-hanzo"
@@ -32,14 +32,15 @@
    "eichenwalde-pharah"
    "eichenwalde-spawn"
    "eichenwalde-widow"
-   
+
    "gibralter-door"
+   "gibralter-dva"
    "gibralter-hotel"
    "gibralter-pharah-a"
    "gibralter-pharah-b"
    "gibralter-pharah-c"
    "gibralter-rink"
-   "gibralter-soldier"
+   "gibralter-mccree"
    "gibralter-spawn"
    "gibralter-tracer"
 
@@ -50,7 +51,7 @@
    "hollywood-soldier"
    "hollywood-sombra"
    "hollywood-spawn"
-   
+
    "intro-a"
    "intro-b"
    "intro-c"

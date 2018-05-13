@@ -16,7 +16,7 @@
      (toggle-transition [:-> [:spawn :torb 0]] :junkertown/torb-chat)]
     ["Talk to Junkrat" (comp not :junkertown/junkrat-chat)
      (toggle-transition [:-> [:spawn :junkrat 0]] :junkertown/junkrat-chat)]
-    ["Talk to Efi" (comp not :junkertown/efi-chat)
+    ["Talk to Efi and Orisa" (comp not :junkertown/efi-chat)
      (toggle-transition [:-> [:spawn :efi 0]] :junkertown/efi-chat)]
 
     ["Go with Torbjorn" #(and (:junkertown/torb-chat %) (= 6 (:points/payload %)))

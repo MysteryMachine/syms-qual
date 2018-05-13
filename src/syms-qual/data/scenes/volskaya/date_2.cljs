@@ -127,24 +127,20 @@
    [:sombra-b :cutscene 5]
    [:miranda/characters
     [[]]
-    :-> [:sombra-b :cutscene :text]]
+    :-> [:sombra-b :cutscene 5 :text]]
 
    [:sombra-b :cutscene 5 :text]
    [:miranda/narration
     "You make your way back to the hotel, and are immediately met by Zarya and Mei, who are packing protein powder and Adidas tracksuits for the both of you. After buying their expensive personal training package, you begin your workout regimen. You and Sombra do not have time to exchange words, and after the workout is over, you do not have the energy to do much but slink back into your rooms and fall asleep."
-    :-> [:apartment2 :text]]
-
-   [:apartment2 :text]
-   [:miranda/narration
     "The following week is a blur of chalk flavored agony. When you finally arrive home, you sleep for 2 days straight in an attempt to revitalize your system for the upcoming matches. Once you wake up, you discover you have received a string of incoherent snapchats from Sombra, which seem to be chronicling the previous week."
-    :-> [:apartment2 :text 2]]
+    :-> [:hotel :text 2]]
 
-   [:apartment2 :text 2]
+   [:hotel :text 2]
    [:miranda/characters
     [[[:photos :_sombraDate1] [:phones :_symHand]]]
-    :-> [:apartment2 :text 3]]
+    :-> [:hotel :text 3]]
 
-   [:apartment2 :text 3]
+   [:hotel :text 3]
    [:miranda/dialogue
     ["Symmetra" [[:photos :_sombraDate1] [:phones :_symHand]]
      "Are these...bitcoin miners?"]

@@ -85,12 +85,12 @@
     ["Symmetra" [[:reaper :_neutral (scoot -15)] [:soldier76 :_armsCrossedReverse (scoot 50)]
                  [:symmetra :_explainWTF (scoot -14)]]
      "It’s not like there is any finesse involved with adding corn to a pizza."]
-    ["Soldier" [[:reaper :_neutral (scoot -15)] [:soldier76 :_pointUpReversed (scoot 50)]
+    ["Soldier 76" [[:reaper :_neutral (scoot -15)] [:soldier76 :_pointUpReversed (scoot 50)]
                 [:symmetra :_neutral (scoot -14)]]
      "So about this great vacation opp--"]
     ["Reaper" [[:reaper :_point-up (scoot -15)] [:soldier76 :_armsCrossedReverse (scoot 50)]
                [:symmetra :_neutral (scoot -14)]]
-     "Look. Once, while on the crapper, I grabbed a cooking magazine Genji left on the stand and then attempted to make a Japanese pizza with corn and mayo. Let’s just say those are dark times I’ve put behind me."]
+     "Look. Once, while on the crapper, I grabbed a cooking magazine Genji left on the stand and then attempted to make a Japanese pizza with corn and mayo. Let’s just say it was a colossal failure and those are dark times I’ve put behind me."]
     ["Symmetra" [[:reaper :_neutral (scoot -15)] [:soldier76 :_armsCrossedReverse (scoot 50)]
                  [:symmetra :_frustrated (scoot -14)]]
      "You are a strange and confusing man."]
@@ -137,7 +137,7 @@
     ["Reaper" [[:reaper :_phoneCheck (scoot -15)] [:soldier76 :_armsCrossedReverse (scoot 50)]
                [:symmetra :_neutral (scoot -14)]]
      "Oh, wait, I’m getting a message."]
-    ["Soldier" [[:reaper :_phoneCheck (scoot -15)] [:soldier76 :_pointUpReversed (scoot 50)]
+    ["Soldier 76" [[:reaper :_phoneCheck (scoot -15)] [:soldier76 :_pointUpReversed (scoot 50)]
                 [:symmetra :_neutral (scoot -14)]]
      "Gabe. Please. She's my only shot."]
     ["Reaper" [[:reaper :_neutral (scoot -15)] [:soldier76 :_armsCrossedReverse (scoot 50)]
@@ -148,7 +148,7 @@
      "The bus is leaving soon. My dreams are almost dead, Gabe. Please."]
     ["Reaper" [[:reaper :_extra (scoot -15)] [:soldier76 :_armsCrossedReverse (scoot 50)]
                [:symmetra :_WTF(scoot -14)]]
-     "If you let that man take a picture of you in front the Beverly Hills sign you are dead to me!"]
+     "If you let that man take a picture of you in front the Beverly Hills sign you are dead to me, architecture sorceress!"]
     ["Reaper" [[:reaper :_leave (scoot -15 -100 2)] [:soldier76 :_armsCrossedReverse (scoot 50)]
                [:symmetra :_awkward (scoot -14)]]
      "Fuck you, Jack."]
@@ -195,14 +195,14 @@
    [:miranda/narration
     "Despite Soldier’s promises to the contrary, the distance from spawn to the stop for the TMZ bus proved to be quite a formidable trek on foot. Upon arrival, you attempted board only to be turned away due to Morrison’s stubborn insistence on open-carrying his plasma rifle and rockets."
     "Between the heat, the long walk and the loudly droning argument between Soldier and the bus driver, your mind began to wander, as you feverishly hoped that watching a man light your dinner on fire in front of you would ultimately make up for this thus far dismal experience. As you contemplated the sequence of terrible decisions which had lead your life to this point, you were snapped back to reality by the roar of the departing, bus followed shortly by the loud buzzing of Soldier’s phone."
-    :-> [:spawn :photo 2]]
+    :-> [:soldier :photo 2]]
 
-   [:spawn :photo 2]
+   [:soldier :photo 2]
    [:miranda/characters
     [[[:photos :_guyFieri] [:phones :_soldierHand]]]
-    :-> [:spawn :finale]]
+    :-> [:soldier :finale]]
 
-   [:spawn :finale]
+   [:soldier :finale]
    [:miranda/dialogue
     [nil [[:photos :_guyFieri] [:phones :_soldierHand]]
      "It was a Snapchat ostensibly from Reaper, though Sombra seemed to be operating the camera judging by the prominent sound of her wild giggling."]

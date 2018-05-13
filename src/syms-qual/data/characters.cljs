@@ -26,7 +26,7 @@
     "_neutralLeft"
     "_pointUpLeft"
     "_pointUpRight"]
-   
+
    "Clouds"
    ["_bear"
     "_centaur"
@@ -181,13 +181,13 @@
     "_stop"
     "_strained"
     "_what"]
-   
+
    "Hands"
    ["_junkExplain"
     "_junkPoint"
     "_symExplain"
     "_symPoint"]
-   
+
    "Hanzo"
    ["_explain"
     "_explainEyesClosed"
@@ -420,6 +420,7 @@
     "_drinkLeanBack"
     "_drinkOof"
     "_drinkPoint"
+    "_drinkPointUp"
     "_drinkWave"
     "_exclaim"
     "_explain"
@@ -458,7 +459,7 @@
     "_shush"
     "_thumbsUp"
     "_TP"]
-   
+
    "Mercy"
    ["_angry"
     "_drinkGesture"
@@ -492,7 +493,7 @@
     "_pour1"
     "_pour2"
     "_shrimp"]
-   
+
    "Orisa"
    ["_handShoulder"
     "_neutral"
@@ -697,7 +698,7 @@
     "_nostalgic"
     "_pointUp"
     "_wince"]
-   
+
    "Roadhog"
    [ "_basket" {:sizing {:anchor [352 120] :size [2400 1200]}}
      "_basket2" {:sizing {:anchor [352 120] :size [2400 1200]}}
@@ -977,7 +978,7 @@
     "_symmetraStrainedSmileBlush"
     "_symmetraTalkSadSmile"
     "_symmetraThinking"]
-   
+
    "Torbjorn"
    ["_cranky"
     "_handHip"
@@ -989,7 +990,7 @@
     "_point"
     "_pointUp"
     "_slapped"]
-   
+
      "Tracer"
    ["_bewildered"
     "_explain"
@@ -1012,7 +1013,7 @@
     "_neutralRight"
     "_point"
     "_tch"]
-   
+
    "Winston"
    ["_airQuotes"
     "_explain"
