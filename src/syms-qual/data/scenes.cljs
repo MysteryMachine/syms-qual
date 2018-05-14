@@ -62,13 +62,13 @@
       [syms-qual.data.scenes.gibralter.mccree :as gib-mccree]
       [syms-qual.data.scenes.gibralter.mercy :as gib-mercy]
 
-      #_([syms-qual.data.scenes.dorado.date-1 :as dor-date-1]
+      [syms-qual.data.scenes.dorado.date-1 :as dor-date-1]
       [syms-qual.data.scenes.dorado.date-2 :as dor-date-2]
       [syms-qual.data.scenes.dorado.date-2 :as dor-date-3]
       [syms-qual.data.scenes.dorado.genji :as dor-genji]
       [syms-qual.data.scenes.dorado.intro :as dor-intro]
       [syms-qual.data.scenes.dorado.sombra :as dor-sombra]
-      [syms-qual.data.scenes.dorado.mei :as dor-mei])
+      [syms-qual.data.scenes.dorado.mei :as dor-mei]
 
    [syms-qual.data.scenes.intro :as intro-cutscenes]
    [syms-qual.data.characters :as char]
@@ -84,8 +84,8 @@
                        eichenwalde-date/data eichenwalde-date-2/data)
    :gibralter (merge gib-date-2/data gib-date-1/data gib-dva/data gib-mercy/data
                      gib-mccree/data gib-intro/data)
-   :dorado {}#_(merge dor-mei/data dor-sombra/data dor-intro/data dor-genji/data dor-date-3/data
-                  dor-date-2/data dor-date-1/data)
+   :dorado (merge dor-mei/data dor-sombra/data dor-intro/data dor-genji/data dor-date-3/data
+                  dor-date-2/data dor-date-1/data) 
    :hollywood (merge hollywood-efi/data hollywood-sombra/data hollywood-date-2/data
                      hollywood-date/data hollywood-soldier/data hollywood-intro/data)
    :volskaya (merge volskaya-sombra/data volskaya-date/data volskaya-date-2/data

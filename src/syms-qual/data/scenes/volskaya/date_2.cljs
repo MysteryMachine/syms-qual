@@ -5,7 +5,7 @@
 (def data
   {[:apartment :sombra 7]
    [:miranda/dialogue
-    ["Sombra" [[:sombra :_neutral2 (scoot -3)] [:symmetra :_neutral (scoot 0)]]
+    ["Sombra" [[:sombra :_awkwardSad (scoot -3)] [:symmetra :_neutral (scoot 0)]]
      "Hey. Um. Sorry you got stuck with me all day."]
     ["Symmetra" [[:sombra :_neutral (scoot -3)] [:symmetra :_no (scoot 0)]]
      "It was fine. But, I will never be able to scrub the visage of the Chili's man out of my mind. I will never be able to dine at a Chili's. I blame you for that."]
@@ -31,23 +31,23 @@
      "That does not change the fact that you are a terrorist."]
     ["Sombra" [[:sombra :_explainCondescend (scoot -3)] [:symmetra :_angry (scoot 0)]]
      "A terrorist with an accomplice! You were happy to employ my hacking when it suited your purposes. That’s the problem with you law and order types. You’re very happy to excuse your own transgressions and blame others."]
-    ["Symmetra" [[:sombra :_neutral2 (scoot -3)] [:symmetra :_frown (scoot 0)]]
+    ["Symmetra" [[:sombra :_neutral2 (scoot -3)] [:symmetra :_explainWTF (scoot 0)]]
      "I do not think employing military hardware on a battlefield to aid in battle is the same as causing damage to private property."]
     ["Sombra" [[:sombra :_self (scoot -3)] [:symmetra :_WTF (scoot 0)]]
      "Private property, ha, look let me tell y--"]
-    ["Symmetra" [[:sombra :_neutral2 (scoot -3)] [:symmetra :_sad (scoot 0)]]
+    ["Symmetra" [[:sombra :_neutral2 (scoot -3)] [:symmetra :_explainSad (scoot 0)]]
      "But, you are right. I am an accomplice. I should consider my actions more seriously so I do not betray my own ideals."]
     ["Sombra" [[:sombra :_nostalgicSad (scoot -3)] [:symmetra :_sad (scoot 0)]]
      "...oh."]
     [nil [[:sombra :_nostalgicSad (scoot -3)] [:symmetra :_sad (scoot 0)]]
      "You sit in silence for several minutes before Sombra speaks."]
-    ["Sombra" [[:sombra :_explainAwkward (scoot -3)] [:symmetra :_neutral (scoot 0)]]
+    ["Sombra" [[:sombra :_explainAwkward (scoot -3)] [:symmetra :_sadSmile (scoot 0)]]
      "You know, for an over-serious authoritarian type, you’re surprisingly, um...not a shitbag. It’s refreshing to see someone like you keep your moral code and take personal responsibility, for once."]
     :-> [:apartment :sombra :option 4]]
 
    [:apartment :sombra :option 4]
    [:miranda/option
-    "Symmetra" [[:sombra :_neutral (scoot -3)] [:symmetra :_neutral (scoot 0)]]
+    "Symmetra" [[:sombra :_neutral (scoot -3)] [:symmetra :_smile (scoot 0)]]
     "And for a terrorist, you’re not scum."
     "You may be terrorist scum, but at least I had a good time."]
 
@@ -75,7 +75,7 @@
      "A successful first date, then!"]
     ["Symmetra" [[:sombra :_neutral (scoot -3)] [:symmetra :_bored (scoot 0)]]
      "I wouldn’t call it a success."]
-    ["Sombra" [[:sombra :_explainCondescend (scoot -3)] [:symmetra :_neutral (scoot 0)]]
+    ["Sombra" [[:sombra :_explainCondescend (scoot -3)] [:symmetra :_bored (scoot 0)]]
      "A non disastrous first date."]
     ["Symmetra" [[:sombra :_neutral (scoot -3)] [:symmetra :_no (scoot 0)]]
      "I wouldn’t---"]

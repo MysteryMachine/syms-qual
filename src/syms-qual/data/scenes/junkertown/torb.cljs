@@ -30,7 +30,7 @@
     ["Torbjorn" [[:torbjorn :_handHipAngry]  [:symmetra :_WTF]] "Quiet! Do not interrupt me!"]
     ["Torbjorn" [[:torbjorn :_pointUp]  [:symmetra :_WTF]] "You can’t trust your children. They are weak, and their diet could have been poisoned by your wife. You also can’t trust your wife, her diet could have been self poisoned!"]
     ["Torbjorn" [[:torbjorn :_point]  [:symmetra :_eyeRoll]] "What are you doing? I’m giving you critical information here. I want you to smile while I-"]
-    [nil [[:torbjorn :_slapped]  [:symmetra :_slap]] "..."]
+    ["Symmetra" [[:torbjorn :_slapped]  [:symmetra :_slap]] "..."]
     ["Torbjorn" [[:torbjorn :_holdCheek]  [:symmetra :_frown]] "Misandry. That’s what that is."]
     ["Symmetra" [[:torbjorn :_holdCheek]  [:symmetra :_angry]] "Be quiet."]
     ["Torbjorn" [[:torbjorn :_cranky]  [:symmetra :_angry]] "Ok."]
@@ -114,4 +114,3 @@
    [:miranda/narration
     "Unable to convince your teammates of the efficacy of your strategy, your offensive round was doomed to failure. With your fractured and scattershot approach your team was unable to advance the payload even slightly and your hopes for victory were quickly dashed."
     :=> [:gibralter [:spawn :intro] 0]]})
-

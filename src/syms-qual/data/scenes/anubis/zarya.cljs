@@ -68,7 +68,7 @@
      "You’re the one who will end up on the floor, old man!"]
     ["Symmetra" [[:zarya_rein :_pointZaryaNoShot (scoot -10)] [:symmetra :_eyeRoll (scoot 5)]]
      "I see. I will take my leave then."]
-    ["Reinhardt" [[:zarya_rein :_neutralRight (scoot -10)] [:symmetra :_neutral (scoot 5)]]
+    ["Reinhardt" [[:zarya_rein :_hello (scoot -10)] [:symmetra :_neutral (scoot 5)]]
      "No stay! Even if you do not join us in drinking you should join us in battle! This morning, we will go FLANKING!"]
     :-> [:spawn :zarya-choice]]
 

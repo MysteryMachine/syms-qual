@@ -44,7 +44,7 @@
     ["Symmetra" [[:sombra :_neutral2 (scoot -6)] [:symmetra :_explainSad (scoot 2)]]
      "I don't know if..."]
     ["Sombra" [[:sombra :_explain (scoot -6)] [:symmetra :_neutral (scoot 2)]]
-     "You wanna help common people, right? Reaper’s Tia is literally my favorite person. I’ll introduce you. Come carry groceries for Tia Asuncion and her Omnic boytoy, and get a taste of normal life. How about tonight?"]
+     "You wanna help common people, right? Then you need to actually talk to them. I'll introduce you to  Reaper’s Tia, she is literally my favorite person. Come carry groceries for Tia Asuncion and her Omnic boytoy, and watch some novellas with us. Get a taste of normal life. How about tonight?"]
     ["Symmetra" [[:sombra :_neutral (scoot -6)] [:symmetra :_dissappointed (scoot 2)]]
      "I am not sure I can make it tonight. These matches exhaust me, and I will need some quiet alone time before I am ready."]
     ["Sombra" [[:sombra :_explainHand (scoot -6)] [:symmetra :_smile (scoot 2)]]

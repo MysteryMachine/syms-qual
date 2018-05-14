@@ -149,7 +149,7 @@
    [:miranda/dialogue
     ["Sombra" [[:sombra :_leanin (scoot -3)] [:symmetra :_eyeRoll (scoot 0)]]
      "Well, am I at least going in the right direction?"]
-    ["Symmetra" [[:sombra :_leanin (scoot -3)] [:symmetra :_neutral (scoot 0)]]
+    ["Symmetra" [[:sombra :_leanin (scoot -3)] [:symmetra :_explain (scoot 0)]]
      "Perhaps, but if you are intent on continuing, I insist your jokes be of a higher caliber."]
     ["Sombra" [[:sombra :_nostalgic (scoot -3)] [:symmetra :_neutral (scoot 0)]]
      "I mean, I’ve got a pretty great joke in mind for our next round, but it’s more of a, uh, physical comedy gag. And I’m going to need your help."]

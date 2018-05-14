@@ -23,7 +23,7 @@
      "Excuse me?"]
     ["Zenyatta" [[:zenyatta :_explain (scoot -5)] [:symmetra :_scandalized (scoot 3)]]
      "Yes, the thirst of a true scholar, for the light of the iris."]
-    ["Symmetra" [[:zenyatta :_neutral (scoot -5)] [:symmetra :_smile (scoot 3)]]
+    ["Symmetra" [[:zenyatta :_neutral (scoot -5)] [:symmetra :_embarassed (scoot 3)]]
      "Oh. Um. Yes."]
     ["Zenyatta" [[:zenyatta :_pointUp (scoot -5)] [:symmetra :_awkward (scoot 3)]]
      "Granted, much like our teammates, you are thirsty in other ways."]

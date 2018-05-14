@@ -1,5 +1,5 @@
 (ns syms-qual.data.scenes.route-66.intro
-  (:require [carmen.util :as anim :refer [scoot]]))
+  (:require [carmen.util :as anim :refer [scoot fade-in]]))
 
 (def data
   {[:diner :intro]
@@ -10,7 +10,7 @@
 
    [:diner :dialogue 0]
    [:miranda/dialogue
-    ["McCree" [[:mccree :_coffeePoint] [:ana :_sass (scoot -20)] [:symmetra :_neutral]]
+    ["McCree" [[:mccree :_coffeePoint (scoot -80 0 1.5)] [:ana :_sass (scoot -80 -20 1.5)] [:symmetra :_neutral (scoot 80 0 1.5)]]
      "Howdy! You’re that Symmetra gal joining Overwatch from Vishkar, aren’tcha? What sort of interest could y’all have with Overwatch?"]
     :-> [:diner :option 0]]
 
@@ -49,21 +49,21 @@
      "Excuse me?"]
     ["McCree" [[:mccree :_coffeeHold] [:ana :_sass (scoot -20)] [:symmetra :_neutral]]
      "It’s Reaper. He prefers to go by Reaper."]
-    ["Ana" [[:mccree :_coffeeHold] [:ana :_drink (scoot -20)] [:symmetra :_neutral]] 
+    ["Ana" [[:mccree :_coffeeHold] [:ana :_drink (scoot -20)] [:symmetra :_neutral]]
      "He sure does."]
     ["Symmetra" [[:mccree :_coffeeHold] [:ana :_drink (scoot -20)] [:symmetra :_confused]]
      "I...see. Well, both of you have a history with Reyes. A dark and colorful one. What could possibly motivate you to engage in this sort of activity together?"]
     ["Ana" [[:mccree :_coffeeHold] [:ana :_explain (scoot -20)] [:symmetra :_neutral]]
      "Well, after the match, people upvote you if you do well. You see, the best reason to support in these matches is for the compliments."]
     ["McCree" [[:mccree :_coffeePoint] [:ana :_sass (scoot -20)] [:symmetra :_neutral]]
-     "I, personally, enjoy the thrill of going, “it’s high noon” and shooting a bunch of technicolor weirdos. Well, that and sitting on my boyfriend's payload."]
-    ["McCree" [[:mccree :_coffeeHold] [:ana :_sass (scoot -20)] [:symmetra :_neutral]]
+     "Personally, I enjoy the thrill of going, “It’s high noon” and shooting a bunch of technicolor weirdos. Well, that and sitting on my boyfriend's payload."]
+    ["McCree" [[:mccree :_coffeeHold] [:ana :_cranky (scoot -20)] [:symmetra :_neutral]]
      "Err, the payload with my boyfriend."]
-    ["Ana" [[:mccree :_coffeeHold] [:ana :_cranky (scoot -20)] [:symmetra :_neutral]]
+    ["Ana" [[:mccree :_coffeeHold] [:ana :_crankyTalk (scoot -20)] [:symmetra :_neutral]]
      "Jesse, I swear."]
     ["Symmetra" [[:mccree :_coffeeHold] [:ana :_sass (scoot -20)] [:symmetra :_explain]]
      "You engage in a deathsport where you are revived from the dead dozens of times for commendations and...for dating purposes? That’s—"]
-    ["Reaper" [[:mccree :_coffeeSteal] [:ana :_cranky (scoot -20)] [:symmetra :_bewildered]]
+    ["Reaper" [[:mccree :_coffeeHold] [:mccree :_coffeeSteal (fade-in [0 0] 1)] [:ana :_cranky (scoot -20)] [:symmetra :_bewildered]]
      "DEATH COMES."]
     ["Reaper" [[:symmetra :_confused (scoot 0 10 2)] [:reaper :_spit (scoot 10)] [:mccree :_laugh (scoot 0 -10 2)] [:ana :_roll-eyes (scoot -20 -25 2)]]
      "OH MERCIFUL MUERTE WHAT IS THIS CRAP?"]
@@ -133,9 +133,9 @@
 
    [:diner :option 2 0]
    [:miranda/dialogue
-    ["Symmetra" [[:reaper :_neutral (scoot 10)] [:mccree :_neutral (scoot -10)] [:ana :_drink (scoot -25)] [:symmetra :_frown (scoot 10)]]
+    ["Symmetra" [[:reaper :_neutral (scoot 10)] [:mccree :_neutral (scoot -10)] [:ana :_drink (scoot -25)] [:symmetra :_laughEvil (scoot 10)]]
      "It will be my pleasure to ensure that he is unable to pose an effective threat to our operation."]
-    ["Reaper" [[:reaper :_point-up (scoot 10)] [:mccree :_neutral (scoot -10)] [:ana :_sass (scoot -25)] [:symmetra :_neutral (scoot 10)]]
+    ["Reaper" [[:reaper :_point-up (scoot 10)] [:mccree :_neutral (scoot -10)] [:ana :_sass (scoot -25)] [:symmetra :_smile (scoot 10)]]
      "WONDERFUL. I WILL COMPLETE MY PREPARATIONS IN SOLITUDE."]
     :-> [:diner :prepare 0]]
 

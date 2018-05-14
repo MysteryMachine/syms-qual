@@ -18,7 +18,7 @@
     ["Doomfist" [[:doomfist_tracer :_doomfistExplain]]
      "Lena, what you had with Amelie was a fling. You and Emily had a rough patch, you were in a weird emotional state, and then this bizarre blue woman snipes a robot. Of course you went to her for emotional support."]
     ["Tracer" [[:doomfist_tracer :_tracerConfusedLeft]]
-     "Is this some weird hate-sex thing you Talon people keep going on about?"]
+     "Is this that weird hate-sex thing you Talon people keep going on about?"]
     ["Doomfist" [[:doomfist_tracer :_doomfistExplain]]
      "Yes. There is nothing like the thrill of intentionally underperforming, and having your partner go, \"Akande, is that it?\""]
     ["Doomfist" [[:doomfist_tracer :_doomfistPointUp]]
@@ -127,7 +127,7 @@
     ["Symmetra" [[:doomfist_tracer :_doomfistGlare (scoot -19)] [:symmetra :_explainWTF (scoot 9)]]
      "This explains why every meal so far has been catered by IKEA."]
     ["Doomfist" [[:doomfist_tracer :_doomfistGlareUp (scoot -19)] [:symmetra :_WTF (scoot 9)]]
-     "No it does not. Do not make me tell you twice. Look, you are playing with fire, I’m warning you, if you attempt to confront me about this again or we will have an altercation."]
+     "No it does not. Do not make me tell you twice. Look, you are playing with fire, I’m warning you. If you attempt to confront me about this again, we will have an altercation."]
     :-> [:spawn :tracer :choice]]
 
    [:spawn :tracer :choice]

@@ -20,7 +20,7 @@
     ["Symmetra" [[:winston :_neutral (scoot -15)] [:symmetra :_explainUncomfortable (scoot 2)]]
      "I agree."]
     ["Winston" [[:winston :_airQuotes (scoot -15)] [:symmetra :_smile (scoot 2)]]
-     "I’ve, haha, even gotten a cute nickname from some of our younger members. They call me The Tryhard. I don’t let it get to my head. Picking a strong composition is the right thing to do."]
+     "I’ve, haha, even gotten a cute nickname from some of our younger members. They call me \"The Tryhard.\" I don’t let it get to my head. Picking a strong composition is the right thing to do."]
     ["Symmetra" [[:winston :_neutral (scoot -15)] [:symmetra :_skeptical (scoot 2)]]
      "You’re very practical."]
     ["Winston" [[:winston :_nervous (scoot -15)] [:symmetra :_neutral (scoot 2)]]
@@ -59,7 +59,7 @@
    [:spawn :winston :no]
    [:miranda/dialogue
     ["Symmetra" [[:winston :_neutral (scoot -15)] [:symmetra :_explain (scoot 2)]]
-     "I’d like to consult with other teammates to get their strategical take."]
+     "I’d like to consult with other teammates to get their strategic take."]
     ["Winston" [[:winston :_nervous (scoot -15)] [:symmetra :_neutral (scoot 2)]]
      "Of course. Well, come see me if you want to give this a shot."]
     :-> [:spawn :choice]]

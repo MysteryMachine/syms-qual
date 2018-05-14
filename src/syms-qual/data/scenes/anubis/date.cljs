@@ -30,7 +30,7 @@
 
    [:pharah-a :cutscene :text]
    [:miranda/narration
-    "After some adorably awkward hemming and hawing, Pharah gathers you into her arms, and jump jets up into the sky. It is a bit alarming being so high in the sky without so much as a safety harness, but you grip your arms tightly around her neck and try your best to divert your focus towards literally anything other than the height which you are from the ground. After a short flight, the two of you descend back to earth a few blocks away, just outside a small cafe."
+    "After some adorably awkward hemming and hawing, Pharah gathers you into her arms, and jump jets up into the sky. It is a bit alarming being so high without so much as a safety harness, but you grip your arms tightly around her neck and try your best to divert your focus towards literally anything other than the distance which you are from the ground. After a short flight, the two of you descend back to earth a few blocks away, just outside a small cafe."
     :-> [:cafe 0]]
 
    [:cafe 0]
@@ -124,7 +124,7 @@
      "I certainly hope so."]
     ["Pharah" [[:pharah :_karkadeEmbarassed (scoot -10)] [:symmetra :_karkadeHold (scoot 0)]]
      "But, um, stories! You wanted to hear stories, right? If its stories you want, I’ve got some but they’re probably not as exciting as you might think. What they do include, however, are cute photos of baby Pharah!"]
-    ["Symmetra" [[:pharah :_karkadeHold (scoot -10)] [:symmetra :_karkadeSmile (scoot 0)]]
+    ["Symmetra" [[:pharah :_karkadeHold (scoot -10)] [:symmetra :_karkadeTalk (scoot 0)]]
      "Sure!"]
     :-> [:cafe 1 0 :show]]
 
@@ -147,6 +147,8 @@
      "That was mom’s request. Though, I suppose the influence was a good one. Heavy padding in the past prepared me for my heavily armored future?"]
     ["Symmetra" [[:photos :_rollerSkate] [:phones :_pharahHand]]
      "Hum, a cute concept, but I don’t quite think things work that way."]
+    ["Pharah" [[:photos :_rollerSkate] [:phones :_pharahHand]]
+      "You’d be surprised!"]
     :-> [:cafe 1 1 :show]]
 
    [:cafe 1 1 :show]
@@ -157,9 +159,11 @@
    [:cafe 1 1]
    [:miranda/dialogue
     ["Pharah" [[:photos :_golf] [:phones :_pharahHand]]
-     "You’d be surprised! Okay, another one. Um, here’s Jack teaching me to golf."]
+     "Okay, another one. Um, here’s Jack teaching me to golf."]
     ["Symmetra" [[:photos :_golf] [:phones :_pharahHand]]
      "Hum. Heavily padded again."]
+     ["Pharah" [[:photos :_golf] [:phones :_pharahHand]]
+      "Ha ha ha. Um. Mother was concerned about stray golf balls hitting me."]
     :-> [:cafe 1 2 :show]]
 
    [:cafe 1 2 :show]
@@ -170,7 +174,7 @@
    [:cafe 1 2]
    [:miranda/dialogue
     ["Pharah" [[:photos :_mathletes] [:phones :_pharahHand]]
-     "Ha ha ha. Um. Mother was concerned about stray golf balls hitting me. Um, um. Here! Torbjorn cheering me on in matheletes!"]
+     "Um, um. Here! Torbjorn cheering me on in matheletes!"]
     ["Symmetra" [[:photos :_mathletes] [:phones :_pharahHand]]
      "I did not know you wore glasses!"]
     ["Pharah" [[:photos :_mathletes] [:phones :_pharahHand]]
@@ -231,11 +235,11 @@
     ["Pharah" [[:jack :_punch]]
      "So Jack gets a good few punches in, before knocking off the man’s mask. Lo and behold, it was Gabe?"]
     ["Pharah" [[:jack :_overreacting2]]
-     "Jack was furious. He demanded to know why Reaper would such a cruel joke. Mama made some comment about how boys are always playing stupid pranks, and that prompts Jack to start an entire tirade about how Gabe is more than just some locker buddy to him."]
+     "Jack was furious. He demanded to know why Reaper would such a cruel joke. Mama made some comment about how boys are always playing stupid pranks, and that prompts Jack to start yelling about how Gabe is more than just some locker buddy to him."]
     ["Pharah" [[:jack :_speech]]
-     "Gabe grabs, and looks him dead in the eye. He tells him he could not love a man who wasn’t willing to go to the furthest extremes for him. He looks Jack dead in the eyes, tears welling up, and he dramatically tells him, “you passed.”"]
+     "Gabe grabs Jack and tells him he could not love a man who wasn’t willing to go to the furthest extremes for him and that this had all been a test of his devotion. He looks Jack dead in the eyes, tears welling up, and he dramatically tells him, “you passed.”"]
     ["Pharah" [[:jack :_smooch]]
-     "And I kid you not, they make out, immediately, bloody nose and all. "]
+     "And I kid you not, they made out, immediately, bloody nose and all. "]
     :-> [:cafe 2]]
 
    [:cafe 2]
@@ -243,7 +247,7 @@
     ["Pharah" [[:pharah :_karkadeExplainUnsure (scoot -10)] [:symmetra :_karkadeHold (scoot 0)]]
      "And that was his test of love? Would you angrily beat up a gang member if they were holding me hostage or something?"]
     ["Symmetra" [[:pharah :_karkadeHold (scoot -10)] [:symmetra :_karkadeConcerned (scoot 0)]]
-     "Maybe he specifically is into men that are willing to commit war crimes in his name?"]
+     "Maybe he is specifically into men that are willing to commit war crimes in his name?"]
     ["Pharah" [[:pharah :_karkadeDrink (scoot -10)] [:symmetra :_karkadeDown (scoot 0)]]
      "...that might explain why Overwatch had to be disbanded."]
     ["Symmetra" [[:pharah :_karkadeHold (scoot -10)] [:symmetra :_karkadeLaugh (scoot 0)]]
@@ -256,9 +260,9 @@
      "Formative? How so? It sounds like a funny story one might tell, but formative is not a word that comes to mind."]
     ["Pharah" [[:pharah :_karkadeBold (scoot -10)] [:symmetra :_karkadeHold (scoot 0)]]
      "Well, when your mother is so protective, it can feel difficult to do what’s unexpected. I spent a lot of time bottling up my feelings for girls because I thought it’d prompt mom to add yet another layer of padding to my life."]
-    :-> [:flashback2 0]]
+    :-> [:office 0]]
 
-   [:flashback2 0]
+   [:office 0]
    [:miranda/dialogue
     ["Pharah" [[:jack :_babyGay]]
      "Gabriel was the first person I ever came out to. He told me..."]

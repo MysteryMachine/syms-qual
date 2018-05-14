@@ -86,7 +86,7 @@
      ["McCree" [[:pharah :_reverseNeutral (scoot 8)] [:mccree :_point (scoot -20)] [:symmetra :_WTF (scoot 10)]] "So, I partnered up with Torbjorn to rob a Del Taco."]
      ["Pharah" [[:pharah :_reverseSurprised (scoot 8)] [:mccree :_neutral (scoot -20)] [:symmetra :_WTF (scoot 10)]] "Torbjorn was in on this?"]
      ["McCree" [[:pharah :_reverseNeutral (scoot 8)] [:mccree :_laugh (scoot -20)] [:symmetra :_eyeRoll (scoot 10)]] " Darn tootin’. He was convinced that chemically testing the food from Del Taco would validate his theories about government mind control through fast food."]
-     ["McCree" [[:pharah :_reverseNeutral (scoot 8)] [:mccree :_point (scoot -20)] [:symmetra :_neutral (scoot 10)]] "He couldn’t have the Del Taco purchase show up on his credit card. And he wasn’t about to use dirty dollars with mind altering government pollutants. I was supposed to steal the tacos and report back."]
+     ["McCree" [[:pharah :_reverseNeutral (scoot 8)] [:mccree :_point (scoot -20)] [:symmetra :_neutral (scoot 10)]] "He couldn’t have the Del Taco purchase show up on his credit card. And he wasn’t about to use dirty paper money coated with mind altering government pollutants. I was supposed to steal the tacos and report back."]
      ["Pharah" [[:pharah :_reverseUncomfortable (scoot 8)] [:mccree :_neutral (scoot -20)] [:symmetra :_neutral (scoot 10)]] "Okay, now this story makes sense."]
      ["McCree" [[:pharah :_reverseNeutral (scoot 8)] [:mccree :_fingerGuns (scoot -20)] [:symmetra :_neutral (scoot 10)]] "What he didn’t know is I’d be taco double crossing him."]
      ["McCree" [[:pharah :_reverseNeutral (scoot 8)] [:mccree :_leanBack (scoot -20)] [:symmetra :_neutral (scoot 10)]] "So the skates were supposed to deliver us the taco after the machine did it’s job. Which it DID."]
@@ -107,7 +107,7 @@
       [:miranda/dialogue
        ["McCree" [[:pharah :_reverseNeutral (scoot 8)] [:mccree :_pointAngry (scoot -20)] [:symmetra :_smile (scoot 10)]] "Hey!"]
        ["Pharah" [[:pharah :_reverseLaugh (scoot 8)] [:mccree :_salty (scoot -20)] [:symmetra :_smile (scoot 10)]] "Hush, you thug."]
-       ["McCree" [[:pharah :_reverseNeutral (scoot 8)] [:mccree :_salty (scoot -20)] [:symmetra :_sass (scoot 10)]] "Well, I don’t think he’s a thug anymore."]
+       ["Symmetra" [[:pharah :_reverseNeutral (scoot 8)] [:mccree :_salty (scoot -20)] [:symmetra :_sass (scoot 10)]] "Well, I don’t think he’s a thug anymore."]
        ["McCree" [[:pharah :_reverseNeutral (scoot 8)] [:mccree :_leanBack (scoot -20)] [:symmetra :_smile (scoot 10)]] "Yeah!"]
        ["Pharah" [[:pharah :_reverseBold (scoot 8)] [:mccree :_neutral (scoot -20)] [:symmetra :_smile (scoot 10)]] "You were still a thug back then."]
        ["McCree" [[:pharah :_reverseLaugh (scoot 8)] [:mccree :_laugh (scoot -20)] [:symmetra :_laugh (scoot 10)]] "Well, as long as everyone understands that I’m the perfect gentleman now."]

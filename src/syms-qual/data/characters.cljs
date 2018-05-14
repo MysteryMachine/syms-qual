@@ -111,6 +111,7 @@
     "_heat"
     "_heat2"
     "_neutral"
+    "_neutralGum"
     "_point"
     "_read"
     "_readLook"

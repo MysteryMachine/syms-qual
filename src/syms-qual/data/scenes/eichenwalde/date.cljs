@@ -178,7 +178,7 @@
    [:miranda/dialogue
     ["Symmetra" [[:reinhardt :_neutral (scoot -26)] [:pharah :_reverseNeutral (scoot 10)]
                  [:symmetra :_confused (scoot 10)]]
-     "So how did attending this camp ultimately result in a fist fight? I am assuming your fistfight was not with the devil."]
+     "So how did attending this camp ultimately result in a fist fight? I am assuming your fist fight was not with the devil."]
     ["Pharah" [[:reinhardt :_neutral (scoot -26)] [:pharah :_reverseEmbarassed (scoot 10)]
                [:symmetra :_smile (scoot 10)]]
      "Haha, no nothing like that. Long story short, a kid said something homophobic to this tiny gay boy and I punched him in the jaw."]

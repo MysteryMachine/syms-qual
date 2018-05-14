@@ -34,9 +34,9 @@
   {[:diner :prepare 0]
    [:miranda/text-option
     "You have a few minutes before the match begins, which teammates will you engage with?"
-    ["Reaper" (comp not :route-66/reaper) reaper-option]
-    ["Ana & McCree" (comp not :route-66/ana) ana-option]
-    ["Roadhog" (comp not :route-66/roadhog) roadhog-option]]
+    ["Talk to Reaper" (comp not :route-66/reaper) reaper-option]
+    ["Talk to Ana and McCree" (comp not :route-66/ana) ana-option]
+    ["Talk to Roadhog" (comp not :route-66/roadhog) roadhog-option]]
 
    [:diner :prepare]
    [:miranda/text-option
@@ -54,7 +54,7 @@
 
    [:diner :option 3 0]
    [:miranda/dialogue
-    ["Symmetra" [[:reaper :_neutral (scoot -10)] [:symmetra :_helloNeutral]]
+    ["Symmetra" [[:reaper :_neutral (scoot -80 -10 1.5)] [:symmetra :_helloNeutral (scoot 80 0 1.5)]]
      "Gabriel, I mean, Reaper."]
     ["Reaper" [[:reaper :_explain (scoot -10)] [:symmetra :_neutral]]
      "WHAT IS IT?"]
@@ -67,7 +67,7 @@
     ["Reaper" [[:reaper :_explain (scoot -10)] [:symmetra :_neutral]]
      "YES. AN EFFECTIVE HACKER. SHE PERFECTLY COUNTERS MY KIT. I SUSPECT TALON HIRED HER BECAUSE I AM UNSTOPPABLE OTHERWISE."]
     ["Reaper" [[:reaper :_phoneCheck (scoot -10)] [:symmetra :_smile]]
-     "HERE WE ARE ON VACATION."]
+     "HERE WE ARE ON VACATIO-- I MEAN A LEGITIMATE BUSSINESS TRIP THAT SOMBRA DID NOT PAY FOR WITH SIPHONED OVERWATCH FUNDS. SHE'S THE ONE IN THE MIDDLE."]
     :-> [:diner :dialogue [:option 3 :reaper] :photo]]
 
    [:diner :dialogue [:option 3 :reaper] :photo]
@@ -106,7 +106,7 @@
      "What a striking agent. I have heard tales of her sabotaging Vishkar operations in Mexico. She is the enemy, but I can’t help but stare!"]
     ["Reaper" [[:reaper :_point-up (scoot -75 -10 1)] [:symmetra :_embarassed (scoot -25 0 1)]]
      "SHE WILL HACK HEALTHPACKS, WHICH IS A HUGE SETBACK SINCE ANA SPENDS MORE TIME SHOOTING THE ENEMY THAN HEALING. THANKFULLY, WE HAVE YOU AS ADDITIONAL SUPPORT."]
-    ["Symmetra" [[:reaper :_neutral (scoot -10)] [:symmetra :_explain]]
+    ["Symmetra" [[:reaper :_neutral (scoot -10)] [:symmetra :_explainUncomfortable]]
      "Healing is not part of my functions."]
     ["Reaper" [[:reaper :_extra (scoot -10)] [:symmetra :_frown]]
      "WAIT, WHY DID YOU ENLIST AS A SUPPORT HERO? I WOULDN’T HAVE COMPOSED THE TEAM THIS WAY IF I KNEW."]
@@ -116,14 +116,16 @@
      "OF COURSE! DEATH. VERY FINE WE WILL DECIMATE THE ENEMY TEAM BEFORE NEEDING TO HEAL. EXCELLENT STRATEGY."]
     ["Symmetra" [[:reaper :_neutral (scoot -10)] [:symmetra :_explainWTF]]
      "Sure."]
-    ["Reaper" [[:reaper :_headphones (scoot -10)] [:symmetra :_neutral]]
-     "GOOD TALK. NOW IF YOU’LL EXCUSE ME I HAVE SOME EVANESCENCE I NEED TO GO LISTEN TO."]
+    ["Reaper" [[:reaper :_point-up (scoot -10)] [:symmetra :_WTF]]
+     "GOOD TALK."]
+     ["Reaper" [[:reaper :_headphones (scoot -10)] [:symmetra :_WTF]]
+      "NOW IF YOU’LL EXCUSE ME I HAVE SOME EVANESCENCE I NEED TO GO LISTEN TO."]
     :transition :miranda/conditional
     option-end]
 
    [:diner :option 3 1]
    [:miranda/dialogue
-    ["Ana" [[:mccree :_neutral][:ana :_sass (scoot -20)] [:symmetra :_neutral]]
+    ["Ana" [[:mccree :_neutral (scoot -80 0 1.5)][:ana :_sass (scoot -80 -20 1.5)] [:symmetra :_neutral (scoot 80 0 1.5)]]
      "Satya, darling. Why don’t you take a seat?"]
     ["Symmetra" [[:mccree :_neutral][:ana :_sass (scoot -20)] [:symmetra :_helloWarm]]
      "Thank you. I will rest my feet for a while."]
@@ -150,15 +152,15 @@
 
    [:diner :option [:option 3 :ana] 0 1]
    [:miranda/dialogue
-    ["Ana" [[:mccree :_neutral] [:ana :_roll-eyes (scoot -20)] [:symmetra :_neutral]]
+    ["Ana" [[:mccree :_phoneTexting] [:ana :_roll-eyes (scoot -20)] [:symmetra :_neutral]]
      "What is there to say? When does violence actually resolve much in the world? Sure, Overwatch was needed for the Omnic Crisis, but outside of situations like that, violence only tends to exacerbate the conditions that caused the violence in the first place."]
-    ["Ana" [[:mccree :_neutral] [:ana :_roll-eyes (scoot -20)] [:symmetra :_neutral]]
+    ["Ana" [[:mccree :_phoneTexting] [:ana :_explain (scoot -20)] [:symmetra :_neutral]]
      "You enjoy order, do you not? We Overwatch agents are dangerous. There cannot be order if we are allowed to go free. The world cannot get rid of us either. God forbid, another Omnic Crisis type event occurs, and the world no longer has such a military force."]
-    ["McCree" [[:mccree :_phoneTexting] [:ana :_sass (scoot -20)] [:symmetra :_neutral]]
+    ["McCree" [[:mccree :_fingerGuns] [:ana :_sass (scoot -20)] [:symmetra :_neutral]]
      "In peace, the world has no use for soldiers, darling."]
-    ["Symmetra" [[:mccree :_phoneTexting] [:ana :_sass (scoot -20)] [:symmetra :_explain]]
+    ["Symmetra" [[:mccree :_neutral] [:ana :_sass (scoot -20)] [:symmetra :_explain]]
      "So this program allows Overwatch to exist in a bubble? To develop technology and maintain its super soldiers without letting them loose on the world?"]
-    ["Ana" [[:mccree :_phoneTexting] [:ana :_drink (scoot -20)] [:symmetra :_neutral]]
+    ["Ana" [[:mccree :_neutral] [:ana :_drink (scoot -20)] [:symmetra :_neutral]]
      "That's right. Vishkar probably wanted to get its hands in the cookie jar. And here you are."]
     :-> [:diner :dialogue [:option 3 :ana] 1]]
 
@@ -180,7 +182,7 @@
 
    [:diner :dialogue [:option 3 :ana] 1]
    [:miranda/dialogue
-    ["Ana" [[:mccree :_phoneTexting] [:ana :_drink (scoot -20)] [:symmetra :_neutral]]
+    ["Ana" [[:mccree :_phoneTexting] [:ana :_explain (scoot -20)] [:symmetra :_neutral]]
      "Back to strategy, I wanted to warn you about my daughter, Fareeha, who uses long range rockets. I think she will pose a threat to your static defenses."]
     ["McCree" [[:mccree :_selfie] [:ana :_drink (scoot -20)] [:symmetra :_neutral]]
      "I’d be extra careful with her today. She’s been dumped and hasn’t been taking it well."]
@@ -212,7 +214,7 @@
 
    [:diner :option 3 2]
    [:miranda/dialogue
-    ["Roadhog" [[:roadhog :_neutral (scoot -12)] [:symmetra :_neutral]]
+    ["Roadhog" [[:roadhog :_neutral (scoot -80 -12 1.5)] [:symmetra :_neutral (scoot 80 0 1.5)]]
      "Hi."]
     ["Symmetra" [[:roadhog :_neutral (scoot -12)] [:symmetra :_helloNeutral]]
      "H-hello."]
@@ -244,18 +246,18 @@
 
    [:diner :dialogue [:option 3 :roadhog] 1]
    [:miranda/dialogue
-    ["Symmetra" [[:roadhog :_neutral (scoot -12)] [:symmetra :_neutral]]
+    ["Symmetra" [[:roadhog :_neutral (scoot -12)] [:symmetra :_explainUncomfortable]]
      "So, what brings you to Overwatch?"]
     ["Roadhog" [[:roadhog :_neutral2 (scoot -12)] [:symmetra :_neutral]]
      "Keeping an eye on a friend."]
     ["Symmetra" [[:roadhog :_neutral2 (scoot -12)] [:symmetra :_confused]]
      "A friend?"]
-    ["Roadhog" [[:roadhog :_drink (scoot -12)] [:symmetra :_neutral]]
-     "Of sorts. Junkrat. I’m his bodyguard. He’s a good boy. Mostly."]
+    ["Roadhog" [[:roadhog :_drink (scoot -12)] [:symmetra :_confused]]
+     "Of sorts. Junkrat. I’m his... bodyguard. He’s a good boy. Mostly."]
     ["Symmetra" [[:roadhog :_neutral (scoot -12)] [:symmetra :_thinking]]
      "Junkrat… that sounds familiar..."]
     ["Roadhog" [[:roadhog :_neutral2 (scoot -12)] [:symmetra :_neutral]]
-     "Look."]
+     "Probably this."]
     :-> [:diner :dialogue [:option 3 :roadhog] :photo]]
 
    [:diner :dialogue [:option 3 :roadhog] :photo]
@@ -265,9 +267,9 @@
 
    [:diner :dialogue [:option 3 :roadhog] 2]
    [:miranda/dialogue
-    ["Symmetra" [[:roadhog :_drink (scoot -12)] [:symmetra :_frown]]
-     "I remember now I saw you on the news. The situation with Lumerico. You are criminals! What are you doing as part of a worldwide peacekeeping organization?"]
-    ["Roadhog" [[:roadhog :_shrug (scoot -12)] [:symmetra :_frown]]
+    ["Symmetra" [[:roadhog :_drink (scoot -12)] [:symmetra :_explainWTF]]
+     "Ah yes, I remember now I saw you on the news. The situation with Lumerico. You are criminals! What are you doing as part of a worldwide peacekeeping organization?"]
+    ["Roadhog" [[:roadhog :_shrug (scoot -12)] [:symmetra :_WTF]]
      "They offered. We accepted. Same as you."]
     ["Symmetra" [[:roadhog :_neutral (scoot -12)] [:symmetra :_angry]]
      "We are nothing alike."]

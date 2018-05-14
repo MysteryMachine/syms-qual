@@ -77,7 +77,7 @@
                [:ana :_neutral (scoot -17)]]
      "Symmetra, no it’s--"]
     ["Ana" [[:reinhardt :_wince (scoot -15)]
-            [:pharah :_reverseAnguish (scoot 10)] [:symmetra :_laugh (scoot 10)]
+            [:pharah :_reversePeek (scoot 10)] [:symmetra :_laugh (scoot 10)]
             [:ana :_explain (scoot -17)]]
      "She is making a joke, darling, don’t correct her."]
     ["Pharah" [[:reinhardt :_neutral (scoot -15)]
@@ -204,9 +204,9 @@
     [[]]
     :-> [:pharah :b :text]]
 
-   [:pharah :text]
+   [:pharah :a :text]
    [:miranda/narration
-    "You enjoy the rest of the evening, listen to Reinhardt’s old stories, and Pharah and Ana’s amusing interjections.  As the evening draws to a close, the four of you make your way outside to begin the trek back to your nearby hotel. Before you set out, Ana insists on breathalyzing Reinhardt despite that fact that he ultimately only had two beers. After examining, the results she passes the breathalyzer to Pharah, who shoots you a playful glance before stepping in to have her turn as well. She and Ana exchange a smile, and Ana applies the test. Pharah hands you the breathalyzer."
+    "You enjoy the rest of the evening, listen to Reinhardt’s old stories, and Pharah and Ana’s amusing interjections.  As the evening draws to a close, you begin to prepare for the trek back to your nearby hotel. Before you set out, Ana insists on breathalyzing Reinhardt despite that fact that he ultimately only had two beers. After examining, the results she passes the breathalyzer to Pharah, who shoots you a playful glance before stepping in to have her turn as well. After her turn, Pharah hands you the breathalyzer."
     :-> [:beer-hall :pharah :date 5]]
 
    [:beer-hall :pharah :date 5]

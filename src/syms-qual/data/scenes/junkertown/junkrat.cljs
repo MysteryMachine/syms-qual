@@ -14,12 +14,12 @@
 
    [:spawn :junkrat :no-date]
    [:miranda/dialogue
-    ["Junkrat" [] "Just a bit preoccupied. Err, apologies in advance, love, but me n’ Roadie are headin’ out on a date for this second half of the match."]
-    ["Symmetra" [] "You’re abandoning you’re duty?"]
-    ["Junkrat" [] "Y-yeah. Haven’t been home in quite a while. And there’s some old business we gotta attend to."]
-    ["Symmetra" [] "I see. Enjoy yourselves. We will try and make it work without you."]
-    ["Junkrat" [] "Thanks! Efi told me she could rig up some sort of replacement ‘bot for me, so that should work out fine for you all."]
-    ["Symmetra" [] "I see."]
+    ["Junkrat" [[:junkrat :_neckHand (scoot -9)]  [:symmetra :_neutral]] "Just a bit preoccupied. Err, apologies in advance, love, but me n’ Roadie are headin’ out on a date for this second half of the match."]
+    ["Symmetra" [[:junkrat :_neckHand (scoot -9)]  [:symmetra :_dissappointed]] "You’re abandoning your duty?"]
+    ["Junkrat" [[:junkrat :_ballThinking (scoot -9)]  [:symmetra :_dissappointed]] "Y-yeah. Haven’t been home in quite a while. And there’s some old business we gotta attend to."]
+    ["Symmetra" [[:junkrat :_ballThinking (scoot -9)]  [:symmetra :_helloNeutral]] "I see. Enjoy yourselves. We will try and make it work without you."]
+    ["Junkrat" [[:junkrat :_ballConfused (scoot -9)]  [:symmetra :_neutral]] "Thanks! Efi told me she could rig up some sort of replacement ‘bot for me, so that should work out fine for you all."]
+    ["Symmetra" [[:junkrat :_neckHand (scoot -9)]  [:symmetra :_thinking]] "I see."]
     :-> [:spawn :choice]]
 
    [:spawn :junkrat :date]

@@ -31,7 +31,7 @@
      "Hey, no pressure if you’re not feeling well."]
     ["Lucio" [[:lucio :_smile (scoot -4)] [:dva :_neutral (scoot -4)] [:symmetra :_neutral (scoot 4)]]
      "I will say, boba has literally proven to be good for your soul. I know I’m giving conflicting boba facts, but a lot of boba is a good thing if you’re feeling down! You can handle an insulin spike or two every now and then. Practice regular self care, y’all."]
-    ["Symmetra" [[:lucio :_neutral (scoot -4)] [:dva :_neutral (scoot -4)] [:symmetra :_sadSmile (scoot 4)]]
+    ["Symmetra" [[:lucio :_neutral (scoot -4)] [:dva :_neutral (scoot -4)] [:symmetra :_explainSad (scoot 4)]]
      "I thank you, but I am mostly uncertain as to the result of the match. Did my absence affect things?"]
     :-> [:spawn :dva 3]]
 
@@ -67,7 +67,7 @@
      "..."]
     ["Symmetra" [[:junkrat :_teaHold (scoot -10)] [:symmetra :_teaSmile]]
      "It’s so chewy!"]
-    ["Junkrats" [[:junkrat :_teaPoint (scoot -10)] [:symmetra :_teaHold]]
+    ["Junkrat" [[:junkrat :_teaPoint (scoot -10)] [:symmetra :_teaHold]]
      "That’s the best part!"]
     ["Symmetra" [[:junkrat :_teaHold (scoot -10)] [:symmetra :_teaThinking]]
      "It is quite a pleasing texture I suppose. Unlike that fairy bread, which was most certainly a culinary abomination."]
@@ -82,7 +82,7 @@
     ["Symmetra" [[:junkrat :_teaHold (scoot -10)] [:symmetra :_teaHold]]
      "..."]
     ["Junkrat" [[:junkrat :_teaHeadHand (scoot -10)] [:symmetra :_teaHold]]
-     "Oy, geez, sorry about winnin’ the match, love. Reaper was just having a monstrous shootin’ session tonight. I think he put his big boy ghost pants on when he realized I was intentionally trying to lose."]
+     "Oi, geez, sorry about winnin’ the match, love. Reaper was just having a monstrous shootin’ session tonight. I think he put his big boy ghost pants on when he realized I was intentionally trying to lose."]
     ["Symmetra" [[:junkrat :_teaHold (scoot -10)] [:symmetra :_teaSadSmile]]
      "It is fine. Attending events such as this and getting to know people better is an important part of my work here as well."]
     ["Junkrat" [[:junkrat :_teaOh (scoot -10)] [:symmetra :_teaHold]]
@@ -151,7 +151,7 @@
 
    [:arcade :junkrat 1]
    [:miranda/dialogue
-    ["Symmrtra" [[:junkrat :_teaHold (scoot -10)] [:symmetra :_teaSmile]]
+    ["Symmetra" [[:junkrat :_teaHold (scoot -10)] [:symmetra :_teaSmile]]
      "It must be nice to have someone like that in your life."]
     ["Junkrat" [[:junkrat :_teaPointUp (scoot -10)] [:symmetra :_teaHold]]
      "He helps keep me in check, er.. Helps me try at least. Like I said, if you ever need a place to have some quiet time, you are invited to our meditation sessions. We take a break from all the chaos and find some quiet!"]

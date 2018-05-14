@@ -21,7 +21,7 @@
      ["Symmetra" [[:mccree :_drinkHold (scoot -20)]  [:soldier76 :_grillDrinkNeutral (scoot 25)] [:symmetra :_confused (scoot 10)]]
       "You are just saying random words."]
      ["Soldier 76" [[:mccree :_drinkHold (scoot -20)]  [:soldier76 :_grillDrinkPointUp (scoot 25)] [:symmetra :_neutral (scoot 10)]]
-      "There is nothing more important to an American than masculinity."]
+      "Random masculine words. There is nothing more important to an American than masculinity."]
      ["Symmetra" [[:mccree :_drink (scoot -20)]  [:soldier76 :_grillDrinkNeutral (scoot 25)] [:symmetra :_explainWTF (scoot 10)]]
       "I feel like your opinion leaves out large swathes of Americans."]
      ["Soldier 76" [[:mccree :_drinkHold (scoot -20)]  [:soldier76 :_grillDrinkPointUp (scoot 25)] [:symmetra :_WTF (scoot 10)]]

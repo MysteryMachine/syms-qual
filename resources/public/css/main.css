@@ -4,6 +4,10 @@
 }
 
 @font-face {
+    font-family: reaper;
+}
+
+@font-face {
     font-family: main-bold;
     src: url(AlteHaasGroteskBold.ttf);
 }
@@ -308,6 +312,7 @@ span.symmetra{
 }
 .reaper{
     border-color:  #150a21;
+    text-transform: uppercase;
 }
 .reinhardt{
     border-color:  #7b8384;

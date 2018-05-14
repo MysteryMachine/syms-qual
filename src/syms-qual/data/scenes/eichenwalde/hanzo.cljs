@@ -79,7 +79,7 @@
     ["Hanzo" [[:hanzo :_explainEyesClosed (scoot -4)] [:symmetra :_neutral (scoot 1)]]
      "It’s about the whole experience. The perfect Michelada with just the right garnish of lime and Tajin to complement your huevos rancheros."]
     ["Hanzo" [[:hanzo :_explain (scoot -4)] [:symmetra :_eyeRoll (scoot 1)]]
-     "Chicken and waffles with spiked sweet tea? Have you ever even had a grapefruit mimosa? Have you ever dipped an egg in toast, and then washed it down with some sparkling wine inside freshly squeezed juice?"]
+     "Chicken and waffles with spiked sweet tea? Have you ever even had a grapefruit mimosa? Have you ever dipped toast in an egg, and then washed it down with some sparkling wine inside freshly squeezed juice?"]
     ["Symmetra" [[:hanzo :_neutral (scoot -4)] [:symmetra :_explain (scoot 1)]]
      "I mean, yes?"]
     ["Hanzo" [[:hanzo :_pointUp (scoot -4)] [:symmetra :_neutral (scoot 1)]]
@@ -95,7 +95,7 @@
    [:spawn :hanzo :choice]
    [:miranda/text-option
     "What will you do?"
-    ["Consider the symmetries between breakfast and lunch" (constantly true)
+    ["Study the symmetries between breakfast and lunch" (constantly true)
      [:-> [:spawn :hanzo :yes]]]
     ["Converse with your other teammates" (constantly true)
      [:-> [:spawn :hanzo :no]]]]
@@ -124,5 +124,5 @@
    [:hanzo :cutscene]
    [:miranda/narration
     "Your attempts to resist the lure of brunch are short lived, after splitting a pitcher of sangria with Hanzo, you gave in and each got an order of hazelnut waffles with blackberry cream paired the bottomless drink of the day, a delicious blend of blackberry liqueur, lemon, and Weissbier. Just as your food was about to arrive, McCree also showed up."
-    "Apparently the mere mention of brunch in Hanzo’s texts had prompted him to abandon his square dancing class, leaving them to watch “The Good, The Bad, And the Ugly”, claiming they’d need to better understand the cowboy lifestyle to be able to dance. You three had a very tasty brunch, and it was only mildly marred by McCree getting a whole lot of egg yolk on his beard and poncho."
+    "Apparently the mere mention of brunch in Hanzo’s texts had prompted him to abandon his square dancing class, leaving them to watch “The Good, The Bad, And the Ugly,” claiming they’d need to better understand the cowboy lifestyle to be able to dance. You three had a very tasty brunch, and it was only mildly marred by McCree getting a whole lot of egg yolk on his beard and poncho."
     :=> [:junkertown [:spawn :intro] 0]]})

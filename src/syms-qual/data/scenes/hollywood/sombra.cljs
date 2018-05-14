@@ -37,7 +37,7 @@
 
    [:spawn :sombra :option 0]
    [:miranda/option
-    "Symmetra" [[:reaper :_neutral (scoot -6)] [:sombra :_neutral (scoot -14)] [:symmetra :_neutral (scoot 4)]]
+    "Symmetra" [[:reaper :_neutral (scoot -6)] [:sombra :_neutral (scoot -14)] [:symmetra :_smile (scoot 4)]]
     ["Ah, did you fulfill a young fan’s dream by giving them a ride in that indestructible vehicle?"
      (constantly true)
      [:-> [:spawn :sombra 1]]]
@@ -47,7 +47,7 @@
 
    [:spawn :sombra 1]
    [:miranda/dialogue
-    ["Sombra" [[:reaper :_neutral (scoot -6)] [:sombra :_explainHand(scoot -14)] [:symmetra :_neutral (scoot 4)]]
+    ["Sombra" [[:reaper :_neutral (scoot -6)] [:sombra :_explainHand(scoot -14)] [:symmetra :_awkward (scoot 4)]]
      "It’s Guy Fieri. We’re kinda. Filming an episode of Neodiners, Neodrive-Ins and Neodives. He will be tearing into a 4 pound hamburger while we fight."]
     ["Symmetra" [[:reaper :_neutral (scoot -6)] [:sombra :_neutral (scoot -14)] [:symmetra :_bewildered (scoot 4)]] "Four pounds?"]
     ["Sombra" [[:reaper :_neutral (scoot -6)] [:sombra :_nostalgic (scoot -14)] [:symmetra :_neutral (scoot 4)]]

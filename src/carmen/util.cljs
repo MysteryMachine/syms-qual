@@ -216,7 +216,8 @@
    :tween-type :miranda/quadratic})
 
 (defn save! [file state]
-  (set! js/document.cookie (str (name file) "=" state ";")))
+  (let [state (if (map? state) state {})]
+    (set! js/document.cookie (str (name file) "=" (dissoc state :miranda/internal) ";"))))
 
 (defn load!
   ([file]

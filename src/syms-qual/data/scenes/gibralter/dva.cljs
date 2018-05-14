@@ -30,7 +30,7 @@
     ["D.Va" [[:tracer :_neutral (scoot -18)] [:dva :_switchThumbsUp (scoot -5)] [:symmetra :_frustrated (scoot 8)]] "I’ve raised enough money to go to Military Industrial Complex Gaming Con, sponsored by IKEA! I’m so excited to get to try out Soldier Simulator X: Final Remix Delta."]
     ["Tracer" [[:tracer :_smile (scoot -18)] [:dva :_neutral (scoot -5)] [:symmetra :_frustratedConfused (scoot 8)]] "I hear that’s a good one!"]
     ["D.Va" [[:tracer :_neutral (scoot -18)] [:dva :_shrug (scoot -5)] [:symmetra :_eyeRoll (scoot 8)]] "It sure is, Tracer! But we all know, LOL, I’m just doing it for the internet fame."]
-    ["D.Va" [[:tracer :_neutral (scoot -18)] [:dva :_dunk (scoot -5)] [:symmetra :_frustratedConfused (scoot 8)]] "Can I get some DVAsellouts in the chat? If you can’t use the emote, be sure to subscribe to tell me that I sold out!"]
+    ["D.Va" [[:tracer :_neutral (scoot -18)] [:dva :_dunk (scoot -5)] [:symmetra :_eyeRoll (scoot 8)]] "Can I get some DVAsellouts in the chat? If you can’t use the emote, be sure to subscribe to tell me that I sold out!"]
     ["Symmetra" [[:tracer :_neutral (scoot -18)] [:dva :_neutral(scoot -5)] [:symmetra :_frustrated (scoot 8)]] "Okay, so, back on topic."]
     ["D.Va" [[:tracer :_neutral (scoot -18)] [:dva :_explain (scoot -5)] [:symmetra :_WTF (scoot 8)]] "Sure."]
     ["Symmetra" [[:tracer :_neutral (scoot -18)] [:dva :_handsHipsGum (scoot -5)] [:symmetra :_explainWTF (scoot 8)]] "You’re not fighting?"]
@@ -47,7 +47,7 @@
    [:spawn :dva :a]
    [:miranda/dialogue
     ["Tracer" [[:tracer :_bewildered (scoot -18)] [:dva :_neutral (scoot -5)] [:symmetra :_skeptical (scoot 8)]] "That reminds me! Everyone else on the other team was saying they didn’t feel like going up against you!"]
-    ["D.Va" [[:tracer :_neutral (scoot -18)] [:dva :_point (scoot -5)] [:symmetra :_neutral (scoot 8)]] "Your track record as a try-hard has spirits low on the other side."]
+    ["D.Va" [[:tracer :_neutral (scoot -18)] [:dva :_point (scoot -5)] [:symmetra :_neutral (scoot 8)]] "Your track record as a tryhard has spirits low on the other side."]
     ["Tracer" [[:dva :_neutral (scoot -5)] [:tracer :_explain (scoot -18)] [:symmetra :_neutral (scoot 8)]] "We have a tactic that will allow our team to win. But we need to find a printer."]
     ["Symmetra" [[:tracer :_neutral (scoot -18)] [:dva :_handsHipsGum (scoot -5)] [:symmetra :_confused (scoot 8)]] "A printer?"]
     ["D.Va" [[:tracer :_neutral (scoot -18)] [:dva :_handsHipsSmile (scoot -5)] [:symmetra :_confused (scoot 8)]] "With bluetooth capabilities."]

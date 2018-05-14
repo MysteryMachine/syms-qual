@@ -21,7 +21,7 @@
      "Look, Satya, we’re going to need you in this upcoming fight."]
     ["Genji" [[:genji_mercy :_genjiExplain (scoot -5)] [:symmetra :_neutral (scoot 3)]]
      "We are trying to figure out how to most effectively harness your skills on the offense portions of the match."]
-    ["Symmetra" [[:genji_mercy :_neutral (scoot -5)] [:symmetra :_frown (scoot 3)]]
+    ["Symmetra" [[:genji_mercy :_neutral (scoot -5)] [:symmetra :_explainWTF (scoot 3)]]
      "Excuse me?"]
     ["Genji" [[:genji_mercy :_genjiExplain (scoot -5)] [:symmetra :_frown (scoot 3)]]
      "We do not mean to offend, it’s just that your arsenal features several static elements. Tactically, attack requires mobility."]
@@ -114,5 +114,3 @@ I am sorry, Dr. Ziegler, what you ask is infeasible. Vishkar Corporation safety 
     "With you combined forces, the level of destruction you and Genji unleashed was legendary. You gave him not just a turret blade, but turrets everywhere. His ability to deflect projectiles with his blade while still inflicting damage with your turrets was, frankly, probably not physically possible. You would question this, but, seeing as cyberninjutsu is not your forte, you figured it was better to just not ask. The power of this ridiculous combo was enough to compensate for a very drunk Reinhardt and Zarya. Your team quickly captured both points on attack and put up and impenetrable defense in the second round.
 "
     :=> [:volskaya [:spawn :intro] 0]]})
-
-

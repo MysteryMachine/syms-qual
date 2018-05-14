@@ -34,7 +34,7 @@
 
    [:door :dialogue 3 :a]
    [:miranda/dialogue
-    ["Symmetra" [[:junkrat :_triggerNeutral (scoot -10)] [:symmetra :_smile]]
+    ["Symmetra" [[:junkrat :_triggerNeutral (scoot -10)] [:symmetra :_explainUncomfortable]]
      "I was talking to your friend just a moment ago. He told me you were a good boy."]
     ["Junkrat" [[:junkrat :_shyblush (scoot -10)] [:symmetra :_smile]]
      "He said what?"]
@@ -51,24 +51,30 @@
     ["Junkrat" [[:junkrat :_triggerExplain (scoot -10)] [:symmetra :_frown]]
      "Oh yeah, the Lumerico thing! Me and my associate Roadhog, took the liberty of, ho, ho, liberating some funds! Created a nice distraction! And a nice boom! He he heeee!"]
     ["Symmetra" [[:junkrat :_triggerNeutral (scoot -10)] [:symmetra :_explainAngry]]
-     "How can you justify all the lives you disrupted?"]
+     "I don't understand what a program like this is doing inviting people like you."]
     :-> [:door :dialogue 4]]
 
    [:door :dialogue 4]
    [:miranda/dialogue
+    ["Junkrat" [[:junkrat :_triggerExplain (scoot -10)] [:symmetra :_WTF]]
+     "Obviously they recognized my genius and wanted a man of my particular expertise."]
+    ["Symmetra" [[:junkrat :_triggerNeutral (scoot -10)] [:symmetra :_explainWTF]]
+      "Your expertise in what, chaos and destruction?"]
+    ["Junkrat" [[:junkrat :_triggerWink (scoot -10)] [:symmetra :_WTF]]
+      "I do love a good boom, but I don't just destroy, I create! It's just that some things, got to be broke before they can be fixed."]
     ["Junkrat" [[:junkrat :_triggerExplain (scoot -10)] [:symmetra :_neutral]]
-     "The way I see it, I’m a tinkerer, darl. I built all my gear out of others junk. The wonderful thing about junk is that it gives you the opportunity to make something entirely new! And some things, got to be broke before they can be fixed."]
-    ["Junkrat" [[:junkrat :_triggerSmile (scoot -10)] [:symmetra :_neutral]]
-     "‘Wos that phrase they have about omelets and eggs? Hee hee!"]
+      "I’m a tinkerer, darl. I build all my gear out of others junk. The wonderful thing about using junk is that it takes something people think is worthless and turns it into something new!"]
     ["Symmetra" [[:junkrat :_triggerNeutral (scoot -10)] [:symmetra :_thinking]]
-     "Destruction and reconstruction, huh? I suppose Overwatch gives you room for both things."]
+     "Destruction and reconstruction, huh?"]
     ["Junkrat" [[:junkrat :_triggerAdoringBlush (scoot -10)] [:symmetra :_thinking]]
      "..."]
-    ["Junkrat" [[:junkrat :_triggerSmile (scoot -10)] [:symmetra :_neutral]]
-     "Well! I suppose it’s time for me to take your, uh, statement of fact, darl. I didn’t catch your name, though."]
-    ["Symmetra" [[:junkrat :_triggerNeutral (scoot -10)] [:symmetra :_smile]]
-     "Satya, but feel free to refer to me by my operative name, Symmetra."]
-    ["Junkrat" [[:junkrat :_triggerWave (scoot -10)] [:symmetra :_helloWarm]]
+     ["Junkrat" [[:junkrat :_puppetWhisper (scoot -10)] [:symmetra :_awkward]]
+      "'Wasat?'"]
+    ["Junkrat" [[:junkrat :_puppetPoint (scoot -10)] [:symmetra :_confused]]
+     "Well! My friend here says it’s time for me to take your, uh, statement of fact, darl. I didn’t catch your name, though."]
+    ["Symmetra" [[:junkrat :_triggerNeutral (scoot -10)] [:symmetra :_explain]]
+     "I'm Satya, but feel free to refer to me by my operative name, Symmetra."]
+    ["Junkrat" [[:junkrat :_triggerWave (scoot -10)] [:symmetra :_helloNeutral]]
      "I’d tell you to give ol’ hoggie my warmest wishes, but I’ll be delivering warmth directly to the payload! Heehee! Oh! And watch your step."]
     :-> [:street :sombra]]
 
@@ -79,13 +85,13 @@
 
    [:door :dialogue 5]
    [:miranda/dialogue
-    ["Symmetra" [[:sombra :_browseDickButt (scoot -10)] [:symmetra :_helloWarm]]
+    ["Symmetra" [[:sombra :_browseDickButt (scoot -80 -10 1.5)] [:symmetra :_helloWarm (scoot 80 0 1.5)]]
      "Hello!"]
     ["Sombra" [[:sombra :_wave (scoot -10)] [:symmetra :_helloWarm]]
      "Ah! Que onda?"]
-    ["Symmetra" [[:sombra :_neutral (scoot -10)] [:symmetra :_smile]]
+    ["Symmetra" [[:sombra :_neutral (scoot -10)] [:symmetra :_explainUncomfortable]]
      "You are Sombra, no? Your performance in the previous round was exemplary!"]
-    ["Sombra" [[:sombra :_smile (scoot -10)] [:symmetra :_smile]]
+    ["Sombra" [[:sombra :_laugh (scoot -10)] [:symmetra :_smile]]
      "Ah, querida, thank you! You did well too! I, uh, can’t say it was very pleasant getting zapped by you while you were all blue and glowing."]
     ["Symmetra" [[:sombra :_smile (scoot -10)] [:symmetra :_laugh]]
      "Haha, between you and I, I think Ana boosted me purely to frustrate Reaper. He had this grand tactic that he held supreme. Letting someone else have the Nano Boost was her way of poking fun at him."]
@@ -95,13 +101,13 @@
      "I suppose it should not be unexpected that two soldiers as seasoned as they would express their love on the battlefield. Don’t get me wrong. It’s still..."]
     ["Sombra" [[:sombra :_explain (scoot -10)] [:symmetra :_thinking]]
      "Extra?"]
-    ["Symmetra" [[:sombra :_explain (scoot -10)] [:symmetra :_smile]]
+    ["Symmetra" [[:sombra :_explain (scoot -10)] [:symmetra :_pointUp]]
      "Yes."]
     ["Sombra" [[:sombra :_smile (scoot -10)] [:symmetra :_smile]]
      "I get it. I mean! Girl! You have some moves! I can really get behind that!"]
     ["Symmetra" [[:sombra :_neutral (scoot -10)] [:symmetra :_skeptical]]
      "I still don’t know if I’m comfortable with the wanton violence."]
-    ["Sombra" [[:sombra :_flirty (scoot -10)] [:symmetra :_neutral]]
+    ["Sombra" [[:sombra :_flirty (scoot -10)] [:symmetra :_1000Mile]]
      "Well, maybe you can get comfortable in some other way?"]
     ["Symmetra" [[:sombra :_flirty (scoot -10)] [:symmetra :_embarassed]]
      "What?"]
@@ -114,7 +120,7 @@
    [:door :sombra :extra]
    [:miranda/dialogue
     ["Symmetra" [[:sombra :_neutral (scoot -10)] [:symmetra :_flirty]]
-     "Like a vacation to France?"]
+     "Like diverting company funds for a vacation to France?"]
     ["Sombra" [[:sombra :_surprised (scoot -10)] [:symmetra :_flirty]]
      "Hum?"]
     ["Symmetra" [[:sombra :_surprised (scoot -10)] [:symmetra :_sass]]
@@ -131,7 +137,7 @@
      "Novel."]
     ["Sombra" [[:sombra :_explainHand (scoot -10)] [:symmetra :_thinking]]
      "The round is starting. You should hurry."]
-    ["Symmetra" [[:sombra :_smile (scoot -10)] [:symmetra :_smile]]
+    ["Symmetra" [[:sombra :_smile (scoot -10)] [:symmetra :_explainUncomfortable]]
      "I don’t believe we exchanged proper introductions. My real name is Satya."]
     ["Sombra" [[:sombra :_camo (fade-out [-10 0] 2)] [:symmetra :_smile]]
      "And mine is Sombra. Call it another hack. Hasta."]
@@ -148,7 +154,7 @@
 
    [:reaper :dialogue]
    [:miranda/narration
-    "Reaper was distraught this round. Between Ana Nanoboosting you, and his dismay at recruiting a support who was not a real support, he could not maintain his composure. By the end of the round, he was charging alone headfirst into the enemy team, neglecting any attempt at proper positioning. With your team perpetually split, the enemy succeeded in capturing relatively quickly."
+    "Reaper was distraught this round. Between Ana Nanoboosting you, and his dismay at recruiting a support who was not a real support, he could not maintain his composure. By the end of the round, he was charging alone headfirst into the enemy team, neglecting any attempt at proper positioning. With your team perpetually split, the enemy made quick progress but you were ultimately able to stop them short of the final point."
     :-> [:street :dialogue 7]]
 
    [:hog]
@@ -158,7 +164,7 @@
 
    [:hog :dialogue]
    [:miranda/narration
-    "The final round was hotly contested, and you almost succeeded in holding the first choke, pushing the point into Overtime until Junkrat and Sombra managed to obliterate half your team, blowing them up with two well co-ordinated ultimates. Your team held decently in the subsequent parts of the map, but lost the final point in Overtime."
+    "The final round was hotly contested, and you almost succeeded in holding at the first choke, pushing the point into Overtime until Junkrat and Sombra managed to obliterate half your team, blowing them up with two well co-ordinated ultimates. After some intense scrambling, your team was eventually able regain its composure and run down the clock to victory."
     :-> [:street :dialogue 7]]
 
    [:ana]
@@ -168,7 +174,7 @@
 
    [:ana :dialogue]
    [:miranda/narration
-    "Ana’s advice paid off this round. You kept your teleporter outside of Junkrat and Pharah’s artillery range, and you covered Sombra’s several flanking routes, severely reducing her effectiveness in combat. You held out the first point into a deep overtime contest, and managed to squeak by a win as your teleporter pushed your entire team back to the frontline to support Roadhog."
+    "Ana’s advice paid off this round. You kept your teleporter outside of Junkrat and Pharah’s artillery range, and covered Sombra’s several flanking routes, severely reducing her effectiveness in combat. You held out the first point into a deep overtime contest, and managed to squeak by a win as your teleporter pushed your entire team back to the frontline to support Roadhog."
     :-> [:street :dialogue 7]]
 
    [:street :dialogue 7]
@@ -222,29 +228,29 @@
 
    [:street :dialogue 8]
    [:miranda/dialogue
-    ["Pharah" [[:pharah :_helloAwkward (scoot -15)] [:symmetra :_helloWarm]]
+    ["Pharah" [[:pharah :_helloAwkward (scoot -80 -15 1.5)] [:symmetra :_helloWarm (scoot 80 0 1.5)]]
      "Hello! Your tactics were formidable!"]
-    ["Symmetra" [[:pharah :_helloAwkward (scoot -15)] [:symmetra :_smile]]
+    ["Symmetra" [[:pharah :_smile (scoot -15)] [:symmetra :_explainUncomfortable]]
      "Why, thank you! I’ve found there’s a great deal of power in being able to bring your allies back from death quickly! It’s almost as if the heroes on my team never died!"]
     ["Pharah" [[:pharah :_AnguishGay (scoot -15)] [:symmetra :_skeptical]]
      "What?"]
     ["Symmetra" [[:pharah :_anguishMild (scoot -15)] [:symmetra :_sass]]
      "Did you not notice the teleporter I had up? It seems like I did a better job than I thought at concealing it."]
-    ["Pharah" [[:pharah :_embarassed (scoot -15)] [:symmetra :_sadSmile]]
+    ["Pharah" [[:pharah :_embarassed (scoot -15)] [:symmetra :_skeptical]]
      "Oh! I did notice. I mean. Don’t get me wrong you concealed your teleporter well, it took me a while to find. I, um, I just couldn’t get the proper aerial superiority in order to siege it!"]
     ["Symmetra" [[:pharah :_embarassed (scoot -15)] [:symmetra :_dissappointed]]
      "Oh."]
     ["Pharah" [[:symmetra :_dissappointed] [:pharah :_explainEmbarassed (scoot -15)]]
      "It’s not like that! Our flankers just had difficulty opening space for me because you guarded the hallways so well."]
-    ["Symmetra" [[:pharah :_neutral (scoot -15)] [:symmetra :_smile]]
+    ["Symmetra" [[:pharah :_neutral (scoot -15)] [:symmetra :_neutral]]
      "I am Satya. You are Fareeha, right? Your mother and I had the chance to speak. She certainly lives up to her reputation as a legendary soldier, and you to her legacy."]
-    ["Pharah" [[:pharah :_cold (scoot -15)] [:symmetra :_smile]]
+    ["Pharah" [[:pharah :_downcast (scoot -15)] [:symmetra :_smile]]
      "I don’t think my mother wishes for me to live up to her legacy, but my thanks anyway."]
-    ["Symmetra" [[:pharah :_cold (scoot -15)] [:symmetra :_neutral]]
+    ["Symmetra" [[:pharah :_downcast (scoot -15)] [:symmetra :_explainSad]]
      "Oh. My apologies. I did not mean to—"]
-    ["Pharah" [[:pharah :_embarassedBack (scoot -15)] [:symmetra :_neutral]]
+    ["Pharah" [[:pharah :_embarassedBack (scoot -15)] [:symmetra :_smile]]
      "Don’t worry about it. Maybe we can grab some coffee later and we can swap personal stories or something?"]
-    ["Symmetra" [[:pharah :_neutral (scoot -15)] [:symmetra :_smile]]
+    ["Symmetra" [[:pharah :_neutral (scoot -15)] [:symmetra :_explainUncomfortable]]
      "That sounds like a wonderful break from all the violence."]
     ["Pharah" [[:pharah :_determined (scoot -15)] [:symmetra :_smile]]
      "Good! Okay then! It’s a date!"]
@@ -252,7 +258,7 @@
      "Um. Like. It’s all set. You know. Um. I have to jet."]
     ["Symmetra" [[:pharah :_helmetNervous (scoot -15)] [:symmetra :_confused]]
      "I have to jet?"]
-    ["Symmetra" [[:pharah :_flying (qmove [-15 0] [-15 -100] 2)]
+    ["Symmetra" [[:pharah :_flying (qmove [-15 30] [-15 -100] 2)]
                  [:symmetra :_bewildered]]
      "Oh."]
     :-> [:street :finale]]

@@ -251,3 +251,37 @@
        :scene [:gibralter [:spawn :intro] 0],
        :new-game? false,
        :route-66/reaper true})
+
+  (def date-10
+    {:hollywood/sombra-chat true,
+ :points/payload 6,
+ :volskaya/sombra 1,
+ :eichenwalde/hanzo-chat true,
+ :points/sombra 5,
+ :points/puppy 6,
+ :gibralter/mccree-chat true,
+ :route-66/roadhog true,
+ :kings-row/junkrat-chat true,
+ :miranda/auto-save true,
+ :route-66/ana true,
+ :miranda/text-scale 23.79259259259259,
+ :miranda/time 10083.33333333333,
+ :kings-row/lucio-chat true,
+ :window {:x 1440, :y 803, :y-adjust 0},
+ :miranda/internal
+ {:max-reports nil,
+  :miranda/transition
+  {:miranda/animation-name [:dorado [:spawn :intro] 0]},
+  :loading? false},
+ :lijiang/dva-chat true,
+ :anubis/pharah-chat true,
+ :saved nil,
+ :junkertown/efi-chat true,
+ :anubis/zarya-chat true,
+ :volskaya/sombra-chat true,
+ :points/pharah 2,
+ :route-66/first-chat :reaper,
+ :points/junkrat 2,
+ :scene [:dorado [:spawn :intro] 0],
+ :new-game? false,
+ :route-66/reaper true})
