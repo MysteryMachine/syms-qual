@@ -6,7 +6,17 @@
   {[:spawn :mei 0]
    [:miranda/dialogue
     ["Mei" [[:mei :_handChin (scoot -80 -6 1.5)] [:symmetra :_smile (scoot 80 0 1.5)]] "Symmetra! Eek! I’ve been wanting to tell you all round, you look gorgeous in that dress."]
+    :transition :miranda/conditional
+    [#(= 1 (:volskaya/sombra %)) [:-> [:spawn :mei 0 :a]]
+     :else [:-> [:spawn :mei 0 1]]]]
+
+   [:spawn :mei 0 :a]
+   [:miranda/dialogue
     ["Mei" [[:mei :_thumbsUp (scoot -6)] [:symmetra :_awkward (scoot 0)]] "Of course, I completely blame my workout regimen."]
+    :-> [:spawn :mei 0 1]]
+
+   [:spawn :mei 0 1]
+   [:miranda/dialogue
     ["Symmetra" [[:mei :_headHand (scoot -6)] [:symmetra :_smug (scoot 0)]] "I thank you. You look extremely uncomfortable in that snow suit."]
     ["Mei" [[:mei :_collar (scoot -6)] [:symmetra :_smile (scoot 0)]] "I am so hot. It’s hard to think straight."]
     ["Zenyatta" [[:mei :_awkward (scoot -5 8 1)] [:zenyatta :_wave (scoot -80 -18 1)] [:symmetra :_awkward (scoot 0 6 1)]] "Hello, Mei. Around Genji’s butt, I also find it difficult to think straight."]

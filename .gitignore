@@ -13,3 +13,5 @@ pom.xml
 .nrepl-port
 resources/public/img
 *.zip
+.DS_Store
+*/.DS_Store

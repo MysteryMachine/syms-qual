@@ -98,10 +98,11 @@
      [:-> [:spawn :mercy :no]]]]
 
    [:spawn :mercy :yes]
-   [:miranda/dialogue
-    ["Symmetra" [[:symmetra :_phoneSigh (scoot -25)]] "She is a tragic texter, but at least she is cute."]
-    ["Symmetra" [[:symmetra :_phoneCoy (scoot -25)]] "And she’s so muscular she could snap a man in two. A prime characteristic in a romantic partner. I will reply with a yes."]
-    :-> [:door :pharah 0]]
+   (concat
+    [:miranda/dialogue
+      ["Symmetra" [[:symmetra :_phoneSigh (scoot -25)]] "She is a tragic texter, but at least she is cute."]
+     ["Symmetra" [[:symmetra :_phoneCoy (scoot -25)]] "And she’s so muscular she could snap a man in two. A prime characteristic in a romantic partner. I will reply with a yes."]]
+    (inc-transition [:-> [:door :pharah 0]] :points/pharah))
 
    [:spawn :mercy :no]
    [:miranda/dialogue

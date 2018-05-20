@@ -52,11 +52,11 @@
         [:spawn :genji :option 0]
         [:miranda/option
          "Symmetra" [[:symmetra :_neutral (scoot 6)] [:genji :_neutral (scoot 18)] [:zenyatta :_neutral (scoot -18)]]
-         "Having lived through Zarya's training regimen, I must say it was quite intense."
+         ["Having lived through Zarya's training regimen, I must say it was quite intense." #(= 1 (:volskaya/sombra %))]
          "Zarya is a professional athlete. I thought her advice would be trustworthy..."
          "How has Mei injured herself?"]
 
-        [:spawn :genji :option 0 0]
+   [:spawn :genji :option 0 0]
         [:miranda/dialogue
          ["Genji" [[:symmetra :_neutral (scoot 6)] [:genji :_explain (scoot 18)] [:zenyatta :_neutral (scoot -18)]]
           "I see. How do you feel?"]

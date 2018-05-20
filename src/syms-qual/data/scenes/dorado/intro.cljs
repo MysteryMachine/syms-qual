@@ -33,22 +33,7 @@
 
     ["Go with Mei" :dorado/mei-chat
      [:-> [:spawn :mei :yes]]]
-    ["Go to the bar" :dorado/sombra-chat
+    ["Go to the bar" #(or (:dorado/sombra-chat %) (:dorado/genji-chat %))
      [:-> [:spawn :sombra :yes]]]
-    ["Go with Zenyatta" :dorado/zenyatta-chat
-     [:-> [:spawn :zenyatta :yes]]]]
-
-   [:spawn :- :no]
-   [:miranda/dialogue
-
-    :-> [:spawn :choice]]
-
-   [:-]
-   [:miranda/characters
-    [[]]
-    :-> [:- :text]]
-
-   [:- :text]
-   [:miranda/narration
-    ""
-    :=> [:- [:spawn :intro] 0]]})
+    ["Go with Zenyatta" #(or (:dorado/sombra-chat %) (:dorado/genji-chat %) (:dorado/mei-chat %))
+     [:-> [:spawn :zenyatta :yes]]]]})

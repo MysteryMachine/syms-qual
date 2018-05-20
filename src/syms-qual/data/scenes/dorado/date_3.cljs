@@ -17,8 +17,18 @@
    [:roof :date-3 0]
     [:miranda/dialogue
     ["Sombra" [[:symmetra_sombra :_neutral]] "…"]
+     :transition :miranda/conditional
+     [#(= 1 :sombra/kiss) [:-> [:roof :date-3 0 0 :a]]
+      :else [:-> [:roof :date-3 0 1]]]]
+
+   [:roof :date-3 0 0 :a]
+   [:miranda/dialogue
     ["Symmetra" [[:symmetra_sombra :_smooch]] "..."]
-    ["Sombra" [[:symmetra_sombra :_sombraTalk]] "I’m glad you stayed."]
+    :-> [:roof :date-3 0 1]]
+
+   [:roof :date-3 0 1]
+   [:miranda/dialogue
+        ["Sombra" [[:symmetra_sombra :_sombraTalk]] "I’m glad you stayed."]
     ["Symmetra" [[:symmetra_sombra :_symmetraStrainedSmileBlush]] "So am I."]
     ["Sombra" [[:symmetra_sombra :_sombraTalkLookUp]] "Do you think you’ll get to stay here much longer? Overwatch, I mean."]
     ["Symmetra" [[:symmetra_sombra :_symmetraExplainConcerned]] "I don’t get to decide my assignments. But given some of my recent behavior, I am assuming Vishkar intends to keep me away from Utopea."]
@@ -74,4 +84,4 @@
     [:hotel :date-3 3]
      [:miranda/narration
       "Sombra called you a cab and escorted you back to your hotel. You slept soundly on her shoulder on the ride there. Once inside you collapsed into bed and fell into a deep sleep and dreamed of Canadian lakes."
-     :=> [:blizzard-world :gate 0]]})
+      :=> [:blizzard-world [:gate :intro] 0]]})

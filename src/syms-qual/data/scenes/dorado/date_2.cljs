@@ -133,9 +133,13 @@
          :=> [:blizzard-world :gate 0]]
 
       [:room :sombra :option 0 0]
-       [:miranda/dialogue
-        ["Sombra" [[:sombra :_thinking (scoot -3)] [:symmetra :_strainedSmile (scoot 0)]] "Dog girls being gay at a high school not for you? Yeah...I can see how that could be a niche taste. Hm."]
-        :-> [:room :sombra :option 1]]
+   (concat
+    [:miranda/dialogue
+      ["Sombra" [[:sombra :_thinking (scoot -3)] [:symmetra :_strainedSmile (scoot 0)]] "Dog girls being gay at a high school not for you? Yeah...I can see how that could be a niche taste. Hm."]
+     ]
+    (inc-transition
+     [:-> [:room :sombra :option 1]]
+     :points/sombra))
 
   [:room :sombra :option 1]
    [:miranda/option
@@ -144,6 +148,7 @@
     "Suggest some cuddling action"]
 
    [:room :sombra :option 1 0]
+   (concat
     [:miranda/dialogue
      ["Symmetra" [[:sombra :_flirty (scoot -3)] [:symmetra :_coy (scoot 0)]] "Well, perhaps...we can simply ignore the anime…"]
      ["Sombra" [[:sombra :_leanin (scoot -3)] [:symmetra :_embarassed (scoot 0)]] "With kissing?"]
@@ -152,14 +157,15 @@
      ["Symmetra" [[:sombra :_neutral (scoot -3)] [:symmetra :_bewildered (scoot 0)]] "Oh. I’m sorry, I thought…"]
      ["Sombra" [[:sombra :_explainAwkward (scoot -3)] [:symmetra :_neutral (scoot 0)]] "I’ve been waiting months for Frisbee Star: Pup Academia to come out, and I am NOT getting spoilers while making out."]
      ["Sombra" [[:sombra :_flirty (scoot -3)] [:symmetra :_smile (scoot 0)]] "Can we make out to some X-Files, to keep it thematic?"]
-     ["Symmetra" [[:sombra :_flirty (scoot -3)] [:symmetra :_laugh (scoot 0)]] "Haha, whatever you like."]
-     :-> [:room :sombra 12]]
+     ["Symmetra" [[:sombra :_flirty (scoot -3)] [:symmetra :_laugh (scoot 0)]] "Haha, whatever you like."]]
+    (inc-transition [:-> [:room :sombra 12] :sombra/kiss]))
 
    [:room :sombra :option 1 1]
+   (concat
     [:miranda/dialogue
-     ["Symmetra" [[:sombra :_smile (scoot -3)] [:symmetra :_explainUncomfortable (scoot 0)]] "Maybe we can skip on the anime dogs, and watch something scary? You can put your arm around me and everything."]
-     ["Sombra" [[:sombra :_flirty (scoot -3)] [:symmetra :_smile (scoot 0)]] "I suppose Frisbee Star: Pup Academia can wait. We can watch X-Files which is both romantic AND spooky. I will comfort the crap out of you."]
-     :-> [:room :sombra 12]]
+      ["Symmetra" [[:sombra :_smile (scoot -3)] [:symmetra :_explainUncomfortable (scoot 0)]] "Maybe we can skip on the anime dogs, and watch something scary? You can put your arm around me and everything."]
+      ["Sombra" [[:sombra :_flirty (scoot -3)] [:symmetra :_smile (scoot 0)]] "I suppose Frisbee Star: Pup Academia can wait. We can watch X-Files which is both romantic AND spooky. I will comfort the crap out of you."]]
+    (inc-transition [:-> [:room :sombra 12] :sombra/hug]))
 
  [:room :sombra 12]
   [:miranda/dialogue

@@ -2,6 +2,16 @@
   (:require [carmen.util :as anim :refer [scoot]]
             [syms-qual.util :as util :refer [inc-transition]]))
 
+(def post-kiss
+  [:miranda/dialogue
+   [nil [[:pharah :_underCarry (scoot 0 100 4)]] "To your surprise, Pharah immediately sweeps you off your feet, and you roll gracefully down the lane in her arms"]
+   [nil [[:pharah :_underCarry2 (scoot -80 0 2)]] "After doing a lap around the rink she deposits you safely back on your feet."]
+   ["Pharah" [[:pharah :_underNeutralBlushTalk (scoot -3)] [:symmetra :_coy (scoot -5)]] "Umm…"]
+   ["Symmetra" [[:pharah :_underNeutralBlush (scoot -3)] [:symmetra :_flirty (scoot -5)]] "Wowzers?"]
+   ["Pharah" [[:pharah :_underEmbarassed (scoot -3)] [:symmetra :_smile (scoot -5)]] "Yup. I, um, think all these old machines are warmed up. It’s all bright now. And um."]
+   ["Pharah" [[:pharah :_underNeutralBlushTalk (scoot -3)] [:symmetra :_smile (scoot -5)]] "Warm."]
+   ["Symmetra" [[:pharah :_underNeutralBlush (scoot -3)] [:symmetra :_coy (scoot -5)]] "Too warm to keep skating?"]])
+
 (def data
   {[:rink :pharah 4]
    [:miranda/narration
@@ -61,25 +71,31 @@
    [:rink :pharah :option 2 0]
     [:miranda/dialogue
      ["Symmetra" [[:pharah :_underSmooch (scoot 0)]] "..."]
-     :-> [:rink :pharah 7]]
+     :-> [:rink :pharah 7 :kiss]]
 
    [:rink :pharah :option 2 1]
     [:miranda/dialogue
      ["Symmetra" [[:pharah :_underHug (scoot 0)]] "I’d love to."]
-     :-> [:rink :pharah 7]]
+     :-> [:rink :pharah 7 :hug]]
 
-   [:rink :pharah 7]
+   [:rink :pharah 7 :hug]
+   (concat post-kiss [:-> [:rink :pharah :date 7 :hug 2]])
 
-    [:miranda/dialogue
-    [nil [[:pharah :_underCarry (scoot 0 100 4)]] "To your surprise, Pharah immediately sweeps you off your feet, and you roll gracefully down the lane in her arms"]
-    [nil [[:pharah :_underCarry2 (scoot -80 0 2)]] "After doing a lap around the rink she deposits you safely back on your feet."]
-    ["Pharah" [[:pharah :_underNeutralBlushTalk (scoot -3)] [:symmetra :_coy (scoot -5)]] "Umm…"]
-    ["Symmetra" [[:pharah :_underNeutralBlush (scoot -3)] [:symmetra :_flirty (scoot -5)]] "Wowzers?"]
-    ["Pharah" [[:pharah :_underEmbarassed (scoot -3)] [:symmetra :_smile (scoot -5)]] "Yup. I, um, think all these old machines are warmed up. It’s all bright now. And um."]
-    ["Pharah" [[:pharah :_underNeutralBlushTalk (scoot -3)] [:symmetra :_smile (scoot -5)]] "Warm."]
-    ["Symmetra" [[:pharah :_underNeutralBlush (scoot -3)] [:symmetra :_coy (scoot -5)]] "Too warm to keep skating?"]
-    ["Pharah" [[:pharah :_underBold (scoot -3)] [:symmetra :_coy (scoot -5)]] "If there’s more kissing, I’m game."]
+   [:rink :pharah 7 :kiss]
+   (concat post-kiss [:-> [:rink :pharah :date 7 :kiss 2]])
+
+   [:rink :pharah :date 7 :kiss 2]
+   [:miranda/dialogue
+    ["Pharah" [[:pharah :_underBold (scoot -3)] [:symmetra :_coy (scoot -5)]] "If there’s more kissing, I’m game."
+     ] :-> [:rink :pharah :date 7]]
+
+   [:rink :pharah :date 7 :hug 2]
+   [:miranda/dialogue
     ["Pharah" [[:pharah :_underBold (scoot -3)] [:symmetra :_coy (scoot -5)]] "If I get to see more of that dancing, I’m game."]
+    :-> [:rink :pharah :date 7]]
+
+   [:rink :pharah :date 7]
+   [:miranda/dialogue
     ["Symmetra" [[:pharah :_underNeutralBlush (scoot -3)] [:symmetra :_sass (scoot -5)]] "Haha, I see your inhibitions are broken."]
     ["Pharah" [[:pharah :_underEmbarassed (scoot -3)] [:symmetra :_smile (scoot -5)]] "I’m glad."]
     ["Symmetra" [[:pharah :_underNeutralBlush (scoot -3)] [:symmetra :_bigSmile (scoot -5)]] "Me too. Shall we continue?"]

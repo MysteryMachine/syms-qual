@@ -104,6 +104,6 @@
                       junkertown-junkrat/data junkertown-date-1/data
                       junkertown-date-2/data junkertown-date-3/data)
    :title-screen (merge title-screen/data)
-   :blizzard (merge bliz-intro/data bliz-one/data bliz-two/data bliz-three/data)})
+   :blizzard-world (merge bliz-intro/data bliz-one/data bliz-two/data bliz-three/data)})
 
 (def data (data/reify-scenes char/data bg/data structure))

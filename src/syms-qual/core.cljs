@@ -60,7 +60,7 @@
    :miranda/native-resolution [2048 1080]
    :miranda/base-text-size 32
    :miranda/letterbox-ratio 1.78
-   :miranda/max-load-time 30000
+   :miranda/max-load-time 0
    :loading-screen loading-screen
    :miranda/key-events {}})
 
@@ -176,6 +176,7 @@
       8 dump/day-8
       9 dump/day-9
       10 dump/day-10
+      11 dump/day-11 
       a))
    ((carmen.impl.events/resize! state-atom options))))
 

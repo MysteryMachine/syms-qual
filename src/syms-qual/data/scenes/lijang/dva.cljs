@@ -120,7 +120,7 @@
       "Booyah!"]
      ["D.Va" [[:lucio :_neutral (scoot -4)] [:symmetra :_neutral (scoot 4)] [:dva :_switchExplain (scoot -4)]]
       "We’ll pick you up a half hour after the match, we’ll need to reserve the spot!"]]
-    (inc-transition [:-> [:spawn :dva :cutscene]] :points/junkrat))
+    (inc-transition [:-> [:spawn :dva :cutscene]] :points/junkrat :lijiang/dva))
 
    [:spawn :dva :no]
    [:miranda/dialogue
