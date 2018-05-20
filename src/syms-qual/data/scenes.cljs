@@ -55,20 +55,25 @@
    [syms-qual.data.scenes.junkertown.date-1 :as junkertown-date-3]
 
    [syms-qual.data.scenes.gibralter.date-1 :as gib-date-1]
-      [syms-qual.data.scenes.gibralter.date-2 :as gib-date-2]
-      [syms-qual.data.scenes.gibralter.date-2 :as gib-date-3]
-      [syms-qual.data.scenes.gibralter.dva :as gib-dva]
-      [syms-qual.data.scenes.gibralter.intro :as gib-intro]
-      [syms-qual.data.scenes.gibralter.mccree :as gib-mccree]
-      [syms-qual.data.scenes.gibralter.mercy :as gib-mercy]
+   [syms-qual.data.scenes.gibralter.date-2 :as gib-date-2]
+   [syms-qual.data.scenes.gibralter.date-2 :as gib-date-3]
+   [syms-qual.data.scenes.gibralter.dva :as gib-dva]
+   [syms-qual.data.scenes.gibralter.intro :as gib-intro]
+   [syms-qual.data.scenes.gibralter.mccree :as gib-mccree]
+   [syms-qual.data.scenes.gibralter.mercy :as gib-mercy]
 
-      [syms-qual.data.scenes.dorado.date-1 :as dor-date-1]
-      [syms-qual.data.scenes.dorado.date-2 :as dor-date-2]
-      [syms-qual.data.scenes.dorado.date-3 :as dor-date-3]
-      [syms-qual.data.scenes.dorado.genji :as dor-genji]
-      [syms-qual.data.scenes.dorado.intro :as dor-intro]
-      [syms-qual.data.scenes.dorado.sombra :as dor-sombra]
-      [syms-qual.data.scenes.dorado.mei :as dor-mei]
+   [syms-qual.data.scenes.dorado.date-1 :as dor-date-1]
+   [syms-qual.data.scenes.dorado.date-2 :as dor-date-2]
+   [syms-qual.data.scenes.dorado.date-3 :as dor-date-3]
+   [syms-qual.data.scenes.dorado.genji :as dor-genji]
+   [syms-qual.data.scenes.dorado.intro :as dor-intro]
+   [syms-qual.data.scenes.dorado.sombra :as dor-sombra]
+   [syms-qual.data.scenes.dorado.mei :as dor-mei]
+
+   [syms-qual.data.scenes.blizzard.intro :as bliz-intro]
+   [syms-qual.data.scenes.blizzard.one :as bliz-one]
+   [syms-qual.data.scenes.blizzard.two :as bliz-two]
+   [syms-qual.data.scenes.blizzard.three :as bliz-three]
 
    [syms-qual.data.scenes.intro :as intro-cutscenes]
    [syms-qual.data.characters :as char]
@@ -99,6 +104,6 @@
                       junkertown-junkrat/data junkertown-date-1/data
                       junkertown-date-2/data junkertown-date-3/data)
    :title-screen (merge title-screen/data)
-   :epilogue (merge)})
+   :blizzard (merge bliz-intro/data bliz-one/data bliz-two/data bliz-three/data)})
 
 (def data (data/reify-scenes char/data bg/data structure))
