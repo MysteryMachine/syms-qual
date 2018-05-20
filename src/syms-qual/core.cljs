@@ -175,6 +175,7 @@
       7 dump/day-7
       8 dump/day-8
       9 dump/day-9
+      10 dump/day-10
       a))
    ((carmen.impl.events/resize! state-atom options))))
 

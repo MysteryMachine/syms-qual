@@ -242,7 +242,7 @@
      "Oh."]
     ["Pharah" [[:symmetra :_dissappointed] [:pharah :_explainEmbarassed (scoot -15)]]
      "It’s not like that! Our flankers just had difficulty opening space for me because you guarded the hallways so well."]
-    ["Symmetra" [[:pharah :_neutral (scoot -15)] [:symmetra :_neutral]]
+    ["Symmetra" [[:pharah :_neutral (scoot -15)] [:symmetra :_explainUncomfortable]]
      "I am Satya. You are Fareeha, right? Your mother and I had the chance to speak. She certainly lives up to her reputation as a legendary soldier, and you to her legacy."]
     ["Pharah" [[:pharah :_downcast (scoot -15)] [:symmetra :_smile]]
      "I don’t think my mother wishes for me to live up to her legacy, but my thanks anyway."]

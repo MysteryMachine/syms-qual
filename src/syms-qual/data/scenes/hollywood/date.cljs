@@ -60,9 +60,9 @@
      "Hey, you’re not wrong. I’m just not used to doing things so directly."]
     ["Reaper" [[:reaper :_point-up (scoot -6)] [:sombra :_neutral (scoot -14)] [:symmetra :_neutral (scoot 4)]]
      "I’m gonna catch up with the others to secure the next checkpoint. You two stay here and make sure the payload keeps moving. I’m sure you’ll appreciate the alone time. Guard Fieri with your lives."]
-    ["Sombra" [[:reaper :_reverseLeave (scoot -6 100 2)] [:sombra :_yell (scoot -14)] [:symmetra :_awkward (scoot 4)]]
+    ["Sombra" [[:reaper :_reverseLeave (scoot -6 100 2)] [:sombra :_yell (scoot -14 -6 2)] [:symmetra :_awkward (scoot 4 2 2)]]
      "Mira, abuelo, if you don’t...ugh, he’s gone."]
-    ["Sombra" [[:sombra :_explainAwkward (scoot -14 -6 0.5)] [:symmetra :_smile (scoot 4 2 0.5)]]
+    ["Sombra" [[:sombra :_explainAwkward (scoot -6)] [:symmetra :_smile (scoot 2)]]
      "I think we’re pushing through the set for the new novela virtual Virtumundo has been recording, “Amor de un Androide Gaucho”, it’s the hot new thing."]
     :-> [:set :sombra :date :option 0]]
 

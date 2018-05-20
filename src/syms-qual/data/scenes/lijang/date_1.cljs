@@ -40,7 +40,7 @@
     ["D.Va" [[:lucio :_neutral (scoot -4)] [:dva :_headHand (scoot -4)] [:symmetra :_neutral (scoot 4)]]
      "Oh. Um. We sorta blew it. Sorry! I don’t know what happened, winning five versus six was more difficult than we thought it’d be even with Jamie throwing as hard as he could."]
     ["Lucio" [[:lucio :_prayExplain (scoot -4)] [:dva :_neutral (scoot -4)] [:symmetra :_neutral (scoot 4)]]
-     "He’s a thin boy, Satya, he can only throw so far."]
+     "He’s a thin boy, Satya. He can only throw so far."]
     ["Symmetra" [[:lucio :_neutral (scoot -4)] [:dva :_neutral (scoot -4)] [:symmetra :_skeptical (scoot 4)]]
      "What a shame. It may be a mistake, but I suppose I should go, considering I threw the match too."]
     ["D.Va" [[:lucio :_jammin (scoot -4)] [:symmetra :_sadSmile (scoot 4)] [:dva :_fingerGuns (scoot -4)]]

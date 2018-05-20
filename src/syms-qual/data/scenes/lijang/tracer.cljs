@@ -99,7 +99,7 @@
    [:spawn :tracer 3]
    [:miranda/dialogue
     ["Doomfist" [[:doomfist_tracer :_doomfistArmsCrossSmirk (scoot -19)] [:symmetra :_neutral (scoot 9)]]
-     "Indeed. I, personally, am quite glad they have turned from affordable furnishings to affordable military grade weaponry."]
+     "Indeed. I personally am quite glad they have turned from affordable furnishings to affordable military grade weaponry."]
     ["Tracer" [[:doomfist_tracer :_tracerConfusedLeftSmirk (scoot -19)] [:symmetra :_neutral (scoot 9)]]
      "How do they keep the prices that low?"]
     ["Doomfist" [[:doomfist_tracer :_doomfistPointUp (scoot -19)] [:symmetra :_neutral (scoot 9)]]

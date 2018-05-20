@@ -90,7 +90,7 @@
      "So about this great vacation opp--"]
     ["Reaper" [[:reaper :_point-up (scoot -15)] [:soldier76 :_armsCrossedReverse (scoot 50)]
                [:symmetra :_neutral (scoot -14)]]
-     "Look. Once, while on the crapper, I grabbed a cooking magazine Genji left on the stand and then attempted to make a Japanese pizza with corn and mayo. Let’s just say it was a colossal failure and those are dark times I’ve put behind me."]
+     "Look. Once, while on the crapper, I grabbed a cooking magazine Genji left on the stand and attempted to make Japanese pizza with corn and mayo. Let’s just say it was a colossal failure and those are dark times I’ve put behind me."]
     ["Symmetra" [[:reaper :_neutral (scoot -15)] [:soldier76 :_armsCrossedReverse (scoot 50)]
                  [:symmetra :_frustrated (scoot -14)]]
      "You are a strange and confusing man."]

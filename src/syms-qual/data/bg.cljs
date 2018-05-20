@@ -17,7 +17,10 @@
    "blizzard-world-party"
 
    "dorado-calveras"
+   "dorado-hotel"
    "dorado-mei"
+   "dorado-roof"
+   "dorado-room"
    "dorado-sombra-a"
    "dorado-sombra-b"
    "dorado-sombra-c"

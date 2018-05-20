@@ -13,7 +13,7 @@
      "Cállate, abuelo."]
     ["Reaper" [[:reaper :_explain (scoot -6)] [:sombra :_awkward (scoot -14)] [:symmetra :_1000Mile (scoot 4)]]
      "Ah, my apologies, apparently I only imagined that my teammate was massively gay for you and that \"Bossy in the hottest possible way,\" was something that she specifically said."]
-    ["Symmetra" [[:reaper :_neutral (scoot -6)] [:sombra :_awkward (scoot -14)] [:symmetra :_coy (scoot 4)]]
+    ["Symmetra" [[:reaper :_neutral (scoot -6)] [:sombra :_awkward (scoot -14)] [:symmetra :_embarassed (scoot 4)]]
      "What?"]
     ["Sombra" [[:reaper :_neutral (scoot -6)] [:sombra :_explainAngry (scoot -14)] [:symmetra :_awkward (scoot 4)]]
      "That’s it, Gabe. You know that prank I pulled where I made it so that the cable box only showed back to back runs of Guy Fieri? Say goodbye to your novellas, abuelo, it’s Diners, Drive-Ins and Dives for the rest of your natural life."]

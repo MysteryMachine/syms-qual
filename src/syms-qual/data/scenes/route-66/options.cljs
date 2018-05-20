@@ -183,7 +183,7 @@
    [:diner :dialogue [:option 3 :ana] 1]
    [:miranda/dialogue
     ["Ana" [[:mccree :_phoneTexting] [:ana :_explain (scoot -20)] [:symmetra :_neutral]]
-     "Back to strategy, I wanted to warn you about my daughter, Fareeha, who uses long range rockets. I think she will pose a threat to your static defenses."]
+     "Anyway, as it's your first day, I do have a piece of advice for you. My daughter, Fareeha, is on the other team. She uses long range rockets, which I think will pose a threat to your static defenses."]
     ["McCree" [[:mccree :_selfie] [:ana :_drink (scoot -20)] [:symmetra :_neutral]]
      "I’d be extra careful with her today. She’s been dumped and hasn’t been taking it well."]
     ["Ana" [[:mccree :_selfie] [:ana :_cranky (scoot -20)] [:symmetra :_neutral]]
@@ -207,7 +207,7 @@
      "But Hanzo hasn’t sent me a selfie back."]
     ["Ana" [[:mccree :_phoneSteal2] [:ana :_explain (scoot -20)] [:symmetra :_neutral]]
      "You best be on your way. This is going to take a while."]
-    ["McCree" [[:mccree :_phoneSteal2] [:ana :_drink (scoot -20)] [:symmetra :_neutral]]
+    ["McCree" [[:mccree :_phoneSteal2] [:ana :_drink (scoot -20)] [:symmetra :_awkward]]
      "Ana, pleeeeeeease! I was gonna get that hot left titty pic!"]
     :transition :miranda/conditional
     option-end]

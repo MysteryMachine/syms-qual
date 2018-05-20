@@ -9,7 +9,7 @@
      "It’s uh, quiet here, isn’t it?"]
     ["Symmetra" [[:reinhardt :_neutral (scoot -26)] [:pharah :_reverseDowncast (scoot 10)]
                   [:symmetra :_explainUncomfortable (scoot 10)]]
-     "I, for one, am enjoying the silence."]
+     "I for one, am enjoying the silence."]
     ["Pharah" [[:reinhardt :_neutral (scoot -26)] [:pharah :_reverseDowncast (scoot 10)]
                [:symmetra :_neutral (scoot 10)]]
      "…"]
@@ -140,7 +140,7 @@
    [:miranda/dialogue
     ["Pharah" [[:reinhardt :_neutral (scoot -26)] [:pharah :_reverseEmbarassedBack (scoot 10)]
                [:symmetra :_confused (scoot 10)]]
-     "It’s an urban legend? All I know is, was that teen me was incredibly psyched to turn into some kind of queer super devil and start a coven and go live in the woods. "]
+     "It’s an urban legend? All I know is that teen me was incredibly psyched to turn into some kind of queer super devil and start a coven and go live in the woods. "]
     ["Reinhardt" [[:reinhardt :_pointUp (scoot -26)] [:pharah :_reverseNeutral (scoot 10)]
                   [:symmetra :_skeptical (scoot 10)]]
      "And those urban legends always start with a grain of truth, Satya! I’m sure they actually turned into the devil."]

@@ -22,7 +22,7 @@
     ["Reinhardt" [[:reinhardt :_explainConcernedBack (scoot -10)] [:ana :_neutral (scoot -12)] [:symmetra :_smile (scoot 5)]]
      "Don’t be all business, Ana. If she’s worried, she needs a joke."]
     ["Ana" [[:reinhardt :_neutral (scoot -10)] [:ana :_drink (scoot -12)] [:symmetra :_neutral (scoot 5)]]
-     "Fine. Anyway, Satya, darling, do not worry about our composition. I have been informed by a reliable source that both Sombra and Moira are ditching the match today for something they described as 'weeb shit'."]
+     "Fine. Anyway, Satya, darling, do not worry about our composition. I have been informed by a reliable source that both Sombra and Moira are ditching the match today for something they described as 'weeb shit.'"]
     ["Reinhardt" [[:reinhardt :_explainSmileBack (scoot -10)] [:ana :_drink (scoot -12)] [:symmetra :_awkward (scoot 5)]]
      "Was your reliable source Sombra's blog? I tried to follow it for a while, but I did not understand what a waifu was."]
     ["Ana" [[:reinhardt :_neutral (scoot -10)] [:ana :_explain (scoot -12)] [:symmetra :_awkward (scoot 5)]]

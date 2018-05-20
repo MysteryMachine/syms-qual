@@ -252,12 +252,12 @@
        :new-game? false,
        :route-66/reaper true})
 
-  (def date-10
+  (def day-10
     {:hollywood/sombra-chat true,
  :points/payload 6,
  :volskaya/sombra 1,
  :eichenwalde/hanzo-chat true,
- :points/sombra 5,
+ :points/sombra 2,
  :points/puppy 6,
  :gibralter/mccree-chat true,
  :route-66/roadhog true,

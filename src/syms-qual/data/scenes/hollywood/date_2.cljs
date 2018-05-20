@@ -5,7 +5,7 @@
 (def data
   {[:objective :sombra :date 2]
    [:miranda/dialogue
-    ["Sombra" [[:sombra :_awkwardSad (scoot -6)] [:symmetra :_sad (scoot 2)]]
+    ["Sombra" [[:sombra :_awkwardSad (scoot -80 -6 1.5)] [:symmetra :_sad (scoot 80 2 1.5)]]
      "Hey, listen. I know I was out of line. I, uh, sorry."]
     :-> [:objective :sombra :date :option 1]]
 
@@ -44,7 +44,7 @@
     ["Symmetra" [[:sombra :_neutral2 (scoot -6)] [:symmetra :_explainSad (scoot 2)]]
      "I don't know if..."]
     ["Sombra" [[:sombra :_explain (scoot -6)] [:symmetra :_neutral (scoot 2)]]
-     "You wanna help common people, right? Then you need to actually talk to them. I'll introduce you to  Reaper’s Tia, she is literally my favorite person. Come carry groceries for Tia Asuncion and her Omnic boytoy, and watch some novellas with us. Get a taste of normal life. How about tonight?"]
+     "Come with me. I'll introduce you to  Reaper’s Tia, she is literally my favorite person. Carry groceries for Tia Asuncion and her Omnic boytoy, and watch some novellas with us. Get a taste of normal life. How about tonight?"]
     ["Symmetra" [[:sombra :_neutral (scoot -6)] [:symmetra :_dissappointed (scoot 2)]]
      "I am not sure I can make it tonight. These matches exhaust me, and I will need some quiet alone time before I am ready."]
     ["Sombra" [[:sombra :_explainHand (scoot -6)] [:symmetra :_smile (scoot 2)]]
@@ -69,7 +69,7 @@ She spent most of the episode alternating between pulling up fan memes about rec
 
    [:hotel :intro]
    [:miranda/narration
-    "After the screening, you returned to your hotel with a hard-light tupperware of full of treats and, about 20 minutes after you’d walked out the door, a snapchat from Sombra."
+    "After the screening, you returned to your hotel with a hard-light tupperware of full of treats and, after about 20 minutes, a snapchat from Sombra."
     :-> [:hotel :cutscene]]
 
    [:hotel :cutscene]

@@ -11,7 +11,7 @@
      "Feck no. I’m not getting anywhere near there. I’d rather choke on my Cröönchy Stars. I’m not to pleased to have that damn tin can on our team and I’d like to stay as far away from them as possible."]
     ["Symmetra" [[:symmetra :_explainWTF (scoot 0)] [:torbjorn :_cranky (scoot -2)]]
      "I see."]
-    ["Torbjorn" [[:symmetra :_neutral (scoot 0)] [:torbjorn :_pointUp (scoot -2)]]
+    ["Torbjorn" [[:symmetra :_WTF (scoot 0)] [:torbjorn :_pointUp (scoot -2)]]
      "But I suppose I’m also kind of torn. I don’t like Omnics, but I do like turrets. I just can’t make up my mind which of those things is more important."]
     ["Symmetra" [[:symmetra :_explainWTF (scoot 0)] [:torbjorn :_neutral (scoot -2)]]
      "Our team is quite adept at turret based combat."]

@@ -52,7 +52,7 @@
     ["Ana" [[:mccree :_coffeeHold] [:ana :_drink (scoot -20)] [:symmetra :_neutral]]
      "He sure does."]
     ["Symmetra" [[:mccree :_coffeeHold] [:ana :_drink (scoot -20)] [:symmetra :_confused]]
-     "I...see. Well, both of you have a history with Reyes. A dark and colorful one. What could possibly motivate you to engage in this sort of activity together?"]
+     "I...see. Well, both of you have a history with Reyes. And seemingly a complicated one. What could possibly motivate you to engage in this sort of activity together?"]
     ["Ana" [[:mccree :_coffeeHold] [:ana :_explain (scoot -20)] [:symmetra :_neutral]]
      "Well, after the match, people upvote you if you do well. You see, the best reason to support in these matches is for the compliments."]
     ["McCree" [[:mccree :_coffeePoint] [:ana :_sass (scoot -20)] [:symmetra :_neutral]]
