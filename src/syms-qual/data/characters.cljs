@@ -27,6 +27,18 @@
     "_pointUpLeft"
     "_pointUpRight"]
 
+   "Brigitte"
+   ["_explain"
+    "_explainUnsure"
+    "_handHead"
+    "_lookBack"
+    "_teacupLookBack"
+    "_neutral"
+    "_pie"
+    "_pieLaugh"
+    "_pieTalk"
+    "_wave"]
+
    "Clouds"
    ["_bear"
     "_centaur"
@@ -182,6 +194,18 @@
     "_stop"
     "_strained"
     "_what"]
+
+    "Gifts"
+    ["_bear"
+     "_bronze"
+     "_cake"
+     "_diamond"
+     "_gm"
+     "_gold"
+     "_orb"
+     "_photo"
+     "_plat"
+     "_skates"]
 
    "Hands"
    ["_junkExplain"
@@ -986,8 +1010,10 @@
 
    "Torbjorn"
    ["_cranky"
+    "_crankyCart"
     "_handHip"
     "_handHipAngry"
+    "_handHipAngryCart"
     "_holdCheek"
     "_lookAway"
     "_neutral"

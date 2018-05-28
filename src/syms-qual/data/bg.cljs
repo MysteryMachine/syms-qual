@@ -13,8 +13,10 @@
 
    "blizzard-world-bronze"
    "blizzard-world-gate"
-   "blizzard-world-grandmaster"
+   "blizzard-world-gm"
+   "blizzard-world-hotel"
    "blizzard-world-party"
+   "blizzard-world-picnic"
 
    "dorado-calveras"
    "dorado-hotel"

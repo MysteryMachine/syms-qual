@@ -306,7 +306,7 @@
    :miranda/internal
    {:max-reports nil,
     :miranda/transition
-    {:miranda/animation-name [:blizzard-world [:gate :intro] 0]},
+    {:miranda/animation-name [:blizzard-world [:hotel :intro] 0]},
     :loading? false},
    :lijiang/dva-chat true,
    :anubis/pharah-chat true,
@@ -317,6 +317,6 @@
    :points/pharah 2,
    :route-66/first-chat :reaper,
    :points/junkrat 2,
-   :scene [:blizzard-world [:gate :intro] 0],
+   :scene [:blizzard-world [:hotel :intro] 0],
    :new-game? false,
    :route-66/reaper true})

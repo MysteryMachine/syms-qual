@@ -84,4 +84,4 @@
     [:hotel :date-3 3]
      [:miranda/narration
       "Sombra called you a cab and escorted you back to your hotel. You slept soundly on her shoulder on the ride there. Once inside you collapsed into bed and fell into a deep sleep and dreamed of Canadian lakes."
-      :=> [:blizzard-world [:gate :intro] 0]]})
+      :=> [:blizzard [:hotel :intro] 0]]})

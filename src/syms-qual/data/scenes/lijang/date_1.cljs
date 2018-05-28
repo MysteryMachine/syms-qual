@@ -110,7 +110,7 @@
     ["Symmetra" [[:junkrat :_teaHold (scoot -10)] [:symmetra :_teaDrink]]
      "It’s good that you keep busy, at least."]
     ["Junkrat" [[:junkrat :_teaPointUp (scoot -10)] [:symmetra :_teaSmile]]
-     "Boy do I! On top of this, I have a sweater I promised Roadie I’d knit him. Do you know how late that is? It was supposed to be a Chrissy prezzy! Christmas was 7 months ago! Granted, Roadie needs a LOT of sweater bits to keep him warm."]
+     "Boy do I! On top of this, I have a jumper I promised Roadie I’d knit him. Do you know how late that is? It was supposed to be a Chrissy prezzy! Christmas was 7 months ago! Granted, Roadie needs a LOT of knitted bits to keep him warm."]
     ["Symmetra" [[:junkrat :_teaDrink (scoot -10)] [:symmetra :_teaThinking]]
      "I have always thought you two needed additional clothing in some of the harsher climes that we visit."]
     ["Junkrat" [[:junkrat :_teaPoint (scoot -10)] [:symmetra :_teaHold]]

@@ -158,9 +158,9 @@
    [:mei :text]
    [:miranda/narration
     "It turns out the enemy team also thought the results of the match were a foregone conclusion and had headed for the bar. The only member remaining on the enemy team was Bastion, who you and Mei had little trouble disposing of together. A well placed teleporter ensured you two that you were always able to sit on the point. It did not move an inch. Mei rewarded you with a questionable milkshake, which you felt too awkward to refuse. The ancient protein tasted chalky, and you did not need to go to the restroom for the next week."
-    :=> [:blizzard-world [:gate :intro] 0]]
+    :=> [:blizzard [:hotel :intro] 0]]
 
    [:spawn :mei-b]
    [:miranda/narration
     "It turns out you cannot carry an Overwatch match like you could a homework assignment back in the Vishkar Academy. As soon as the spawn doors opened, Bastion’s powerful turret tore you up from range, leading to a quick and resolute defeat. As you went forward to exchange post game pleasantries with the other team you were surprised to discover that Bastion had been the only one there, as all other members of the enemy team had also left for the bar. Determined to not let your abandonment ruin your night, you head back to your hotel, take a warm bubble bath and tuck in early."
-    :=> [:blizzard-world [:gate :intro] 0]]})
+    :=> [:blizzard [:hotel :intro] 0]]})

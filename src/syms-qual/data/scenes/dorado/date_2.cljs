@@ -130,7 +130,7 @@
       [:hotel :sombra 11]
         [:miranda/narration
          "You call yourself a cab and wave goodbye to Sombra, who, despite trying to act cheerful, seems a bit somber. You arrive back at the hotel and despite your exhaustion aren't yet able to fall asleep. Now that you're alone all this talk of ghosts has given you a case of the jitters. You finally pass out just as the morning sun is beginning to peek through your curtains."
-         :=> [:blizzard-world :gate 0]]
+         :=> [:blizzard :hotel 0]]
 
       [:room :sombra :option 0 0]
    (concat
