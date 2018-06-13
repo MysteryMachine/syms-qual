@@ -368,3 +368,9 @@ span.symmetra{
 .zenyatta{
     border-color:  #ceac53;
 }
+
+.fadeout {
+    background-color: black;
+    position: absolute;
+    z-index: 200;
+}

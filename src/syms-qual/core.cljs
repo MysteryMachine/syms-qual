@@ -154,6 +154,14 @@
     "Continue" (continue state)
     "Return" (main-menu state)))
 
+(def fade-out-target?
+  #{[:blizzard-world [:picnic :brigitte 2] 10]})
+
+(defn fade-out [state]
+  (when (fade-out-target? (util/scene state))
+    (let [{:keys [x y]} (:window state)]
+      [:div.fadeout {:style {:opacity (min (/ (:miranda/time state) 2000)) :width x :height y}}])))
+
 (defonce state-atom (reagent.core/atom base-state))
 
 (defonce saved-state (atom {}))
@@ -192,7 +200,8 @@
 
 (defn app []
   (let [state @state-atom]
-    [:div.syms-qual 
+    [:div.syms-qual
+     (fade-out state)
      [:div.miranda.option-button-holder
       (when (and (not= :title-screen (first (:scene state)))
                  (not (miranda/in-loading-screen? state)))
