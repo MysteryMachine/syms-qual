@@ -46,7 +46,7 @@
     ["D.Va" [[:lucio :_jammin (scoot -4)] [:symmetra :_sadSmile (scoot 4)] [:dva :_fingerGuns (scoot -4)]]
      "Ptchoooow, alright! Let’s do it!"]
     :transition :miranda/conditional
-    [#(> (:points/junkrat %) 0) [:-> [:arcade :junkrat :cutscene 0]]
+    [#(= (:points/junkrat %) 2) [:-> [:arcade :junkrat :cutscene 0]]
      :else                      [:-> [:arcade :junkrat :no-date 0]]]]
 
    [:arcade :junkrat :cutscene 0]

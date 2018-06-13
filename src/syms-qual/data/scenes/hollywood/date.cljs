@@ -42,7 +42,7 @@
     ["Reaper" [[:reaper :_reverseLeave (scoot -6)] [:sombra :_point (scoot -14)] [:symmetra :_craftTurret (scoot 4)]]
      "Time to go put this team on my back. Later, fuckers."]
     :transition :miranda/conditional
-    [#(> 1 (:sombra/points %)) [:-> [:set :sombra :date :cutscene 0]]
+    [#(= (:points/sombra %) 2) [:-> [:set :sombra :date :cutscene 0]]
      :else [:-> [:set :sombra :non-date :cutscene]]]]
 
    [:set :sombra :date :cutscene 0]

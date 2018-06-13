@@ -20,9 +20,9 @@
 
     ["Go with McCree" :gibralter/mccree-chat
      [:-> [:spawn :mccree :yes]]]
-     ["Go with D.Va and Tracer" #(and (:gibralter/dva-chat %) (= 6 (:points/payload %)))
+    ["Go with D.Va and Tracer" #(and (:gibralter/dva-chat %) (= 7 (:points/payload %)))
       [:-> [:spawn :dva :a :option :yes]]]
-    ["Go on the payload" #(and (:gibraler/dva-chat %) (not= 6 (:points/payload %)))
-       [:-> [:spawn :dva :b :option :yes]]]
-    ["Go with Pharah" :gibralter/mercy-chat
+    ["Go on the payload" #(and (:gibraler/dva-chat %) (not= 7 (:points/payload %)))
+     [:-> [:spawn :dva :b :option :yes]]]
+    ["Go with Pharah" #(and (:gibralter/mercy-chat %) (= (:points/pharah %) 2))
      [:-> [:spawn :mercy :yes]]]]})

@@ -102,7 +102,7 @@
      ["Sombra" [[:symmetra :_WTF (scoot 5)] [:sombra :_drinkExplain (scoot 12)] [:doomfist :_drinkEyeRoll (scoot -20)]] "I mean even if that doesn't work, I can just lock them out of coffee, right? That’s terrifying by itself."]
     [nil [[:symmetra :_explainUncomfortable (scoot 5)] [:sombra :_drinkLaugh (scoot 12)] [:doomfist :_drinking (scoot -20)]] "You have a few more drinks with the Talon operatives as they continue to elaborate on their future ghost plans. As the conversation winds down, they seem to be preparing to leave."]
      :transition :miranda/conditional
-     [#(= (:points/sombra %) 2) [:-> [:calveras :sombra :date]]
+     [#(= (:points/sombra %) 3)  [:-> [:calveras :sombra :date]]
       :else                      [:-> [:calveras :sombra :no-date]]]]
 
     [:calveras :sombra :no-date]

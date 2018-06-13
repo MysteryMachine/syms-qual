@@ -162,22 +162,30 @@
 
 (defn load
   ([] (load @saved-state))
-  ([a]
+  ([& a]
    (reset!
     state-atom
     (case a
-      2 dump/day-2
-      3 dump/day-3
+      [2] dump/day-2
+      [3] dump/day-3
       [3 :date] dump/day-3-date
-      4 dump/day-4
-      5 dump/day-5
-      6 dump/day-6
-      7 dump/day-7
-      8 dump/day-8
-      9 dump/day-9
-      10 dump/day-10
-      11 dump/day-11 
-      a))
+      [4] dump/day-4
+      [5] dump/day-5
+      [5 :payload] dump/day-5-payload
+      [6] dump/day-6
+      [6 :payload] dump/day-6-payload
+      [7] dump/day-7
+      [7 :payload] dump/day-7-payload
+      [8] dump/day-8
+      [8 :payload] dump/day-8-payload
+      [8 :clouds] dump/day-8-clouds
+      [9] dump/day-9
+      [9 :payload] dump/day-9-payload
+      [10] dump/day-10
+      [10 :payload] dump/day-10-payload
+      [11] dump/day-11
+      [11 :payload] dump/day-11-payload
+      (first a)))
    ((carmen.impl.events/resize! state-atom options))))
 
 (def game (miranda/reagent-component state-atom graph options))

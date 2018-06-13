@@ -11,7 +11,7 @@
       "Thanks. Getting away for a bit sound like a wonderful idea."]
      ["Pharah" [[:junkrat :_ballPointUp (scoot -9)] [:symmetra :_strainedSmile (scoot 3)]]
       "No worries! I don’t mean to crowd you but I did want to say congrats on finishing qualifying and all that. Have a good ‘un."]
-:-> [:party :junkrat 1]]
+     :-> [:picnic :brigitte 0]]
 
   [:party :junkrat 1]
    [:miranda/dialogue

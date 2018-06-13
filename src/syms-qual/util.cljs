@@ -7,7 +7,8 @@
    [transition
     (fn [state]
       (reduce
-       (fn [state point-name] (update state point-name inc))
+       (fn [state point-name]
+         (update state point-name inc))
        state
        point-names))]])
 

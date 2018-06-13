@@ -31,9 +31,11 @@
     ["Talk to Genji" (comp not :dorado/genji-chat)
      (toggle-transition [:-> [:spawn :genji 0]] :dorado/genji-chat)]
 
-    ["Go with Mei" :dorado/mei-chat
+    ["Go with Mei" #(and (:dorado/mei-chat %) (= 8 (:points/payload %)))
      [:-> [:spawn :mei :yes]]]
+    ["Go on the payload" #(and (:dorado/mei-chat %) (not= 8 (:points/payload %)))
+     [:-> [:spawn :mei :b :option :yes]]]
     ["Go to the bar" #(or (:dorado/sombra-chat %) (:dorado/genji-chat %))
      [:-> [:spawn :sombra :yes]]]
     ["Go with Zenyatta" #(or (:dorado/sombra-chat %) (:dorado/genji-chat %) (:dorado/mei-chat %))
-     [:-> [:spawn :zenyatta :yes]]]]})
+     [:-> [:zenyatta]]]]})

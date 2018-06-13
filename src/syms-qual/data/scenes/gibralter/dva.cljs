@@ -46,14 +46,14 @@
    [:miranda/dialogue
     ["Symmetra" [[:tracer :_neutral (scoot -18)] [:dva :_neutral (scoot -5)] [:symmetra :_explainUncomfortable (scoot 8)]] "I mean yes, your stream is quite enjoyable. I had a good time participating in it. But there is a time and a place for such things and this is neither."]
     :transition :miranda/conditional
-    [#(= (:points/payload %) 6) [:-> [:spawn :dva :a]]
+    [#(= (:points/payload %) 7) [:-> [:spawn :dva :a]]
      :else                      [:-> [:spawn :dva :b]]]]
 
    [:spawn :dva :good-strim :b]
    [:miranda/dialogue
     ["Symmetra" [[:tracer :_neutral (scoot -18)] [:dva :_neutral (scoot -5)] [:symmetra :_explainWTF (scoot 8)]] "Sure. But I want to win this match."]
     :transition :miranda/conditional
-    [#(= (:points/payload %) 6) [:-> [:spawn :dva :a]]
+    [#(= (:points/payload %) 7) [:-> [:spawn :dva :a]]
      :else                      [:-> [:spawn :dva :b]]]]
 
    [:spawn :dva :a]

@@ -59,7 +59,7 @@
     ["Mei" [[:mei :_pointUp (scoot 8)] [:zenyatta :_neutral (scoot -18)] [:symmetra :_neutral (scoot 6)]] "Oh! I have a suggestion! Effulgent!"]
     ["Zenyatta" [[:mei :_neutral (scoot 8)] [:zenyatta :_pointUp (scoot -18)] [:symmetra :_neutral (scoot 6)]] "Yes. The effulgent light of the Iris more certainly shines on my sweet cat."]
     :transition :miranda/conditional
-    [#(= (:points/payload %) 6) [:-> [:spawn :mei :a]]
+    [#(= (:points/payload %) 8) [:-> [:spawn :mei :a]]
      :else                      [:-> [:spawn :mei :b]]]]
 
    [:spawn :mei :a]
@@ -136,7 +136,7 @@
    [:miranda/dialogue
     ["Symmetra" [[:symmetra :_explainWTF (scoot 6)] [:zenyatta :_neutral (scoot -5)]] "Fine."]
     ["Zenyatta" [[:symmetra :_WTF (scoot 6)] [:zenyatta :_explain (scoot -5)]] "To exist is to suffer. Let us all suffer under the calming tones of vaporwave and some extended crow pose."]
-    :-> [:spawn :mei-b]]
+    :-> [:zenyatta]]
 
     [:spawn :mei :b :option :yes]
     [:miranda/dialogue

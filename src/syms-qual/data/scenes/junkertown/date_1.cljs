@@ -50,19 +50,16 @@
     "I’m sorry, Jamie. I value your friendship but I don’t share your romantic intentions."]
 
    [:spawn :junkrat :choice 2 1]
-   (concat
-    [:miranda/dialogue
-     ["Junkrat" [[:junkrat :_ballConfused (scoot -3)] [:efi :_neutral (scoot -18)] [:symmetra :_neutral (scoot 3)]] "I see. Well! That’s fine!"]
-     ["Efi" [[:junkrat :_ballSmileNod (scoot -3)] [:efi :_smug (scoot -18)] [:symmetra :_neutral (scoot 3)]] "Oh boo! I have to cross the ship out from my shipping matrix."]
-     ["Junkrat" [[:junkrat :_fibbinSad (scoot -3)] [:efi :_smug (scoot -18)] [:symmetra :_neutral (scoot 3)]] "Efi...I still feel like having a shipping chart is maybe not a thing you should do?"]
-     ["Efi" [[:junkrat :_ballSmileNod (scoot -3)] [:efi :_pointUpEyesClosed (scoot -18)] [:symmetra :_neutral (scoot 3)]] "It’s a matrix, Junky. Don’t devalue the mathematical value of my shipping matrix."]
-     ["Junkrat" [[:junkrat :_ballExplainConcerned (scoot -3)] [:efi :_smug (scoot -18)] [:symmetra :_neutral (scoot 3)]] "Look, Efi. Relationships, to some people, aren’t just a casual thing you get in and out of. It’s good to respect people’s feelings."]
-     ["Junkrat" [[:junkrat :_ballPointUpSerious (scoot -3)] [:efi :_smug (scoot -18)] [:symmetra :_neutral (scoot 3)]] "Satya shouldn’t need to feel awkward about saying no."]
-     ["Symmetra" [[:junkrat :_ballSmileNod (scoot -3)] [:efi :_neutral (scoot -18)] [:symmetra :_explainUncomfortable (scoot 3)]] "Thank you, Jamie."]
-     ["Junkrat" [[:junkrat :_ballBack (scoot -3)] [:efi :_neutral (scoot -18)] [:symmetra :_neutral (scoot 3)]] "Well! Let’s finish installing this part. Roadie will be here soon."]]
-    (inc-transition
-     [:-> [:spawn :junkrat 2]]
-     :junkrat/no-date))
+   [:miranda/dialogue
+    ["Junkrat" [[:junkrat :_ballConfused (scoot -3)] [:efi :_neutral (scoot -18)] [:symmetra :_neutral (scoot 3)]] "I see. Well! That’s fine!"]
+    ["Efi" [[:junkrat :_ballSmileNod (scoot -3)] [:efi :_smug (scoot -18)] [:symmetra :_neutral (scoot 3)]] "Oh boo! I have to cross the ship out from my shipping matrix."]
+    ["Junkrat" [[:junkrat :_fibbinSad (scoot -3)] [:efi :_smug (scoot -18)] [:symmetra :_neutral (scoot 3)]] "Efi...I still feel like having a shipping chart is maybe not a thing you should do?"]
+    ["Efi" [[:junkrat :_ballSmileNod (scoot -3)] [:efi :_pointUpEyesClosed (scoot -18)] [:symmetra :_neutral (scoot 3)]] "It’s a matrix, Junky. Don’t devalue the mathematical value of my shipping matrix."]
+    ["Junkrat" [[:junkrat :_ballExplainConcerned (scoot -3)] [:efi :_smug (scoot -18)] [:symmetra :_neutral (scoot 3)]] "Look, Efi. Relationships, to some people, aren’t just a casual thing you get in and out of. It’s good to respect people’s feelings."]
+    ["Junkrat" [[:junkrat :_ballPointUpSerious (scoot -3)] [:efi :_smug (scoot -18)] [:symmetra :_neutral (scoot 3)]] "Satya shouldn’t need to feel awkward about saying no."]
+    ["Symmetra" [[:junkrat :_ballSmileNod (scoot -3)] [:efi :_neutral (scoot -18)] [:symmetra :_explainUncomfortable (scoot 3)]] "Thank you, Jamie."]
+    ["Junkrat" [[:junkrat :_ballBack (scoot -3)] [:efi :_neutral (scoot -18)] [:symmetra :_neutral (scoot 3)]] "Well! Let’s finish installing this part. Roadie will be here soon."]
+    :-> [:spawn :junkrat 2]]
 
    [:spawn :junkrat :choice 2 0]
    (concat
@@ -71,10 +68,8 @@
      ["Efi" [[:junkrat :_shyblush (scoot -3)] [:efi :_pointUp (scoot -18)] [:symmetra :_smile (scoot 3)]] "Yes! I knew there was some chemistry. I’m so excited to see cute vacation photos of you when you go steady!"]
      ["Junkrat" [[:junkrat :_wrist (scoot -3)] [:efi :_neutral (scoot -18)] [:symmetra :_smile (scoot 3)]] "Let’s be honest, the only point to have a relationship in the first place is to have cute vacation photos."]
      ["Efi" [[:junkrat :_ballSmileNod (scoot -3)] [:efi :_smile (scoot -18)] [:symmetra :_smile (scoot 3)]] "Agreed!"]
-     ["Junkrat" [[:junkrat :_ballPointUp (scoot -3)] [:efi :_neutral (scoot -18)] [:symmetra :_smile (scoot 3)]] "We gotta focus, though, loves. We shouldn’t delay! Date time approaches!"]]
-    (inc-transition
-     [:-> [:spawn :junkrat 2]]
-     :points/junkrat))
+     ["Junkrat" [[:junkrat :_ballPointUp (scoot -3)] [:efi :_neutral (scoot -18)] [:symmetra :_smile (scoot 3)]] "We gotta focus, though, loves. We shouldn’t delay! Date time approaches!"]
+     :-> [:spawn :junkrat 2]])
 
    [:spawn :junkrat 2]
    (concat
@@ -89,8 +84,8 @@
    [:miranda/dialogue
     ["Roadhog" [[:junkrat :_ballSmile (scoot 5)] [:roadhog :_basket (scoot -80 -22 1)] [:symmetra :_smile (scoot 8)]] "Hi."]
     :transition :miranda/conditional
-    [#(= (:points/junkrat %) 3) [:-> [:spawn :no-date :talk]]
-     :else                      [:-> [:spawn :junkrat 4]]]]
+    [#(= (:points/junkrat %) 3) [:-> [:spawn :junkrat 4]]
+     :else                      [:-> [:spawn :no-date :talk]]]]
 
    [:spawn :no-date :talk]
    [:miranda/dialogue

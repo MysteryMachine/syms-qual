@@ -60,9 +60,13 @@
 
 (defmethod transition :miranda/mutation->basic
   [state graph options args]
-  (data/basic-transition
-   (data/alter-state state graph)
-   graph options))
+  (let [[_ _ n] (util/scene state)
+        scene (util/scene-data state graph)
+        subscene-count (count (:subscenes scene))
+        new-state (if (>= n (dec subscene-count))
+                    (data/alter-state state graph)
+                    state)]
+   (data/basic-transition new-state graph options)))
 
 (defn transition!
   [state-atom graph options]

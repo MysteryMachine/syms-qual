@@ -5,8 +5,7 @@
   (fn [state]
     (-> state
         (assoc  (keyword "route-66" name) true)
-        (update :route-66/first-chat #(or %1 %2) (keyword name))
-        (update (keyword "points" date) + 1))))
+        (update :route-66/first-chat #(or %1 %2) (keyword name)))))
 
 (defn talked [& names]
   (fn [state] (reduce #(and %1 (%2 state)) true names)))

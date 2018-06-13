@@ -29,7 +29,7 @@
                   [:symmetra :_neutral (scoot 10)]]
      "Well, if you want to talk about it, I’m here for you, sweetie."]
     :transition :miranda/conditional
-    [#(> (:points/pharah %) 0)  [:-> [:objective :pharah :date 0]]
+    [#(= (:points/pharah %) 2)  [:-> [:objective :pharah :date 0]]
      :else                      [:-> [:objective :pharah :not-date 0]]]]
 
    [:objective :pharah :date 0]
