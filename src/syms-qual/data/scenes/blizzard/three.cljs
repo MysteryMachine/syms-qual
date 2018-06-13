@@ -50,7 +50,7 @@
 
    [:picnic :brigitte 0]
     [:miranda/narration
-     "You head to the empty picnic area to take a breather. As promised it is mostly empty aside from a lone woman sitting on the far side of square who you don’t recognize. Thankfully, she seems content to leave you alone, and after sitting in silence for some time you begin to regain your composure. Finally, as you are about to leave to return to the party, she approaches you."
+     "You head to the picnic area to take a breather. As promised it is mostly empty aside from a lone woman sitting on the far side of square who you don’t recognize. Thankfully, she seems content to leave you alone, and after sitting in silence for some time you begin to regain your composure. Finally, as you are about to leave to return to the party, she approaches you."
     :-> [:picnic :brigitte 1]]
 
    [:picnic :brigitte 1]
@@ -109,9 +109,9 @@
     [:picnic :brigitte :option 0 2]
      [:miranda/dialogue
       ["Symmetra" [[:brigitte :_neutral (scoot -5)] [:symmetra :_explain (scoot 3)]]
-        "The official narrative isn’t the only narrative. We have a mission statement, but it’s really up to the people working here to determine how it gets fulfilled. Overwatch has the resources. So don’t be afraid to use them to make something different."]
+        "The official narrative isn’t the only narrative. We have a mission statement, but it’s really up to the people working here to determine how it gets fulfilled. Overwatch has the resources. So don’t be afraid to experiment."]
       ["Brigitte" [[:brigitte :_explain (scoot -5)] [:symmetra :_smile (scoot 3)]]
-        "I’ll definitely keep that in mind! Finding new ways to use the same materials is a good stepping stone to innovation. Iteration is an important part of the design process."]
+        "I’ll definitely keep that in mind! Finding new ways to use the same materials is an important part of innovation. Iteration is key to the design process."]
        ["Symmetra" [[:brigitte :_neutral (scoot -5)] [:symmetra :_bigSmile (scoot 3)]]
         "It’s nice to have another designer on the team. I mean aside from your father."]
       :-> [:picnic :brigitte 2]]
@@ -130,13 +130,13 @@
        "I brought this pie but I never quite managed to get it onto the snack table."]
       ["Symmetra" [[:brigitte :_pie (scoot -5)] [:symmetra :_explainUncomfortable (scoot 3)]]
        "Certainly, lets go. What kind of pie might I ask?"]
-      ["Brigitte" [[:brigitte :_pieLaugh (scoot -5 6 1.5)] [:symmetra :_smile (scoot 3 11 1.5)]]
+      ["Brigitte" [[:brigitte :_pieLaugh (scoot -5 -11 1.5)] [:symmetra :_smile (scoot 3 -5 1.5)]]
         "Just plain apple. I'm not really much of a baker but I'm trying to learn."]
-      ["Symmetra" [[:brigitte :_pie (scoot 6 17 1.5)] [:symmetra :_explainUncomfortable (scoot 11 19 1.5)]]
+      ["Symmetra" [[:brigitte :_pie (scoot -11 -20 1.5)] [:symmetra :_explainUncomfortable (scoot -5 -13 1.5)]]
          "I'm sure you'll improve with a bit of practice. Baking is a science as they say."]
-      ["Brigitte" [[:brigitte :_pieTalk (scoot 17 35 1.5)] [:symmetra :_laugh (scoot 19 27 1.5)]]
+      ["Brigitte" [[:brigitte :_pieTalk (scoot -20 -35 1.5)] [:symmetra :_laugh (scoot -13 -35 1.5)]]
         "I'm really more of an engineer?"]
-      ["Symmetra" [[:brigitte :_pie (scoot 35 75 2)] [:symmetra :_explainUncomfortable (scoot 27 50 2)]]
+      ["Symmetra" [[:brigitte :_pie (scoot -35 -75 2)] [:symmetra :_explainUncomfortable (scoot -35 -60 2)]]
         "THIS IS A PUNCHLINE"]
-      [nil [[:brigitte :_pie (scoot 75 95 2)] [:symmetra :_explainUncomfortable (scoot 50)]]
+      [nil [[:brigitte :_pie (scoot -75 -95 2)] [:symmetra :_smile (scoot -60 -100 2)]]
           "fading out now"]]})

@@ -32,7 +32,7 @@
    [:miranda/option
     "Symmetra" [[:zarya_rein :_smutty (scoot -10)] [:symmetra :_coy (scoot 5)]]
     "Miss Zaryanova..."
-    "Miss Zaryanova, I can’t deny I haven’t been quietly admiring your strength."]
+    "Miss Zaryanova, I can’t deny I haven been quietly admiring your strength."]
 
    [:spawn :zarya :option 0]
    [:miranda/dialogue
@@ -102,5 +102,5 @@
    [:zarya :cutscene :text]
    [:miranda/narration
     "In their inebriated state, Zarya and Reinhardt decided it would be great fun if they traded weapons, which had mixed results. Zarya had no trouble scoring kills with Reinhardt’s oversized hammer. Reinhardt, however, attempted to use the Particle Cannon as a pistol, insisting on shooting it one handed. With you tagging behind them, the three of you managed to create and impenetrable cluster of shields which allowed you charge quite far into enemy territory."
-    "Despite the unusual strategy, the attack went surprisingly well. That is, until Reinhardt decided to perform his ultimate using Zarya’s gun, shattering the it instantly. You were wiped out before capturing the final point and were unable to recover, since your tanks spent the rest of the match drunkenly laughing at the absurdity of it all."
+    "Despite the unusual strategy, the attack went surprisingly well. That is, until Reinhardt decided to perform his ultimate using Zarya’s gun, shattering it instantly. You were wiped out before capturing the final point and were unable to recover, since your tanks spent the rest of the match drunkenly laughing at the absurdity of it all."
     :=> [:volskaya [:spawn :intro] 0]]})

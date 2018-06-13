@@ -8,7 +8,7 @@
     ["Symmetra" [[:symmetra :_skeptical (scoot 60 0 1)] [:torbjorn :_neutral (scoot -62 -2 1)]]
      "I see you’ve set up quite far forward. Do you think it is wise to be so aggressive on defense? Would it not be more prudent to create a cohesive front line with the rest of our teammates?"]
     ["Torbjorn" [[:symmetra :_skeptical (scoot 0)] [:torbjorn :_lookAway (scoot -2)]]
-     "Feck no. I’m not getting anywhere near there. I’d rather choke on my Cröönchy Stars. I’m not to pleased to have that damn tin can on our team and I’d like to stay as far away from them as possible."]
+     "Feck no. I’m not getting anywhere near there. I’d rather choke on my Cröönchy Stars. I’m not too pleased to have that damn tin can on our team and I’d like to stay as far away from them as possible."]
     ["Symmetra" [[:symmetra :_explainWTF (scoot 0)] [:torbjorn :_cranky (scoot -2)]]
      "I see."]
     ["Torbjorn" [[:symmetra :_WTF (scoot 0)] [:torbjorn :_pointUp (scoot -2)]]

@@ -1,5 +1,5 @@
 (ns syms-qual.data.scenes.junkertown.date-2
-  (:require [carmen.util :as anim :refer [scoot]]
+  (:require [carmen.util :as anim :refer [scoot fade-out fade-in]]
             [syms-qual.util :as util :refer [inc-transition]]))
 
 (def data
@@ -31,8 +31,8 @@
     ["Junkrat" [[:clouds :_whale (scoot 60 40 1)]] "Yes?"]
     ["Symmetra" [[:clouds :_whale (scoot 40 10 1)] [:hands :_symPoint (scoot 0)]] "That cloud over there closely resembles a whale, does it not?"]
     ["Junkrat" [[:clouds :_whale (scoot 10 -20 1)] [:clouds :_dance (scoot 80 30 2)][:hands :_junkPoint (scoot 0)]] "Very like a whale!"]
-    ["Symmetra" [[:clouds :_whale (scoot -20 -80 2)][:clouds :_dance (scoot 30 10 2)] [:hands :_symPoint (scoot 0)]] "And that one’s a woman dancing."]
-    ["Junkrat" [[:clouds :_dance (scoot 0 5 2)] [:clouds :_centaur (scoot 20)] [:hands :_junkExplain (scoot 0)]] "Yeah I think I see it. But those two collided.  She’s still dancing but now she’s like the centaur top half of a giant duck."]
+    ["Symmetra" [[:clouds :_whale (scoot -20 -80 2)][:clouds :_dance (scoot 30 20 2)] [:hands :_symPoint (scoot 0)]] "And that one’s a woman dancing."]
+    ["Junkrat" [[:clouds :_dance (scoot 20)] [:clouds :_centaur (fade-in [20 0] 1)] [:hands :_junkExplain (scoot 0)]] "Yeah I think I see it. But those two collided.  She’s still dancing but now she’s like the centaur top half of a giant duck."]
     ["Symmetra" [[:clouds :_centaur (scoot 20 15 2)]] "Haha, I suppose. Although I think it looks more like a"]
     :-> [:field :option 0]]
 
@@ -101,7 +101,7 @@
     ["Junkrat" [[:clouds :_cone (scoot 10 0 2)]] "That’s not a ice cream cone, it’s face. The face of Snorey McSleepyPants the patron saint of really good naps."]
     ["Symmetra" [[:clouds :_cone (scoot 0 -5 2)]] "I’m not sure I see it."]
     ["Junkrat" [[:clouds :_cone (scoot -5 -10 2)]] "It’s a tiny face, but a great big nose."]
-    ["Symmetra" [[:clouds :_cone (scoot -10 -15 2)][:clouds :_snore (scoot 5 0 2)]] "Oh, it’s clearer now that the winds picked up. It’s grown some straggly bits of hair. They look rather like you don’t they."]
+    ["Symmetra" [[:clouds :_cone (scoot -10)][:clouds :_snore (fade-in [-10 0] 1)]] "Oh, it’s clearer now that the winds picked up. It’s grown some straggly bits of hair. They look rather like you don’t they."]
     ["Junkrat" [[:clouds :_snore (scoot 0 -5 2)]] "Ha, I guess. Your reckon we’re related?"]
     ["Symmetra" [[:clouds :_snore (scoot -5 -10 2)]] "Perhaps."]
     ["Junkrat" [[:clouds :_snore (scoot -10 -15 2)]] "I feel like I ought to get more preferential treatment if we’re family. I’m always asking for their help when I’ve got insomnia but they never respond."]
@@ -112,11 +112,15 @@
     ["Symmetra" [[:clouds :_snore (scoot -35 -40 2)]] "Ah, there it is."]
     ["Junkrat" [[:clouds :_snore (scoot -40 -45 2)]] "…"]
     ["Symmetra" [[:clouds :_snore (scoot -45 -80 3)]] "Jamie?"]
-    :-> [:field 3]]
+    :-> [:junkrat-b]]
 
-   [:field 3]
+    [:junkrat-b]
+    [:miranda/characters
+     [[]]
+     :-> [:junkrat-b :text]]
+
+  [:junkrat-b :text]
    [:miranda/narration
     "You look over to find Junkrat lying quite still with his eyes closed and a faint smile on his lips. You can’t quite tell whether he’s feigning it or if he’s actually asleep but you are starting to feel quite drowsy yourself in the warmth of the afternoon sun."
     "Your eyelids feeling heavy, you lie down beside him, enjoying the faint heat radiating from his torso and the cool breeze tousling your hair. For a while, you watch the clouds pass, painting strange shadows over your bodies, the blanket, and the grass around you, as they move with the wind. Eventually, after dipping in and out of consciousness for sometime, you doze off."
-    "You are awakened by the gentle hiss of the kettle and the smell of brewing tea."
-    :-> [:field :date-3 0]]})
+    :-> [:field :date-3 5]]})

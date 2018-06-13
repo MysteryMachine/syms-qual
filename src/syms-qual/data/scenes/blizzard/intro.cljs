@@ -152,9 +152,9 @@
     ["Winston" [[:winston :_explain (scoot -95 -15 1)] [:symmetra :_smile (scoot 82 2 1)]]
       "It has been such a joy having you on our team! I was worried you wouldn’t be able to make your kit work in the current meta but you’ve really come into your own! "]
     ["Symmetra" [[:winston :_neutral (scoot -15)] [:symmetra :_sass (scoot 2)]]
-      "Hard work and dedication pays off!"]
+      "Thank you for your kind words, Winston. My time here has given me a lot to think about. Between our shield experiments on Lijiang and my work with Miss Zarayanova on increasing my turrets mobility I have several ideas about ways to improve."]
     ["Winston" [[:winston :_pointUp (scoot -15)] [:symmetra :_smile (scoot 2)]]
-      "Haha, it certainly does! I hope you enjoy the party! Personally, I am going to go be first in line for one of Lucio’s vegan X-tudos. You are welcome to be second or you can go start mingling!"]
+      "I'm excited to see what you come up with! I hope you enjoy the party. Personally, I am going to go be first in line for one of Lucio’s vegan X-tudos. You are welcome to be second or you can go start mingling!"]
     ["Symmetra" [[:winston :_explain (scoot -15 -80 1)] [:moira :_ghost (scoot -40 13 3)] [:symmetra :_thinking (scoot 2)]]
       "I’m not ready to eat yet so I suppose I will mingle."]
       :-> [:party :moira 0]]})

@@ -162,6 +162,11 @@
     "_wave"
     "_whisper"]
 
+    "Emily"
+    ["_look"
+     "_neutral"
+     "_wave"]
+
    "Genji"
    ["_bow"
     "_explain"
@@ -471,6 +476,7 @@
    "Mei"
    ["_angry"
     "_awkward"
+    "_bye"
     "_collar"
     "_confused"
     "_explain"

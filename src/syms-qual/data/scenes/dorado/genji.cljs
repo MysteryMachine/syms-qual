@@ -194,4 +194,4 @@
    [:zenyatta :text]
    [:miranda/narration
     "Obviously, you lost the match. You, however, did develop a taste for vaporwave, and an hour of crow pose was extremely invigorating. Your excellent self care regimen ensures that you are always extremely limber, perfectly poised to spend comedic amounts of time in a single yoga pose. Besides, all that blood rushing to your head let you get some quality thinking time."
-    :=> [:blizzard [:hotel :intro] 0]]})
+    :=> [:blizzard-world [:hotel :intro] 0]]})

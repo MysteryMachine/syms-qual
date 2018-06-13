@@ -123,7 +123,12 @@
      ["Pharah" [[:pharah :_helloNeutral (scoot -18)] [:symmetra :_smile (scoot 5)]] "Yes ma’am!"]
      ["Symmetra" [[:pharah :_smile (scoot -18)] [:symmetra :_helloWarm (scoot 5)]] "Good. Have a good night."]
      ["Pharah" [[:pharah :_goodnight (scoot -18)] [:symmetra :_bigSmile (scoot 5)]] "Goodnight!"]
-     :-> [:hotel :pharah 9]]
+     :-> [:hotel :pharah 10]]
+
+     [:hotel :pharah 10]
+     [:miranda/narration
+      "A few hours later, you check your phone to find that Pharah sent a photo of you two dancing."
+      :-> [:hotel :pharah 9]]
 
     [:hotel :pharah 9]
     [:miranda/characters
@@ -132,8 +137,6 @@
 
     [:hotel 2 :text]
     [:miranda/dialogue
-     [nil [[:photos :_junkratDate2] [:phones :_symHand]]
-      "A few hours later, you check your phone to find that Pharah sent a photo of you two dancing. It reads-"]
-      [nil [[:photos :_junkratDate2] [:phones :_symHand]]
+      ["Pharah" [[:photos :_pharahDate3] [:phones :_symHand]]
       "i asked sombra and she managed to get this for us from the security cameras hope u like it"]
      :=> [:dorado [:spawn :intro] 0]]})

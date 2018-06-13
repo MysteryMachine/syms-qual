@@ -3,9 +3,14 @@
             [syms-qual.util :as util :refer [inc-transition]]))
 
 (def data
-  {[:field :date-3 0]
+  {[:field :date-3 5]
+   [:miranda/narration
+        "You are awakened by the gentle hiss of the kettle and the smell of brewing tea."
+    :-> [:field :date-3 0]]
+
+  [:field :date-3 0]
    [:miranda/dialogue
-    ["Junkrat" [[:junkrat :_ballSmileNod (scoot -9)] [:symmetra :_smile (scoot 0)]] "Oy, sorry, love. Didn’t mean to wake you. Just trying to make myself a pick me up."]
+    ["Junkrat" [[:junkrat :_ballSmileNod (scoot -80 -9 1.5)] [:symmetra :_smile (scoot 80 0 1.5)]] "Oy, sorry, love. Didn’t mean to wake you. Just trying to make myself a pick me up."]
     ["Symmetra" [[:junkrat :_ballSmileNod (scoot -9)] [:symmetra :_bigSmile (scoot 0)]] "May I have some?"]
     ["Junkrat" [[:junkrat :_ballConfusedEyesClosed (scoot -9)] [:symmetra :_smile (scoot 0)]] "Certainly! But it’s got a minute or two until it’s ready."]
     ["Symmetra" [[:junkrat :_ballSmile (scoot -9)] [:symmetra :_coy (scoot 0)]] "I can wait."]
@@ -56,13 +61,8 @@
     ["Symmetra" [[:junkrat :_teacupOh (scoot -9)] [:symmetra :_teacupSass (scoot -8 -16 2)]] "No sugar for the tea but I would like something sweet"]
     ["Junkrat" [[:junkrat :_teacupFibbinSad (scoot -9)] [:symmetra :_teacupSass (scoot -16 -24 2)]] "I knew we should have packed some honey. Or agave…"]
     ["Junkrat" [[:junkrat :_teacupScandalized (scoot -9)] [:symmetra :_teacupSass (scoot -24 -32 2)]] "Wait, what’s this staring?"]
-    :-> [:field :kiss]]
-
-   [:field :kiss]
-   [:miranda/characters
-    [[[:junkrat :_smooch (scoot -9)]]]
-    [[[:junkrat :_teacupAdoringBlush (scoot -9)] [:symmetra :_teacupSass (scoot -32 0 3)]]]
-
+    ["Symmetra" [[:junkrat :_smooch (scoot -9)]] "…"]
+    ["Junkrat" [[:junkrat :_teacupAdoringBlush (scoot -9)] [:symmetra :_teacupSass (scoot -32 0 3)]] "…"]
     :-> [:field :date-3 2]]
 
    [:field :date-3 :option 1 1]
@@ -135,15 +135,24 @@
     ["Roadhog" [[:junkrat :_ballSmile (scoot 6)] [:roadhog :_neutral2 (scoot -22)] [:symmetra :_smile (scoot 8)]] "Wonderful. But it’s getting dark. We should go."]
     ["Junkrat" [[:junkrat :_ballBack (scoot 6)] [:roadhog :_neutral (scoot -22)] [:symmetra :_smile (scoot 8)]] "Right. Right. Busted headlights. Low visibility and all that. Just, uh..."]
     ["Junkrat" [[:junkrat :_phonePhoto (scoot 6)] [:roadhog :_neutral (scoot -22)] [:symmetra :_smile (scoot 8)]] "Here, gather around."]
-    :-> [:junkrat-b]]
+    :-> [:field :date-3 3]]
 
-   [:junkrat-b]
+    [:field :date-3 3]
+    [:miranda/characters
+     [[[:photos :_junkratDate3Junk] [:phones :_junkratHand]]]
+     :-> [:field :date-3 4]]
+
+   [:field :date-3 4]
+    [:miranda/narration
+    "Refreshed from your excursion into nature you pile back onto the motorcycle to begin your journey back to Junkertown. As the sun fades from the sky, the lights in the shanty town spread out before you slowly begin to flicker on."
+       :-> [:junkrat-c]]
+
+   [:junkrat-c]
    [:miranda/characters
     [[]]
-    :-> [:junkrat-b :text]]
+    :-> [:junkrat-c :text]]
 
-   [:junkrat-b :text]
+   [:junkrat-c :text]
    [:miranda/narration
-    "Refreshed from your excursion into nature you pile back onto the motorcycle to begin your journey back to Junkertown. As the sun fades from the sky, the lights in the shanty town spread out before you slowly begin to flicker on. "
     "Once you arrive back at the cabin, Junkrat invites you to stay and join them in a TV marathon slumber party, to which you agree. Roadhog sets up the projector and the couch while Junkrat shows you his collection in progress projects and sketched out plans he has stashed around the warehouse. After deciding on The Great Australian Bake-Off, you snuggle in to enjoy the show, finally indulging Junkrat in his long standing request for head rubs."
     :=> [:gibralter [:spawn :intro] 0]]})

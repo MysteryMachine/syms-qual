@@ -112,14 +112,14 @@
 
    [:spawn :mei :b]
    [:miranda/dialogue
-    ["Symmetra" [[:torbjorn :_point]  [:symmetra :_WTF]] "So, I was hoping we could maybe discuss our strategy for the upcoming round?"]
-    ["Mei" [[:torbjorn :_cranky]  [:symmetra :_angry]] "So. Here’s the deal. Everyone else is leaving for the bar and I am going home. I have gay things to do with my hot wife? The hot wife needs the cold wife. It’s a symbiotic organism. Biology 101."]
-    ["Zenyatta" [[:torbjorn :_pointUp]  [:symmetra :_angry]] "More like biology… 69. I believe now, we can all engage in the standard human ritual for scenarios like this."]
-    ["Zenyatta" [[:torbjorn :_cranky]  [:symmetra :_angry]] "Please, join me."]
-    ["Zenyatta" [[:torbjorn :_cranky]  [:symmetra :_angry]] "Nice."]
-    ["Mei" [[:torbjorn :_cranky]  [:symmetra :_angry]] "Okay bye, Satya have fun, byeeeeeeee."]
-    ["Symmetra" [[:torbjorn :_point]  [:symmetra :_WTF]] "Why are you like this?"]
-    ["Zenyatta" [[:torbjorn :_cranky]  [:symmetra :_angry]] "Good question. Why are any of us like anything? Gaze into the iris and contemplate that, my friend. If you wish you may do so while joining me in some relaxing yoga."]
+    ["Symmetra" [[:symmetra :_explainUncomfortable (scoot 6)] [:mei :_neutral (scoot 8)] [:zenyatta :_neutral (scoot -18)]] "So, I was hoping we could maybe discuss our strategy for the upcoming round?"]
+    ["Mei" [[:symmetra :_neutral (scoot 6)] [:mei :_explain (scoot 8)] [:zenyatta :_neutral (scoot -18)]] "So. Here’s the deal. Everyone else is leaving for the bar and I am going home. I have gay things to do with my hot wife? The hot wife needs the cold wife. It’s a symbiotic organism. Biology 101."]
+    ["Zenyatta" [[:symmetra :_WTF (scoot 6)] [:mei :_awkward (scoot 8)] [:zenyatta :_pointUp (scoot -18)]] "More like biology… 69. I believe now, we can all engage in the standard human ritual for scenarios like this."]
+    ["Zenyatta" [[:symmetra :_WTF (scoot 6)] [:mei :_awkward (scoot 8)] [:zenyatta :_explain (scoot -18)]] "Please, join me."]
+    ["Zenyatta" [[:symmetra :_WTF (scoot 6)] [:mei :_awkward (scoot 8)] [:zenyatta :_fingerGuns (scoot -18)]] "Nice."]
+    ["Mei" [[:symmetra :_WTF (scoot 6)] [:mei :_bye (scoot 8)] [:zenyatta :_neutral (scoot -18)]] "Okay bye, Satya have fun, byeeeeeeee."]
+    ["Symmetra" [[:symmetra :_explainWTF (scoot 6)] [:mei :_bye (scoot 8 -80 1.5)] [:zenyatta :_neutral (scoot -18 -5 1.5)]] "Why are you like this?"]
+    ["Zenyatta" [[:symmetra :_frustrated (scoot 6)] [:zenyatta :_pointUp (scoot -5)]] "Good question. Why are any of us like anything? Gaze into the iris and contemplate that, my friend. If you wish you may do so while joining me in some relaxing yoga."]
     :-> [:spawn :mei :b :option]]
 
    [:spawn :mei :b :option]
@@ -134,20 +134,20 @@
 
    [:spawn :mei :b :option :zen]
    [:miranda/dialogue
-    ["Symmetra" [[:torbjorn :_cranky]  [:symmetra :_explainAngry]] "Fine."]
-    ["Zenyatta" [[:torbjorn :_cranky]  [:symmetra :_explainAngry]] "To exist is to suffer. Let us all suffer under the calming tones of vaporwave and some extended crow pose."]
+    ["Symmetra" [[:symmetra :_explainWTF (scoot 6)] [:zenyatta :_neutral (scoot -5)]] "Fine."]
+    ["Zenyatta" [[:symmetra :_WTF (scoot 6)] [:zenyatta :_explain (scoot -5)]] "To exist is to suffer. Let us all suffer under the calming tones of vaporwave and some extended crow pose."]
     :-> [:spawn :mei-b]]
 
     [:spawn :mei :b :option :yes]
     [:miranda/dialogue
-     ["Symmetra" [[:torbjorn :_cranky]  [:symmetra :_explainAngry]] "I will do this all myself. It is not the first time I have done a group project by myself, only to have slackers take all the credit."]
-     ["Zenyatta" [[:torbjorn :_cranky]  [:symmetra :_explainAngry]] "A novel strategy to take in a team game. My blessings."]
+     ["Symmetra" [[:symmetra :_eyeRoll (scoot 6)] [:zenyatta :_neutral (scoot -5)]] "I will do this all myself. It is not the first time I have done a group project by myself, only to have slackers take all the credit."]
+     ["Zenyatta" [[:symmetra :_eyeRoll (scoot 6)] [:zenyatta :_explain (scoot -5)]] "A novel strategy to take in a team game. My blessings."]
      :-> [:spawn :mei-b]]
 
    [:spawn :mei :b :option :no]
    [:miranda/dialogue
-    ["Symmetra" [[:torbjorn :_cranky]  [:symmetra :_frustrated]] "Well. Time to see who else is available to salvage this doomed sinking ship. Come, Zenyatta."]
-    ["Zenyatta" [[:torbjorn :_cranky]  [:symmetra :_frustrated]] "Nice."]
+    ["Symmetra" [[:symmetra :_eyeRoll (scoot 6)] [:zenyatta :_neutral (scoot -5)]] "Well. Time to see who else is available to salvage this doomed sinking ship. Come, Zenyatta."]
+    ["Zenyatta" [[:symmetra :_eyeRoll (scoot 6)] [:zenyatta :_fingerGuns (scoot -5)]] "Nice."]
     :-> [:spawn :choice]]
 
    [:mei]
@@ -158,9 +158,9 @@
    [:mei :text]
    [:miranda/narration
     "It turns out the enemy team also thought the results of the match were a foregone conclusion and had headed for the bar. The only member remaining on the enemy team was Bastion, who you and Mei had little trouble disposing of together. A well placed teleporter ensured you two that you were always able to sit on the point. It did not move an inch. Mei rewarded you with a questionable milkshake, which you felt too awkward to refuse. The ancient protein tasted chalky, and you did not need to go to the restroom for the next week."
-    :=> [:blizzard [:hotel :intro] 0]]
+    :=> [:blizzard-world [:hotel :intro] 0]]
 
    [:spawn :mei-b]
    [:miranda/narration
     "It turns out you cannot carry an Overwatch match like you could a homework assignment back in the Vishkar Academy. As soon as the spawn doors opened, Bastion’s powerful turret tore you up from range, leading to a quick and resolute defeat. As you went forward to exchange post game pleasantries with the other team you were surprised to discover that Bastion had been the only one there, as all other members of the enemy team had also left for the bar. Determined to not let your abandonment ruin your night, you head back to your hotel, take a warm bubble bath and tuck in early."
-    :=> [:blizzard [:hotel :intro] 0]]})
+    :=> [:blizzard-world [:hotel :intro] 0]]})

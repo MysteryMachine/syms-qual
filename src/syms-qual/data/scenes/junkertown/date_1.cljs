@@ -46,10 +46,10 @@
    [:spawn :junkrat :choice 2]
    [:miranda/option
     "Symmetra" [[:junkrat :_ballAdoringBlushDown (scoot -3)] [:efi :_neutral (scoot -18)] [:symmetra :_embarassed (scoot 3)]]
-    "I’m sorry, Jamie. I value your friendship but I don’t share your romantic intentions."
-    "I will join you, Jamie. I’d like to see where things go."]
+    "I will join you, Jamie. I’d like to see where things go."
+    "I’m sorry, Jamie. I value your friendship but I don’t share your romantic intentions."]
 
-   [:spawn :junkrat :choice 2 0]
+   [:spawn :junkrat :choice 2 1]
    (concat
     [:miranda/dialogue
      ["Junkrat" [[:junkrat :_ballConfused (scoot -3)] [:efi :_neutral (scoot -18)] [:symmetra :_neutral (scoot 3)]] "I see. Well! That’s fine!"]
@@ -64,7 +64,7 @@
      [:-> [:spawn :junkrat 2]]
      :junkrat/no-date))
 
-   [:spawn :junkrat :choice 2 1]
+   [:spawn :junkrat :choice 2 0]
    (concat
     [:miranda/dialogue
      ["Junkrat" [[:junkrat :_shyblush (scoot -3)] [:efi :_smile (scoot -18)] [:symmetra :_smile (scoot 3)]] "Perfect! Roadhog is bringing billy tea."]

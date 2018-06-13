@@ -107,16 +107,16 @@
 
     [:calveras :sombra :no-date]
     [:miranda/dialogue
-     ["Sombra" [[:sombra :_neckHand (scoot -9)]  [:symmetra :_neutral]] "Hey, Satya. I think Doomie and I are heading out. We’re gonna do another seance."]
-     ["Sombra" [[:sombra :_neckHand (scoot -9)]  [:symmetra :_dissappointed]] "Have a good night, Satya. Take care."]
-     ["Symmetra" [[:sombra :_ballThinking (scoot -9)]  [:symmetra :_dissappointed]] "Have a good night!"]
+     ["Sombra" [[:sombra :_drinkExplain (scoot 12)]  [:doomfist :_drinkHold (scoot -20)] [:symmetra :_smile (scoot 5)]] "Hey, Satya. I think Doomie and I are heading out. We’re gonna do another seance."]
+     ["Doomfist" [[:sombra :_drinkNeutral (scoot 12)]  [:doomfist :_drinkWave (scoot -20)] [:symmetra :_smile (scoot 5)]] "Have a good night, Satya. Take care."]
+     ["Symmetra" [[:sombra :_drinkWave (scoot 12 -80 1.5)]  [:doomfist :_drinkHold (scoot -20 -80 1.5)] [:symmetra :_helloWarm (scoot 5)]] "Have a good night!"]
 
      :-> [:hotel :text]]
 
      [:hotel :text]
      [:miranda/narration
       "You make your way quietly to your hotel where you spend the rest of the night reading and relaxing. You eventually find yourself quite sleepy, and you tuck yourself into bed."
-      :=> [:blizzard-world [:gate :intro] 0]]
+      :=> [:blizzard-world [:hotel :intro] 0]]
 
     [:calveras :sombra :date]
     [:miranda/dialogue

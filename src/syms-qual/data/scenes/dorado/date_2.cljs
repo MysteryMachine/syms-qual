@@ -61,7 +61,7 @@
     ["Moira" [[:moira :_shrimp (scoot -6)][:reaper :_reverseRosaryNeutral (scoot -1)] [:sombra :_reverse (scoot 5)] [:symmetra :_confused (scoot 13)]] "I don’t. I just missed dinner and I heard Gabriel was making Bloody Marys so I figured I’d stop by before I got back to the lab."]
     ["Symmetra" [[:moira :_burger (scoot -6)][:reaper :_reverseRosaryNeutral (scoot -1)] [:sombra :_reverse (scoot 5)] [:symmetra :_explainWTF (scoot 13)]] "Won’t alcohol on an empty stomach make it difficult for you to do your work?"]
     ["Moira" [[:moira :_pickles (scoot -6)][:reaper :_reverseRosaryNeutral (scoot -1)] [:sombra :_reverse (scoot 5)] [:symmetra :_neutral (scoot 13)]] "Haha, don’t be silly. I altered my liver cells to transform alcohol into caffeine ages ago. I’ll be nice and focused. Ok, burger... shrimp... one, two, three pickles, I’ll be on my way then."]
-    ["Moira" [[:reaper :_reverseRosaryNeutral (scoot -1)] [:moira :_bloodyExplain (scoot -6)] [:sombra :_reverseAwkard (scoot 5)] [:symmetra :_confused (scoot 13)]] "Oh, Sombra! A little bird just told me FSPA dropped early. I’d send you a link but I’m sure you’ll find it before I even get home so I won’t bother. Night!"]
+    ["Moira" [[:reaper :_reverseRosaryNeutral (scoot -1)] [:moira :_bloodyExplain (scoot -6)] [:sombra :_reverseAwkward (scoot 5)] [:symmetra :_confused (scoot 13)]] "Oh, Sombra! A little bird just told me FSPA dropped early. I’d send you a link but I’m sure you’ll find it before I even get home so I won’t bother. Night!"]
     ["Sombra" [[:moira :_ghost (fade-in [0 0] 0.5)] [:reaper :_reverseRosaryNeutral (scoot -1)] [:moira :_bloodyExplain (fade-out [-6 0] 0.5)] [:sombra :_reverseAwkward (scoot 5)] [:symmetra :_confused (scoot 13)]] "..."]
     ["Doomfist" [[:moira :_ghost (scoot 0 -80 1.5)] [:reaper :_rosaryNeutral (scoot 33 -3.5 1.5)] [:doomfist :_explainConcerned (scoot -80 -20 1.5)]  [:sombra :_reverseAwkward (scoot 5 3 1.5)] [:symmetra :_confused (scoot 13)]] "FPSP, what?"]
     ["Reaper" [[:sombra :_reverseAwkward (scoot 3)] [:symmetra :_confused (scoot 13)] [:reaper :_rosaryExplain (scoot -3.5)] [:doomfist :_smirk (scoot -20)]] "Some nerd shit I’m sure."]
@@ -130,7 +130,7 @@
       [:hotel :sombra 11]
         [:miranda/narration
          "You call yourself a cab and wave goodbye to Sombra, who, despite trying to act cheerful, seems a bit somber. You arrive back at the hotel and despite your exhaustion aren't yet able to fall asleep. Now that you're alone all this talk of ghosts has given you a case of the jitters. You finally pass out just as the morning sun is beginning to peek through your curtains."
-         :=> [:blizzard :hotel 0]]
+         :=> [:blizzard-world [:hotel :intro] 0]]
 
       [:room :sombra :option 0 0]
    (concat
@@ -177,4 +177,4 @@
     ["Symmetra" [[:sombra :_smile (scoot -3)] [:symmetra :_confused (scoot -5)]] "Excuse me?"]
     ["Sombra" [[:sombra :_explainHand (scoot -3)] [:symmetra :_coy (scoot -5)]] "Let’s watch the sunrise together! That’s romantic! I can do romantic things that don’t involve being a nerd!"]
     ["Symmetra" [[:sombra :_smile (scoot -3)] [:symmetra :_strainedSmile (scoot -5)]] "Haha, sure. Let’s go up."]
-    :-> [:sombra-c :cutscene]]})
+    :-> [:room :sombra 13]]})

@@ -3,14 +3,18 @@
             [syms-qual.util :as util :refer [inc-transition]]))
 
 (def data
-  {[:sombra-c :cutscene]
+  {[:room :sombra 13]
+   [:miranda/narration
+   "Sombra leads you seductively up the stairs before abruptly scrambling out the window on the landing. The slickness of the roof tiles and the steepness of their grade give you pause for a second, but after a brief moment, you resolutely grab her outstretched hand and she pulls you up to join her. After getting your bearings, you look out over the bay to see the sun just beginning to crest over the hills on its far side."
+   :-> [:sombra-c :cutscene]]
+
+   [:sombra-c :cutscene]
    [:miranda/characters
    [[]]
    :-> [:sombra-c :cutscene :text]]
 
    [:sombra-c :cutscene :text]
     [:miranda/narration
-    "Sombra leads you seductively up the stairs before abruptly scrambling out the window on the landing. The slickness of the roof tiles and the steepness of their grade give you pause for a second, but after a brief moment, you resolutely grab her outstretched hand and she pulls you up to join her. After getting your bearings, you look out over the bay to see the sun just beginning to crest over the hills on its far side."
     "Soft future funk plays out the speakers embedded in Sombra’s gloves, and the sound surrounds you as she loops her arm around your waist and leans her head against your shoulder. You pull her close enjoying the moment, noting the glisten of the sun on the water and the boats, the way it highlights the stray strands of Sombra’s hair. You can tell she is searching for something to say, but eventually she grows comfortable with the silence as together you watch the sun slowly creep higher into the sky."
     :-> [:roof :date-3 0]]
 
@@ -84,4 +88,4 @@
     [:hotel :date-3 3]
      [:miranda/narration
       "Sombra called you a cab and escorted you back to your hotel. You slept soundly on her shoulder on the ride there. Once inside you collapsed into bed and fell into a deep sleep and dreamed of Canadian lakes."
-      :=> [:blizzard [:hotel :intro] 0]]})
+      :=> [:blizzard-world [:hotel :intro] 0]]})

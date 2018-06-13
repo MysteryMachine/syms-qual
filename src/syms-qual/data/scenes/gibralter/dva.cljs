@@ -101,10 +101,10 @@
 
    [:spawn :dva :b]
    [:miranda/dialogue
-    ["D.Va" [[:torbjorn :_point]  [:symmetra :_WTF]] "Ana is feeling her prime today. I don’t suggest going out there. She WILL crush you under her beautiful sniper sandals."]
-    ["Tracer" [[:torbjorn :_cranky]  [:symmetra :_angry]] "Ana has great taste in shoes. We have that in common!"]
-    ["D.Va" [[:torbjorn :_pointUp]  [:symmetra :_angry]] "No. Your shoes are trash. Go back to work on the cosplay."]
-    ["Tracer" [[:torbjorn :_cranky]  [:symmetra :_angry]] "Aye aye!"]
+    ["D.Va" [[:tracer :_neutral (scoot -18)] [:dva :_understanding (scoot -5)] [:symmetra :_WTF (scoot 8)]] "Ana is feeling her prime today. I don’t suggest going out there. She WILL crush you under her beautiful sniper sandals."]
+    ["Tracer" [[:tracer :_smile (scoot -18)] [:dva :_neutral (scoot -5)] [:symmetra :_WTF (scoot 8)]] "Ana has great taste in shoes. We have that in common!"]
+    ["D.Va" [[:tracer :_neutral (scoot -18)] [:dva :_attacked (scoot -5)] [:symmetra :_WTF (scoot 8)]] "No. Your shoes are trash. Go back to work on the cosplay."]
+    ["Tracer" [[:tracer :_smile (scoot -18 -80 1.5)] [:dva :_neutralGum (scoot -5)] [:symmetra :_WTF (scoot 8)]] "Aye aye!"]
     :-> [:spawn :dva :b :option]]
 
    [:spawn :dva :b :option]
@@ -117,13 +117,13 @@
 
    [:spawn :dva :b :option :yes]
    [:miranda/dialogue
-    ["Symmetra" [[:torbjorn :_cranky]  [:symmetra :_explainAngry]] "Well. Here goes nothing."]
-    ["Tracer" [[:torbjorn :_cranky]  [:symmetra :_explainAngry]] "Good luck, Satya!"]
+    ["Symmetra" [[:dva :_neutral (scoot -5)] [:symmetra :_frustratedConfused (scoot 8)]] "Well. Here goes nothing."]
+    ["Tracer" [[:tracer :_sonic (scoot -80 -18 1.5)] [:dva :_neutral (scoot -5)] [:symmetra :_WTF (scoot 8)]] "Good luck, Satya!"]
     :-> [:spawn :dva-b]]
 
    [:spawn :dva :b :option :no]
    [:miranda/dialogue
-    ["Symmetra" [[:torbjorn :_cranky]  [:symmetra :_frustrated]] "If your not going to compete you may as well come watch the race! You know where to find us! It’s gonna be great!"]
+    ["Tracer" [[:tracer :_sonic (scoot -80 -18 1.5)] [:dva :_neutral (scoot -5)] [:symmetra :_WTF (scoot 8)]] "If your not going to compete you may as well come watch the race! You know where to find us! It’s gonna be great!"]
     :-> [:spawn :choice]]
 
    [:dva]

@@ -78,7 +78,7 @@
    [:miranda/dialogue
     ["Torbjorn" [[:torbjorn :_point]  [:symmetra :_WTF]] "Feck off. You haven’t taken any of this seriously so far. I’ve seen you goofing off."]
     ["Symmetra" [[:torbjorn :_cranky]  [:symmetra :_angry]] "Threats will not work, huh?"]
-    ["Tobjorn" [[:torbjorn :_pointUp]  [:symmetra :_angry]] "They will not. I am less afraid of you than the bots. I can take some slaps."]
+    ["Torbjorn" [[:torbjorn :_pointUp]  [:symmetra :_angry]] "They will not. I am less afraid of you than the bots. I can take some slaps."]
     :-> [:spawn :torb :b :option]]
 
    [:spawn :torb :b :option]
