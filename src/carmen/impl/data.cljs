@@ -104,7 +104,7 @@
       (let [[[test transition] & rem] candidates]
         (if (or (= :else test) (test state))
           (let [updated-graph (update-in graph (util/scene-data* state graph) merge transition)]
-           (transition-fn state updated-graph options args))
+            (transition-fn state updated-graph options args))
           (recur rem)))
       (throw (js/Error. "No valid transition found.")))))
 

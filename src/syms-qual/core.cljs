@@ -192,8 +192,11 @@
 
 (defn app []
   (let [state @state-atom]
-    [:div.syms-qual
+    [:div.syms-qual 
      [:div.miranda.option-button-holder
+      (when (and (not= :title-screen (first (:scene state)))
+                 (not (miranda/in-loading-screen? state)))
+       (extras/fast-forward state-atom graph options))
       (when-not (extras/fullscreen?)
         (extras/full-screen-button state-atom))]
      [game state]]))

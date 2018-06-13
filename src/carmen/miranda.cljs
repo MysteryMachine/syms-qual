@@ -79,6 +79,8 @@
 
 (def done-loading? data/done-loading?)
 
+(def in-loading-screen? data/in-loading-screen?)
+
 (defn render-game-inner
   [state transition-fn report-loading-fn graph options]
   [:div

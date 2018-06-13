@@ -38,6 +38,27 @@ body{
     user-select: none;
 }
 
+.miranda.fast-forward-button{
+    width: 1.5em;
+    height: 1.5em;
+    position: absolute;
+    right: 3.5em;
+    margin: .5em;
+    z-index: 100;
+    background-image: url("../img/Main_Menu/ff.png");
+    background-size: cover;
+}
+
+.miranda.fast-forward-button:hover{
+    cursor: pointer;
+    background-image: url("../img/Main_Menu/ffHover.png");
+}
+
+.miranda.fast-forward-button:active{
+    cursor: pointer;
+    background-image: url("../img/Main_Menu/ffActive.png");
+}
+
 .miranda.full-screen-button{
     width: 1.5em;
     height: 1.5em;
