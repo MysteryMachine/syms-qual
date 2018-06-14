@@ -1,7 +1,16 @@
 (ns syms-qual.data.scenes.intro)
 
 (def data
-  {[:a]
+  {[:menu-pink]
+   [:miranda/narration
+    [:div
+     [:p.notice-head "NOTICE"]
+     [:hr.notice-hr ]
+     [:p.notice-text
+      "Thanks for playing! Symmetra's Qualifying Matches automatically saves your game using cookies. Please be sure to enable cookies if you have disabled them."]]
+    :-> [:a]]
+
+   [:a]
    [:miranda/narration
     "As you board the transport parked on the helipad you feel your stomach knot in anticipation. Today is the day you must participate in the first of your ten qualifying matches under the recently reinstated Overwatch program. These matches will determine your placement within the program’s competitive hierarchy by testing your combat skills."
     :-> [:a :img]]

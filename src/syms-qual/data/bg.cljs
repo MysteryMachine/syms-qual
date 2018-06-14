@@ -61,6 +61,7 @@
    "intro-b"
    "intro-c"
    "intro-d"
+   "intro-menu-pink"
 
    "junkertown-efi"
    "junkertown-field"

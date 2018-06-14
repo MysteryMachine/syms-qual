@@ -64,7 +64,7 @@
    :loading-screen loading-screen
    :miranda/key-events {}})
 
-(def ng-scene [:intro [:a] 0])
+(def ng-scene [:intro [:menu-pink] 0])
 
 (defn menu-container [transition-fn]
   (fn [name]
@@ -200,8 +200,8 @@
 
 (def scene->song
   {
-   [:title-screen [:bg :default] 0]
-   {:song-name "anubis" :loop true :sound-name "anubis"}
+   #_[:title-screen [:bg :default] 0]
+   #_{:song-name "anubis" :loop true :sound-name "anubis"}
 
    })
 
