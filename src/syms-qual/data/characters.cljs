@@ -44,6 +44,7 @@
     "_centaur"
     "_cone"
     "_dance"
+    "_field" {:sizing {:anchor [0 0] :size [2048 2160]}}
     "_lizard"
     "_snore"
     "_whale"]

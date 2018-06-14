@@ -1,5 +1,5 @@
 (ns syms-qual.data.scenes.junkertown.date-2
-  (:require [carmen.util :as anim :refer [scoot fade-out fade-in]]
+  (:require [carmen.util :as anim :refer [scoot fade-out fade-in move]]
             [syms-qual.util :as util :refer [inc-transition]]))
 
 (def data
@@ -25,9 +25,12 @@
     ["Junkrat" [[:junkrat :_ballAdoringBlush (scoot 6)] [:roadhog :_drink (scoot -22)] [:symmetra :_coy (scoot 8)]] "..."]
     ["Roadhog"  [[:junkrat :_ballAdoringBlush (scoot 6)] [:roadhog :_neutral2 (scoot -22)] [:symmetra :_coy (scoot 8)]] "Tea’s ready. I’ll let you two have some space."]
     ["Junkrat" [[:roadhog :_smooch (scoot -22)] [:symmetra :_coy (scoot 8)]] "Thanks Roadie."]
-    ["Symmetra" [[:junkrat :_shyblush (scoot 6 0 1)] [:roadhog :_neutral (scoot -22 -80 1)] [:symmetra :_lookUpBlush (scoot 8 -2 1)]] "..."]
-    [nil [[:junkrat :_shyblush (scoot 0)] [:symmetra :_lookUpBlush (scoot -2)]] "For a while you sit in silence watching the clouds pass."]
-    ["Symmetra" [[:clouds :_whale (scoot 100 60 1 )]] "Jaime?"]
+    ["Symmetra" [[:clouds :_field (move [0 -25])][:junkrat :_shyblush (scoot 6 0 1)] [:roadhog :_neutral (scoot -22 -80 1)] [:symmetra :_lookUpBlush (scoot 8 -2 1)]] "..."]
+    [nil [[:clouds :_field (move [0 -25] [0 25] 2)]
+          [:junkrat :_shyblush (move [0 0] [0 100] 2)]
+          [:symmetra :_lookUpBlush (move [-2 0] [-2 100] 2)]]
+     "For a while you sit in silence watching the clouds pass."]
+    ["Symmetra" [[:clouds :_field (move [0 25])] [:clouds :_whale (scoot 100 60 1 )]] "Jaime?"]
     ["Junkrat" [[:clouds :_whale (scoot 60 40 1)]] "Yes?"]
     ["Symmetra" [[:clouds :_whale (scoot 40 10 1)] [:hands :_symPoint (scoot 0)]] "That cloud over there closely resembles a whale, does it not?"]
     ["Junkrat" [[:clouds :_whale (scoot 10 -20 1)] [:clouds :_dance (scoot 80 30 2)][:hands :_junkPoint (scoot 0)]] "Very like a whale!"]
