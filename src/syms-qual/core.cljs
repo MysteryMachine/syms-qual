@@ -198,14 +198,40 @@
 
 (def game (miranda/reagent-component state-atom graph options))
 
+(def scene->song
+  {
+   [:title-screen [:bg :default] 0]
+   {:song-name "anubis" :loop true :sound-name "anubis"}
+
+   })
+
+(defn do-audio [state-atom state scene]
+  #_(println scene)
+  (when (not= (:miranda/bg state) scene)
+   (when-let [{:keys [song-name loop sound-name]} (scene->song scene)]
+      (when window.audio (.pause window.audio))
+      (when song-name
+       (set! window.audio (js/Audio. (str "/music/" song-name ".mp3")))
+       (set! window.audio.loop loop)
+       (set! window.audio.muted (:miranda/muted state))
+       (.play window.audio))
+      (when sound-name
+        (set! window.sound (js/Audio. (str "/music/" sound-name ".mp3")))
+        (set! window.sound.muted (:miranda/muted state))
+        (.play window.sound))
+      (swap! state-atom #(assoc % :miranda/bg scene)))))
+
 (defn app []
-  (let [state @state-atom]
+  (let [state @state-atom
+        scene (:scene state)]
+    (do-audio state-atom state scene)
     [:div.syms-qual
      (fade-out state)
      [:div.miranda.option-button-holder
-      (when (and (not= :title-screen (first (:scene state)))
+      (when (and (not= :title-screen (first scene))
                  (not (miranda/in-loading-screen? state)))
-       (extras/fast-forward state-atom graph options))
+        (extras/fast-forward state-atom graph options))
+      (extras/mute-button state-atom)
       (when-not (extras/fullscreen?)
         (extras/full-screen-button state-atom))]
      [game state]]))

@@ -42,7 +42,7 @@ body{
     width: 1.5em;
     height: 1.5em;
     position: absolute;
-    right: 3.5em;
+    right: 2em;
     margin: .5em;
     z-index: 100;
     background-image: url("../img/Main_Menu/ff.png");
@@ -59,11 +59,35 @@ body{
     background-image: url("../img/Main_Menu/ffActive.png");
 }
 
+.miranda.mute-button{
+    width: 1.5em;
+    height: 1.5em;
+    position: absolute;
+    right: 0em;
+    margin: .5em;
+    z-index: 100;
+    background-image: url("../img/Main_Menu/muted.png");
+    background-size: cover;
+}
+
+.miranda.mute-button:hover{
+    cursor: pointer;
+    background-image: url("../img/Main_Menu/mutedHover.png");
+}
+
+.miranda.mute-button.not-muted {
+    background-image: url("../img/Main_Menu/notMuted.png");
+}
+x``
+.miranda.mute-button.not-muted:hover {
+    background-image: url("../img/Main_Menu/notMutedHover.png");
+}
+
 .miranda.full-screen-button{
     width: 1.5em;
     height: 1.5em;
     position: absolute;
-    right: 1.5em;
+    right: 4em;
     margin: .5em;
     z-index: 100;
     background-image: url("../img/Main_Menu/fullscreen.png");
