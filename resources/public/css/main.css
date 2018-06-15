@@ -87,16 +87,32 @@ x``
     width: 1.5em;
     height: 1.5em;
     position: absolute;
-    right: 5em;
+    right: 7.5em;
     margin: .5em;
     z-index: 100;
     background-image: url("../img/Main_Menu/fullscreen.png");
     background-size: cover;
 }
 
+.miranda.menu-button{
+    width: 1.5em;
+    height: 1.5em;
+    position: absolute;
+    right: 5em;
+    margin: .5em;
+    z-index: 100;
+    background-image: url("../img/Main_Menu/menuButton.png");
+    background-size: cover;
+}
+
 .miranda.full-screen-button:hover{
     cursor: pointer;
     background-image: url("../img/Main_Menu/fullscreenHover.png");
+}
+
+.miranda.menu-button:hover{
+    cursor: pointer;
+    background-image: url("../img/Main_Menu/menuButtonHover.png");
 }
 
 .base-scene{
@@ -399,6 +415,23 @@ span.symmetra{
     z-index: 200;
 }
 
+.menu-holder {
+    position: absolute;
+    overflow: hidden;
+}
+
+.fadeout.menu {
+    background-image: url("../img/Main_Menu/menuPink.png");
+    background-size: cover;
+}
+
+.sym-hand {
+    background-image: url("../img/Menu_Hand/menuHand.png");
+    background-size: cover;
+    position: absolute;
+    z-index: 300;
+}
+
 p.notice-head {
     font-weight: bold;
     letter-spacing: 2px;
@@ -411,4 +444,29 @@ p.notice-hr {
 p.notice-text {
     padding-bottom: 3em;
     width: 66%;
-    margin: auto;}
+    margin: auto;
+}
+
+.hand-menu {
+    font-size: 2em;
+}
+
+.hand-menu.main-menu {
+    cursor: pointer;
+    background-image: url("../img/Menu_Hand/_mainMenu.png");
+    background-size: cover;
+}
+
+.hand-menu.back-to-game{
+    cursor: pointer;
+    background-image: url("../img/Menu_Hand/_back.png");
+    background-size: cover;
+}
+
+.hand-menu.main-menu:hover {
+    background-image: url("../img/Menu_Hand/_mainMenuHover.png");
+}
+
+.hand-menu.back-to-game:hover{
+    background-image: url("../img/Menu_Hand/_backHover.png");
+}

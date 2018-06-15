@@ -221,6 +221,49 @@
         (.play window.sound))
       (swap! state-atom #(assoc % :miranda/bg scene)))))
 
+(defn draw-menu [state-atom state]
+  (let [{:keys [x y]} (:window state)
+        percent-in (min 1 (/ (- (:miranda/time state)
+                                (:miranda/fade-start state))
+                             500))
+        ratio (/ y 1182)]
+    [:div.menu-holder
+     {:style {:width x :height y}}
+     [:div.fadeout.menu
+      {:style {:opacity percent-in
+               :width x :height y}}]
+     [:div.sym-hand
+      {:style {:width x
+               :height y
+               :bottom (str (+ (* y percent-in) (- y)) "px")}}
+      [:div {:style
+             {:width (/ x 3)
+               :height (/ y 2.5)
+               :position "absolute"
+               :top (* (/ y 2.5) 1.5)
+              :left (* (/ x 3) 1.2)}}
+       [:div.hand-menu.main-menu
+        {:style {:width (* ratio 400) :height (* ratio 121)  :margin-top (* ratio 50)}
+         :on-click (fn [] (swap! state-atom #(-> %
+                                                 (assoc :miranda/menu-showing? false)
+                                                 (assoc :scene [:title-screen [:bg :default] 0]))))}]
+       [:div.hand-menu.back-to-game
+        {:style {:width (* ratio 400) :height (* ratio 121) :margin-top (* ratio 70)}
+         :on-click (fn [] (swap! state-atom #(assoc % :miranda/menu-showing? false)))}]]]]))
+
+(defn menu-button [state-atom state]
+  (let [menu-showing? (:miranda/menu-showing? state)]
+    [:div
+     (when menu-showing?
+       (draw-menu state-atom state))
+     [:div.miranda.menu-button
+      {:on-click
+       (fn []
+         (swap! state-atom
+                #(-> %
+                     (assoc :miranda/menu-showing? true)
+                     (assoc :miranda/fade-start (:miranda/time %)))))}]]))
+
 (defn app []
   (let [state @state-atom
         scene (:scene state)]
@@ -230,7 +273,9 @@
      [:div.miranda.option-button-holder
       (when (and (not= :title-screen (first scene))
                  (not (miranda/in-loading-screen? state)))
-        (extras/fast-forward state-atom graph options))
+        [:div
+         (menu-button state-atom state)
+         (extras/fast-forward state-atom graph options)])
       (extras/mute-button state-atom)
       (when-not (extras/fullscreen?)
         (extras/full-screen-button state-atom))]
