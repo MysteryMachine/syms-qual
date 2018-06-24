@@ -537,3 +537,37 @@
    :new-game? false, 
    :gibralter/dva-chat true, 
    :lijiang/winston-chat true})
+
+(def credits
+  {:hollywood/sombra-chat true,
+   :points/payload 0,
+   :dorado/sombra-chat true,
+   :volskaya/sombra 1,
+   :points/sombra 3,
+   :points/puppy 3,
+   :eichenwalde/pharah-chat true,
+   :route-66/roadhog true,
+   :kings-row/junkrat-chat true,
+   :miranda/auto-save true,
+   :miranda/text-scale 31.96004993757803,
+   :miranda/time 14041.666666666606,
+   :junkertown/junkrat-chat true,
+   :window
+   {:x 1920, :y-adjust 17.674157303370748, :y 1078.6516853932585},
+   :miranda/internal
+   {:max-reports nil,
+    :miranda/transition
+    {:miranda/animation-name [:blizzard-world [:picnic :brigitte 2] 7]},
+    :loading? false},
+   :lijiang/dva-chat true,
+   :anubis/pharah-chat true,
+   :saved {},
+   :gibralter/mercy-chat true,
+   :volskaya/sombra-chat true,
+   :miranda/stateful {:ff/clicking false},
+   :points/pharah 3,
+   :route-66/first-chat :roadhog,
+   :lijiang/dva 1,
+   :points/junkrat 3,
+   :scene [:blizzard-world [:picnic :brigitte 2] 7], 
+   :new-game? false})

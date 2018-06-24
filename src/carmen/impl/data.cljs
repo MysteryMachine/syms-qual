@@ -148,8 +148,11 @@
 
 (defn reify-bgs-xf [{:keys [path ext]}]
   (map
-   (fn [name]
-     {(bg-name->kw name) (bg-name->path name path ext)})))
+   (fn [o]
+     (if (string? o)
+       {(bg-name->kw o) (bg-name->path o path ext)}
+       {(bg-name->kw (:name o))
+        (bg-name->path (:name o) path (:ext o))}))))
 
 (defn reify-bgs [structure options]
   (into {} (reify-bgs-xf options) structure))
@@ -178,6 +181,21 @@
          :img (:img character-base)})))
    characters))
 
+(defn reify-subscene-characters-cond [character-graph characters]
+  (mapv
+   (fn [[show? [name expression & [{:keys [finish start] :as animation-map}]]]]
+     (let [character-base (get-in character-graph [name expression])]
+       (merge
+        character-base
+        animation-map
+        {:name name
+         :show? show?
+         :expression expression
+         :start (merge default-start (:start character-base) start)
+         :finish (merge default-finish (:finish character-base) finish)
+         :img (:img character-base)})))
+   characters))
+
 (declare reify-options)
 
 (defmulti reify-subscenes
@@ -198,6 +216,13 @@
   (mapv
    (fn [[characters]]
      {:characters (reify-subscene-characters character-graph characters)})
+   subscenes))
+
+(defmethod reify-subscenes :miranda/characters-cond
+  [level-name scene-name render-type character-graph subscenes]
+  (mapv
+   (fn [[characters]]
+     {:characters (reify-subscene-characters-cond character-graph characters)})
    subscenes))
 
 (defmethod reify-subscenes :miranda/option

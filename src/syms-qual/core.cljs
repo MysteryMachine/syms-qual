@@ -14,7 +14,7 @@
 (def base-state
   {:scene [:title-screen [:bg :default] 0]
    :saved (util/load! :saved)
-   :miranda/auto-save false
+   :miranda/auto-save true
    :points/sombra 0
    :points/junkrat 0
    :points/pharah 0})
@@ -133,7 +133,9 @@
 
 (defn new-game [state]
   (if (:saved state)
-    (assoc state :scene [:title-screen [:bg :new-game-guard] 0])
+    (merge (assoc base-state :scene [:title-screen [:bg :new-game-guard] 0])
+           (select-keys state [:miranda/auto-save :miranda/text-scale :miranda/time
+                               :miranda/internal :window]))
     (continue state)))
 
 (defn load-game [state]
@@ -193,6 +195,7 @@
       [10 :payload] dump/day-10-payload
       [11] dump/day-11
       [11 :payload] dump/day-11-payload
+      [:credits] dump/credits
       (first a)))
    ((carmen.impl.events/resize! state-atom options))))
 

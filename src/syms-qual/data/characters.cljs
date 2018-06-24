@@ -49,6 +49,18 @@
     "_snore"
     "_whale"]
 
+   "Credit"
+   ["bronzeGift"
+    "bronzeGiftSilo"
+    "gmGift"
+    "gmGiftSilo"
+    "junkGift"
+    "junkGiftSilo"
+    "pharahGift"
+    "pharahGiftSilo"
+    "sombraGift"
+    "sombraGiftSilo"]
+
    "Doomfist"
    ["_armsCross"
     "_armsCrossAngry"

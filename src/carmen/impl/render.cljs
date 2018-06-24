@@ -2,9 +2,9 @@
   (:require [clojure.string :as str]
             [carmen.util :as util :refer [pct px default-render-options]]))
 
-(defn render-character-xf [{:keys [x y]} elapsed-time options]
+(defn render-character-xf [{:keys [x y]} elapsed-time options state]
   (map
-   (fn [{:keys [img sizing] :as animation-map}]
+   (fn [{:keys [img sizing show?] :as animation-map}]
      (let [[nrx nry :as native-res] (:miranda/native-resolution options)
            [ix iy] (:size sizing native-res)
            [ax ay] (:anchor sizing [0 0])
@@ -21,19 +21,23 @@
           :margin-right dpad
           :margin-top top-pad }}
         [:img.character
-         {:style {:opacity (str opacity)
-                  :position "absolute"
-                  :height (pct 100)
-                  :left (pct i)
-                  :top (pct j)}
-          :src img}]]))))
+         (let [style {:opacity (str opacity)
+                      :position "absolute"
+                      :height (pct 100)
+                      :left (pct i)
+                      :top (pct j)}]
+           {:style (cond
+                     (not show?) style
+                     (show? state) (assoc style :display "none")
+                     :else style)
+            :src img})]]))))
 
 (def characters-static-style
   {:style {:width (pct 100) :height (pct 100) :position "relative" :overflow "hidden"}})
 
-(defn render-characters [characters window elapsed-time options]
+(defn render-characters [characters window elapsed-time options & [state]]
   (into [:div.characters characters-static-style]
-        (render-character-xf window elapsed-time options) characters))
+        (render-character-xf window elapsed-time options (or state {})) characters))
 
 (defn dialogue-textbox [{:keys [window] :as state} transition-fn graph options]
   (let [{border-width :dialogue/border-width
@@ -200,7 +204,7 @@
              :width (px (:x window))}
             (util/style state graph))
     :on-click transition-fn}
-   (render-characters (util/actors state graph) window (:miranda/time state) options)])
+   (render-characters (util/actors state graph) window (:miranda/time state) options state)])
 
 (defn render-dialogue
   [{:keys [window] :as state} transition-fn graph options]
