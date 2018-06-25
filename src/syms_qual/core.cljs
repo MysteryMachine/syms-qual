@@ -60,7 +60,7 @@
    :miranda/native-resolution [2048 1080]
    :miranda/base-text-size 32
    :miranda/letterbox-ratio 1.78
-   :miranda/max-load-time 0
+   :miranda/max-load-time 60000
    :loading-screen loading-screen
    :miranda/key-events {}})
 
