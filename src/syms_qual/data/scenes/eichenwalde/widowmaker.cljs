@@ -125,7 +125,7 @@
     [[]]
     :-> [:widow :text]]
 
-   [:widowmaker :text]
+   [:widow :text]
    [:miranda/narration
     "Apparently, when Reaper and friends were arrested for blowing up the coffee shop, he named Amelie LaCroix as the person who could be held responsible for the damages. They recognized Widowmaker from her blue tint, and immediately accosted her for failing to pay for the damages to the shop from last Halloween."
     "They demanded you go to the back to wash dishes, and you felt too awkward about the whole thing to protest. The match was lost badly. Widowmaker looked angry at you, but you could quite easily ascertain she was too embarrassed to say anything about the events that transpired."

@@ -36,7 +36,7 @@
     ["Winston" [[:gifts :_gold]]
      "For you excellent service and support of your comrades, I am pleased to award you the rank of Gold!"]
     :-> [:party :end]]
-   
+
    [:party :plat]
    [:miranda/dialogue
     ["Winston" [[:gifts :_plat]]
