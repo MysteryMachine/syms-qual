@@ -28,7 +28,7 @@
                       :top (pct j)}]
            {:style (cond
                      (not show?) style
-                     (show? state) (assoc style :display "none")
+                     (not (show? state)) (assoc style :display "none")
                      :else style)
             :src img})]]))))
 
@@ -247,7 +247,7 @@
    :padding "0"
    :margin "0"})
 
-(defn preload [state graph loaded]
+(defn preload [state graph loaded options]
   (let [scene (util/major-scene state graph)]
     (into
      [:div.preload {:style empty-style}]
@@ -256,4 +256,4 @@
         [:img {:style empty-style
                :src img
                :onLoad (loaded i)}]))
-     (:miranda.internal/preload scene))))
+     (concat (:preload options) (:miranda.internal/preload scene)))))

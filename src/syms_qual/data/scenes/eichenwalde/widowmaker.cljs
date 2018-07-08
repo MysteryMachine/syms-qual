@@ -112,7 +112,7 @@
      "Your plan better be good, Mrs. LaCroix."]
     ["Widowmaker" [[:widowmaker :_tch (scoot -28)] [:symmetra :_neutral (scoot 0)]]
      "Tch."]
-    :-> [:widowmaker]]
+    :-> [:widow]]
 
    [:spawn :widowmaker :no]
    [:miranda/dialogue
@@ -120,11 +120,10 @@
      "I will give you another chance. If you decide to support me, I will allow it."]
     :-> [:spawn :choice]]
 
-   [:widowmaker]
+   [:widow]
    [:miranda/characters
     [[]]
-    :-> [:widowmaker :text]]
-
+    :-> [:widow :text]]
 
    [:widowmaker :text]
    [:miranda/narration

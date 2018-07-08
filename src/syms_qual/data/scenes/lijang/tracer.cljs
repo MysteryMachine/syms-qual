@@ -22,7 +22,7 @@
     ["Doomfist" [[:doomfist_tracer :_doomfistExplain]]
      "Yes. There is nothing like the thrill of intentionally underperforming, and having your partner go, \"Akande, is that it?\""]
     ["Doomfist" [[:doomfist_tracer :_doomfistPointUp]]
-     "\"When I signed up to bang a supervillain, I thought he would last for at least a couple of minutes.\” Then we argue for 20 minutes and kick them out, preferably after smashing a glass or other object that breaks loudly before doing so."]
+     "\"When I signed up to bang a supervillain, I thought he would last for at least a couple of minutes.\" Then we argue for 20 minutes and kick them out, preferably after smashing a glass or other object that breaks loudly before doing so."]
     ["Tracer" [[:doomfist_tracer :_tracerBewildered]]
      "Wait is that why Amelie…"]
     ["Doomfist" [[:doomfist_tracer :_doomfistArmsCross]]

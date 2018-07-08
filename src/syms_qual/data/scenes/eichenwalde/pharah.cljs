@@ -111,7 +111,7 @@
                   [:pharah :_reverseNeutral (scoot 10)] [:symmetra :_awkward (scoot 10)]]
      "Oh, do not mind her. Ana runs a tight ship is all."]
     :transition :miranda/conditional
-    [#(> (:points/pharah %) 0) [:-> [:spawn :pharah 2 :a]]
+    [#(= (:points/pharah %) 2) [:-> [:spawn :pharah 2 :a]]
      :else                     [:-> [:spawn :pharah 2 :b]]]]
 
    [:spawn :pharah 2 :a]
@@ -120,7 +120,7 @@
             [:pharah :_reverseNeutral (scoot 10)]
             [:ana :_explain (scoot -17)]
             [:symmetra :_neutral (scoot 10)]]
-     "Am I wrong though? Satya’s avoided the payload in most of her matches. I’m glad to see her turning things around."]
+     "Am I wrong though? Satya’s avoided the payload in some of her matches already. I’m glad to see her turning things around."]
     ["Symmetra" [[:reinhardt :_neutral (scoot -15)] [:ana :_neutral (scoot -17)]
                  [:pharah :_reverseNeutral (scoot 10)] [:symmetra :_explainUncomfortable (scoot 10)]]
      "I have found that bonding with my teammates first is an important part of creating a cohesive unit."]

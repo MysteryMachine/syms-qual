@@ -100,12 +100,12 @@
     ["Torbjorn" [[:torbjorn :_point]  [:symmetra :_WTF]] "That’s the sort of attitude that got us into this mess in the first place. You’re officially off my list of potential bunker buddies when the robot apocalypse hits. Again."]
     :-> [:spawn :choice]]
 
-   [:torbjorn]
+   [:torb]
    [:miranda/characters
     [[]]
-    :-> [:torbjorn :text]]
+    :-> [:torb :text]]
 
-   [:torbjorn :text]
+   [:torb :text]
    [:miranda/narration
     "Despite your team’s overly static composition, you manage to pull off a quick and decisive first attacking, taking control of the payload and transforming it into a mobile death ball. Covered in the shields a turrets of all kinds you steamroll your opponents easily making your way to the yellow box of victory. "
     :=> [:gibralter [:spawn :intro] 0]]

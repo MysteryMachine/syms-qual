@@ -29,6 +29,8 @@
        [(if (> x i) :span :span.dark) "."])
      (range 3))))
 
+(declare options)
+
 (defn loading-screen
   [{:keys [window] :as state} graph options transition]
   (let [rat (util/scale state options)
@@ -44,7 +46,7 @@
      [:div.loading-outer
       [:div.loading-inner
        [:div.loading-screen
-        [:img {:src "img/overwatchLogo.svg"
+        [:img {:src (str (:host options) "img/overwatchLogo.svg")
                :style {:height (util/px (* rat y))
                        :width  (util/px (* rat x))}}]
         (if loaded?
@@ -60,9 +62,14 @@
    :miranda/native-resolution [2048 1080]
    :miranda/base-text-size 32
    :miranda/letterbox-ratio 1.78
-   :miranda/max-load-time 60000
+   :miranda/max-load-time 0
    :loading-screen loading-screen
-   :miranda/key-events {}})
+   :miranda/key-events {}
+   :preload ["img/Menu_Hand/_mainMenu.png"
+             "img/Menu_Hand/_back.png"
+             "img/Menu_Hand/_mainMenuHover.png"
+             "img/Menu_Hand/_backHover.png"]
+   :host "http://syms-qual.s3-website-us-east-1.amazonaws.com/"})
 
 (def ng-scene [:intro [:menu-pink] 0])
 
@@ -95,7 +102,7 @@
        (container "Return")]]]))
 
 (defn base-scene-style [window]
-  {:background-image (util/url "img/Backgrounds/title-screen-bg.png")
+  {:background-image (util/url (str (:host options) "img/Backgrounds/title-screen-bg.png"))
    :background-size "cover"
    :height (str (:y window) "px")
    :width (str (:x window) "px")})
@@ -157,12 +164,16 @@
     "Return" (main-menu state)))
 
 (def fade-out-target?
-  #{[:blizzard-world [:picnic :brigitte 2] 10]})
+  #{[:blizzard-world [:picnic :brigitte 3] 0]})
 
-(defn fade-out [state]
+(defn fade-out [state on-click]
   (when (fade-out-target? (util/scene state))
     (let [{:keys [x y]} (:window state)]
-      [:div.fadeout {:style {:opacity (min (/ (:miranda/time state) 2000)) :width x :height y}}])))
+      [:div.fadeout {:on-click on-click
+                     :style {:opacity (min (/ (:miranda/time state) 2000))
+                             :width x
+                             :height y
+                             :cursor "pointer"}}])))
 
 (defonce state-atom (reagent.core/atom base-state))
 
@@ -322,7 +333,7 @@
         scene (:scene state)]
     (do-audio state-atom state scene)
     [:div.syms-qual
-     (fade-out state)
+     (fade-out state #(swap! state-atom (fn [s] (assoc s :scene [:blizzard-world [:gifts] 0]))))
      [:div.miranda.option-button-holder
       (when (and (not= :title-screen (first scene))
                  (not (miranda/in-loading-screen? state)))

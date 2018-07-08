@@ -27,7 +27,7 @@
                                (get-in @state-atom [:miranda/stateful :ff/clicking]))
                           (f)
                           (event))
-                       250))]
+                       200))]
          (event))))
     :on-mouse-up
     (fn []

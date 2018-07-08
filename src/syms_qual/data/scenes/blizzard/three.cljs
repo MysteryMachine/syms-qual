@@ -134,6 +134,11 @@
      "Just plain apple. I'm not really much of a baker but I'm trying to learn."]
     ["Symmetra" [[:brigitte :_pie (scoot -11 -20 1.5)] [:symmetra :_explainUncomfortable (scoot -5 -13 1.5)]]
      "I'm sure you'll improve with a bit of practice. Baking is a science as they say."]
+    :-> [:picnic :brigitte 3]]
+
+   [:picnic :brigitte 3]
+   [:miranda/characters
+    [[[:brigitte :_pie (scoot -20)] [:symmetra :_explainUncomfortable (scoot -13)]]]
     :-> [:gifts]]
 
    [:gifts]
@@ -142,7 +147,7 @@
       [#(not= 0 (:points/payload %)) [:credit :bronzeGiftSilo]]
       [#(= 10 (:points/payload %)) [:credit :gmGift]]
       [#(not= 10 (:points/payload %)) [:credit :gmGiftSilo]]
-      [#(= 03 (:points/junkrat %)) [:credit :junkGift]]
+      [#(= 3 (:points/junkrat %)) [:credit :junkGift]]
       [#(not= 3 (:points/junkrat %)) [:credit :junkGiftSilo]]
       [#(= 3 (:points/pharah %)) [:credit :pharahGift]]
       [#(not= 3 (:points/pharah %)) [:credit :pharahGiftSilo]]

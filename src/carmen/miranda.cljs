@@ -94,7 +94,7 @@
          "font-size:" (util/px (:miranda/text-scale state)) ";"
          "margin-top:" (util/px (-> state :window :y-adjust))  ";"
          "}")]
-   [render/preload state graph report-loading-fn]
+   [render/preload state graph report-loading-fn options]
    (if-not (data/in-loading-screen? state options)
      [render state transition-fn graph options]
      [(:loading-screen options render/default-loading-screen)

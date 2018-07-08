@@ -192,18 +192,18 @@
                  [:reinhardt_table :_beerNeutral (scoot -25)]]
      "I’ll do it if you do it."]
     :transition :miranda/conditional
-    [#(> (:points/pharah %) 0)  [:-> [:pharah :a]]
-     :else                      [:-> [:pharah :b]]]]
+    [#(= (:points/pharah %) 2)  [:-> [:beer-hall :no-date]]
+     :else                      [:-> [:pharah :a]]]]
+
+   [:beer-hall :no-date]
+   [:miranda/characters
+    [[]]
+    :-> [:beer-hall :no-date :text]]
 
    [:pharah :a]
    [:miranda/characters
     [[]]
     :-> [:pharah :a :text]]
-
-   [:pharah :b]
-   [:miranda/characters
-    [[]]
-    :-> [:pharah :b :text]]
 
    [:pharah :a :text]
    [:miranda/narration
@@ -234,7 +234,7 @@
     [[[:photos :_pharahDate2] [:phones :_symHand]]]
     :=> [:junkertown [:spawn :intro] 0]]
 
-   [:pharah :b :text]
+   [:beer-hall :no-date :text]
    [:miranda/narration
     "You enjoy the rest of the evening, listening to Reinhardt’s old stories and Pharah and Ana’s amusing interjections. As the evening draws to a close, the four of you make your way outside to begin the trek back to your nearby hotel. Before you set out, Ana insists on breathalyzing Reinhardt despite that fact that he ultimately only had two beers. After examining, the results she passes the breathalyzer to Pharah, who shoots you a playful glance before stepping in to have her turn as well. Ana seems satisfied with the results, and the four of you head back to the hotel listening to one last story from Reinhardt as you walk. "
     :=> [:junkertown [:spawn :intro] 0]]})

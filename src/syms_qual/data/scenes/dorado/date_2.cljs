@@ -158,7 +158,7 @@
      ["Sombra" [[:sombra :_explainAwkward (scoot -3)] [:symmetra :_neutral (scoot 0)]] "I’ve been waiting months for Frisbee Star: Pup Academia to come out, and I am NOT getting spoilers while making out."]
      ["Sombra" [[:sombra :_flirty (scoot -3)] [:symmetra :_smile (scoot 0)]] "Can we make out to some X-Files, to keep it thematic?"]
      ["Symmetra" [[:sombra :_flirty (scoot -3)] [:symmetra :_laugh (scoot 0)]] "Haha, whatever you like."]]
-    (inc-transition [:-> [:room :sombra 12] :sombra/kiss]))
+    (inc-transition [:-> [:room :sombra 12]] :sombra/kiss))
 
    [:room :sombra :option 1 1]
    (concat
