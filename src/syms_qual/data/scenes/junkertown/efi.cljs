@@ -68,6 +68,6 @@
 
    [:efi :text]
    [:miranda/narration
-    "Though Efi’s pitch had convinced you that your time at the match would be enjoyable, you could not help but spend the entire show pondering the existential horror of seeing clones of your friend engage in a sport. The real Lucio MCed the event, or so you hoped. I couldn’t shake the feeling that maybe every interaction you have had with Lucio had been with a clone."
-    "After all, why would a busy pop star engage in paramilitary operations? Unnerved, you excuse yourself a little early and went to the parking lot to do some hard thinking. After the event was over, you escorted Efi back to Junkertown, only to learn that your team had lost the match."
+    "Though Efi’s pitch had convinced you that your time at the match would be enjoyable, the reality of the event led you to feel otherwise. You could not help but spend the entire show pondering the existential horror of seeing clones of your friend engage in a sport. The real Lucio MCed the event, or so you hoped. You couldn’t shake the feeling that maybe every interaction you have had with Lucio had been with a clone."
+    "After all, why would a busy pop star engage in paramilitary operations? Unnerved, you excuse yourself a little early and go to the parking lot to do some hard thinking. After the event was over, you escorted Efi back to Junkertown, only to learn that your team had lost the match."
     :=> [:gibralter [:spawn :intro] 0]]})

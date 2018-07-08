@@ -77,7 +77,7 @@
     "What will you do?"
     ["Sally forth with the tanks" (constantly true)
      [:-> [:spawn :zarya :yes]]]
-    ["Converse with your other teammates" (constantly true)
+    ["Converse with your other teammates first" (constantly true)
      [:-> [:spawn :zarya :no]]]]
 
    [:spawn :zarya :yes]

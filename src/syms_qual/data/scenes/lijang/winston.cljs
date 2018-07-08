@@ -71,5 +71,5 @@
 
    [:winston :text]
    [:miranda/narration
-    "While the Winston’s hard light augmented shield was not perfect, it was still a powerful addition to the team. Despite this stratagem, it seemed like your engineering success was more the result of several characters standing on the point. Your team manages to take the match 2-1."
+    "While Winston’s hard light augmented shield was not perfect, it was still a powerful addition to the team. Despite this stratagem, it seemed like your engineering success was more the result of several characters standing on the point. Your team manages to take the match 2-1."
     :=> [:eichenwalde [:spawn :intro] 0]]})

@@ -131,9 +131,13 @@
 
    [:sombra-b :cutscene 5 :text]
    [:miranda/narration
-    "You make your way back to the hotel, and are immediately met by Zarya and Mei, who are packing protein powder and Adidas tracksuits for the both of you. After buying their expensive personal training package, you begin your workout regimen. You and Sombra do not have time to exchange words, and after the workout is over, you do not have the energy to do much but slink back into your rooms and fall asleep."
-    "The following week is a blur of chalk flavored agony. When you finally arrive home, you sleep for 2 days straight in an attempt to revitalize your system for the next week's upcoming matches. Once you wake up, you discover you have received a string of incoherent snapchats from Sombra, which seem to be chronicling the previous week."
-    :-> [:hotel :text 2]]
+    "You make your way back to the hotel, and are immediately met by Zarya and Mei, who are packing protein powder and Adidas tracksuits for the both of you. After buying their expensive personal training package, you begin your workout regimen. You and Sombra do not have time to exchange words, and after the workout is over, you do not have the energy to do much but slink back into your rooms and fall asleep. The rest of the week is a blur of chalk flavored agony."
+    :-> [:hotel :text 4]]
+
+    [:hotel :text 4]
+    [:miranda/narration
+     "When you finally arrive home, you sleep for 2 days straight in an attempt to revitalize your system for the next week's upcoming matches. Once you wake up, you discover you have received a string of incoherent snapchats from Sombra, which seem to be chronicling the previous week."
+     :-> [:hotel :text 2]]
 
    [:hotel :text 2]
    [:miranda/characters

@@ -226,7 +226,7 @@
 
    [:hotel 1]
    [:miranda/narration
-    "You manage to find your way back through the dense maze of streets and make it safely  to your hotel. Your jam packed day was quite exhausting and you welcome the soft embrace of your bed.  You awaken the next morning feeling slightly better after a good night’s rest."
+    "You manage to find your way back through the dense maze of streets and make it safely  to your hotel. Your jam packed day was quite exhausting and you welcome the soft embrace of your bed.  You awaken the next morning feeling slightly better after a good night’s rest and begin your morning routine by checking your phone."
     :-> [:hotel 2]]
 
    [:hotel 2]
@@ -237,5 +237,5 @@
    [:hotel 2 :text]
    [:miranda/dialogue
     [nil [[:photos :_junkratDate2] [:phones :_symHand]]
-     "Upon checking your phone you discover a long string of text messages from D.Va thanking you profusely for your participation in yesterday’s live stream and complimenting your nascent fighting game skills. At the end of the messages is included a screencap that a viewer had taken of the stream."]
+     "You discover a long string of text messages from D.Va thanking you profusely for your participation in yesterday’s live stream and complimenting your nascent fighting game skills. At the end of the messages is included a screencap that a viewer had taken of the stream."]
     :=> [:eichenwalde [:spawn :intro] 0]]})

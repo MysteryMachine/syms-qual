@@ -126,7 +126,7 @@
      "I have found that bonding with my teammates first is an important part of creating a cohesive unit."]
     ["Pharah" [[:reinhardt :_neutral (scoot -15)] [:ana :_neutral (scoot -17)]
                [:pharah :_reverseExplain (scoot 10)] [:symmetra :_neutral (scoot 10)]]
-     "Yes, mother. Let her build a sense of camaraderie for asking her to lay down her life in combat."]
+     "Yes, mother. Let her build a sense of camaraderie before asking her to lay down her life in combat."]
     ["Ana" [[:reinhardt :_eek (scoot -15)] [:ana :_drink (scoot -17)]
             [:pharah :_reversePeek (scoot 10)] [:symmetra :_1000Mile (scoot 10)]]
      "‘Ibna, do not think I didn’t notice you avoiding your duties to go on a date. If you wanted to do that, you might as well have remained a civilian like mama wanted, darling."]
@@ -158,5 +158,5 @@
    [:objective :cutscene 12]
    [:miranda/narration
     "Despite your numbers disadvantage, your attack round goes surprisingly well. There seems to be no one on the enemy team capable of dealing with Pharah’s aerial offense and her cover fire allows you, Ana, and Reinhardt to easily move through the choke point. Once you are through, Ana splits off to take the high ground, allowing her to safely provide long distance healing as the rest of you fight to capture control of the payload. Once the battering ram is in your possession, you manage to quickly traverse the rest of the map, taking  the second and the third points with ease."
-    "Flush with the victory of your previous round, you begin to prepare for you turn on defense, setting up your turrets on the arc of the bridge with anticipatory glee. Once the round starts however, it becomes evident that most of the enemy team has decided to abandon the match. As you wait for the time limit on the round to expire, you sit with Pharah and Reinhardt in front of the payload while Ana lurks some distance off, crouched on the sniper’s perch on the far side of the point."
+    "Flush with the victory of your previous round, you begin to prepare for your turn on defense, setting up your turrets on the arc of the bridge with anticipatory glee. Once the round starts however, it becomes evident that most of the enemy team has decided to abandon the match. As you wait for the time limit on the round to expire, you sit with Pharah and Reinhardt in front of the payload while Ana lurks some distance off, crouched on the sniper’s perch on the far side of the point."
     :-> [:objective :pharah 4]]})

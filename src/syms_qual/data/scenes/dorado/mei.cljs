@@ -24,7 +24,7 @@
     ["Mei" [[:mei :_headHand (scoot 8)] [:zenyatta :_neutral (scoot -18)] [:symmetra :_neutral (scoot 6)]] "I need to insulate myself against my own attacks. My snow robot is often a little overeager."]
     ["Zenyatta" [[:mei :_awkward (scoot 8)] [:zenyatta :_explain (scoot -18)] [:symmetra :_neutral (scoot 6)]] "I can relate. I have a cat, and I am told he sometimes skunks."]
     ["Mei" [[:mei :_confused (scoot 8)] [:zenyatta :_neutral (scoot -18)] [:symmetra :_neutral (scoot 6)]] "You are told?"]
-    ["Zenyatta" [[:mei :_confused (scoot 8)] [:zenyatta :_explain (scoot -18)] [:symmetra :_neutral (scoot 6)]] "I cannot smell. Genji will be near my and his cyber senses will indicate that, indeed, there is cat butt smell on me."]
+    ["Zenyatta" [[:mei :_confused (scoot 8)] [:zenyatta :_explain (scoot -18)] [:symmetra :_neutral (scoot 6)]] "I cannot smell. Genji will be near me and his cyber senses will indicate that, indeed, there is cat butt smell on me."]
     ["Mei" [[:mei :_awkward (scoot 8)] [:zenyatta :_neutral (scoot -18)] [:symmetra :_neutral (scoot 6)]] "Oh. I see."]
     ["Symmetra" [[:mei :_awkward (scoot 8)] [:zenyatta :_neutral (scoot -18)] [:symmetra :_explainUncomfortable (scoot 6)]] "Perhaps you should offend your cat less often?"]
     ["Zenyatta" [[:mei :_awkward (scoot 8)] [:zenyatta :_excited (scoot -18)] [:symmetra :_neutral (scoot 6)]] "If my cat desires to smell, I give them my blessing to do so under the luminescent glow of the Iris."]
@@ -129,7 +129,7 @@
      [:-> [:spawn :mei :b :option :yes]]]
     ["Contemplate why you are like this" (constantly true)
       [:-> [:spawn :mei :b :option :zen]]]
-    ["Talk to you other teammates" (constantly true)
+    ["Talk to your other teammates" (constantly true)
      [:-> [:spawn :mei :b :option :no]]]]
 
    [:spawn :mei :b :option :zen]

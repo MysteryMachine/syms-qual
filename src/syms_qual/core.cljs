@@ -206,6 +206,56 @@
    #_[:title-screen [:bg :default] 0]
    #_{:song-name "anubis" :loop true :sound-name "anubis"}
 
+   [:route-66 [:diner :intro] 0]
+   {:sound-name "route-66"}
+
+   [:route-66 [:diner :junkrat] 0]
+   {:sound-name "attack"}
+
+   [:anubis [:spawn :intro] 0]
+   {:sound-name "anubis"}
+
+   [:volskaya [:spawn :intro] 0]
+   {:sound-name "volskaya"}
+
+   [:kings-row [:street :intro] 0]
+   {:sound-name "kings-row"}
+
+   [:hollywood [:spawn :intro] 0]
+   {:sound-name "hollywood"}
+
+   [:lijiang [:spawn :intro] 0]
+   {:sound-name "lijiang"}
+
+   [:eichenwalde [:spawn :intro] 0]
+   {:sound-name "eichenwalde"}
+
+   [:junkertown [:spawn :intro] 0]
+   {:sound-name "junkertown"}
+
+   [:gibralter [:spawn :intro] 0]
+   {:sound-name "gibralter"}
+
+   [:dorado [:spawn :intro] 0]
+   {:sound-name "dorado"}
+
+   [:blizzard-world [:gate :middle 0] 0]
+   {:sound-name "blizzard-world"}
+
+   [:blizzard-world [:gate :gm] 0]
+   {:sound-name "blizzard-world"}
+
+   [:blizzard-world [:party :gold] 0]
+   {:sound-name "gm-promotion"}
+
+   [:blizzard-world [:party :plat] 0]
+   {:sound-name "gm-promotion"}
+
+   [:blizzard-world [:party :diamond] 0]
+   {:sound-name "gm-promotion"}
+
+   [:blizzard-world [:gate :winston 0] 1]
+   {:sound-name "gm-promotion"}
    })
 
 (defn do-audio [state-atom state scene]

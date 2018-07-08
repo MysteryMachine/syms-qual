@@ -3,10 +3,19 @@
 
 (def data
   {[:street :intro]
+    [:miranda/narration
+     [:div
+      [:p.notice-head "WEEK 4"]
+      [:hr.notice-hr ]
+      [:p.notice-text
+       [:div "KING'S ROW"]
+       [:div "United Kingdom"]]]
+    :-> [:street :intro2]]
+
+  [:street :intro2]
    [:miranda/narration
-    "You arrive nice and early, eager to perform your duties.  You survey the first point of the map, trying to decide on the best location to set up your turrets, as the rest of your teammates arrive. They seem to have a variety of opinions on
- where best to set up."
-    "Torbjorn quickly gets to work placing his turret extremely far forward, just outside of the opponent’s spawn doors. Meanwhile, Bastion and Lucio sit nonchalantly on the high ground in the back corner of the objective. Finally, Roadhog and Junkrat are huddled over something, you can’t quite make out what, just inside the choke point. You had been considering all of these locations but hadn’t quite made up your mind which you liked best yet. You decide to consult with your teammates before picking which position to fortify."
+    "Upon your arrival, you survey the first point of the map, trying to decide on the best location to set up. Although, there are many good options, you can't quite make up your mind. As you are trying to decide, the rest of your teammates arrive and begin to set up on their own, each in different locations, making your decision all the more difficult."
+    "Torbjorn quickly gets to work placing his turret extremely far forward, just outside of the opponent’s spawn doors. Meanwhile, Bastion and Lucio are perched on the high ground in the back corner. Finally, Roadhog and Junkrat are huddled over something, you can't quite make out what, just inside the choke point. You decide to consult with your teammates before picking which position to fortify."
     :-> [:street :choice]]
 
    [:street :choice]

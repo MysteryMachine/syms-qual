@@ -3,6 +3,16 @@
 
 (def data
   {[:spawn :intro]
+    [:miranda/narration
+     [:div
+      [:p.notice-head "WEEK 8"]
+      [:hr.notice-hr ]
+      [:p.notice-text
+       [:div "JUNKERTOWN"]
+       [:div "Australia"]]]
+    :-> [:spawn :intro2]]
+
+  [:spawn :intro2]
    [:miranda/narration
     "A loud buzzing dominates the air during your initial round on defense, though you are not entirely sure whether it is the mechanical whirring of your mostly omnic teammates, or the myriad of unpleasant Australian insects hovering near the battlefield."
     "You manage to put up a reasonable fight, stopping the payload short of the map’s first point-- the gates of Junkertown proper. Although victory is by no means guaranteed, you are optimistic about your chances, since you will only need to complete the first third of the map on your offensive round to win."

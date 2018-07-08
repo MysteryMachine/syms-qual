@@ -44,7 +44,7 @@
 
     [:pharah-b :cutscene :text]
     [:miranda/narration
-    "You break from Pharah, and begin to gracefully skating upon the ground, drawing upon your considerable balance and dance skill. Your freestyle increases in intensity, and you catch Pharah watching in a stupor, with a flushed face. You decide to take it down a notch, and you skate back up to her."
+    "You break from Pharah, and begin to gracefully skate around the rink, drawing upon your considerable balance and dance skill. Your freestyle increases in intensity, and you catch Pharah watching in a stupor, with a flushed face. You decide to take it down a notch, and you skate back up to her."
     :-> [:rink :pharah 6]]
 
   [:rink :pharah 6]

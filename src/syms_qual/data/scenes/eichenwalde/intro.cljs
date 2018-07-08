@@ -3,6 +3,16 @@
 
 (def data
   {[:spawn :intro]
+    [:miranda/narration
+     [:div
+      [:p.notice-head "WEEK 7"]
+      [:hr.notice-hr ]
+      [:p.notice-text
+       [:div "EICHENWALDE"]
+       [:div "Germany"]]]
+    :-> [:spawn :intro2]]
+
+  [:spawn :intro2]
    [:miranda/narration
     "Although by now you’ve grown accustomed to the familiar feeling of mounting tension before a match begins, your team seems to be in especially bleak spirits today. An apprehensive silence sits uneasily over the derelict beer hall serving as your spawn point."
     "For a while you watch the dust drifting softly in the beams of light streaming from the broken ceiling before turning your attention to your teammates, who all seem equally lost in their own thoughts. It’s so quiet you think you can hear the mice and roaches scurrying in the walls. Eager to break the silence, you try and strike up a conversation."

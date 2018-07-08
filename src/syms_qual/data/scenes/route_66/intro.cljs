@@ -4,8 +4,18 @@
 (def data
   {[:diner :intro]
    [:miranda/narration
+    [:div
+     [:p.notice-head "WEEK 1"]
+     [:hr.notice-hr ]
+     [:p.notice-text
+      [:div "ROUTE 66"]
+      [:div "United States"]]]
+    :-> [:diner :intro2]]
+
+    [:diner :intro2]
+   [:miranda/narration
     "While the undulating canyons of the American landscape you viewed from the transport were quite beautiful, the dilapidated diner it ultimately deposited you in front of did not quite have the grandeur you had imagined the staging ground for a large international organization would possess."
-    "The dirty, dimly lit interior did little to assuage your doubts about the legitimacy of the program and you began to wonder just what you had gotten yourself into. As you survey the questionable menu options and strange assortment of posters adorning the walls, you are approached by a pair of you teammates. "
+    "The dirty, dimly lit interior did little to assuage your doubts about the legitimacy of the program and you began to wonder just what you had gotten yourself into. As you survey the questionable menu options and strange assortment of posters adorning the walls, you are approached by a pair of you teammates."
     :-> [:diner :dialogue 0]]
 
    [:diner :dialogue 0]
@@ -57,11 +67,11 @@
      "Well, after the match, people upvote you if you do well. You see, the best reason to support in these matches is for the compliments."]
     ["McCree" [[:mccree :_coffeePoint] [:ana :_sass (scoot -20)] [:symmetra :_neutral]]
      "Personally, I enjoy the thrill of going, “It’s high noon” and shooting a bunch of technicolor weirdos. Well, that and sitting on my boyfriend's payload."]
-    ["McCree" [[:mccree :_coffeeHold] [:ana :_cranky (scoot -20)] [:symmetra :_neutral]]
+    ["McCree" [[:mccree :_coffeeHold] [:ana :_cranky (scoot -20)] [:symmetra :_awkward]]
      "Err, the payload with my boyfriend."]
-    ["Ana" [[:mccree :_coffeeHold] [:ana :_crankyTalk (scoot -20)] [:symmetra :_neutral]]
+    ["Ana" [[:mccree :_coffeeHold] [:ana :_crankyTalk (scoot -20)] [:symmetra :_awkward]]
      "Jesse, I swear."]
-    ["Symmetra" [[:mccree :_coffeeHold] [:ana :_sass (scoot -20)] [:symmetra :_explain]]
+    ["Symmetra" [[:mccree :_coffeeHold] [:ana :_sass (scoot -20)] [:symmetra :_explainUncomfortable]]
      "You engage in a deathsport where you are revived from the dead dozens of times for commendations and...for dating purposes? That’s—"]
     ["Reaper" [[:mccree :_coffeeHold] [:mccree :_coffeeSteal (fade-in [0 0] 1)] [:ana :_cranky (scoot -20)] [:symmetra :_bewildered]]
      "DEATH COMES."]

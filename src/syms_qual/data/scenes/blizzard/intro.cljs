@@ -5,7 +5,7 @@
 (def data
   {[:hotel :intro]
    [:miranda/narration
-    "After 10 long weeks your qualifying is finally over! With a great sense of anticipation you open your most recent email from Winston expecting it to contain the results of all your hard work, your final skill ranking. To your dismay though, it contains only a ticket to Blizzard World and instructions to on how to get there for you commencement party."
+    "After 10 long weeks your qualifying is finally over! With a great sense of anticipation you open your most recent email from Winston expecting it to contain the results of all your hard work, your final skill ranking. To your dismay though, it contains only a ticket to Blizzard World and instructions to on how to get there for your commencement party."
     "Although a noisy theme park is probably one of the least inviting environments to you possible, you supposed that given Overwatch’s penchant for over the top displays you should have expected they would attempt to throw a party of some sort. With a sigh you board the transport and prepare to face the crowd."
     :transition :miranda/conditional
     [#(= (:points/payload %) 9)  [:-> [:gate :gm]]

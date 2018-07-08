@@ -11,13 +11,13 @@
 
    [:objective :sombra :date :option 1]
    [:miranda/option
-    "Symmetra" [[:sombra :_neutral2 (scoot -6)] [:symmetra :_neutral (scoot 2)]]
+    "Symmetra" [[:sombra :_neutral2 (scoot -6)] [:symmetra :_sad (scoot 2)]]
     "Your points have merit. I...have some demons I have let lie dormant for too long."
     "Perhaps, but I have not had someone challenge me like that in quite a while."]
 
    [:objective :sombra :date :option 1 0]
    [:miranda/dialogue
-    ["Symmetra" [[:sombra :_neutral (scoot -6)] [:symmetra :_sadSmile (scoot 2)]]
+    ["Symmetra" [[:sombra :_neutral (scoot -6)] [:symmetra :_explainSad (scoot 2)]]
      "Your sense of justice is truly unexpected. I’m surprised, considering your notorious status as criminal scum."]
     ["Sombra" [[:sombra :_flirty (scoot -6)] [:symmetra :_smile (scoot 2)]]
      "The scummiest! I’m like Robin Hood if he was gayer but also awful."]

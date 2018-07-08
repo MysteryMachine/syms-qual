@@ -61,9 +61,9 @@
     ["Symmetra" [[:junkrat :_triggerNeutral (scoot -10)] [:symmetra :_explainWTF]]
       "Your expertise in what, chaos and destruction?"]
     ["Junkrat" [[:junkrat :_triggerWink (scoot -10)] [:symmetra :_WTF]]
-      "I do love a good boom, but I don't just destroy, I create! It's just that some things, got to be broke before they can be fixed."]
+      "I do love a good boom, but I don't just destroy, I create! It's just that some things got to be broke before they can be fixed."]
     ["Junkrat" [[:junkrat :_triggerExplain (scoot -10)] [:symmetra :_neutral]]
-      "I’m a tinkerer, darl. I build all my gear out of others junk. The wonderful thing about using junk is that it takes something people think is worthless and turns it into something new!"]
+      "I’m a tinkerer, darl. I build all my gear out of others' junk. The wonderful thing about using junk is that it takes something people think is worthless and turns it into something new!"]
     ["Symmetra" [[:junkrat :_triggerNeutral (scoot -10)] [:symmetra :_thinking]]
      "Destruction and reconstruction, huh?"]
     ["Junkrat" [[:junkrat :_triggerAdoringBlush (scoot -10)] [:symmetra :_thinking]]
@@ -132,14 +132,12 @@
    [:door :dialogue 6]
    [:miranda/dialogue
     ["Sombra" [[:sombra :_explain (scoot -10)] [:symmetra :_neutral]]
-     "Look, hackers get a bad rap as destructive, but hacking’s history is much richer than that.  When you’re completely out of options, what’s a little bending of the rules? If we have to do this while the world moves on around us, I say we make it our own."]
-    ["Symmetra" [[:sombra :_smile (scoot -10)] [:symmetra :_thinking]]
-     "Novel."]
-    ["Sombra" [[:sombra :_explainHand (scoot -10)] [:symmetra :_thinking]]
-     "The round is starting. You should hurry."]
-    ["Symmetra" [[:sombra :_smile (scoot -10)] [:symmetra :_explainUncomfortable]]
+     "Look, hackers get a bad rap as destructive, but hacking’s history is much richer than that.  When you’re completely out of options, what’s a little bending of the rules?"]
+    ["Symmetra" [[:sombra :_neutral2 (scoot -10)] [:symmetra :_explainWTF]]
+     "The rules exist for a reason Ms. -"]
+    ["Symmetra" [[:sombra :_neutral2 (scoot -10)] [:symmetra :_explainUncomfortable]]
      "I don’t believe we exchanged proper introductions. My real name is Satya."]
-    ["Sombra" [[:sombra :_camo (fade-out [-10 0] 2)] [:symmetra :_smile]]
+    ["Sombra" [[:sombra :_camo (fade-out [-10 0] 2)] [:symmetra :_confused]]
      "And mine is Sombra. Call it another hack. Hasta."]
     :transition :miranda/conditional
     [(first-chat :ana)     [:-> [:ana]]
@@ -154,7 +152,7 @@
 
    [:reaper :dialogue]
    [:miranda/narration
-    "Reaper was distraught this round. Between Ana Nanoboosting you, and his dismay at recruiting a support who was not a real support, he could not maintain his composure. By the end of the round, he was charging alone headfirst into the enemy team, neglecting any attempt at proper positioning. With your team perpetually split, the enemy made quick progress but you were ultimately able to stop them short of the final point."
+    "Reaper was distraught this round. Between Ana Nanoboosting you, and his dismay at recruiting a support who was not a real support, he could not maintain his composure. By the end of the round, he was charging alone headfirst into the enemy team, neglecting any attempt at proper positioning. With your team perpetually split, the enemy made quick progress but you were ultimately able to stop them short of the final point seccuring your victory."
     :-> [:street :dialogue 7]]
 
    [:hog]

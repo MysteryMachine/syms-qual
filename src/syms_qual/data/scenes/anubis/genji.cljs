@@ -84,7 +84,7 @@ I am sorry, Dr. Ziegler, what you ask is infeasible. Vishkar Corporation safety 
     "What will you do?"
     ["Forge the ultimate weapon" (constantly true)
      [:-> [:spawn :genji :yes]]]
-    ["Converse with your other teammates" (constantly true)
+    ["Converse with your other teammates first" (constantly true)
      [:-> [:spawn :genji :no]]]]
 
    [:spawn :genji :yes]

@@ -57,7 +57,7 @@
     [nil [[:gifts :_bear]]
      "You've received - SEÑORITA BEARINGTON'"]
     ["Sombra" [[:sombra :_flirty (scoot -5)] [:symmetra :_strainedSmile (scoot -2)]]
-     "You looked so cute snuggling with Señor Bear Bear when you fell asleep last week I thought you could use one of your own to keep you company. At least while i’m not around, you know."]
+     "You looked so cute snuggling with Señor Bear Bear when you fell asleep last week I thought you could use one of your own to keep you company. At least while I’m not around, you know."]
     ["Symmetra" [[:sombra :_neutral (scoot -5)] [:symmetra :_coy (scoot -2)]]
      "Thank you Sombra, this is adorable. I will treasure her."]
     ["Pharah" [[:pharah :_helloAwkward (scoot -80 -10 1.5)] [:sombra :_neutral (scoot -5 -15 1.5)] [:symmetra :_smile (scoot -2 5 1.5)]]

@@ -174,5 +174,5 @@
 
    [:apartment :sombra :cutscene 4]
    [:miranda/narration
-    "You spend maybe 10 minutes indulging Sombra in her dorky internet bullshit, until your anxiety about the match results becomes unbearable. You make up your mind to leave, but ultimately, decide returning to the hotel while Zarya was still angry could result in some unfortunate consequences. After several minutes of angry pacing you make your peace and sit back down."
+    "You spend maybe 10 minutes indulging Sombra in her dorky internet bullshit, until your anxiety about the match results becomes unbearable. You make up your mind to leave, but ultimately, decide returning to the hotel while Zarya was still angry could result in some unfortunate consequences. After several minutes of anxious pacing you make your peace and sit back down."
     :-> [:apartment :sombra 7]]})

@@ -50,7 +50,7 @@
     ["Torbjorn" [[:symmetra :_WTF (scoot 2)] [:torbjorn :_crankyCart (scoot -65 -10 4)]]
      "..."]
     ["Symmetra" [[:symmetra :_explainWTF (scoot 2)] [:torbjorn :_crankyCart (scoot -10 0 3)]]
-     "Did you just build a military grade IKEA turret in an amusement park? What is wrong with you?"]
+     "Did you just build a military grade IKEA™ turret in an amusement park? What is wrong with you?"]
     ["Torbjorn" [[:symmetra :_WTF (scoot 2)] [:torbjorn :_handHipAngryCart (scoot 0 10 3)]]
      "Don’t tell me how to live my life!"]
     ["Symmetra" [[:symmetra :_eyeRoll (scoot 2)] [:torbjorn :_crankyCart (scoot 10 105 7.5)]]

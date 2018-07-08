@@ -55,7 +55,7 @@
     "What will you do?"
     ["Get coffee with Pharah" (constantly true)
      [:-> [:spawn :pharah :confirm]]]
-    ["Converse with your other teammates" (constantly true)
+    ["Converse with your other teammates first" (constantly true)
      [:-> [:spawn :pharah :goodbye]]]]
 
    [:spawn :pharah :confirm]
@@ -70,5 +70,3 @@
     ["Pharah" [[:pharah :_neutral (scoot -10)] [:symmetra :_smile (scoot 0)]]
      "Well, if you do decide to give things a shot, let me know."]
     :-> [:spawn :choice]]})
-
-

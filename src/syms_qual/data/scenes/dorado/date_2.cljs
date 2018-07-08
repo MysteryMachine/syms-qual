@@ -170,11 +170,11 @@
  [:room :sombra 12]
   [:miranda/dialogue
     ["Sombra" [[:sombra :_browseXFiles (scoot -3)] [:symmetra :_smile (scoot 0)]] "Let me check my Netflix. The next episode on my X-Files queue is…"]
-    ["Sombra" [[:sombra :_browseHome (scoot -3)] [:symmetra :_smile (scoot -5)]] "Home. Nope. Definitely not that one. Let’s do the Christmas episode."]
-    ["Symmetra" [[:sombra :_browseHome (scoot -3)] [:symmetra :_flirty (scoot -5)]] "Haha. Sombra, you don’t have to try so hard."]
+    ["Sombra" [[:sombra :_browseHome (scoot -3)] [:symmetra :_smile (scoot 0)]] "Home. Nope. Definitely not that one. Let’s do the Christmas episode."]
+    ["Symmetra" [[:sombra :_browseHome (scoot -3)] [:symmetra :_flirty (scoot 0)]] "Haha. Sombra, you don’t have to try so hard."]
     ["Sombra" [[:sombra :_explainAwkward (scoot -3)] [:symmetra :_flirty (scoot 0)]] "Um, but I do?"]
-    ["Sombra" [[:sombra :_fistHandSurprised (scoot -3)] [:symmetra :_smile (scoot -5)]] "Oh my god, curse my vitamin D bereft, but adorably goth self!"]
-    ["Symmetra" [[:sombra :_smile (scoot -3)] [:symmetra :_confused (scoot -5)]] "Excuse me?"]
-    ["Sombra" [[:sombra :_explainHand (scoot -3)] [:symmetra :_coy (scoot -5)]] "Let’s watch the sunrise together! That’s romantic! I can do romantic things that don’t involve being a nerd!"]
-    ["Symmetra" [[:sombra :_smile (scoot -3)] [:symmetra :_strainedSmile (scoot -5)]] "Haha, sure. Let’s go up."]
+    ["Sombra" [[:sombra :_fistHandSurprised (scoot -3)] [:symmetra :_smile (scoot 0)]] "Oh my god, curse my vitamin D bereft, but adorably goth self!"]
+    ["Symmetra" [[:sombra :_smile (scoot -3)] [:symmetra :_confused (scoot 0)]] "Excuse me?"]
+    ["Sombra" [[:sombra :_explainHand (scoot -3)] [:symmetra :_coy (scoot 0)]] "Let’s watch the sunrise together! That’s romantic! I can do romantic things that don’t involve being a nerd!"]
+    ["Symmetra" [[:sombra :_smile (scoot -3)] [:symmetra :_strainedSmile (scoot 0)]] "Haha, sure. Let’s go up."]
     :-> [:room :sombra 13]]})

@@ -12,7 +12,7 @@
 
    [:a]
    [:miranda/narration
-    "As you board the transport parked on the helipad you feel your stomach knot in anticipation. Today is the day you must participate in the first of your ten qualifying matches under the recently reinstated Overwatch program. These matches will determine your placement within the program’s competitive hierarchy by testing your combat skills."
+    "As you board the transport parked on the helipad you feel your stomach knot in anticipation. Today is the day you must participate in the first of your qualifying matches under the recently reinstated Overwatch program. Over the next ten weeks, these matches will determine your placement within the program’s competitive hierarchy by testing your combat skills."
     :-> [:a :img]]
 
    [:a :img]

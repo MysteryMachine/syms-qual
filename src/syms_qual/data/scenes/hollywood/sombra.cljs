@@ -48,7 +48,7 @@
    [:spawn :sombra 1]
    [:miranda/dialogue
     ["Sombra" [[:reaper :_neutral (scoot -6)] [:sombra :_explainHand(scoot -14)] [:symmetra :_awkward (scoot 4)]]
-     "It’s Guy Fieri. We’re kinda. Filming an episode of Neodiners, Neodrive-Ins and Neodives. He will be tearing into a 4 pound hamburger while we fight."]
+     "It’s Guy Fieri. We’re kinda... Filming an episode of Neodiners, Neodrive-Ins and Neodives. He will be tearing into a 4 pound hamburger while we fight."]
     ["Symmetra" [[:reaper :_neutral (scoot -6)] [:sombra :_neutral (scoot -14)] [:symmetra :_bewildered (scoot 4)]] "Four pounds?"]
     ["Sombra" [[:reaper :_neutral (scoot -6)] [:sombra :_nostalgic (scoot -14)] [:symmetra :_neutral (scoot 4)]]
      "Oh, my, god, I once saw a guy on the internet literally go into a meat market and..."]

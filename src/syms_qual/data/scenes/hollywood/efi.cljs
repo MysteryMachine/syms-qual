@@ -43,7 +43,7 @@
      "The physics of four legged wall grinding are impossible."]
     ["Lucio" [[:orisa :_neutral] [:lucio :_smug (scoot -5)]
               [:efi :_neutral (scoot 15)] [:symmetra :_awkward (scoot 7)]]
-     "They said that about my two legged wall grinding. I even wrote a song about it! It's a little know B-track only the REAL Lucio fans know."]
+     "They said that about my two legged wall grinding. I even wrote a song about it! It's a little known B-track only the REAL Lucio fans know."]
     ["Efi" [[:orisa :_neutral] [:lucio :_neutral (scoot -5)]
             [:efi :_pointUpEyesClosed (scoot 15)] [:symmetra :_awkward (scoot 7)]]
      "Yes, but you’re a pop star. People don’t question when you casually break the laws of physics."]

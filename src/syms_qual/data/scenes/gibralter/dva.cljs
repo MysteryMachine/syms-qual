@@ -27,7 +27,7 @@
     ["D.Va" [[:tracer :_neutral (scoot -18)] [:dva :_switchCheck (scoot -5)] [:symmetra :_WTF (scoot 8)]] "Wait a sec."]
     ["D.Va" [[:tracer :_neutral (scoot -18)] [:dva :_switchTalk (scoot -5)] [:symmetra :_WTF (scoot 8)]] "Oh em gee, everybody, I just got a hundred dollar donation. The donation reads, 'LOL who is this lady gtfo and get back to owning noobs hana love ur stream and much love.''"]
     ["D.Va" [[:tracer :_neutral (scoot -18)] [:dva :_switchGrin (scoot -5)] [:symmetra :_WTF (scoot 8)]] "D’aww! Thank you, imnotanassimjusttrolling for the donation! And you know what that means!"]
-    ["D.Va" [[:tracer :_neutral (scoot -18)] [:dva :_switchThumbsUp (scoot -5)] [:symmetra :_frustrated (scoot 8)]] "I’ve raised enough money to go to Military Industrial Complex Gaming Con, sponsored by IKEA! I’m so excited to get to try out Soldier Simulator X: Final Remix Delta."]
+    ["D.Va" [[:tracer :_neutral (scoot -18)] [:dva :_switchThumbsUp (scoot -5)] [:symmetra :_frustrated (scoot 8)]] "I’ve raised enough money to go to Military Industrial Complex Gaming Con, sponsored by IKEA™! I’m so excited to get to try out Soldier Simulator X: Final Remix Delta."]
     ["Tracer" [[:tracer :_smile (scoot -18)] [:dva :_neutral (scoot -5)] [:symmetra :_frustratedConfused (scoot 8)]] "I hear that’s a good one!"]
     ["D.Va" [[:tracer :_neutral (scoot -18)] [:dva :_shrug (scoot -5)] [:symmetra :_eyeRoll (scoot 8)]] "It sure is, Tracer! But we all know, LOL, I’m just doing it for the internet fame."]
     ["D.Va" [[:tracer :_neutral (scoot -18)] [:dva :_dunk (scoot -5)] [:symmetra :_eyeRoll (scoot 8)]] "Can I get some DVAsellouts in the chat? If you can’t use the emote, be sure to subscribe to tell me that I sold out!"]

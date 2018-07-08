@@ -4,6 +4,16 @@
 
 (def data
   {[:spawn :intro]
+    [:miranda/narration
+     [:div
+      [:p.notice-head "WEEK 10"]
+      [:hr.notice-hr ]
+      [:p.notice-text
+       [:div "DORADO"]
+       [:div "Mexico"]]]
+    :-> [:spawn :intro2]]
+
+  [:spawn :intro2]
    [:miranda/narration
     "You find the church courtyard which serves as the offensive spawn room to have a pleasant peaceful atmosphere and you enjoy looking out at the boats gently bobbing in the moonlit harbor before the match begins."
     "To your dismay, the mood of the match itself is anything but calm. Your team is quite scattered and cannot mount any sort of coordinated push despite your best efforts. All of your attacks are quickly and brutally shut down and you are unable to move the payload more than a few meters beyond your own spawn doors. The round ends with almost no progress having been made, making  your round on defense nearly impossible. As you gather your belongings in preparation for your turn on defense, Zenyatta approaches you. "

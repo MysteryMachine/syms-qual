@@ -153,7 +153,7 @@
     ["Ana" [[:pharah :_reverseNeutral (scoot 15)] [:symmetra :_awkward (scoot 10)]
             [:ana :_breathalyzerExplain (scoot 2)]
             [:reinhardt_table :_beerNeutral (scoot 7)]]
-     "Good. I have a breathalyzer just for these occasions. When you learn to keep one on you when getting drunk with brutes in power armor."]
+     "Good. I have a breathalyzer just for these occasions. You learn to keep one on you when getting drunk with brutes in power armor."]
     ["Reinhardt" [[:pharah :_reverseNeutral (scoot 15)] [:symmetra :_awkward (scoot 10)]
                   [:ana :_neutral (scoot 2)]
                   [:reinhardt_table :_beerLookUp (scoot 7)]]
@@ -188,7 +188,7 @@
     ["Pharah" [[:pharah :_reverseEmbarassed (scoot -20)] [:symmetra :_sass (scoot 0)]
                [:reinhardt_table :_beerNeutral (scoot -25)]]
      "Oh geez, not you too!"]
-    ["Symmetra" [[:pharah :_reverseAnguish (scoot -20)] [:symmetra :_flirty (scoot 0)]
+    ["Symmetra" [[:pharah :_reverseEmbarassedBack (scoot -20)] [:symmetra :_flirty (scoot 0)]
                  [:reinhardt_table :_beerNeutral (scoot -25)]]
      "I’ll do it if you do it."]
     :transition :miranda/conditional
@@ -207,7 +207,7 @@
 
    [:pharah :a :text]
    [:miranda/narration
-    "You enjoy the rest of the evening, listen to Reinhardt’s old stories, and Pharah and Ana’s amusing interjections.  As the evening draws to a close, you begin to prepare for the trek back to your nearby hotel. Before you set out, Ana insists on breathalyzing Reinhardt despite that fact that he ultimately only had two beers. After examining, the results she passes the breathalyzer to Pharah, who shoots you a playful glance before stepping in to have her turn as well. After her turn, Pharah hands you the breathalyzer."
+    "You enjoy the rest of the evening, listen to Reinhardt’s old stories, and Pharah and Ana’s amusing interjections.  As the evening draws to a close, you begin to prepare for the trek back to your nearby hotel. Before you set out, Ana insists on breathalyzing Reinhardt despite that fact that he ultimately only had two beers. After examining the results she passes the breathalyzer to Pharah, who shoots you a playful glance before stepping in to have her turn as well. After her turn, Pharah hands you the breathalyzer."
     :-> [:beer-hall :pharah :date 5]]
 
    [:beer-hall :pharah :date 5]
@@ -236,5 +236,5 @@
 
    [:pharah :b :text]
    [:miranda/narration
-    "You enjoy the rest of the evening, listening to Reinhardt’s old stories and Pharah and Ana’s amusing interjections. As the evening draws to a close, the four of you make your way outside to begin the trek back to your nearby hotel. Before you set out, Ana insists on breathalyzing Reinhardt despite that fact that he ultimately only had two beers. Afterwards, she passes the breathalyzer to Pharah, requesting that she take the test as well. She and Ana exchange a smile, and Ana applies the test. Once she is satisfied with the results, you head back to the hotel listening to one last story from Reinhardt as you walk. "
+    "You enjoy the rest of the evening, listening to Reinhardt’s old stories and Pharah and Ana’s amusing interjections. As the evening draws to a close, the four of you make your way outside to begin the trek back to your nearby hotel. Before you set out, Ana insists on breathalyzing Reinhardt despite that fact that he ultimately only had two beers. After examining, the results she passes the breathalyzer to Pharah, who shoots you a playful glance before stepping in to have her turn as well. Ana seems satisfied with the results, and the four of you head back to the hotel listening to one last story from Reinhardt as you walk. "
     :=> [:junkertown [:spawn :intro] 0]]})
