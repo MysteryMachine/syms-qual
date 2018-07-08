@@ -45,18 +45,18 @@ body{
     right: 2.5em;
     margin: .5em;
     z-index: 100;
-    background-image: url("../img/Main_Menu/ff.png");
+    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Main_Menu/ff.png");
     background-size: cover;
 }
 
 .miranda.fast-forward-button:hover{
     cursor: pointer;
-    background-image: url("../img/Main_Menu/ffHover.png");
+    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Main_Menu/ffHover.png");
 }
 
 .miranda.fast-forward-button:active{
     cursor: pointer;
-    background-image: url("../img/Main_Menu/ffActive.png");
+    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Main_Menu/ffActive.png");
 }
 
 .miranda.mute-button{
@@ -66,21 +66,21 @@ body{
     right: 0em;
     margin: .5em;
     z-index: 100;
-    background-image: url("../img/Main_Menu/muted.png");
+    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Main_Menu/muted.png");
     background-size: cover;
 }
 
 .miranda.mute-button:hover{
     cursor: pointer;
-    background-image: url("../img/Main_Menu/mutedHover.png");
+    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Main_Menu/mutedHover.png");
 }
 
 .miranda.mute-button.not-muted {
-    background-image: url("../img/Main_Menu/notMuted.png");
+    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Main_Menu/notMuted.png");
 }
 x``
 .miranda.mute-button.not-muted:hover {
-    background-image: url("../img/Main_Menu/notMutedHover.png");
+    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Main_Menu/notMutedHover.png");
 }
 
 .miranda.full-screen-button{
@@ -90,7 +90,7 @@ x``
     right: 7.5em;
     margin: .5em;
     z-index: 100;
-    background-image: url("../img/Main_Menu/fullscreen.png");
+    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Main_Menu/fullscreen.png");
     background-size: cover;
 }
 
@@ -101,18 +101,18 @@ x``
     right: 5em;
     margin: .5em;
     z-index: 100;
-    background-image: url("../img/Main_Menu/menuButton.png");
+    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Main_Menu/menuButton.png");
     background-size: cover;
 }
 
 .miranda.full-screen-button:hover{
     cursor: pointer;
-    background-image: url("../img/Main_Menu/fullscreenHover.png");
+    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Main_Menu/fullscreenHover.png");
 }
 
 .miranda.menu-button:hover{
     cursor: pointer;
-    background-image: url("../img/Main_Menu/menuButtonHover.png");
+    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Main_Menu/menuButtonHover.png");
 }
 
 .base-scene{
@@ -428,12 +428,12 @@ span.symmetra{
 }
 
 .fadeout.menu {
-    background-image: url("../img/Main_Menu/menuPink.png");
+    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Main_Menu/menuPink.png");
     background-size: cover;
 }
 
 .sym-hand {
-    background-image: url("../img/Menu_Hand/menuHand.png");
+    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Menu_Hand/menuHand.png");
     background-size: cover;
     position: absolute;
     z-index: 300;
@@ -460,20 +460,20 @@ p.notice-text {
 
 .hand-menu.main-menu {
     cursor: pointer;
-    background-image: url("../img/Menu_Hand/_mainMenu.png");
+    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Menu_Hand/_mainMenu.png");
     background-size: cover;
 }
 
 .hand-menu.back-to-game{
     cursor: pointer;
-    background-image: url("../img/Menu_Hand/_back.png");
+    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Menu_Hand/_back.png");
     background-size: cover;
 }
 
 .hand-menu.main-menu:hover {
-    background-image: url("../img/Menu_Hand/_mainMenuHover.png");
+    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Menu_Hand/_mainMenuHover.png");
 }
 
 .hand-menu.back-to-game:hover{
-    background-image: url("../img/Menu_Hand/_backHover.png");
+    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Menu_Hand/_backHover.png");
 }
