@@ -110,10 +110,10 @@
 
 ;; --- Character Functions ---
 
-(defn reify-character-xf [name path ext]
+(defn reify-character-xf [name path ext host]
   (map
    (fn [[expression data]]
-     (let [css-data {:img (str path name "/" expression "." ext)}]
+     (let [css-data {:img (str host path name "/" expression "." ext)}]
        (vector (keyword expression) (merge data css-data))))))
 
 (defn split-character-data [data]
@@ -126,13 +126,13 @@
           (recur (rest d) (assoc result a {}))))
       result)))
 
-(defn reify-characters-xf [{:keys [path ext]}]
+(defn reify-characters-xf [{:keys [path ext host]}]
   (map
    (fn [[name data]]
      (let [split-data (split-character-data data)]
       (vector
         (keyword (str/lower-case name))
-        (into {} (reify-character-xf name path ext) split-data))))))
+        (into {} (reify-character-xf name path ext host) split-data))))))
 
 (defn reify-characters [structure options]
   (into {} (reify-characters-xf options) structure))
@@ -143,16 +143,16 @@
 
 (def bg-name->kw keyword)
 
-(defn bg-name->path [name path ext]
-  (str path name "." ext))
+(defn bg-name->path [name path ext host]
+  (str host path name "." ext))
 
-(defn reify-bgs-xf [{:keys [path ext]}]
+(defn reify-bgs-xf [{:keys [path ext host]}]
   (map
    (fn [o]
      (if (string? o)
-       {(bg-name->kw o) (bg-name->path o path ext)}
+       {(bg-name->kw o) (bg-name->path o path ext host)}
        {(bg-name->kw (:name o))
-        (bg-name->path (:name o) path (:ext o))}))))
+        (bg-name->path (:name o) path (:ext o) host)}))))
 
 (defn reify-bgs [structure options]
   (into {} (reify-bgs-xf options) structure))

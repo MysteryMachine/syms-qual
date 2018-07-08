@@ -112,7 +112,7 @@
 (def options
   {:path "img/Backgrounds/"
    :ext  "png"
-   :host "http://syms-qual.s3-website-us-east-1.amazonaws.com"})
+   :host "http://syms-qual.s3-website-us-east-1.amazonaws.com/"})
 
 (def data
   (data/reify-bgs structure options))
