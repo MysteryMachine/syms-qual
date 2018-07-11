@@ -192,8 +192,8 @@
                  [:reinhardt_table :_beerNeutral (scoot -25)]]
      "I’ll do it if you do it."]
     :transition :miranda/conditional
-    [#(= (:points/pharah %) 2)  [:-> [:beer-hall :no-date]]
-     :else                      [:-> [:pharah :a]]]]
+    [#(= (:points/pharah %) 2)  [:-> [:pharah :a]]
+     :else                      [:-> [:beer-hall :no-date]]]]
 
    [:beer-hall :no-date]
    [:miranda/characters

@@ -64,7 +64,7 @@
     [:miranda/dialogue
      ["Symmetra" [[:torbjorn :_cranky]  [:symmetra :_pointUp]] "Yes. I’ve decided. Let’s go."]]
     (inc-transition
-     [:-> [:torbjorn]]
+     [:-> [:torb]]
      :points/payload))
 
    [:spawn :torb :a :option :no]
