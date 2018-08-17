@@ -43,7 +43,7 @@
    [:miranda/dialogue
     ["Symmetra" [[:symmetra :_laughEvil (scoot 0)] [:torbjorn :_cranky (scoot -2)]]
      "I will destroy you."]
-    [:-> [:torb]]]
+    :-> [:torb]]
 
    [:street :torb :no]
    [:miranda/dialogue
