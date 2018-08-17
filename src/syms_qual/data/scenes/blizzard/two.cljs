@@ -55,7 +55,7 @@
    [:party :sombra 4]
    [:miranda/dialogue
     [nil [[:gifts :_bear]]
-     "You've received - SEÑORITA BEARINGTON'"]
+     "You've received - SEÑORITA BEARINGTON"]
     ["Sombra" [[:sombra :_flirty (scoot -5)] [:symmetra :_strainedSmile (scoot -2)]]
      "You looked so cute snuggling with Señor Bear Bear when you fell asleep last week I thought you could use one of your own to keep you company. At least while I’m not around, you know."]
     ["Symmetra" [[:sombra :_neutral (scoot -5)] [:symmetra :_coy (scoot -2)]]

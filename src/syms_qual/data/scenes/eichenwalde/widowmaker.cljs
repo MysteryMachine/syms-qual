@@ -127,6 +127,6 @@
 
    [:widow :text]
    [:miranda/narration
-    "Apparently, when Reaper and friends were arrested for blowing up the coffee shop, he named Amelie LaCroix as the person who could be held responsible for the damages. They recognized Widowmaker from her blue tint, and immediately accosted her for failing to pay for the damages to the shop from last Halloween."
-    "They demanded you go to the back to wash dishes, and you felt too awkward about the whole thing to protest. The match was lost badly. Widowmaker looked angry at you, but you could quite easily ascertain she was too embarrassed to say anything about the events that transpired."
+    "You decided to get youself an ice tea before setting up on the roof, but as you were waiting for your order to filled, several members of the staff came forward, grabbed Amelie, and dragged her into the kitchen. Apparently, when Reaper and friends were arrested for blowing up the coffee shop last Halloween, he named Amelie LaCroix as the person who could be held responsible for the damages. They recognized her from her blue tint, and demanded that she work off the debt by doing dishes since she wasn't carrying any cash."
+    "You felt too awkard to abandon your teammate, but one glance at the brackish water in the sink they had assigned her to reafirmed your conviction that you would not be helping her with her dilema in any way. After an hour or so of cleaning they let you go, but by that point, the match was already over and your team had lost quite badly. Widowmaker looked angry at you, but you could quite easily ascertain she was too embarrassed to say anything about the events that transpired."
     :=> [:junkertown [:spawn :intro] 0]]})

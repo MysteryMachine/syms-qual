@@ -134,6 +134,12 @@
      "Just plain apple. I'm not really much of a baker but I'm trying to learn."]
     ["Symmetra" [[:brigitte :_pie (scoot -11 -20 1.5)] [:symmetra :_explainUncomfortable (scoot -5 -13 1.5)]]
      "I'm sure you'll improve with a bit of practice. Baking is a science as they say."]
+    ["Brigitte" [[:brigitte :_pieLaugh (scoot -20 -30 1.5)] [:symmetra :_smile (scoot -13 -20 1.5)]]
+      "I'm really more of an engineer?"]
+    ["Symmetra" [[:brigitte :_pie (scoot -30 -40 1.5)] [:symmetra :_laugh (scoot -20 -28 1.5)]]
+       "I'm expecting some very structurally sound pies then."]
+    ["Brigitte" [[:brigitte :_pieLaugh (scoot -40 -50 1.5)] [:symmetra :_smile (scoot -28 -36 1.5)]]
+        "Definitely. There will be lots of flying buttresses involved."]
     :-> [:picnic :brigitte 3]]
 
    [:picnic :brigitte 3]

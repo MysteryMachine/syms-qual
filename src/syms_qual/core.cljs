@@ -345,5 +345,10 @@
         (extras/full-screen-button state-atom))]
      [game state]]))
 
+(defn app2 []
+  (let [a (app)]
+  (println a)
+  a))
+
 (miranda/listen! state-atom options)
-(reagent/render [app] (. js/document (getElementById "app")))
+(reagent/render [app2] (. js/document (getElementById "app")))

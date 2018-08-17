@@ -33,7 +33,7 @@
     [:sombra-a :cutscene :text]
     [:miranda/narration
     "You are impressed by the spread which Reaper seems to have created using only the portable hot plate he brought with him and the previously mentioned microwave. There is a build your own bloody mary bar set up on one of the tables allowing to you to pick from a variety of garnishes and determine the strength of your own drink."
-    "Reaper has made himself one which appears to be about 75% vodka containing several strips of bacon, a stalk of celery, a collection of pickles, 5 olives, and an entire hamburger balanced precariously on a skewer. You all snack and mill about waiting for the witching hour to arrive."
+    "Reaper has made himself one which appears to be about 75% vodka containing several strips of bacon, a stalk of celery, a collection of olives, and an entire hamburger balanced precariously on a skewer. You all snack and mill about waiting for the witching hour to arrive."
     :-> [:room :sombra 6]]
 
   [:room :sombra 6]

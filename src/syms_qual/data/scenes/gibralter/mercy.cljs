@@ -81,7 +81,7 @@
     ["Mercy" [[:mercy :_wrist (scoot -15)]  [:symmetra :_phoneCheck (scoot 0)]] "Who is it? A special someone? Tell me all the details, Satya. I love to have that good gossip with my gal pals."]
     ["Symmetra" [[:mercy :_neutral (scoot -15)]  [:symmetra :_phoneCheckTalk (scoot 0)]] "Apparently Winston is in his office asking if anyone wants a free juicer?"]
     ["Mercy" [[:mercy :_reverseFly (scoot -15 -80 2)] [:symmetra :_phoneCheck (scoot 0 -25 2)]] "Oh is he now…"]
-    ["Symmetra" [[:symmetra :_phoneCheck (scoot -25)]] "Thank you, you have saved me (praying hands emoji)"]
+    ["Symmetra" [[:symmetra :_phoneCheck (scoot -25)]] "Thank you, you have saved me 🙏🏾"]
     ["Pharah" [[:symmetra :_phoneCheck (scoot -25)]] "lol np if u want 2 escape further i know a gud spot we should go 4 a d8"]
     ["Pharah" [[:symmetra :_phoneCheck (scoot -25)]] "If you want 2 d8?"]
     ["Pharah" [[:symmetra :_phoneCheck (scoot -25)]] "lol jk"]

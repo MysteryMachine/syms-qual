@@ -32,7 +32,7 @@
    [:miranda/option
     "Symmetra" [[:zarya_rein :_smutty (scoot -10)] [:symmetra :_coy (scoot 5)]]
     "Miss Zaryanova..."
-    "Miss Zaryanova, I can’t deny I haven been quietly admiring your strength."]
+    "Miss Zaryanova, I can’t deny I have been quietly admiring your strength."]
 
    [:spawn :zarya :option 0]
    [:miranda/dialogue
@@ -57,7 +57,7 @@
     ["Zarya" [[:zarya_rein :_explain (scoot -10)] [:symmetra :_neutral (scoot 5)]]
      "No, see, I promised old man a rematch in arm wrestling contest, but we decided it was best to save our strength for the fight ahead. Then, I found these bottles under boxes over there though, and this seemed like a suitable substitution."]
     ["Reinhardt" [[:zarya_rein :_shot (scoot -10)] [:symmetra :_frown (scoot 5)]]
-     "And so, we test our livers instead! I wish we had some Bären, but I’m sure this vodka’s lighter fluid flavor will only intensify the contest! "]
+     "And so, we test our livers instead! I wish we had some Gorbatschow, but I’m sure this vodka’s lighter fluid flavor will only intensify the contest! "]
     ["Symmetra" [[:zarya_rein :_shot (scoot -10)] [:symmetra :_frustrated (scoot 5)]]
      "You thought it was more responsible to get drunk before the match, than to arm wrestle?"]
     ["Zarya" [[:zarya_rein :_salty (scoot -10)] [:symmetra :_frown (scoot 5)]]
