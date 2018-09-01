@@ -75,7 +75,7 @@
     ["Symmetra" [[:junkrat :_triggerNeutral (scoot -10)] [:symmetra :_explain]]
      "I'm Satya, but feel free to refer to me by my operative name, Symmetra."]
     ["Junkrat" [[:junkrat :_triggerWave (scoot -10)] [:symmetra :_helloNeutral]]
-     "I’d tell you to give ol’ hoggie my warmest wishes, but I’ll be delivering warmth directly to the payload! Heehee! Oh! And watch your step."]
+     "I’d tell you to give ol’ Hoggie my warmest wishes, but I’ll be delivering warmth directly to the payload! Heehee! Oh! And watch your step."]
     :-> [:street :sombra]]
 
    [:street :sombra]
@@ -263,5 +263,5 @@
 
    [:street :finale]
    [:miranda/narration
-    "The days event have done nothing to assuage your doubts about the Overwatch program but you can’t say they haven’t been interesting. As you board your homeward bound shuttle you cannot help but wonder what the coming weeks will bring."
+    "The days events have done nothing to assuage your doubts about the Overwatch program, but you can’t say they haven’t been interesting. As you board your homeward bound shuttle you cannot help but wonder what the coming weeks will bring."
     :=> [:anubis [:spawn :intro] 0]]})

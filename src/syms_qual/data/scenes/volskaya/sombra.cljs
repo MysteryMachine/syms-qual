@@ -225,5 +225,5 @@
    [:point-a-notp :cutscene]
    [:miranda/narration
     "True to her word, Sombra managed to hack one of the Svyatogors. Its offense was absolute, and you captured both points as quickly as it took for you to walk to them. As you began to set up for the defensive round, you noticed that Sombra had parked the robot inside the second point hangar, rather than on the first point with the rest of your team."
-    "After some deliberation, you decided that it did not really matter if you held on the first or second point, and were just about to resume placing your turrets when you felt a strange tapping on your shoulder. You looked back there was no one to be found."
+    "After some deliberation, you decided that it did not really matter if you held on the first or second point, and were just about to resume placing your turrets when you felt a strange tapping on your shoulder. You looked back, but there was no one to be found."
     :-> [:point-a-notp :sombra 3]]})

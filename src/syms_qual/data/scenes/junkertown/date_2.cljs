@@ -33,21 +33,21 @@
     ["Symmetra" [[:clouds :_field (move [0 25])] [:clouds :_whale (scoot 100 60 1 )]] "Jaime?"]
     ["Junkrat" [[:clouds :_field (move [0 25])] [:clouds :_whale (scoot 60 40 1)]] "Yes?"]
     ["Symmetra" [[:clouds :_field (move [0 25])] [:clouds :_whale (scoot 40 10 1)] [:hands :_symPoint (scoot 0)]] "That cloud over there closely resembles a whale, does it not?"]
-    ["Junkrat" [[:clouds :_field (move [0 25])] [:clouds :_whale (scoot 10 -20 1)] [:clouds :_dance (scoot 80 30 2)][:hands :_junkPoint (scoot 0)]] "Very like a whale!"]
-    ["Symmetra" [[:clouds :_field (move [0 25])] [:clouds :_whale (scoot -20 -80 2)][:clouds :_dance (scoot 30 9 2)] [:hands :_symPoint (scoot 0)]] "And that one’s a woman dancing."]
-    ["Junkrat" [[:clouds :_field (move [0 25])] [:clouds :_dance (fade-out [9 0] 1)] [:clouds :_centaur (fade-in [20 0] 1)] [:hands :_junkExplain (scoot 0)]] "Yeah I think I see it. But those two collided.  She’s still dancing but now she’s like the centaur top half of a giant duck."]
-    ["Symmetra" [[:clouds :_field (move [0 25])] [:clouds :_centaur (scoot 20 15 2)]] "Haha, I suppose. Although I think it looks more like a"]
+    ["Junkrat" [[:clouds :_field (move [0 25])] [:clouds :_whale (scoot 10 -20 1)] [:clouds :_dance (scoot 80 40 2)][:hands :_junkPoint (scoot 0)]] "Very like a whale!"]
+    ["Symmetra" [[:clouds :_field (move [0 25])] [:clouds :_whale (scoot -20 -80 2)][:clouds :_dance (scoot 40 9 2)] [:hands :_symPoint (scoot 0)]] "And that one’s a woman dancing."]
+    ["Junkrat" [[:clouds :_field (move [0 25])] [:clouds :_dance (fade-out [9 0] 1)] [:clouds :_centaur (fade-in [9 0] 1)] [:hands :_junkExplain (scoot 0)]] "Yeah I think I see it. But those two collided.  She’s still dancing but now she’s like the centaur top half of a giant duck."]
+    ["Symmetra" [[:clouds :_field (move [0 25])] [:clouds :_centaur (scoot 9 5 2)]] "Haha, I suppose. Although I think it looks more like a"]
     :-> [:field :option 0]]
 
    [:field :option 0]
    [:miranda/option
-    "Symmetra" [[:clouds :_field (move [0 25])] [:clouds :_centaur (scoot 15)]]
+    "Symmetra" [[:clouds :_field (move [0 25])] [:clouds :_centaur (scoot 5)]]
     "Goose Centaur"
     "Steaming Kettle"]
 
    [:field :option 0 0]
    [:miranda/dialogue
-    ["Symmetra" [[:clouds :_field (move [0 25])] [:clouds :_centaur (scoot 15 0 2)] [:hands :_symExplain (scoot 0)]] "The neck is too long for a duck."]
+    ["Symmetra" [[:clouds :_field (move [0 25])] [:clouds :_centaur (scoot 5 0 2)] [:hands :_symExplain (scoot 0)]] "The neck is too long for a duck."]
     ["Junkrat" [[:clouds :_field (move [0 25])] [:clouds :_centaur (scoot 0 -15 2)] [:hands :_junkPoint (scoot 0)]] "Does it really count as a neck when its a human torso?"]
     ["Symmetra" [[:clouds :_field (move [0 25])] [:clouds :_centaur (scoot -15 -30 2)]] "Good point. I shall have to more carefully consult the Encyclopedia of Sky Cryptids I brought with me."]
     ["Junkrat" [[:clouds :_field (move [0 25])] [:clouds :_centaur (scoot -30 -45 2)] [:hands :_junkExplain (scoot 0)]] "I’m glad you brought yours. I knew I was forgetting something important when I packed up this afternoon."]
@@ -55,7 +55,7 @@
 
    [:field :option 0 1]
    [:miranda/dialogue
-    ["Junkrat" [[:clouds :_field (move [0 25])] [:clouds :_centaur (scoot 15 0 2)]] "Ooh, I’d love a cuppa"]
+    ["Junkrat" [[:clouds :_field (move [0 25])] [:clouds :_centaur (scoot 5 0 2)]] "Ooh, I’d love a cuppa"]
     ["Junkrat" [[:clouds :_field (move [0 25])] [:clouds :_centaur (scoot 0 -15 2)]] "I’ll get up and make some."]
     ["Junkrat" [[:clouds :_field (move [0 25])] [:clouds :_centaur (scoot -15 -30 2)]] "…"]
     ["Junkrat" [[:clouds :_field (move [0 25])] [:clouds :_centaur (scoot -30 -45 2)]] "...In a minute…"]
@@ -99,11 +99,11 @@
 
    [:field 2]
    [:miranda/dialogue
-    ["Symmetra" [[:clouds :_field (move [0 25])] [:clouds :_bear (scoot -25 -90 2)] [:clouds :_cone (scoot 60 10 2)]] "Well, I’ll cheer you up with that ice cream cone floating beneath her."]
-    ["Junkrat" [[:clouds :_field (move [0 25])] [:clouds :_cone (scoot 10 0 2)]] "That’s not a ice cream cone, it’s face. The face of Snorey McSleepyPants the patron saint of really good naps."]
-    ["Symmetra" [[:clouds :_field (move [0 25])] [:clouds :_cone (scoot 0 -5 2)]] "I’m not sure I see it."]
-    ["Junkrat" [[:clouds :_field (move [0 25])] [:clouds :_cone (scoot -5 -15 2)]] "It’s a tiny face, but a great big nose."]
-    ["Symmetra" [[:clouds :_field (move [0 25])] [:clouds :_cone (fade-out [-15 0] 1)][:clouds :_snore (fade-in [0 0] 1)]] "Oh, it’s clearer now that the winds picked up. It’s grown some straggly bits of hair. They look rather like you don’t they."]
+    ["Symmetra" [[:clouds :_field (move [0 25])] [:clouds :_bear (scoot -25 -90 2)] [:clouds :_cone (scoot 60 15 2)]] "Well, I’ll cheer you up with that ice cream cone floating beneath her."]
+    ["Junkrat" [[:clouds :_field (move [0 25])] [:clouds :_cone (scoot 15 10 2)]] "That’s not a ice cream cone, it’s face. The face of Snorey McSleepyPants the patron saint of really good naps."]
+    ["Symmetra" [[:clouds :_field (move [0 25])] [:clouds :_cone (scoot 10 5 2)]] "I’m not sure I see it."]
+    ["Junkrat" [[:clouds :_field (move [0 25])] [:clouds :_cone (scoot 5 0 2)]] "It’s a tiny face, but a great big nose."]
+    ["Symmetra" [[:clouds :_field (move [0 25])] [:clouds :_cone (fade-out [0 0] 1)][:clouds :_snore (fade-in [0 0] 1)]] "Oh, it’s clearer now that the winds picked up. It’s grown some straggly bits of hair. They look rather like you don’t they."]
     ["Junkrat" [[:clouds :_field (move [0 25])] [:clouds :_snore (scoot 0 -5 2)]] "Ha, I guess. Your reckon we’re related?"]
     ["Symmetra" [[:clouds :_field (move [0 25])] [:clouds :_snore (scoot -5 -10 2)]] "Perhaps."]
     ["Junkrat" [[:clouds :_field (move [0 25])] [:clouds :_snore (scoot -10 -15 2)]] "I feel like I ought to get more preferential treatment if we’re family. I’m always asking for their help when I’ve got insomnia but they never respond."]

@@ -7,7 +7,7 @@
    [:miranda/dialogue
     ["Symmetra" [[:orisa :_neutral (scoot -85 0 1)] [:lucio :_jammin (scoot -90 -5 1)]
                  [:efi :_neutral (scoot -70 15 1)] [:symmetra :_helloNeutral (scoot 92 7 1)]]
-     "Hello!"]
+     "Hello."]
     ["Lucio" [[:orisa :_neutral]  [:symmetra :_neutral (scoot 7)]
               [:efi :_neutral (scoot 15)] [:lucio :_point (scoot -5)]]
      "Hey, why the long face? The game isn’t over yet! We got this."]

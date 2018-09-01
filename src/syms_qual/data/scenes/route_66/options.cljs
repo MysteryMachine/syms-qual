@@ -66,7 +66,7 @@
     ["Reaper" [[:reaper :_explain (scoot -10)] [:symmetra :_neutral]]
      "YES. AN EFFECTIVE HACKER. SHE PERFECTLY COUNTERS MY KIT. I SUSPECT TALON HIRED HER BECAUSE I AM UNSTOPPABLE OTHERWISE."]
     ["Reaper" [[:reaper :_phoneCheck (scoot -10)] [:symmetra :_smile]]
-     "HERE WE ARE ON VACATIO-- I MEAN A LEGITIMATE BUSSINESS TRIP THAT SOMBRA DID NOT PAY FOR WITH SIPHONED OVERWATCH FUNDS. SHE'S THE ONE IN THE MIDDLE."]
+     "HERE WE ARE ON VACATIO-- I MEAN A LEGITIMATE BUSINESS TRIP THAT SOMBRA DID NOT PAY FOR WITH SIPHONED OVERWATCH FUNDS. SHE'S THE ONE IN THE MIDDLE."]
     :-> [:diner :dialogue [:option 3 :reaper] :photo]]
 
    [:diner :dialogue [:option 3 :reaper] :photo]

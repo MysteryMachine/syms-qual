@@ -188,12 +188,9 @@
     ["Pharah" [[:pharah :_reverseEmbarassed (scoot -20)] [:symmetra :_sass (scoot 0)]
                [:reinhardt_table :_beerNeutral (scoot -25)]]
      "Oh geez, not you too!"]
-    ["Symmetra" [[:pharah :_reverseEmbarassedBack (scoot -20)] [:symmetra :_flirty (scoot 0)]
-                 [:reinhardt_table :_beerNeutral (scoot -25)]]
-     "I’ll do it if you do it."]
     :transition :miranda/conditional
     [#(= (:points/pharah %) 2)  [:-> [:pharah :a]]
-     :else                      [:-> [:beer-hall :no-date]]]]
+     :else                      [:-> [:beer-hall :no-date :text]]]]
 
    [:beer-hall :no-date]
    [:miranda/characters
@@ -219,14 +216,14 @@
     ["Symmetra" [[:pharah :_phoneNeutral (scoot -15)] [:symmetra :_breathalyzerConfused (scoot 2)]]
      "This goes against every policy I have regarding germs. But fine."]
     ["Pharah" [[:pharah :_phoneTalk (scoot -15)] [:symmetra :_breathalyzerConfused (scoot 2)]]
-     "Hehe. Get in frame!"]
+     "Hehe. Strike a pose!"]
     ["Pharah" [[:pharah :_phoneAnguish (scoot -15)] [:symmetra :_smile (scoot 2)]]
      "Can I have your phone number? It's for uhh...strictly business purposes I promise."]
     :-> [:hotel :pharah :cutscene :date :final]]
 
    [:hotel :pharah :cutscene :date :final]
    [:miranda/narration
-    "Pharah walks you home. She nervously leaves you at the door, turning beet red at the last minute, freezing up. You wave her goodnight and blow a kiss. A few minutes after, a text message arrives on your phone; Pharah had sent you the breathalyzer selfie as memento."
+    "Pharah walks you home. She nervously leaves you at the door, turning beet red at the last minute, freezing up. You wave her goodnight and blow a kiss. A few minutes after, a text message arrives on your phone; Pharah had sent you the breathalyzer selfie as memento, albeit with a few creative edits."
     :-> [:hotel :phone]]
 
    [:hotel :phone]

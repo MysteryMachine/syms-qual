@@ -15,8 +15,9 @@
    {:name "blizzard-world-credits1" :ext "gif"}
    {:name "blizzard-world-credits2" :ext "gif"}
    {:name "blizzard-world-credits3" :ext "gif"}
+   {:name "blizzard-world-credits4" :ext "gif"}
    "blizzard-world-gate"
-   "blizzard-world-gifts"
+   {:name "blizzard-world-gifts" :ext "gif"}
    "blizzard-world-gm"
    "blizzard-world-hotel"
    "blizzard-world-party"

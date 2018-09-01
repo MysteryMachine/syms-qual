@@ -22,7 +22,7 @@
     ["Torbjorn" [[:symmetra :_WTF (scoot 0)] [:torbjorn :_handHip (scoot -2)]]
      "The most important rule of engineering, don’t let anyone put junk in your machinery. I only power my machines with the finest breakfast cereals. Prepare to taste the literally sweet taste of defeat at the hands of my turret."]
     ["Symmetra" [[:symmetra :_laughEvil (scoot 0)] [:torbjorn :_cranky (scoot -2)]]
-     "Ha, don’t make me laugh. Your steel and gunpowder-- er ceareal power- is such an antiquated technology. Neolithic, even. Hard light is vastly superior.  "]
+     "Ha, don’t make me laugh. Your steel and gunpowder-- er cereal power- is such an antiquated technology. Neolithic, even. Hard light is vastly superior."]
     ["Torbjorn" [[:symmetra :_eyeRoll (scoot 0)] [:torbjorn :_point (scoot -2)]]
      "You’re just gliding in on a shrimp sandwich with that instant hard light junk you make! Real craftsmanship takes time and effort! "]
     ["Symmetra" [[:symmetra :_pointUp (scoot 0)] [:torbjorn :_cranky (scoot -2)]]

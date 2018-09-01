@@ -214,41 +214,209 @@
 
 (def scene->song
   {
-   #_[:title-screen [:bg :default] 0]
-   #_{:song-name "anubis" :loop true :sound-name "anubis"}
+   [:title-screen [:bg :default] 0]
+   {:song-name "FragileAndFlustered"}
+
+   [:intro [:menu-pink] 0]
+   {:song-name "intro" :loop true}
 
    [:route-66 [:diner :intro] 0]
    {:sound-name "route-66"}
 
+   [:route-66 [:diner :intro2] 0]
+   {:song-name "4am" :loop true}
+
    [:route-66 [:diner :junkrat] 0]
    {:sound-name "attack"}
+
+   [:route-66 [:reaper] 0]
+   {:sound-name "playOfTheGame"}
+
+   [:route-66 [:hog] 0]
+   {:sound-name "playOfTheGame"}
+
+   [:route-66 [:ana] 0]
+   {:sound-name "playOfTheGame"}
+
+   [:route-66 [:street :dialogue 7] 0]
+   {:song-name "4am" :loop true}
 
    [:anubis [:spawn :intro] 0]
    {:sound-name "anubis"}
 
+   [:anubis [:spawn :intro2] 0]
+   {:song-name "4am" :loop true}
+
+   [:anubis [:genji :cutscene] 0]
+   {:sound-name "playOfTheGame"}
+
+   [:anubis [:zarya :cutscene] 0]
+   {:sound-name "playOfTheGame"}
+
+   [:anubis [:spawn :pharah :date-start] 0]
+   {:song-name "TeaForTwo" :loop true}
+
+   [:anubis [:pharah-b] 0]
+   {:sound-name "playOfTheGame"}
+
    [:volskaya [:spawn :intro] 0]
    {:sound-name "volskaya"}
+
+   [:volskaya [:spawn :intro2] 0]
+   {:song-name "4am" :loop true}
+
+   [:volskaya [:zarya :cutscene] 0]
+   {:sound-name "playOfTheGame"}
+
+   [:volskaya [:zenyatta :cutscene] 0]
+   {:sound-name "playOfTheGame"}
+
+   [:volskaya [:spawn :sombra :yes] 0]
+   {:song-name "TeaForTwo" :loop true}
+
+   [:volskaya [:sombra-b :cutscene 5] 0]
+   {:sound-name "playOfTheGame"}
 
    [:kings-row [:street :intro] 0]
    {:sound-name "kings-row"}
 
+   [:kings-row [:street :intro2] 0]
+   {:song-name "4am" :loop true}
+
+   [:kings-row [:torb] 0]
+   {:sound-name "playOfTheGame"}
+
+   [:kings-row [:lucio] 0]
+   {:sound-name "playOfTheGame"}
+
+   [:kings-row [:junkrat] 0]
+   {:sound-name "playOfTheGame"}
+
    [:hollywood [:spawn :intro] 0]
    {:sound-name "hollywood"}
+
+   [:hollywood [:spawn :intro2] 0]
+   {:song-name "4am" :loop true}
+
+   [:hollywood [:lucio] 0]
+   {:sound-name "playOfTheGame"}
+
+   [:hollywood [:soldier] 0]
+   {:sound-name "playOfTheGame"}
+
+   [:hollywood [:soldier :photo 2] 0]
+   {:song-name "Bells" :loop true}
 
    [:lijiang [:spawn :intro] 0]
    {:sound-name "lijiang"}
 
+   [:lijiang [:spawn :intro2] 0]
+   {:song-name "4am" :loop true}
+
+   [:lijiang [:doomfist] 0]
+   {:sound-name "playOfTheGame"}
+
+   [:lijiang [:winston] 0]
+   {:sound-name "playOfTheGame"}
+
+   [:lijiang [:arcade :junkrat 0] 0]
+   {:song-name "TeaForTwo" :loop true}
+
+   [:lijiang [:arcade :dva :cutscene 3] 0]
+   {:song-name "Bells" :loop true}
+
    [:eichenwalde [:spawn :intro] 0]
    {:sound-name "eichenwalde"}
+
+   [:eichenwalde [:spawn :intro2] 0]
+   {:song-name "4am" :loop true}
+
+   [:eichenwalde [:widow] 0]
+   {:sound-name "playOfTheGame"}
+
+   [:eichenwalde [:hanzo] 0]
+   {:sound-name "playOfTheGame"}
+
+   [:eichenwalde [:objective :pharah :date 0] 12]
+   {:song-name "TeaForTwo" :loop true}
 
    [:junkertown [:spawn :intro] 0]
    {:sound-name "junkertown"}
 
+   [:junkertown [:spawn :intro2] 0]
+   {:song-name "4am" :loop true}
+
+   [:junkertown [:efi] 0]
+   {:sound-name "playOfTheGame"}
+
+   [:junkertown [:torb] 0]
+   {:sound-name "playOfTheGame"}
+
+   [:junkertown [:spawn :junkrat 1] 21]
+   {:song-name "FragileAndFlustered"}
+
+   [:junkertown [:spawn :junkrat :choice 2 1] 0]
+   {:song-name "4am" :loop true}
+
+   [:junkertown [:spawn :junkrat :choice 2 0] 0]
+   {:song-name "TeaForTwo" :loop true}
+
+   [:junkertown [:field :date-3 2] 11]
+   {:song-name "WishYouWereHere" :loop true}
+
+   [:junkertown [:field :date-3 3] 0]
+   {:song-name "TeaForTwo" :loop true}
+
    [:gibralter [:spawn :intro] 0]
    {:sound-name "gibralter"}
 
+   [:gibralter [:spawn :intro2] 0]
+   {:song-name "4am" :loop true}
+
+   [:gibralter [:mccree] 0]
+   {:sound-name "playOfTheGame"}
+
+   [:gibralter [:dva] 0]
+   {:sound-name "playOfTheGame"}
+
+   [:gibralter [:spawn :pharah :date] 17]
+   {:song-name "FragileAndFlustered"}
+
+   [:gibralter [:spawn :mercy :no] 0]
+   {:song-name "4am" :loop true}
+
+   [:gibralter [:door :pharah 0] 0]
+   {:song-name "TeaForTwo" :loop true}
+
+   [:gibralter [:rink :pharah 4] 0]
+   {:song-name "Bells" :loop true}
+
    [:dorado [:spawn :intro] 0]
    {:sound-name "dorado"}
+
+   [:dorado [:spawn :intro2] 0]
+   {:song-name "4am" :loop true}
+
+   [:dorado [:zenyatta] 0]
+   {:sound-name "playOfTheGame"}
+
+   [:dorado [:mei] 0]
+   {:sound-name "playOfTheGame"}
+
+   [:dorado [:room :sombra 4] 0]
+   {:song-name "TeaForTwo" :loop true}
+
+   [:dorado [:room :sombra 8] 13]
+   {:song-name "FragileAndFlustered"}
+
+   [:dorado [:room :sombra :option 0 1] 0]
+   {:song-name "4am" :loop true}
+
+   [:dorado [:roof :date-3 0] 0]
+   {:song-name "WishYouWereHere"}
+
+   [:blizzard-world [:hotel :intro] 0]
+   {:song-name "Bells" :loop true}
 
    [:blizzard-world [:gate :middle 0] 0]
    {:sound-name "blizzard-world"}
@@ -267,10 +435,13 @@
 
    [:blizzard-world [:gate :winston 0] 1]
    {:sound-name "gm-promotion"}
+
+   [:blizzard-world [:picnic :brigitte 3] 0]
+   {:song-name "FragileAndFlustered" :loop true}
    })
 
 (defn do-audio [state-atom state scene]
-  #_(println scene)
+  (println scene)
   (when (not= (:miranda/bg state) scene)
    (when-let [{:keys [song-name loop sound-name]} (scene->song scene)]
       (when window.audio (.pause window.audio))

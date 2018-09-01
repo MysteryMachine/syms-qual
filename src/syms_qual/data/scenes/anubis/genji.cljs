@@ -64,13 +64,12 @@
     ["Genji" [[:genji_mercy :_hands1 (scoot -5)] [:symmetra :_neutral (scoot 3)]]
      "Turret..."]
     ["Genji" [[:genji_mercy :_hands2 (scoot -5)] [:symmetra :_WTF (scoot 3)]]
-     "blade."]
+     "Blade."]
     ["Symmetra" [[:genji_mercy :_neutral (scoot -5)] [:symmetra :_confused (scoot 3)]]
      "Turret?"]
     ["Mercy" [[:symmetra :_confused (scoot 3)] [:genji_mercy :_mercyExplain (scoot -5)]]
      "Blade."]
-    ["Symmetra" [[:genji_mercy :_neutral (scoot -5)] [:symmetra :_no] (scoot 3)] "
-I am sorry, Dr. Ziegler, what you ask is infeasible. Vishkar Corporation safety guidelines prohibit me from attaching my turrets to anything but static surfaces. You could damage yourself with the beams."]
+    ["Symmetra" [[:genji_mercy :_neutral (scoot -5)] [:symmetra :_no] (scoot 3)] "I am sorry, Dr. Ziegler, what you ask is infeasible. Vishkar Corporation safety guidelines prohibit me from attaching my turrets to anything but static surfaces. You could damage yourself with the beams."]
     ["Genji" [[:genji_mercy :_point (scoot -5)] [:symmetra :_neutral (scoot 3)]]
      "We had considered this, but I am not merely a man."]
     ["Mercy" [[:genji_mercy :_angry (scoot -5)] [:symmetra :_skeptical (scoot 3)]]
@@ -111,6 +110,6 @@ I am sorry, Dr. Ziegler, what you ask is infeasible. Vishkar Corporation safety 
 
    [:genji :cutscene :text]
    [:miranda/narration
-    "With you combined forces, the level of destruction you and Genji unleashed was legendary. You gave him not just a turret blade, but turrets everywhere. His ability to deflect projectiles with his blade while still inflicting damage with your turrets was, frankly, probably not physically possible. You would question this, but, seeing as cyberninjutsu is not your forte, you figured it was better to just not ask. The power of this ridiculous combo was enough to compensate for a very drunk Reinhardt and Zarya. Your team quickly captured both points on attack and put up and impenetrable defense in the second round.
-"
+    "With you combined forces, the level of destruction you and Genji unleashed was legendary. You gave him not just a turret blade, but turrets everywhere. His ability to deflect projectiles with his blade while still inflicting damage with your turrets was, frankly, probably not physically possible. You would question this, but, seeing as cyberninjutsu is not your forte, you figured it was better to just not ask."
+    "The power of this ridiculous combo was enough to compensate for a very drunk Reinhardt and Zarya. Your team quickly captured both points on attack and put up and impenetrable defense in the second round, firmly cementing your victory."
     :=> [:volskaya [:spawn :intro] 0]]})

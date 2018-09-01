@@ -209,7 +209,7 @@
     [nil [[:photos :_guyFieri] [:phones :_soldierHand]]
      " The shaky footage revealed both Reaper and Guy Fieri standing on top of the payload mooning the camera while simultaneously flipping it off and chanting in unison, \"Fuck you Morrison!\""]
     [nil [[:photos :_guyFieri] [:phones :_soldierHand]]
-     "After taking minute to compose himself, Soldier sadly informed you that without the bus you had no easy way of making it to Benihanas but offered to treat you to the nearby Panda Express Express instead."]
+     "After taking minute to compose himself, Soldier sadly informed you that without the bus you had no easy way of making it to Benihanas but offered to treat you to the nearby Panda Express instead."]
     [nil [[:photos :_guyFieri] [:phones :_soldierHand]]
      "You firmly, but politely declined, and left without making eye contact."]
     :=> [:lijiang [:spawn :intro] 0]]})

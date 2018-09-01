@@ -12,7 +12,7 @@
    [:spawn :tracer 1]
    [:miranda/dialogue
     ["Doomfist" [[:doomfist_tracer :_doomfistLaugh]]
-     "Oh, my god it was hilarious, Lena. She had this whole routine planned out with roses and dancing and a tuxedo with a top hat. You’re lucky I convinced her not to break onto your balcony."]
+     "Oh, my god it was hilarious, Lena. She had this whole routine planned out with roses and dancing and a tuxedo with a top hat. You’re lucky I convinced her not to break on to your balcony."]
     ["Tracer" [[:doomfist_tracer :_tracerExplainUpset]]
      "I just don’t understand how you can be so nonchalant about our breakup, Akande. Poor Amelie is crushed. Don’t you care about her at all?"]
     ["Doomfist" [[:doomfist_tracer :_doomfistExplain]]
@@ -92,13 +92,13 @@
      "Cleans those hard to reach internal organs right up!"]
     ["Doomfist" [[:doomfist_tracer :_doomfistExplainRight (scoot -19)] [:symmetra :_neutral (scoot 9)]]
      "This idea is good. Unironically. Do you think Vishkar would use IKEA™ as a distributer? The build-it-yourself nature of this product fits right in line with IKEA™’s image."]
-    ["Symmetra" [[:doomfist_tracer :_neutralRight (scoot -19)] [:symmetra :_confused (scoot 9)]]
-     "IKEA™ sells weapons?"]
     :-> [:spawn :tracer 3]]
 
    [:spawn :tracer 3]
    [:miranda/dialogue
-    ["Doomfist" [[:doomfist_tracer :_doomfistArmsCrossSmirk (scoot -19)] [:symmetra :_neutral (scoot 9)]]
+   ["Symmetra" [[:doomfist_tracer :_neutralRight (scoot -19)] [:symmetra :_confused (scoot 9)]]
+    "IKEA™ sells weapons?"]
+   ["Doomfist" [[:doomfist_tracer :_doomfistArmsCrossSmirk (scoot -19)] [:symmetra :_neutral (scoot 9)]]
      "Indeed. I personally am quite glad they have turned from affordable furnishings to affordable military grade weaponry."]
     ["Tracer" [[:doomfist_tracer :_tracerConfusedLeftSmirk (scoot -19)] [:symmetra :_neutral (scoot 9)]]
      "How do they keep the prices that low?"]
@@ -162,5 +162,5 @@
    [:doomfist :text]
    [:miranda/narration
     "You attempt to literally fistfight Doomfist, for reasons unknown to you. After realizing that special Overwatch technology which prevents friendly fire has completely foiled your plan, you decide to resolve the newly created beef with a round of rock-paper-scissors. Knowing Doomfist’s fist was a tool for punching, you anticipated his rock, and threw paper. The conditions of defeat?"
-    "You to get to use his power gauntlet on weekends for smashing stuff. While you generally prefer tackling problems through poise, beauty, and elegance, you have, on occassion, been known to smash. You high five yourself with Doomfist's power gauntlet before noticing the charred bodies of your teammates. It appears you lost the match."
+    "You to get to use his power gauntlet on weekends for smashing stuff. While you generally prefer tackling problems through poise, beauty, and elegance, you have, on occasion, been known to smash. You high five yourself with Doomfist's power gauntlet before noticing the charred bodies of your teammates. It appears you lost the match."
     :=> [:eichenwalde [:spawn :intro] 0]]})

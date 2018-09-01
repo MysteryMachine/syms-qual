@@ -20,7 +20,7 @@
     ["McCree" [[:mccree :_pointDown (scoot -12)] [:symmetra :_neutral (scoot 0)]] "Take a gander down here, darling."]
     ["Symmetra" [[:mccree :_neutral (scoot -12)] [:symmetra :_skepticalDown (scoot 0)]] "Roller...skates? And you are wearing them?"]
     ["McCree" [[:mccree :_pointUp (scoot -12)] [:symmetra :_skeptical (scoot 0)]] "Fun fact, Fareeha and I have always worn the same sized shoes. I’ve broken every pair of stilettos she’s ever owned."]
-    ["Symmetra" [[:mccree :_neutral (scoot -12)] [:symmetra :_confused (scoot 0)]] "Thats..."]
+    ["Symmetra" [[:mccree :_neutral (scoot -12)] [:symmetra :_confused (scoot 0)]] "That's..."]
     ["McCree" [[:mccree :_leanBack (scoot -12)] [:symmetra :_confused (scoot 0)]] "She’s only owned one pair.  A gift from her mama. I think Ana wanted her to stop dressing so much like a boy."]
     ["McCree" [[:mccree :_leanIn (scoot -12)] [:symmetra :_WTF (scoot 0)]] "Me borrowing them and breaking them trying to stand on top of a horse at full gallop? That’s called an accidental favor."]
     ["Symmetra" [[:mccree :_neutral (scoot -12)] [:symmetra :_explainWTF (scoot 0)]] "So you also “borrowed” these skates?"]

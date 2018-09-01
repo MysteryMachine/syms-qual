@@ -144,7 +144,7 @@
 
    [:picnic :brigitte 3]
    [:miranda/characters
-    [[[:brigitte :_pie (scoot -20)] [:symmetra :_explainUncomfortable (scoot -13)]]]
+    [[[:brigitte :_pieLaugh (scoot -50)] [:symmetra :_smile (scoot -36)]]]
     :-> [:gifts]]
 
    [:gifts]
@@ -171,7 +171,12 @@
     [[]]
     :-> [:credits3]]
 
-   [:credits3]
+    [:credits3]
+    [:miranda/characters
+     [[]]
+     :-> [:credits4]]
+
+   [:credits4]
    [:miranda/characters
     [[]]
     :=> [:title-screen [:bg :default] 0]]})

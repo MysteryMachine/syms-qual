@@ -159,7 +159,7 @@
 
    [:gm :text]
    [:miranda/narration
-    "Much to your embarrassment, everyone, at Winston’s behest, insisted on carrying you parade style from the gate to the party area he had reserved for the occasion. Once there, he presented you with a large and elaborate cake made in the shape of the Grandmasters ensignia. Although the overly flamboyant ceremony was not to your taste, the cake was quite delicious and you couldn’t help but feel a swell of pride at you accomplishments. "
+    "Much to your embarrassment, everyone, at Winston’s behest, insisted on carrying you parade style around the park before finally depositing you at the party area he had reserved for the occasion. Once there, he presented you with a large and elaborate cake made in the shape of the Grandmasters ensignia. Although the overly flamboyant ceremony was not to your taste, the cake was quite delicious and you couldn’t help but feel a swell of pride at you accomplishments. "
     :-> [:party :winston 3]]
 
    [:party :winston 3]

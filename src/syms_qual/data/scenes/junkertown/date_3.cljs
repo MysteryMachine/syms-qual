@@ -154,5 +154,5 @@
 
    [:junkrat-c :text]
    [:miranda/narration
-    "Once you arrive back at the cabin, Junkrat invites you to stay and join them in a TV marathon slumber party, to which you agree. Roadhog sets up the projector and the couch while Junkrat shows you his collection of in progress projects and sketched out plans he has stashed around the warehouse. After deciding on The Great Australian Bake-Off, you snuggle in to enjoy the show, finally indulging Junkrat in his long standing request for head rubs."
+    "Once you arrive back in town, Junkrat invites you to stay and join them in a TV marathon slumber party, to which you agree. Roadhog sets up the projector and makes some kettle corn, while Junkrat shows you his collection of in progress projects and sketched out plans he has stashed around the warehouse. After deciding on The Great Australian Bake-Off, you snuggle in to enjoy the show, finally indulging Junkrat in his long standing request for head rubs."
     :=> [:gibralter [:spawn :intro] 0]]})
