@@ -68,17 +68,15 @@
      ["Efi" [[:junkrat :_shyblush (scoot -3)] [:efi :_pointUp (scoot -18)] [:symmetra :_smile (scoot 3)]] "Yes! I knew there was some chemistry. I’m so excited to see cute vacation photos of you when you go steady!"]
      ["Junkrat" [[:junkrat :_wrist (scoot -3)] [:efi :_neutral (scoot -18)] [:symmetra :_smile (scoot 3)]] "Let’s be honest, the only point to have a relationship in the first place is to have cute vacation photos."]
      ["Efi" [[:junkrat :_ballSmileNod (scoot -3)] [:efi :_smile (scoot -18)] [:symmetra :_smile (scoot 3)]] "Agreed!"]
-     ["Junkrat" [[:junkrat :_ballPointUp (scoot -3)] [:efi :_neutral (scoot -18)] [:symmetra :_smile (scoot 3)]] "We gotta focus, though, loves. We shouldn’t delay! Date time approaches!"]
-     (inc-transition
-      [:-> [:spawn :junkrat 2]]
-      :points/junkrat)])
+     ["Junkrat" [[:junkrat :_ballPointUp (scoot -3)] [:efi :_neutral (scoot -18)] [:symmetra :_smile (scoot 3)]] "We gotta focus, though, loves. We shouldn’t delay! Date time approaches!"]]
+    (inc-transition
+     [:-> [:spawn :junkrat 2]]
+     :points/junkrat))
 
    [:spawn :junkrat 2]
-   (concat
-    [:miranda/narration
-     "You get to work on the the bike, fixing it just as Roadhog walks up with a basket full of food."]
-    :-> [:spawn :junkrat 3])
-
+   [:miranda/narration
+    "You get to work on the the bike, fixing it just as Roadhog walks up with a basket full of food."
+    :-> [:spawn :junkrat 3]]
 
    [:spawn :junkrat 3]
    [:miranda/dialogue
