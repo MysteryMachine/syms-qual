@@ -7,7 +7,7 @@
      [:p.notice-head "NOTICE"]
      [:hr.notice-hr ]
      [:p.notice-text
-      "Thanks for playing! Symmetra's Qualifying Matches automatically saves your game using cookies. Please be sure to enable cookies if you have disabled them."]]
+      "Thanks for playing! Symmetra's Qualifying Matches automatically saves your game at the start of each day using cookies. Please be sure to enable cookies if you have disabled them."]]
     :-> [:a]]
 
    [:a]

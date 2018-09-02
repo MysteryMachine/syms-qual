@@ -227,7 +227,9 @@
    [:hotel 1]
    [:miranda/narration
     "You manage to find your way back through the dense maze of streets and make it safely  to your hotel. Your jam packed day was quite exhausting and you welcome the soft embrace of your bed.  You awaken the next morning feeling slightly better after a good night’s rest and begin your morning routine by checking your phone."
-    :-> [:hotel 2]]
+    :transition :miranda/conditional
+    [#(= (:points/junkrat %) 2) [:-> [:hotel 2]]
+     :else                      [:=> [:eichenwalde [:spawn :intro] 0]]]]
 
    [:hotel 2]
    [:miranda/characters

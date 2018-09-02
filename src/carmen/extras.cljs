@@ -34,12 +34,14 @@
       (swap! state-atom #(assoc-in % [:miranda/stateful :ff/clicking] false)))}])
 
 (defn mute-button [state-atom]
-  (let [muted (:miranda/muted @state-atom)]
+  (let [muted window.mirandaMuted]
     [(if muted
        :div.miranda.not-muted.mute-button
        :div.miranda.muted.mute-button)
      {:on-click
       (fn []
-        (set! window.sound.muted muted)
-        (set! window.audio.muted muted)
-        (swap! state-atom #(update % :miranda/muted not)))}]))
+        (let [m (not muted)]
+          (when window.sound (set! window.sound.muted m))
+          (when window.audio (set! window.audio.muted m))
+          (set! window.mirandaMuted m)))}]))
+  

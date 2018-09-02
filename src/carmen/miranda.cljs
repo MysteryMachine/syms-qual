@@ -75,9 +75,12 @@
 (defn transition!
   [state-atom graph options]
   (fn [args]
-    (let [state (swap! state-atom data/guard-transition
-                       transition graph options args)]
-      (when (:miranda/auto-save state)
+    (let [state @state-atom
+          old-major (first (util/scene state))
+          state (swap! state-atom data/guard-transition
+                       transition graph options args)
+          new-major (first (util/scene state))]
+      (when (and (not= old-major new-major) (:miranda/auto-save state))
         (util/save! (:save-name state :save) state))
       state)))
 

@@ -17,7 +17,10 @@
    :miranda/auto-save true
    :points/sombra 0
    :points/junkrat 0
-   :points/pharah 0})
+   :points/pharah 0
+   :miranda/muted false
+   :miranda/internal {:loading? true
+                      :max-reports 4}})
 
 (def logo-size [120 120])
 
@@ -213,9 +216,8 @@
 (def game (miranda/reagent-component state-atom graph options))
 
 (def scene->song
-  {
-   [:title-screen [:bg :default] 0]
-   {:song-name "FragileAndFlustered"}
+  {[:title-screen [:bg :default] 0]
+   {:song-name "FragileAndFlustered" :loop true}
 
    [:intro [:menu-pink] 0]
    {:song-name "intro" :loop true}
@@ -441,20 +443,27 @@
    })
 
 (defn do-audio [state-atom state scene]
-  (println scene)
-  (when (not= (:miranda/bg state) scene)
-   (when-let [{:keys [song-name loop sound-name]} (scene->song scene)]
-      (when window.audio (.pause window.audio))
-      (when song-name
-       (set! window.audio (js/Audio. (str "/music/" song-name ".mp3")))
-       (set! window.audio.loop loop)
-       (set! window.audio.muted (:miranda/muted state))
-       (.play window.audio))
-      (when sound-name
-        (set! window.sound (js/Audio. (str "/music/" sound-name ".mp3")))
-        (set! window.sound.muted (:miranda/muted state))
-        (.play window.sound))
-      (swap! state-atom #(assoc % :miranda/bg scene)))))
+  (let [loading (miranda/in-loading-screen? state)]
+    (cond
+      loading (do
+                (if window.audio (.pause window.audio))
+                (if window.sound (.pause window.sound)))
+      (not= (:miranda/bg state) scene)
+      (when-let [{:keys [song-name loop sound-name]} (scene->song scene)]
+        (when (not= song-name window.songName)
+          (set! window.songName song-name)
+          (if window.audio (.pause window.audio))
+          (set! window.audio (js/Audio. (str "/music/" song-name ".mp3")))
+          (set! window.audio.loop loop)
+          (set! window.audio.muted (:miranda/muted state))
+          (.play window.audio))
+        (when sound-name
+          (if window.sound (.pause window.sound))
+          (set! window.sound (js/Audio. (str "/music/" sound-name ".mp3")))
+          (set! window.sound.muted (:miranda/muted state))
+          (.play window.sound))
+        (swap! state-atom #(assoc % :miranda/bg scene)))
+      :else nil)))
 
 (defn draw-menu [state-atom state]
   (let [{:keys [x y]} (:window state)

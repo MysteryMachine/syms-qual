@@ -151,8 +151,8 @@
    [:miranda/characters-cond
     [[[#(= 0 (:points/payload %)) [:credit :bronzeGift]]
       [#(not= 0 (:points/payload %)) [:credit :bronzeGiftSilo]]
-      [#(= 10 (:points/payload %)) [:credit :gmGift]]
-      [#(not= 10 (:points/payload %)) [:credit :gmGiftSilo]]
+      [#(= 9 (:points/payload %)) [:credit :gmGift]]
+      [#(not= 9 (:points/payload %)) [:credit :gmGiftSilo]]
       [#(= 3 (:points/junkrat %)) [:credit :junkGift]]
       [#(not= 3 (:points/junkrat %)) [:credit :junkGiftSilo]]
       [#(= 3 (:points/pharah %)) [:credit :pharahGift]]

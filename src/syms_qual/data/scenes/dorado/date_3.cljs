@@ -22,7 +22,7 @@
     [:miranda/dialogue
     ["Sombra" [[:symmetra_sombra :_neutral]] "…"]
      :transition :miranda/conditional
-     [#(= 1 :sombra/kiss) [:-> [:roof :date-3 0 0 :a]]
+     [#(= 1 (:sombra/kiss %)) [:-> [:roof :date-3 0 0 :a]]
       :else [:-> [:roof :date-3 0 1]]]]
 
    [:roof :date-3 0 0 :a]
