@@ -107,7 +107,7 @@
 
    [:torb :text]
    [:miranda/narration
-    "Despite your team’s overly static composition, you manage to pull off a quick and decisive first attacking, taking control of the payload and transforming it into a mobile death ball. Covered in the shields a turrets of all kinds you steamroll your opponents easily making your way to the yellow box of victory. "
+    "Despite your team’s overly static composition, you manage to pull off a quick and decisive first attack, taking control of the payload and transforming it into a mobile death ball. Covered in the shields a turrets of all kinds you steamroll your opponents easily making your way to the yellow box of victory. "
     :=> [:gibralter [:spawn :intro] 0]]
 
    [:spawn :torb-b]
