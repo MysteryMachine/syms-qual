@@ -42,7 +42,7 @@ body{
 .miranda.fast-forward-button{
     width: 1.5em;
     height: 1.5em;
-    position: absolute;
+    position: absolute; 
     right: 2.5em;
     margin: .5em;
     z-index: 100;
@@ -67,25 +67,25 @@ body{
     right: 0em;
     margin: .5em;
     z-index: 100;
-    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Main_Menu/muted.png");
+    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Main_Menu/notMuted.png");
     background-size: cover;
 }
 
 .miranda.mute-button:hover{
   cursor: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/hand.png"), auto;
-    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Main_Menu/mutedHover.png");
-}
-
-.miranda.mute-button.not-muted {
-    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Main_Menu/notMuted.png");
-}
-x``
-.miranda.mute-button.not-muted:hover {
     background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Main_Menu/notMutedHover.png");
 }
 
+.miranda.mute-button.not-muted {
+    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Main_Menu/muted.png");
+}
+x``
+.miranda.mute-button.not-muted:hover {
+    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Main_Menu/mutedHover.png");
+}
+
 .miranda.full-screen-button{
-    width: 1.5em;
+    width: 1.5em; 
     height: 1.5em;
     position: absolute;
     right: 7.5em;
@@ -465,10 +465,20 @@ p.notice-text {
     background-size: cover;
 }
 
-.hand-menu.back-to-game{ 
+.hand-menu.pdf {
+  cursor: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/hand.png"), auto;
+  background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Menu_Hand/_transcript.png");
+  background-size: cover;
+}
+
+.hand-menu.back-to-game{
   cursor: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/hand.png"), auto;
     background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Menu_Hand/_back.png");
     background-size: cover;
+}
+
+.hand-menu.pdf:hover {
+  background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Menu_Hand/_transcriptHover.png");
 }
 
 .hand-menu.main-menu:hover {

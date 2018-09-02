@@ -42,9 +42,9 @@
         base-scene-style
         {:style (cond-> {:height (util/px (:y window))
                          :width (util/px (:x window))}
-                  loaded? (assoc :cursor "pointer"))}]
+                  loaded? (assoc :cursor "url(\"http://syms-qual.s3-website-us-east-1.amazonaws.com/img/hand.png\"), auto"))}]
     [:div.base-scene
-     (cond-> base-scene-style
+     (cond-> base-scene-style  
        loaded? (assoc :on-click (transition :loading/done)))
      [:div.loading-outer
       [:div.loading-inner
@@ -171,12 +171,12 @@
 
 (defn fade-out [state on-click]
   (when (fade-out-target? (util/scene state))
-    (let [{:keys [x y]} (:window state)]
+    (let [{:keys [x y]} (:window state)] 
       [:div.fadeout {:on-click on-click
                      :style {:opacity (min (/ (:miranda/time state) 2000))
                              :width x
                              :height y
-                             :cursor "pointer"}}])))
+                             :cursor "url(\"http://syms-qual.s3-website-us-east-1.amazonaws.com/img/hand.png\"), auto"}}])))
 
 (defonce state-atom (reagent.core/atom base-state))
 
@@ -223,103 +223,95 @@
    {:song-name "intro" :loop true}
 
    [:route-66 [:diner :intro] 0]
-   {:sound-name "route-66"}
+   {:sound-name "route-66"
+    :song-name "4am" :loop true}
 
-   [:route-66 [:diner :intro2] 0]
-   {:song-name "4am" :loop true}
+   [:intro [:a] 0]
+   {:song-name "TeaForTwo" :loop true}
 
    [:route-66 [:diner :junkrat] 0]
-   {:sound-name "attack"}
+   {:sound-name "attack"
+    :song-name "4am" :loop true}
 
    [:route-66 [:reaper] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:route-66 [:hog] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:route-66 [:ana] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:route-66 [:street :dialogue 7] 0]
    {:song-name "4am" :loop true}
 
    [:anubis [:spawn :intro] 0]
-   {:sound-name "anubis"}
-
-   [:anubis [:spawn :intro2] 0]
-   {:song-name "4am" :loop true}
+   {:sound-name "anubis"
+    :song-name "4am" :loop true}
 
    [:anubis [:genji :cutscene] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:anubis [:zarya :cutscene] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:anubis [:spawn :pharah :date-start] 0]
    {:song-name "TeaForTwo" :loop true}
 
    [:anubis [:pharah-b] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:volskaya [:spawn :intro] 0]
-   {:sound-name "volskaya"}
-
-   [:volskaya [:spawn :intro2] 0]
-   {:song-name "4am" :loop true}
+   {:sound-name "volskaya"
+    :song-name "4am" :loop true}
 
    [:volskaya [:zarya :cutscene] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:volskaya [:zenyatta :cutscene] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:volskaya [:spawn :sombra :yes] 0]
    {:song-name "TeaForTwo" :loop true}
 
    [:volskaya [:sombra-b :cutscene 5] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:kings-row [:street :intro] 0]
-   {:sound-name "kings-row"}
-
-   [:kings-row [:street :intro2] 0]
-   {:song-name "4am" :loop true}
+   {:sound-name "kings-row"
+    :song-name "4am" :loop true}
 
    [:kings-row [:torb] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:kings-row [:lucio] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:kings-row [:junkrat] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:hollywood [:spawn :intro] 0]
-   {:sound-name "hollywood"}
-
-   [:hollywood [:spawn :intro2] 0]
-   {:song-name "4am" :loop true}
+   {:sound-name "hollywood"
+    :song-name "4am" :loop true}
 
    [:hollywood [:lucio] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:hollywood [:soldier] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:hollywood [:soldier :photo 2] 0]
    {:song-name "Bells" :loop true}
 
    [:lijiang [:spawn :intro] 0]
-   {:sound-name "lijiang"}
-
-   [:lijiang [:spawn :intro2] 0]
-   {:song-name "4am" :loop true}
+   {:sound-name "lijiang"
+    :song-name "4am" :loop true}
 
    [:lijiang [:doomfist] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:lijiang [:winston] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:lijiang [:arcade :junkrat 0] 0]
    {:song-name "TeaForTwo" :loop true}
@@ -328,31 +320,27 @@
    {:song-name "Bells" :loop true}
 
    [:eichenwalde [:spawn :intro] 0]
-   {:sound-name "eichenwalde"}
-
-   [:eichenwalde [:spawn :intro2] 0]
-   {:song-name "4am" :loop true}
+   {:sound-name "eichenwalde"
+    :song-name "4am" :loop true}
 
    [:eichenwalde [:widow] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:eichenwalde [:hanzo] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:eichenwalde [:objective :pharah :date 0] 12]
    {:song-name "TeaForTwo" :loop true}
 
    [:junkertown [:spawn :intro] 0]
-   {:sound-name "junkertown"}
-
-   [:junkertown [:spawn :intro2] 0]
-   {:song-name "4am" :loop true}
+   {:sound-name "junkertown"
+    :song-name "4am" :loop true}
 
    [:junkertown [:efi] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:junkertown [:torb] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:junkertown [:spawn :junkrat 1] 21]
    {:song-name "FragileAndFlustered"}
@@ -370,16 +358,14 @@
    {:song-name "TeaForTwo" :loop true}
 
    [:gibralter [:spawn :intro] 0]
-   {:sound-name "gibralter"}
-
-   [:gibralter [:spawn :intro2] 0]
-   {:song-name "4am" :loop true}
+   {:sound-name "gibralter"
+    :song-name "4am" :loop true}
 
    [:gibralter [:mccree] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:gibralter [:dva] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:gibralter [:spawn :pharah :date] 17]
    {:song-name "FragileAndFlustered"}
@@ -394,16 +380,14 @@
    {:song-name "Bells" :loop true}
 
    [:dorado [:spawn :intro] 0]
-   {:sound-name "dorado"}
-
-   [:dorado [:spawn :intro2] 0]
-   {:song-name "4am" :loop true}
+   {:sound-name "dorado"
+    :song-name "4am" :loop true}
 
    [:dorado [:zenyatta] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:dorado [:mei] 0]
-   {:sound-name "playOfTheGame"}
+   {:sound-name "playOfTheGame" :sound-volume 0.25}
 
    [:dorado [:room :sombra 4] 0]
    {:song-name "TeaForTwo" :loop true}
@@ -421,45 +405,91 @@
    {:song-name "Bells" :loop true}
 
    [:blizzard-world [:gate :middle 0] 0]
-   {:sound-name "blizzard-world"}
+   {:sound-name "blizzard-world"
+    :song-name "Bells" :loop true}
 
    [:blizzard-world [:gate :gm] 0]
-   {:sound-name "blizzard-world"}
+   {:sound-name "blizzard-world"
+    :song-name "Bells" :loop true}
 
    [:blizzard-world [:party :gold] 0]
-   {:sound-name "gm-promotion"}
+   {:sound-name "gm-promotion"
+    :song-name "Bells" :loop true}
 
    [:blizzard-world [:party :plat] 0]
-   {:sound-name "gm-promotion"}
+   {:sound-name "gm-promotion"
+    :song-name "Bells" :loop true}
 
    [:blizzard-world [:party :diamond] 0]
-   {:sound-name "gm-promotion"}
+   {:sound-name "gm-promotion"
+    :song-name "Bells" :loop true}
 
    [:blizzard-world [:gate :winston 0] 1]
-   {:sound-name "gm-promotion"}
+   {:sound-name "gm-promotion"
+    :song-name "Bells" :loop true}
 
    [:blizzard-world [:picnic :brigitte 3] 0]
-   {:song-name "FragileAndFlustered" :loop true}
-   })
+   {:song-name "FragileAndFlustered" :loop true}})
+
+(defn vol-up [v t state-atom]
+  (when (not window.killSong)
+   (when (= 0 t)
+      (if window.audio (set! window.audio.paused true))
+      (set! window.newSong true)
+      (set! window.audio (js/Audio. (str "/music/" window.songName ".mp3")))
+      (set! window.audio.loop true)
+      (set! window.audio.muted (:miranda/muted @state-atom))
+      (.play window.audio))
+   (when (< t 11)
+     (set! window.audio.volume v)
+     (js/setTimeout
+      #(vol-up (+ 0.025 v) (inc t) state-atom)
+      400)) )
+  )
+
+(defn vol-down [v t]
+  (when (and (not window.newSong) (< t 10))
+    (set! window.audio.volume v)
+    (js/setTimeout
+     #(vol-down (- v 0.025) (inc t))
+     200)))
 
 (defn do-audio [state-atom state scene]
-  (let [loading (miranda/in-loading-screen? state)]
-    (cond
+  (let [loading (miranda/in-loading-screen? state)
+        wasKilling window.killSong]
+    (cond 
       loading (do
-                (if window.audio (.pause window.audio))
-                (if window.sound (.pause window.sound)))
+                (set! window.killSong true)
+                (set! window.newSong false)
+                (when (and window.audio (not wasKilling)) (vol-down window.audio.volume 0) )
+                (when window.sound (.pause window.sound)))
       (not= (:miranda/bg state) scene)
-      (when-let [{:keys [song-name loop sound-name]} (scene->song scene)]
-        (when (not= song-name window.songName)
+      (when-let [{:keys [song-name loop sound-name sound-volume]} (scene->song scene)]
+        (when (and sound-name (not song-name) window.audio) (.pause window.audio))
+        (when (and song-name (not sound-name) window.sound) (.pause window.sound))
+        (when (or wasKilling (not= song-name window.songName))
           (set! window.songName song-name)
-          (if window.audio (.pause window.audio))
-          (set! window.audio (js/Audio. (str "/music/" song-name ".mp3")))
-          (set! window.audio.loop loop)
-          (set! window.audio.muted (:miranda/muted state))
-          (.play window.audio))
+          (if wasKilling
+            (do
+              (set! window.killSong false)
+              (set! window.newSong true)
+              (when window.audio (.pause window.audio))
+              (set! window.songName song-name)
+              (vol-up 0 0 state-atom))
+            (do
+              (set! window.killSong true)
+              (set! window.newSong false)
+              (when window.audio (vol-down window.audio.volume 0))
+              (js/setTimeout #(do
+                                (set! window.killSong false)
+                                (set! window.newSong true)
+                                (when window.audio (.pause window.audio))
+                                (vol-up 0 0 state-atom))
+                             2000))))
         (when sound-name
           (if window.sound (.pause window.sound))
           (set! window.sound (js/Audio. (str "/music/" sound-name ".mp3")))
+          (set! window.sound.volume (or sound-volume 1))
           (set! window.sound.muted (:miranda/muted state))
           (.play window.sound))
         (swap! state-atom #(assoc % :miranda/bg scene)))
@@ -487,12 +517,16 @@
                :top (* (/ y 2.5) 1.5)
               :left (* (/ x 3) 1.2)}}
        [:div.hand-menu.main-menu
-        {:style {:width (* ratio 400) :height (* ratio 121)  :margin-top (* ratio 50)}
+        {:style {:width (* ratio 400) :height (* ratio 121)}
          :on-click (fn [] (swap! state-atom #(-> %
                                                  (assoc :miranda/menu-showing? false)
                                                  (assoc :scene [:title-screen [:bg :default] 0]))))}]
+       [:div.hand-menu.pdf
+        {:style {:width (* ratio 400) :height (* ratio 121)  :margin-top (* ratio 35)}}
+        [:a {:style {:height "100%" :width "100%" :display "block"}
+             :href "https://s3.amazonaws.com/syms-qual/Transcript.pdf" :target "_blank"}]]
        [:div.hand-menu.back-to-game
-        {:style {:width (* ratio 400) :height (* ratio 121) :margin-top (* ratio 70)}
+        {:style {:width (* ratio 400) :height (* ratio 121) :margin-top (* ratio 35)}
          :on-click (fn [] (swap! state-atom #(assoc % :miranda/menu-showing? false)))}]]]]))
 
 (defn menu-button [state-atom state]
