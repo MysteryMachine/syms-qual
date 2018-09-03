@@ -558,4 +558,30 @@
      [game state]]))
 
 (miranda/listen! state-atom options)
+
+(do
+  (set! window.audioPreload (js/Array.))
+  (doseq [a ["FragileAndFlustered"
+             "4am"
+             "Bells"
+             "TeaForTwo"
+             "WishYouWereHere"
+             "anubis"
+             "attack"
+             "blizzard-world"
+             "dorado"
+             "eichenwalde"
+             "gibralter"
+             "gm-promotion"
+             "hollywood"
+             "intro"
+             "junkertown"
+             "kings-row"
+             "lijiang"
+             "route-66"
+             "volskaya"]]
+    (let [audio (js/Audio. (str "http://syms-qual.s3-website-us-east-1.amazonaws.com/music/" a ".mp3"))]
+      (.pause audio)
+      (aset window.audioPreload a audio))))
+
 (reagent/render [app] (. js/document (getElementById "app")))
