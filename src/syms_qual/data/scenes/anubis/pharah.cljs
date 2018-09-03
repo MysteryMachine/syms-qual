@@ -56,7 +56,7 @@
     ["Get coffee with Pharah" (constantly true)
      [:-> [:spawn :pharah :confirm]]]
     ["Converse with your other teammates first" (constantly true)
-     [:-> [:spawn :pharah :goodbye]]]]
+     [:-> [:spawn :pharah :goodbye]]]] 
 
    [:spawn :pharah :confirm]
    (concat
