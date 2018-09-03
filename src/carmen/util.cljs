@@ -238,6 +238,13 @@
                 (filter (fn [[k v]] v)))
                <>)))))
 
+(defn safe-load!
+  [file state]
+  (-> (load! file)
+      (assoc :miranda/internal (:miranda/interal state))
+      (assoc :window (:window state))
+      (assoc :miranda/text-scale (:miranda/text-scale state))))
+
 (defn scale [{:keys [window] :as state} options]
   (/ (:y window) (second (:miranda/native-resolution options))))
 

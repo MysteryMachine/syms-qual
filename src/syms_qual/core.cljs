@@ -149,7 +149,7 @@
     (continue state)))
 
 (defn load-game [state]
-  (util/load! :save))
+  (util/safe-load! :save state))
 
 (defn view-options [state]
   (assoc state :scene [:title-screen [:bg :options] 0]))
@@ -225,9 +225,6 @@
    [:route-66 [:diner :intro] 0]
    {:sound-name "route-66"
     :song-name "4am" :loop true}
-
-   [:intro [:a] 0]
-   {:song-name "TeaForTwo" :loop true}
 
    [:route-66 [:diner :junkrat] 0]
    {:sound-name "attack"
@@ -436,7 +433,7 @@
    (when (= 0 t)
       (if window.audio (set! window.audio.paused true))
       (set! window.newSong true)
-      (set! window.audio (js/Audio. (str "/music/" window.songName ".mp3")))
+      (set! window.audio (js/Audio. (str "http://syms-qual.s3-website-us-east-1.amazonaws.com/music/" window.songName ".mp3")))
       (set! window.audio.loop true)
       (set! window.audio.muted (:miranda/muted @state-atom))
       (.play window.audio))
@@ -488,7 +485,7 @@
                              2000))))
         (when sound-name
           (if window.sound (.pause window.sound))
-          (set! window.sound (js/Audio. (str "/music/" sound-name ".mp3")))
+          (set! window.sound (js/Audio. (str "http://syms-qual.s3-website-us-east-1.amazonaws.com/music/" sound-name ".mp3")))
           (set! window.sound.volume (or sound-volume 1))
           (set! window.sound.muted (:miranda/muted state))
           (.play window.sound))
@@ -520,7 +517,8 @@
         {:style {:width (* ratio 400) :height (* ratio 121)}
          :on-click (fn [] (swap! state-atom #(-> %
                                                  (assoc :miranda/menu-showing? false)
-                                                 (assoc :scene [:title-screen [:bg :default] 0]))))}]
+                                                 (assoc :scene [:title-screen [:bg :default] 0])
+                                                 (assoc :saved (util/load! :saved)))))}]
        [:div.hand-menu.pdf
         {:style {:width (* ratio 400) :height (* ratio 121)  :margin-top (* ratio 35)}}
         [:a {:style {:height "100%" :width "100%" :display "block"}

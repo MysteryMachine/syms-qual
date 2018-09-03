@@ -77,7 +77,7 @@ body{
 }
 
 .miranda.mute-button.not-muted {
-    background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Main_Menu/muted.png");
+  background-image: url("http://syms-qual.s3-website-us-east-1.amazonaws.com/img/Main_Menu/muted.png");
 }
 x``
 .miranda.mute-button.not-muted:hover {
